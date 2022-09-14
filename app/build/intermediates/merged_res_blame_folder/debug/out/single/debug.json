@@ -1,94 +1,98 @@
 [
     {
-        "merged": "com.cmu.evplan.app-merged_res-32:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "com.cmu.evplan.app-main-34:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-merged_res-32:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-main-34:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-32:/xml_backup_rules.xml.flat",
-        "source": "com.cmu.evplan.app-main-34:/xml/backup_rules.xml"
+        "merged": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-merged_res-32:\\drawable-xxhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-pngs-27:\\drawable-xxhdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-32:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "com.cmu.evplan.app-main-34:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-merged_res-32:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-main-34:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-32:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "com.cmu.evplan.app-main-34:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-merged_res-32:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-main-34:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-32:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.cmu.evplan.app-main-34:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-merged_res-32:\\layout_activity_maps.xml.flat",
+        "source": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-main-34:\\layout\\activity_maps.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-32:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.cmu.evplan.app-main-34:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-merged_res-32:\\drawable-ldpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-pngs-27:\\drawable-ldpi\\ic_launcher_background.png"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-32:/drawable-ldpi_ic_launcher_background.png.flat",
-        "source": "com.cmu.evplan.app-pngs-27:/drawable-ldpi/ic_launcher_background.png"
+        "merged": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-merged_res-32:\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-pngs-27:\\drawable-anydpi-v21\\ic_launcher_background.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-32:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "com.cmu.evplan.app-main-34:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-merged_res-32:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-main-34:\\mipmap-mdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-32:/drawable-xxxhdpi_ic_launcher_background.png.flat",
-        "source": "com.cmu.evplan.app-pngs-27:/drawable-xxxhdpi/ic_launcher_background.png"
+        "merged": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-merged_res-32:\\drawable-xhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-pngs-27:\\drawable-xhdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-32:/xml_data_extraction_rules.xml.flat",
-        "source": "com.cmu.evplan.app-main-34:/xml/data_extraction_rules.xml"
+        "merged": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-merged_res-32:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-main-34:\\mipmap-xxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-32:/drawable-xhdpi_ic_launcher_background.png.flat",
-        "source": "com.cmu.evplan.app-pngs-27:/drawable-xhdpi/ic_launcher_background.png"
+        "merged": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-merged_res-32:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-main-34:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-32:/drawable-mdpi_ic_launcher_background.png.flat",
-        "source": "com.cmu.evplan.app-pngs-27:/drawable-mdpi/ic_launcher_background.png"
+        "merged": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-merged_res-32:\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-pngs-27:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-32:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.cmu.evplan.app-main-34:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-merged_res-32:\\drawable-xxxhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-pngs-27:\\drawable-xxxhdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-32:/drawable-hdpi_ic_launcher_background.png.flat",
-        "source": "com.cmu.evplan.app-pngs-27:/drawable-hdpi/ic_launcher_background.png"
+        "merged": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-merged_res-32:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-main-34:\\xml\\data_extraction_rules.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-32:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.cmu.evplan.app-main-34:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-merged_res-32:\\drawable-mdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-pngs-27:\\drawable-mdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-merged_res-32:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-main-34:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-merged_res-32:\\drawable-hdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-pngs-27:\\drawable-hdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-merged_res-32:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-main-34:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-merged_res-32:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-main-34:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-merged_res-32:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-main-34:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-merged_res-32:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-main-34:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
         "merged": "com.cmu.evplan.app-merged_res-32:/layout_activity_maps.xml.flat",
         "source": "com.cmu.evplan.app-main-34:/layout/activity_maps.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-32:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "com.cmu.evplan.app-main-34:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-merged_res-32:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-main-34:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-32:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "com.cmu.evplan.app-main-34:/mipmap-xhdpi/ic_launcher.webp"
-    },
-    {
-        "merged": "com.cmu.evplan.app-merged_res-32:/drawable-anydpi-v21_ic_launcher_background.xml.flat",
-        "source": "com.cmu.evplan.app-pngs-27:/drawable-anydpi-v21/ic_launcher_background.xml"
-    },
-    {
-        "merged": "com.cmu.evplan.app-merged_res-32:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "com.cmu.evplan.app-main-34:/mipmap-xhdpi/ic_launcher_round.webp"
-    },
-    {
-        "merged": "com.cmu.evplan.app-merged_res-32:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "com.cmu.evplan.app-main-34:/mipmap-hdpi/ic_launcher.webp"
-    },
-    {
-        "merged": "com.cmu.evplan.app-merged_res-32:/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
-        "source": "com.cmu.evplan.app-pngs-27:/drawable-anydpi-v24/ic_launcher_foreground.xml"
-    },
-    {
-        "merged": "com.cmu.evplan.app-merged_res-32:/drawable-xxhdpi_ic_launcher_background.png.flat",
-        "source": "com.cmu.evplan.app-pngs-27:/drawable-xxhdpi/ic_launcher_background.png"
+        "merged": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-merged_res-32:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\cyanl\\.gradle\\daemon\\7.3.3\\com.cmu.evplan.app-main-34:\\xml\\backup_rules.xml"
     }
 ]

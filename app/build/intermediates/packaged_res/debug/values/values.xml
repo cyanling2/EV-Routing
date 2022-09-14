@@ -8,7 +8,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">EVplan</string>
-    <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_maps">MapsActivities</string>
     <style name="Theme.EVplan" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         
         <item name="colorPrimary">@color/purple_500</item>
