@@ -53,7 +53,9 @@
     <string name="common_open_on_phone">Утсаар нээх</string>
     <string name="common_signin_button_text">Нэвтрэх</string>
     <string name="common_signin_button_text_long">Google-р нэвтрэх:</string>
+    <string msgid="3209159573327985035" name="copy">"Хуулах"</string>
     <string name="error_icon_content_description">Алдаа</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Дэлгэрэнгүй"</string>
     <string name="exposed_dropdown_menu_content_description">Доош унадаг цэсийг харуулах</string>
     <string name="icon_content_description">Харилцах цонхны дүрс тэмдэг</string>
     <string name="item_view_role_description">Таб</string>
@@ -102,7 +104,14 @@
     <string name="mtrl_picker_toggle_to_day_selection">Өдөр сонгох руу сэлгэхийн тулд товшино уу</string>
     <string name="mtrl_picker_toggle_to_text_input_mode">Текстийн орох горим руу сэлгэх</string>
     <string name="mtrl_picker_toggle_to_year_selection">Он сонгох руу сэлгэхийн тулд товшино уу</string>
+    <string msgid="6301633601645100427" name="nav_app_bar_navigate_up_description">"Дээш шилжих"</string>
+    <string msgid="7456070600745802113" name="nav_app_bar_open_drawer_description">"Навигацийн шургуулгыг нээх"</string>
+    <string msgid="478774118347071097" name="not_set">"Тохируулаагүй"</string>
     <string name="password_toggle_content_description">Нууц үгийг харуулах</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\"-г түр санах ойд хуулсан."</string>
     <string msgid="6264217191555673260" name="search_menu_title">"Хайх"</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"ИДЭВХГҮЙ"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"ИДЭВХТЭЙ"</string>
 </resources>

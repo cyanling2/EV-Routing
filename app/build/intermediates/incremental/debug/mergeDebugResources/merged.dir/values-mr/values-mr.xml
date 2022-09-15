@@ -53,7 +53,9 @@
     <string name="common_open_on_phone">फोनवर उघडा</string>
     <string name="common_signin_button_text">साइन इन करा</string>
     <string name="common_signin_button_text_long">Google सह साइन इन करा</string>
+    <string msgid="3209159573327985035" name="copy">"कॉपी करा"</string>
     <string name="error_icon_content_description">एरर</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"प्रगत"</string>
     <string name="exposed_dropdown_menu_content_description">ड्रॉपडाउन मेनू दाखवा</string>
     <string name="icon_content_description">डायलॉग आयकन</string>
     <string name="item_view_role_description">टॅब</string>
@@ -102,7 +104,14 @@
     <string name="mtrl_picker_toggle_to_day_selection">दिवस निवडण्यासाठी स्विच करा वर टॅप करा</string>
     <string name="mtrl_picker_toggle_to_text_input_mode">मजकूर इनपुट मोडवर स्विच करा</string>
     <string name="mtrl_picker_toggle_to_year_selection">वर्ष निवडण्यासाठी स्विच करा वर टॅप करा</string>
+    <string msgid="6301633601645100427" name="nav_app_bar_navigate_up_description">"वर नेव्‍हिगेट करा"</string>
+    <string msgid="7456070600745802113" name="nav_app_bar_open_drawer_description">"नेव्हिगेशन ड्रॉवर उघडा"</string>
+    <string msgid="478774118347071097" name="not_set">"सेट केलेले नाही"</string>
     <string name="password_toggle_content_description">पासवर्ड दाखवा</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\" क्लिपबोर्डवर कॉपी केली."</string>
     <string msgid="6264217191555673260" name="search_menu_title">"शोध"</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"९९९+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"बंद"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"चालू"</string>
 </resources>

@@ -1,6 +1,10 @@
 [
     {
-        "merged": "com.cmu.evplan.app-mergeDebugResources-31:/layout/activity_maps.xml",
-        "source": "com.cmu.evplan.app-main-34:/layout/activity_maps.xml"
+        "merged": "com.cmu.evplan.app-mergeDebugResources-50:/layout/fragment_maps.xml",
+        "source": "com.cmu.evplan.app-main-53:/layout/fragment_maps.xml"
+    },
+    {
+        "merged": "com.cmu.evplan.app-mergeDebugResources-50:/layout/activity_main.xml",
+        "source": "com.cmu.evplan.app-main-53:/layout/activity_main.xml"
     }
 ]

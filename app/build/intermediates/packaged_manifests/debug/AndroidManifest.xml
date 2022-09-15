@@ -51,7 +51,7 @@
             android:value="AIzaSyAs99vccXgRwM0w8DGf3A8iHC1ZUKrVV8w" />
 
         <activity
-            android:name="com.cmu.evplan.MapsActivity"
+            android:name="com.cmu.evplan.MainActivity"
             android:exported="true"
             android:label="@string/title_activity_maps" >
             <intent-filter>
@@ -73,6 +73,13 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <uses-library
+            android:name="androidx.window.extensions"
+            android:required="false" />
+        <uses-library
+            android:name="androidx.window.sidecar"
+            android:required="false" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"

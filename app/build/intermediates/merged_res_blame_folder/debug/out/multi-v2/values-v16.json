@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.cmu.evplan.app-mergeDebugResources-30:/values-v16/values-v16.xml",
+            "outputFile": "com.cmu.evplan.app-mergeDebugResources-49:/values-v16/values-v16.xml",
             "map": [
                 {
                     "source": "C:\\Users\\cyanl\\.gradle\\caches\\transforms-3\\0c8dca5ff822fc558347b711b90e5e08\\transformed\\core-1.8.0\\res\\values-v16\\values-v16.xml",

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.cmu.evplan.app-mergeDebugResources-30:/values-small-v4/values-small-v4.xml",
+            "outputFile": "com.cmu.evplan.app-mergeDebugResources-49:/values-small-v4/values-small-v4.xml",
             "map": [
                 {
                     "source": "C:\\Users\\cyanl\\.gradle\\caches\\transforms-3\\e3e4545fd93768abfdc4f7fc01d24c6a\\transformed\\material-1.6.1\\res\\values-small-v4\\values-small-v4.xml",
