@@ -1,7 +1,7 @@
-#Thu Sep 15 02:46:15 PDT 2022
-base.1=C\:\\Users\\cyanl\\AndroidStudioProjects\\EVplan\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes2.dex
+#Fri Sep 16 01:33:34 PDT 2022
+base.1=/Users/bryanlin/Documents/EV-Routing/app/build/intermediates/dex/debug/mergeDexDebug/classes2.dex
 path.1=classes2.dex
-base.0=C\:\\Users\\cyanl\\AndroidStudioProjects\\EVplan\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+base.0=/Users/bryanlin/Documents/EV-Routing/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
 path.0=classes.dex

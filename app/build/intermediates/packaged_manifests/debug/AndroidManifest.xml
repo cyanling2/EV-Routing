@@ -48,7 +48,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAs99vccXgRwM0w8DGf3A8iHC1ZUKrVV8w" />
+            android:value="AIzaSyDeGVhhd0NT8qcIXcCsmXIUjTXRUW37wZI" />
 
         <activity
             android:name="com.cmu.evplan.MainActivity"

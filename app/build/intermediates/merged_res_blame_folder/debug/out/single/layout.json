@@ -1,7 +1,11 @@
 [
     {
-        "merged": "com.cmu.evplan.app-mergeDebugResources-50:/layout/fragment_maps.xml",
-        "source": "com.cmu.evplan.app-main-53:/layout/fragment_maps.xml"
+        "merged": "/Users/bryanlin/.gradle/daemon/7.3.3/com.cmu.evplan.app-mergeDebugResources-50:/layout/fragment_maps.xml",
+        "source": "/Users/bryanlin/.gradle/daemon/7.3.3/com.cmu.evplan.app-main-53:/layout/fragment_maps.xml"
+    },
+    {
+        "merged": "/Users/bryanlin/.gradle/daemon/7.3.3/com.cmu.evplan.app-mergeDebugResources-50:/layout/activity_main.xml",
+        "source": "/Users/bryanlin/.gradle/daemon/7.3.3/com.cmu.evplan.app-main-53:/layout/activity_main.xml"
     },
     {
         "merged": "com.cmu.evplan.app-mergeDebugResources-50:/layout/activity_main.xml",

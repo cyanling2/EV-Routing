@@ -4,7 +4,7 @@
             "outputFile": "com.cmu.evplan.app-mergeDebugResources-49:/values-v23/values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\cyanl\\.gradle\\caches\\transforms-3\\e3b97676aa837b24c84ce7407b007a2b\\transformed\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",
+                    "source": "/Users/bryanlin/.gradle/caches/transforms-3/e3b97676aa837b24c84ce7407b007a2b/transformed/cardview-1.0.0/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\cyanl\\.gradle\\caches\\transforms-3\\5a8a50dd9874deccd235476d8414a487\\transformed\\appcompat-1.5.1\\res\\values-v23\\values-v23.xml",
+                    "source": "/Users/bryanlin/.gradle/caches/transforms-3/5a8a50dd9874deccd235476d8414a487/transformed/appcompat-1.5.1/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,20,34,35,36,39,43,44,45,46",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -34,7 +34,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\cyanl\\.gradle\\caches\\transforms-3\\e3e4545fd93768abfdc4f7fc01d24c6a\\transformed\\material-1.6.1\\res\\values-v23\\values-v23.xml",
+                    "source": "/Users/bryanlin/.gradle/caches/transforms-3/e3e4545fd93768abfdc4f7fc01d24c6a/transformed/material-1.6.1/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2,5,8,13,17,20,23,26,31,34,38",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",

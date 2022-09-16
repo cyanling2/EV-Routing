@@ -4,7 +4,7 @@
             "outputFile": "com.cmu.evplan.app-mergeDebugResources-49:/values-sw360dp-v13/values-sw360dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\cyanl\\.gradle\\caches\\transforms-3\\e4950702e93ae4618c26b111b2391490\\transformed\\preference-1.1.1\\res\\values-sw360dp-v13\\values-sw360dp-v13.xml",
+                    "source": "/Users/bryanlin/.gradle/caches/transforms-3/e4950702e93ae4618c26b111b2391490/transformed/preference-1.1.1/res/values-sw360dp-v13/values-sw360dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

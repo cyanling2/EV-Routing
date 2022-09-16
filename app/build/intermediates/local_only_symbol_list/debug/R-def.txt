@@ -9,6 +9,7 @@ color purple_700
 color teal_200
 color teal_700
 color white
+drawable background_border
 drawable ic_baseline_navigation_24
 drawable ic_baseline_settings_24
 drawable ic_launcher_background
