@@ -12,8 +12,8 @@
         tools:layout="@layout/fragment_maps" />
     <fragment
         android:id="@+id/settingsFragment2"
-        android:name="com.cmu.evplan.SettingsFragment"
-        android:label="SettingsFragment" />
+        android:name="com.cmu.evplan.ProfileFragment"
+        android:label="@layout/fragment_profile" />
 </navigation>
 
     <!--        android:label="fragment_maps"-->
