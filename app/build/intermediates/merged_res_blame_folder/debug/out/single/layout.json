@@ -8,6 +8,10 @@
         "source": "/Users/bryanlin/.gradle/daemon/7.3.3/com.cmu.evplan.app-main-53:/layout/activity_main.xml"
     },
     {
+        "merged": "/Users/bryanlin/.gradle/daemon/7.3.3/com.cmu.evplan.app-mergeDebugResources-50:/layout/activity_search_clicked.xml",
+        "source": "/Users/bryanlin/.gradle/daemon/7.3.3/com.cmu.evplan.app-main-53:/layout/activity_search_clicked.xml"
+    },
+    {
         "merged": "com.cmu.evplan.app-mergeDebugResources-50:/layout/activity_main.xml",
         "source": "com.cmu.evplan.app-main-53:/layout/activity_main.xml"
     }

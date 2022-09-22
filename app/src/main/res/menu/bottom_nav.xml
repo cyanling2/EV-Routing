@@ -5,9 +5,9 @@
     <item
         android:id="@+id/mapsFragment2"
         android:title="Map"
-        android:icon="@drawable/ic_baseline_navigation_24"/>
+        android:icon="@drawable/ic_baseline_map_32"/>
     <item
         android:id="@+id/settingsFragment2"
         android:title="Setting"
-        android:icon="@drawable/ic_baseline_settings_24"/>
+        android:icon="@drawable/ic_baseline_settings_32"/>
 </menu>

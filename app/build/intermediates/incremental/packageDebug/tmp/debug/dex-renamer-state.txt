@@ -1,4 +1,4 @@
-#Fri Sep 16 01:33:34 PDT 2022
+#Wed Sep 21 23:24:51 PDT 2022
 base.1=/Users/bryanlin/Documents/EV-Routing/app/build/intermediates/dex/debug/mergeDexDebug/classes2.dex
 path.1=classes2.dex
 base.0=/Users/bryanlin/Documents/EV-Routing/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex

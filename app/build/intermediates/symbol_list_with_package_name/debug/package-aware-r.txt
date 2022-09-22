@@ -2639,8 +2639,11 @@ drawable design_snackbar_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_arrow_down_24dp
-drawable ic_baseline_navigation_24
-drawable ic_baseline_settings_24
+drawable ic_baseline_arrow_back_ios_new_32
+drawable ic_baseline_electric_car_32
+drawable ic_baseline_map_32
+drawable ic_baseline_navigation_32
+drawable ic_baseline_settings_32
 drawable ic_clock_black_24dp
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
@@ -2703,6 +2706,7 @@ id BOTTOM_END
 id BOTTOM_START
 id CTRL
 id FUNCTION
+id History
 id META
 id NO_DEBUG
 id SHIFT
@@ -2792,6 +2796,7 @@ id autoCompleteToEnd
 id autoCompleteToStart
 id barrier
 id baseline
+id battery_percent_reserved
 id beginOnFirstDraw
 id beginning
 id bestChoice
@@ -2842,6 +2847,7 @@ id continuousVelocity
 id coordinator
 id cos
 id counterclockwise
+id currentLocation
 id currentState
 id custom
 id customPanel
@@ -2867,6 +2873,7 @@ id disableIntraAutoTransition
 id disablePostScroll
 id disableScroll
 id disjoint
+id divider
 id dragAnticlockwise
 id dragClockwise
 id dragDown
@@ -2882,6 +2889,7 @@ id easeIn
 id easeInOut
 id easeOut
 id east
+id editBatteryPercentReserved
 id edit_query
 id edittext_dropdown_editable
 id edittext_dropdown_noneditable
@@ -2957,6 +2965,7 @@ id listMode
 id list_item
 id locale
 id ltr
+id main_search_view
 id map
 id mapsFragment2
 id masked
@@ -3042,6 +3051,7 @@ id notification_main_column_container
 id off
 id on
 id onInterceptTouchReturnSwipe
+id options
 id outline
 id outward
 id overshoot
@@ -3084,6 +3094,7 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollable
+id searchView
 id search_badge
 id search_bar
 id search_button
@@ -3315,6 +3326,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
+layout activity_search_clicked
 layout amu_info_window
 layout amu_text_bubble
 layout amu_webview

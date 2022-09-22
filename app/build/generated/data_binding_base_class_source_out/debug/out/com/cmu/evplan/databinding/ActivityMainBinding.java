@@ -4,6 +4,8 @@ package com.cmu.evplan.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.SearchView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -22,10 +24,19 @@ public final class ActivityMainBinding implements ViewBinding {
   @NonNull
   public final BottomNavigationView bottomNavigatinView;
 
+  @NonNull
+  public final ImageButton currentLocation;
+
+  @NonNull
+  public final SearchView mainSearchView;
+
   private ActivityMainBinding(@NonNull ConstraintLayout rootView,
-      @NonNull BottomNavigationView bottomNavigatinView) {
+      @NonNull BottomNavigationView bottomNavigatinView, @NonNull ImageButton currentLocation,
+      @NonNull SearchView mainSearchView) {
     this.rootView = rootView;
     this.bottomNavigatinView = bottomNavigatinView;
+    this.currentLocation = currentLocation;
+    this.mainSearchView = mainSearchView;
   }
 
   @Override
@@ -61,7 +72,20 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMainBinding((ConstraintLayout) rootView, bottomNavigatinView);
+      id = R.id.currentLocation;
+      ImageButton currentLocation = ViewBindings.findChildViewById(rootView, id);
+      if (currentLocation == null) {
+        break missingId;
+      }
+
+      id = R.id.main_search_view;
+      SearchView mainSearchView = ViewBindings.findChildViewById(rootView, id);
+      if (mainSearchView == null) {
+        break missingId;
+      }
+
+      return new ActivityMainBinding((ConstraintLayout) rootView, bottomNavigatinView,
+          currentLocation, mainSearchView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

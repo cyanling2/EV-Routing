@@ -3,6 +3,8 @@ package com.cmu.evplan
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window
+import android.widget.SearchView
+import android.content.Intent
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 
@@ -20,6 +22,14 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_fragment)
 //        val navController = findNavController(R.id.nav_fragment)
         bottomNavigationView.setupWithNavController(navController)
+
+        // Click on search to go to search clicked page, but only works
+        // if you click on the search icon
+        val searchView = findViewById<SearchView>(R.id.main_search_view)
+        searchView.setOnClickListener {
+            val intent = Intent(this, SearchClicked::class.java)
+            startActivity(intent)
+        }
 
 
     }

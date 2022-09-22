@@ -34,7 +34,9 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.EVplan" >
-
+        <activity
+            android:name="com.cmu.evplan.SearchClicked"
+            android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 

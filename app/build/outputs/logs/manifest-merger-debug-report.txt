@@ -1,16 +1,16 @@
 -- Merging decision tree log ---
 meta-data#com.google.android.geo.API_KEY
-INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:28:9-30:47
+INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:30:9-32:47
 	android:value
 		INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:30:13-44
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:32:13-44
 	android:name
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:29:13-58
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:31:13-58
 manifest
-ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-44:12
-INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-44:12
-INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-44:12
-INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-44:12
+ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-46:12
+INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-46:12
+INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-46:12
+INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-46:12
 MERGED from [androidx.databinding:viewbinding:7.2.2] /Users/bryanlin/.gradle/caches/transforms-3/7edcf75d5b2229932634f94818aaa0e8/transformed/viewbinding-7.2.2/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.navigation:navigation-ui-ktx:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/45d66c828caf5909c9c50f6f678b4c85/transformed/navigation-ui-ktx-2.5.2/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.navigation:navigation-ui:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/a2643b0d325bbbaf6175ce3143e357d5/transformed/navigation-ui-2.5.2/AndroidManifest.xml:17:1-24:12
@@ -80,27 +80,27 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.5.1] /Users/bryanl
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/fcdacf8a7ff7cef6ac8a4e0fdfc65b25/transformed/lifecycle-livedata-core-2.5.1/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/bryanlin/.gradle/caches/transforms-3/d470f3ddd010f25f245cd441387520ea/transformed/core-runtime-2.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/8a2fe53ef2faaba9f343dd9fa42254dc/transformed/annotation-experimental-1.1.0/AndroidManifest.xml:17:1-24:12
-INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-44:12
-INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-44:12
-INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-46:12
+INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-46:12
+INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-46:12
 	package
 		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:4:5-29
 		INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-44:12
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-46:12
 		INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml
 	xmlns:tools
 		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-44:12
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-46:12
 		INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:11-69
 application
-ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:6:5-42:19
+ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:6:5-44:19
 MERGED from [com.google.android.material:material:1.6.1] /Users/bryanlin/.gradle/caches/transforms-3/e3e4545fd93768abfdc4f7fc01d24c6a/transformed/material-1.6.1/AndroidManifest.xml:24:5-20
 MERGED from [com.google.android.material:material:1.6.1] /Users/bryanlin/.gradle/caches/transforms-3/e3e4545fd93768abfdc4f7fc01d24c6a/transformed/material-1.6.1/AndroidManifest.xml:24:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/bryanlin/.gradle/caches/transforms-3/93c101ecfd7430f58e6e2591946f857b/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
@@ -147,24 +147,30 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/bryanlin/.gradle/cac
 		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:14:9-44
 	android:dataExtractionRules
 		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:8:9-65
-activity#com.cmu.evplan.MainActivity
-ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:32:9-41:20
-	android:label
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:35:13-56
+activity#com.cmu.evplan.SearchClicked
+ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:16:9-18:40
 	android:exported
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:34:13-36
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:18:13-37
 	android:name
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:33:13-41
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:17:13-42
+activity#com.cmu.evplan.MainActivity
+ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:34:9-43:20
+	android:label
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:37:13-56
+	android:exported
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:36:13-36
+	android:name
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:35:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:36:13-40:29
+ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:38:13-42:29
 action#android.intent.action.MAIN
-ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:37:17-69
+ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:39:17-69
 	android:name
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:37:25-66
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:39:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:39:17-77
+ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:41:17-77
 	android:name
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:39:27-74
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:41:27-74
 uses-sdk
 INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml

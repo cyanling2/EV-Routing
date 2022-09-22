@@ -2638,8 +2638,11 @@ int drawable design_snackbar_background 0x7f080079
 int drawable googleg_disabled_color_18 0x7f08007a
 int drawable googleg_standard_color_18 0x7f08007b
 int drawable ic_arrow_down_24dp 0x7f08007c
-int drawable ic_baseline_navigation_24 0x7f08007d
-int drawable ic_baseline_settings_24 0x7f08007e
+int drawable ic_baseline_arrow_back_ios_new_32 0x7f0800bc
+int drawable ic_baseline_electric_car_32 0x7f0800bd
+int drawable ic_baseline_map_32 0x7f0800bb
+int drawable ic_baseline_navigation_32 0x7f0800b9
+int drawable ic_baseline_settings_32 0x7f0800ba
 int drawable ic_clock_black_24dp 0x7f08007f
 int drawable ic_keyboard_black_24dp 0x7f080080
 int drawable ic_launcher_background 0x7f080081
@@ -2702,6 +2705,7 @@ int id BOTTOM_END 0x7f090001
 int id BOTTOM_START 0x7f090002
 int id CTRL 0x7f090003
 int id FUNCTION 0x7f090004
+int id History 0x7f09020f
 int id META 0x7f090005
 int id NO_DEBUG 0x7f090006
 int id SHIFT 0x7f090007
@@ -2791,6 +2795,7 @@ int id autoCompleteToEnd 0x7f09005a
 int id autoCompleteToStart 0x7f09005b
 int id barrier 0x7f09005c
 int id baseline 0x7f09005d
+int id battery_percent_reserved 0x7f090210
 int id beginOnFirstDraw 0x7f09005e
 int id beginning 0x7f09005f
 int id bestChoice 0x7f090060
@@ -2841,6 +2846,7 @@ int id continuousVelocity 0x7f09008c
 int id coordinator 0x7f09008d
 int id cos 0x7f09008e
 int id counterclockwise 0x7f09008f
+int id currentLocation 0x7f090211
 int id currentState 0x7f090090
 int id custom 0x7f090091
 int id customPanel 0x7f090092
@@ -2866,6 +2872,7 @@ int id disableIntraAutoTransition 0x7f0900a5
 int id disablePostScroll 0x7f0900a6
 int id disableScroll 0x7f0900a7
 int id disjoint 0x7f0900a8
+int id divider 0x7f090212
 int id dragAnticlockwise 0x7f0900a9
 int id dragClockwise 0x7f0900aa
 int id dragDown 0x7f0900ab
@@ -2881,6 +2888,7 @@ int id easeIn 0x7f0900b4
 int id easeInOut 0x7f0900b5
 int id easeOut 0x7f0900b6
 int id east 0x7f0900b7
+int id editBatteryPercentReserved 0x7f090213
 int id edit_query 0x7f0900b8
 int id edittext_dropdown_editable 0x7f0900b9
 int id edittext_dropdown_noneditable 0x7f0900ba
@@ -2956,6 +2964,7 @@ int id listMode 0x7f0900ff
 int id list_item 0x7f090100
 int id locale 0x7f090101
 int id ltr 0x7f090102
+int id main_search_view 0x7f090216
 int id map 0x7f090103
 int id mapsFragment2 0x7f090104
 int id masked 0x7f090105
@@ -3041,6 +3050,7 @@ int id notification_main_column_container 0x7f090154
 int id off 0x7f090155
 int id on 0x7f090156
 int id onInterceptTouchReturnSwipe 0x7f090157
+int id options 0x7f090214
 int id outline 0x7f090158
 int id outward 0x7f090159
 int id overshoot 0x7f09015a
@@ -3083,6 +3093,7 @@ int id scrollIndicatorDown 0x7f09017e
 int id scrollIndicatorUp 0x7f09017f
 int id scrollView 0x7f090180
 int id scrollable 0x7f090181
+int id searchView 0x7f090215
 int id search_badge 0x7f090182
 int id search_bar 0x7f090183
 int id search_button 0x7f090184
@@ -3314,6 +3325,7 @@ int layout abc_search_view 0x7f0c0019
 int layout abc_select_dialog_material 0x7f0c001a
 int layout abc_tooltip 0x7f0c001b
 int layout activity_main 0x7f0c001c
+int layout activity_search_clicked 0x7f0c0096
 int layout amu_info_window 0x7f0c001d
 int layout amu_text_bubble 0x7f0c001e
 int layout amu_webview 0x7f0c001f
