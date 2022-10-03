@@ -1,318 +1,358 @@
 -- Merging decision tree log ---
 meta-data#com.google.android.geo.API_KEY
-INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:30:9-32:47
+INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:32:9-34:47
 	android:value
 		INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:32:13-44
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:34:13-44
 	android:name
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:31:13-58
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:33:13-58
 manifest
-ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-46:12
-INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-46:12
-INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-46:12
-INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-46:12
-MERGED from [androidx.databinding:viewbinding:7.2.2] /Users/bryanlin/.gradle/caches/transforms-3/7edcf75d5b2229932634f94818aaa0e8/transformed/viewbinding-7.2.2/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.navigation:navigation-ui-ktx:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/45d66c828caf5909c9c50f6f678b4c85/transformed/navigation-ui-ktx-2.5.2/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.navigation:navigation-ui:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/a2643b0d325bbbaf6175ce3143e357d5/transformed/navigation-ui-2.5.2/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.material:material:1.6.1] /Users/bryanlin/.gradle/caches/transforms-3/e3e4545fd93768abfdc4f7fc01d24c6a/transformed/material-1.6.1/AndroidManifest.xml:17:1-26:12
-MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/bryanlin/.gradle/caches/transforms-3/93c101ecfd7430f58e6e2591946f857b/transformed/constraintlayout-2.1.4/AndroidManifest.xml:2:1-11:12
-MERGED from [androidx.preference:preference:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/e4950702e93ae4618c26b111b2391490/transformed/preference-1.1.1/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.appcompat:appcompat-resources:1.5.1] /Users/bryanlin/.gradle/caches/transforms-3/55a1108bf97d1e7b1018ecac7693e4f2/transformed/appcompat-resources-1.5.1/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.appcompat:appcompat:1.5.1] /Users/bryanlin/.gradle/caches/transforms-3/5a8a50dd9874deccd235476d8414a487/transformed/appcompat-1.5.1/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/946338f05bf0e41d17920c0fe8f7713b/transformed/legacy-support-v4-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/9a0c13ee938354e1219b9dd48e01ba80/transformed/play-services-maps-18.1.0/AndroidManifest.xml:17:1-44:12
-MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/0e254f98a827838c2db7d3c55f3d84a9/transformed/viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/016e2e8e51fd555178b82b9a206eaf21/transformed/play-services-base-18.0.1/AndroidManifest.xml:16:1-24:12
-MERGED from [com.google.android.gms:play-services-tasks:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/ed281d7e591fadb8fb2810575d499009/transformed/play-services-tasks-18.0.1/AndroidManifest.xml:2:1-6:12
-MERGED from [com.google.android.gms:play-services-basement:18.0.0] /Users/bryanlin/.gradle/caches/transforms-3/4d534a83e4e1e019c234bc2e494b2423/transformed/play-services-basement-18.0.0/AndroidManifest.xml:16:1-26:12
-MERGED from [androidx.navigation:navigation-fragment-ktx:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/10d667731ded683967fc80fbfb14223f/transformed/navigation-fragment-ktx-2.5.2/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.navigation:navigation-fragment:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/dd14c6358005273a28a1573207d36695/transformed/navigation-fragment-2.5.2/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.fragment:fragment-ktx:1.5.2] /Users/bryanlin/.gradle/caches/transforms-3/d44698d4b2e55d5a04efda1a1431bc63/transformed/fragment-ktx-1.5.2/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.fragment:fragment:1.5.2] /Users/bryanlin/.gradle/caches/transforms-3/68d6f05321d96a1d5b92f77b3c108165/transformed/fragment-1.5.2/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.navigation:navigation-runtime-ktx:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/0d6831cf461294880a30b536387182ce/transformed/navigation-runtime-ktx-2.5.2/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.navigation:navigation-runtime:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/dee0d348c3facb758e76e5cb18002793/transformed/navigation-runtime-2.5.2/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.activity:activity-ktx:1.5.1] /Users/bryanlin/.gradle/caches/transforms-3/bafe7f79003ff363f291eeb7631d1330/transformed/activity-ktx-1.5.1/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.activity:activity:1.5.1] /Users/bryanlin/.gradle/caches/transforms-3/0a83b69a27fe2ed8981700407c1c48c5/transformed/activity-1.5.1/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/e4f7e0d868b827e3b96efb319ee98b07/transformed/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/ef7ae7833a993909b2872481e34d36d7/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/68d57de976f1d30199d40c86e2ebd1e4/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.loader:loader:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/fe5a2b75b6293cade6163850854e6629/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.navigation:navigation-common-ktx:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/55c7b86fa5804132f4cdefbe5707d87b/transformed/navigation-common-ktx-2.5.2/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.navigation:navigation-common:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/dffeedba6cf0a862c8e95f21cdb03be7/transformed/navigation-common-2.5.2/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/6a574d1c2a92b20bebea353fef616891/transformed/lifecycle-viewmodel-ktx-2.5.1/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/d473a4eb230a7a8255e6ea2cb552a4a9/transformed/lifecycle-viewmodel-2.5.1/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/0771f793bcd5fb9737aef8d79fb39634/transformed/lifecycle-viewmodel-savedstate-2.5.1/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/9da91bc8a48dc2e428e61f151f96e123/transformed/slidingpanelayout-1.2.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.window:window:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/e13f4496eb46f50f426b1dbb9773d969/transformed/window-1.0.0/AndroidManifest.xml:17:1-33:12
-MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/d2edf3e8f82b0b034915ae0e20223647/transformed/lifecycle-runtime-ktx-2.5.1/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.core:core-ktx:1.8.0] /Users/bryanlin/.gradle/caches/transforms-3/4eefa3ce3a51f15472129e266bbd5cf0/transformed/core-ktx-1.8.0/AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.maps.android:android-maps-utils:1.3.1] /Users/bryanlin/.gradle/caches/transforms-3/2d4dc26a28b20a01d6f85e3322a223cd/transformed/android-maps-utils-1.3.1/AndroidManifest.xml:2:1-17:12
-MERGED from [com.android.volley:volley:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/75b683b1fcb9af599f6bc179cbd79f7a/transformed/volley-1.2.0/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.media:media:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/4cd220577f095967bd256b8cdae401ad/transformed/media-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/3b766e5c3ed55b19fe26ee1cf4f10f0b/transformed/emoji2-views-helper-1.2.0/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/c511e6948325cb8d5ca56b74fbf981d3/transformed/emoji2-1.2.0/AndroidManifest.xml:17:1-35:12
-MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/65c4e2ea109a09bbb2c16bf8dfe44cb5/transformed/drawerlayout-1.1.1/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/5998cbab8a8c652b748bb42fb6347df6/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/8d4e5fcc681571b1c66f39e56debb21a/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/bcbcb44a4631165edac9e035735a8d7c/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/78c41a0c53ea0001034462a37781b6b0/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/56878e64dff0dc4bffb4f2b139691865/transformed/swiperefreshlayout-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/2920ee5bd8be9e486a9917b73aa9b5b4/transformed/asynclayoutinflater-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/d8d9f5ab1cca8fb0c8dcd4c0e43be220/transformed/recyclerview-1.1.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.customview:customview:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/3135995a951ba1bdeccc97ff99d5fd5d/transformed/customview-1.1.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.transition:transition:1.4.1] /Users/bryanlin/.gradle/caches/transforms-3/489f4b0b4b9871ce782094ccbcf31e08/transformed/transition-1.4.1/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.core:core:1.8.0] /Users/bryanlin/.gradle/caches/transforms-3/0c8dca5ff822fc558347b711b90e5e08/transformed/core-1.8.0/AndroidManifest.xml:17:1-26:12
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/a44615c6fc4124e6a68eefd39ca975ed/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/bryanlin/.gradle/caches/transforms-3/484bd62d038f71f9bffefa8169070bb8/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:17:1-37:12
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/93889aaabec5f8f3a500a7025997181e/transformed/lifecycle-runtime-2.5.1/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.savedstate:savedstate-ktx:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/878bf97064e0465467d268fa2eab1aac/transformed/savedstate-ktx-1.2.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.savedstate:savedstate:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/69c98450618e41c7e987af5d56533041/transformed/savedstate-1.2.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.cardview:cardview:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/e3b97676aa837b24c84ce7407b007a2b/transformed/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/8c6cd2fdebfbf6b8a981c3e9f978fa5e/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/a16cc68133174284050617fb37984995/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.print:print:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/6593448c4c5446159109e62c69a6358d/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/d4711dc857929aa18532b75a236b7393/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/0a18592df967fa92cc618dcbe1af5fbc/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
-MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/bf9a564abdf91d691369fcca3ea0d7fb/transformed/startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
-MERGED from [androidx.tracing:tracing:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/a5f973e0a11410ac745e1501f182db63/transformed/tracing-1.0.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/bryanlin/.gradle/caches/transforms-3/51cefeffa9ce273909a77c347eb5f34f/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/a8daca6a53ec4012728287ecc4472748/transformed/lifecycle-livedata-core-ktx-2.5.1/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/fcdacf8a7ff7cef6ac8a4e0fdfc65b25/transformed/lifecycle-livedata-core-2.5.1/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/bryanlin/.gradle/caches/transforms-3/d470f3ddd010f25f245cd441387520ea/transformed/core-runtime-2.1.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/8a2fe53ef2faaba9f343dd9fa42254dc/transformed/annotation-experimental-1.1.0/AndroidManifest.xml:17:1-24:12
-INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-46:12
-INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-46:12
-INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-46:12
+ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-48:12
+INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-48:12
+INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-48:12
+INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-48:12
+MERGED from [androidx.databinding:viewbinding:7.2.2] /Users/bryanlin/.gradle/caches/transforms-3/0ced7cec7ee4b069f0a16c1f89cead9f/transformed/viewbinding-7.2.2/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-ui-ktx:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/be0b77c0c123bdbf3f1ab343cfb9a6c1/transformed/navigation-ui-ktx-2.5.2/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-ui:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/0508e62c79dd1d160178cb3c99db3757/transformed/navigation-ui-2.5.2/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.material:material:1.6.1] /Users/bryanlin/.gradle/caches/transforms-3/4578f757425dca28a2e5d2c4ea57dda9/transformed/material-1.6.1/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/bryanlin/.gradle/caches/transforms-3/5aa2ad44d6dcfffd215f9ed576c5e18d/transformed/constraintlayout-2.1.4/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.preference:preference:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/4284045996f455ea5eb92dc3b6652ccc/transformed/preference-1.1.1/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.libraries.places:places:2.4.0] /Users/bryanlin/.gradle/caches/transforms-3/d62b3b15d4b9990b65c54349da6b6185/transformed/places-2.4.0/AndroidManifest.xml:2:1-23:12
+MERGED from [androidx.appcompat:appcompat-resources:1.5.1] /Users/bryanlin/.gradle/caches/transforms-3/98df38d46053bdb694e2998e88172a36/transformed/appcompat-resources-1.5.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat:1.5.1] /Users/bryanlin/.gradle/caches/transforms-3/71b143cc9da335a1ec7f498495724a70/transformed/appcompat-1.5.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/6b07009723e0b40cbf0f86e84cbb03ac/transformed/legacy-support-v4-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/b3a0d49bf028a1245faf172caa3fb859/transformed/play-services-maps-18.1.0/AndroidManifest.xml:17:1-44:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/df16e629b315d5df891a3be2635994ab/transformed/viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-location:20.0.0] /Users/bryanlin/.gradle/caches/transforms-3/88fb03c2f10be455f829eeef723935aa/transformed/play-services-location-20.0.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/9ababe3211543fd30d6f67493f10857b/transformed/play-services-base-18.0.1/AndroidManifest.xml:16:1-24:12
+MERGED from [com.google.android.gms:play-services-tasks:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/0db7e4087241ea2b76c2b480c060c4a0/transformed/play-services-tasks-18.0.1/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] /Users/bryanlin/.gradle/caches/transforms-3/a6aa928b7c8a259a741574ecc47f47d0/transformed/play-services-basement-18.0.0/AndroidManifest.xml:16:1-26:12
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.1.0] /Users/bryanlin/.gradle/caches/transforms-3/42a64b5acee37f7ff226d3902bf8f866/transformed/lifecycle-extensions-2.1.0/AndroidManifest.xml:17:1-25:12
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/2cf1b3bcadea6261cb0005f02c2e7747/transformed/navigation-fragment-ktx-2.5.2/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-fragment:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/13c5803c401bd9b4e95a53edc1a36a08/transformed/navigation-fragment-2.5.2/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment-ktx:1.5.2] /Users/bryanlin/.gradle/caches/transforms-3/5992fdd191a6ee6c0bf2bf25147b800c/transformed/fragment-ktx-1.5.2/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.5.2] /Users/bryanlin/.gradle/caches/transforms-3/19bec4c500cb01a5f77c4f8270041b3a/transformed/fragment-1.5.2/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/b994f6654e3e5c78b3f88c296b474e06/transformed/navigation-runtime-ktx-2.5.2/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-runtime:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/1b34719e771df42aa6d1999bb93fb05c/transformed/navigation-runtime-2.5.2/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity-ktx:1.5.1] /Users/bryanlin/.gradle/caches/transforms-3/1dd17744eabb2988e730baf23f495f36/transformed/activity-ktx-1.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.5.1] /Users/bryanlin/.gradle/caches/transforms-3/5168c8182c4bff73437c6579678fc433/transformed/activity-1.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/a915193f6dabf38096dd30d50713f4f2/transformed/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/2b1c92cca13e3d27f1de0a46704effbb/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/a17f3b2c407bdcb8ce944db64eee8c99/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/6e087cb52e88d991bd914855d30341f3/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common-ktx:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/0fbbec5b93d1c4e4be03d836f7640e25/transformed/navigation-common-ktx-2.5.2/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-common:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/271f7c3b291e1d28974325f76bff232b/transformed/navigation-common-2.5.2/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/4a1d425de493e5cb17cd7f925a3abc7d/transformed/lifecycle-viewmodel-ktx-2.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/46fa0d39134dea13cd22840c1adca6a2/transformed/lifecycle-viewmodel-2.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/0fdcab8f9470add4564987e361abefd1/transformed/lifecycle-viewmodel-savedstate-2.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/d8419f04709959c6afb2a0b1e17a814e/transformed/slidingpanelayout-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.window:window:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/29307cab34829e54c2c6297837541d2c/transformed/window-1.0.0/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/3f5abe55c1e0ff1a9b1c9c182103d947/transformed/lifecycle-runtime-ktx-2.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core-ktx:1.8.0] /Users/bryanlin/.gradle/caches/transforms-3/ff79e970b816e8cf21e9ed6d0b533ae0/transformed/core-ktx-1.8.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.maps.android:android-maps-utils:1.3.1] /Users/bryanlin/.gradle/caches/transforms-3/6fe58a7d4d58cb28ff19a82b51e54edd/transformed/android-maps-utils-1.3.1/AndroidManifest.xml:2:1-17:12
+MERGED from [com.android.volley:volley:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/2f2af8b284a40785442ee081b1e8f90e/transformed/volley-1.2.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.media:media:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/42f6fd95521e183ef8293c7705462dee/transformed/media-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/26befe34369983138cbca618fd89000e/transformed/emoji2-views-helper-1.2.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/00060b4555f73637209f90edb7c086c6/transformed/emoji2-1.2.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/e65d151004f162f11635384be7e084c7/transformed/drawerlayout-1.1.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/599d9c6110092f4521cb5641eb2a88d4/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/e2d4d15e07eecfc01dacf7a39c8a5cd2/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/23c65a2b861397e4b55747871968e68a/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/85ebb8339d396ef7e80e79d71f92d8bd/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/654572be2fd68f342f6136dae35f9b97/transformed/swiperefreshlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/9e3581b7ebeeb780059a557d6165a00f/transformed/asynclayoutinflater-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/668f83f5e5f1da6dd28f986d02bc1dd3/transformed/recyclerview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/b938e89ba9d2d086b91446ec88a4bc53/transformed/customview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.4.1] /Users/bryanlin/.gradle/caches/transforms-3/fda1b66ec16eaf2d00dc6502f0f84a46/transformed/transition-1.4.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.8.0] /Users/bryanlin/.gradle/caches/transforms-3/8e1f3fecda5e244bf608770bf1f74e89/transformed/core-1.8.0/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/b8444798275289402d971d6265ea1040/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/bryanlin/.gradle/caches/transforms-3/3285dbcaf8862a6f53e63c2ae645cb32/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:17:1-37:12
+MERGED from [androidx.lifecycle:lifecycle-service:2.1.0] /Users/bryanlin/.gradle/caches/transforms-3/848e656a8804b2ff05745ccf1ef6e8e6/transformed/lifecycle-service-2.1.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/73327f77fdb982625c6d5ff21825f28b/transformed/lifecycle-runtime-2.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/3d5bc4e6058cf31664e82336af84f233/transformed/savedstate-ktx-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/d81b6a5cd7c04a44886b3356aa45cb6d/transformed/savedstate-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/1001ce3d97e272bb823b79d8e962af60/transformed/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/bryanlin/.gradle/caches/transforms-3/4132a1d842df7680c8c800f629acdf3e/transformed/transport-backend-cct-2.3.0/AndroidManifest.xml:15:1-38:12
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/bryanlin/.gradle/caches/transforms-3/d2c0393d7bc193af8b6b001818f948b3/transformed/transport-runtime-2.2.3/AndroidManifest.xml:15:1-41:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/b91fee550910efa21206a1bf7c014788/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/531271cff83af0b60b309ccbcf94363c/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/06b09108971f55864859fdedf7000717/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/979ffeae0c1cc2677ea27ff4dbe21a11/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/94a8634d0d988450557dfb8f94a9e660/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/731263c3f78ac9a1aa900426d356a0ce/transformed/startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/f57214309688a50e721133c750e47fe4/transformed/tracing-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.1.0] /Users/bryanlin/.gradle/caches/transforms-3/35eb9ee6a1efb271d6e329b83ad3653c/transformed/lifecycle-livedata-2.1.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/f976b6b8c40a185201db262487328562/transformed/lifecycle-livedata-core-ktx-2.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/105a9ceeef8f85b2535184fabb2d11c7/transformed/lifecycle-livedata-core-2.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/bryanlin/.gradle/caches/transforms-3/b5a9f59d01346992c760d3a765e01f21/transformed/core-runtime-2.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.firebase:firebase-encoders-json:16.1.0] /Users/bryanlin/.gradle/caches/transforms-3/3a4a9fecf01f10b9357c093fa9f8c56d/transformed/firebase-encoders-json-16.1.0/AndroidManifest.xml:15:1-23:12
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/f3352dd7a43cd106cea5ca36eff3543e/transformed/annotation-experimental-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.datatransport:transport-api:2.2.0] /Users/bryanlin/.gradle/caches/transforms-3/45ba9faa4fdf5b4055701169057b9698/transformed/transport-api-2.2.0/AndroidManifest.xml:15:1-22:12
+INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-48:12
+INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-48:12
+INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-48:12
 	package
 		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:4:5-29
 		INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-46:12
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-48:12
 		INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml
 	xmlns:tools
 		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-46:12
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:1-48:12
 		INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:6:5-79
+MERGED from [com.google.android.libraries.places:places:2.4.0] /Users/bryanlin/.gradle/caches/transforms-3/d62b3b15d4b9990b65c54349da6b6185/transformed/places-2.4.0/AndroidManifest.xml:9:5-79
+MERGED from [com.google.android.libraries.places:places:2.4.0] /Users/bryanlin/.gradle/caches/transforms-3/d62b3b15d4b9990b65c54349da6b6185/transformed/places-2.4.0/AndroidManifest.xml:9:5-79
+	android:name
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:6:22-76
 application
-ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:6:5-44:19
-MERGED from [com.google.android.material:material:1.6.1] /Users/bryanlin/.gradle/caches/transforms-3/e3e4545fd93768abfdc4f7fc01d24c6a/transformed/material-1.6.1/AndroidManifest.xml:24:5-20
-MERGED from [com.google.android.material:material:1.6.1] /Users/bryanlin/.gradle/caches/transforms-3/e3e4545fd93768abfdc4f7fc01d24c6a/transformed/material-1.6.1/AndroidManifest.xml:24:5-20
-MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/bryanlin/.gradle/caches/transforms-3/93c101ecfd7430f58e6e2591946f857b/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
-MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/bryanlin/.gradle/caches/transforms-3/93c101ecfd7430f58e6e2591946f857b/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
-MERGED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/9a0c13ee938354e1219b9dd48e01ba80/transformed/play-services-maps-18.1.0/AndroidManifest.xml:36:5-42:19
-MERGED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/9a0c13ee938354e1219b9dd48e01ba80/transformed/play-services-maps-18.1.0/AndroidManifest.xml:36:5-42:19
-MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/016e2e8e51fd555178b82b9a206eaf21/transformed/play-services-base-18.0.1/AndroidManifest.xml:19:5-23:19
-MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/016e2e8e51fd555178b82b9a206eaf21/transformed/play-services-base-18.0.1/AndroidManifest.xml:19:5-23:19
-MERGED from [com.google.android.gms:play-services-tasks:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/ed281d7e591fadb8fb2810575d499009/transformed/play-services-tasks-18.0.1/AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-tasks:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/ed281d7e591fadb8fb2810575d499009/transformed/play-services-tasks-18.0.1/AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-basement:18.0.0] /Users/bryanlin/.gradle/caches/transforms-3/4d534a83e4e1e019c234bc2e494b2423/transformed/play-services-basement-18.0.0/AndroidManifest.xml:20:5-24:19
-MERGED from [com.google.android.gms:play-services-basement:18.0.0] /Users/bryanlin/.gradle/caches/transforms-3/4d534a83e4e1e019c234bc2e494b2423/transformed/play-services-basement-18.0.0/AndroidManifest.xml:20:5-24:19
-MERGED from [androidx.window:window:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/e13f4496eb46f50f426b1dbb9773d969/transformed/window-1.0.0/AndroidManifest.xml:24:5-31:19
-MERGED from [androidx.window:window:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/e13f4496eb46f50f426b1dbb9773d969/transformed/window-1.0.0/AndroidManifest.xml:24:5-31:19
-MERGED from [com.google.maps.android:android-maps-utils:1.3.1] /Users/bryanlin/.gradle/caches/transforms-3/2d4dc26a28b20a01d6f85e3322a223cd/transformed/android-maps-utils-1.3.1/AndroidManifest.xml:11:5-15:19
-MERGED from [com.google.maps.android:android-maps-utils:1.3.1] /Users/bryanlin/.gradle/caches/transforms-3/2d4dc26a28b20a01d6f85e3322a223cd/transformed/android-maps-utils-1.3.1/AndroidManifest.xml:11:5-15:19
-MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/c511e6948325cb8d5ca56b74fbf981d3/transformed/emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
-MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/c511e6948325cb8d5ca56b74fbf981d3/transformed/emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
-MERGED from [androidx.core:core:1.8.0] /Users/bryanlin/.gradle/caches/transforms-3/0c8dca5ff822fc558347b711b90e5e08/transformed/core-1.8.0/AndroidManifest.xml:24:5-89
-MERGED from [androidx.core:core:1.8.0] /Users/bryanlin/.gradle/caches/transforms-3/0c8dca5ff822fc558347b711b90e5e08/transformed/core-1.8.0/AndroidManifest.xml:24:5-89
-MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/bryanlin/.gradle/caches/transforms-3/484bd62d038f71f9bffefa8169070bb8/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:25:5-35:19
-MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/bryanlin/.gradle/caches/transforms-3/484bd62d038f71f9bffefa8169070bb8/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:25:5-35:19
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/0a18592df967fa92cc618dcbe1af5fbc/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/0a18592df967fa92cc618dcbe1af5fbc/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
-MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/bf9a564abdf91d691369fcca3ea0d7fb/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
-MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/bf9a564abdf91d691369fcca3ea0d7fb/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:8:5-46:19
+MERGED from [com.google.android.material:material:1.6.1] /Users/bryanlin/.gradle/caches/transforms-3/4578f757425dca28a2e5d2c4ea57dda9/transformed/material-1.6.1/AndroidManifest.xml:24:5-20
+MERGED from [com.google.android.material:material:1.6.1] /Users/bryanlin/.gradle/caches/transforms-3/4578f757425dca28a2e5d2c4ea57dda9/transformed/material-1.6.1/AndroidManifest.xml:24:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/bryanlin/.gradle/caches/transforms-3/5aa2ad44d6dcfffd215f9ed576c5e18d/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/bryanlin/.gradle/caches/transforms-3/5aa2ad44d6dcfffd215f9ed576c5e18d/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.libraries.places:places:2.4.0] /Users/bryanlin/.gradle/caches/transforms-3/d62b3b15d4b9990b65c54349da6b6185/transformed/places-2.4.0/AndroidManifest.xml:13:5-21:19
+MERGED from [com.google.android.libraries.places:places:2.4.0] /Users/bryanlin/.gradle/caches/transforms-3/d62b3b15d4b9990b65c54349da6b6185/transformed/places-2.4.0/AndroidManifest.xml:13:5-21:19
+MERGED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/b3a0d49bf028a1245faf172caa3fb859/transformed/play-services-maps-18.1.0/AndroidManifest.xml:36:5-42:19
+MERGED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/b3a0d49bf028a1245faf172caa3fb859/transformed/play-services-maps-18.1.0/AndroidManifest.xml:36:5-42:19
+MERGED from [com.google.android.gms:play-services-location:20.0.0] /Users/bryanlin/.gradle/caches/transforms-3/88fb03c2f10be455f829eeef723935aa/transformed/play-services-location-20.0.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:20.0.0] /Users/bryanlin/.gradle/caches/transforms-3/88fb03c2f10be455f829eeef723935aa/transformed/play-services-location-20.0.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/9ababe3211543fd30d6f67493f10857b/transformed/play-services-base-18.0.1/AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/9ababe3211543fd30d6f67493f10857b/transformed/play-services-base-18.0.1/AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-tasks:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/0db7e4087241ea2b76c2b480c060c4a0/transformed/play-services-tasks-18.0.1/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/0db7e4087241ea2b76c2b480c060c4a0/transformed/play-services-tasks-18.0.1/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] /Users/bryanlin/.gradle/caches/transforms-3/a6aa928b7c8a259a741574ecc47f47d0/transformed/play-services-basement-18.0.0/AndroidManifest.xml:20:5-24:19
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] /Users/bryanlin/.gradle/caches/transforms-3/a6aa928b7c8a259a741574ecc47f47d0/transformed/play-services-basement-18.0.0/AndroidManifest.xml:20:5-24:19
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.1.0] /Users/bryanlin/.gradle/caches/transforms-3/42a64b5acee37f7ff226d3902bf8f866/transformed/lifecycle-extensions-2.1.0/AndroidManifest.xml:22:5-23:19
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.1.0] /Users/bryanlin/.gradle/caches/transforms-3/42a64b5acee37f7ff226d3902bf8f866/transformed/lifecycle-extensions-2.1.0/AndroidManifest.xml:22:5-23:19
+MERGED from [androidx.window:window:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/29307cab34829e54c2c6297837541d2c/transformed/window-1.0.0/AndroidManifest.xml:24:5-31:19
+MERGED from [androidx.window:window:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/29307cab34829e54c2c6297837541d2c/transformed/window-1.0.0/AndroidManifest.xml:24:5-31:19
+MERGED from [com.google.maps.android:android-maps-utils:1.3.1] /Users/bryanlin/.gradle/caches/transforms-3/6fe58a7d4d58cb28ff19a82b51e54edd/transformed/android-maps-utils-1.3.1/AndroidManifest.xml:11:5-15:19
+MERGED from [com.google.maps.android:android-maps-utils:1.3.1] /Users/bryanlin/.gradle/caches/transforms-3/6fe58a7d4d58cb28ff19a82b51e54edd/transformed/android-maps-utils-1.3.1/AndroidManifest.xml:11:5-15:19
+MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/00060b4555f73637209f90edb7c086c6/transformed/emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/00060b4555f73637209f90edb7c086c6/transformed/emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.8.0] /Users/bryanlin/.gradle/caches/transforms-3/8e1f3fecda5e244bf608770bf1f74e89/transformed/core-1.8.0/AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.8.0] /Users/bryanlin/.gradle/caches/transforms-3/8e1f3fecda5e244bf608770bf1f74e89/transformed/core-1.8.0/AndroidManifest.xml:24:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/bryanlin/.gradle/caches/transforms-3/3285dbcaf8862a6f53e63c2ae645cb32/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/bryanlin/.gradle/caches/transforms-3/3285dbcaf8862a6f53e63c2ae645cb32/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:25:5-35:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/bryanlin/.gradle/caches/transforms-3/4132a1d842df7680c8c800f629acdf3e/transformed/transport-backend-cct-2.3.0/AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/bryanlin/.gradle/caches/transforms-3/4132a1d842df7680c8c800f629acdf3e/transformed/transport-backend-cct-2.3.0/AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/bryanlin/.gradle/caches/transforms-3/d2c0393d7bc193af8b6b001818f948b3/transformed/transport-runtime-2.2.3/AndroidManifest.xml:25:5-39:19
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/bryanlin/.gradle/caches/transforms-3/d2c0393d7bc193af8b6b001818f948b3/transformed/transport-runtime-2.2.3/AndroidManifest.xml:25:5-39:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/94a8634d0d988450557dfb8f94a9e660/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/94a8634d0d988450557dfb8f94a9e660/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/731263c3f78ac9a1aa900426d356a0ce/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/731263c3f78ac9a1aa900426d356a0ce/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
 	android:appComponentFactory
-		ADDED from [androidx.core:core:1.8.0] /Users/bryanlin/.gradle/caches/transforms-3/0c8dca5ff822fc558347b711b90e5e08/transformed/core-1.8.0/AndroidManifest.xml:24:18-86
+		ADDED from [androidx.core:core:1.8.0] /Users/bryanlin/.gradle/caches/transforms-3/8e1f3fecda5e244bf608770bf1f74e89/transformed/core-1.8.0/AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:13:9-35
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:15:9-35
 	android:label
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:11:9-41
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:13:9-41
 	android:fullBackupContent
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:9:9-54
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:11:9-54
 	android:roundIcon
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:12:9-54
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:14:9-54
 	tools:targetApi
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:15:9-29
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:17:9-29
 	android:icon
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:10:9-43
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:12:9-43
 	android:allowBackup
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:7:9-35
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:9:9-35
 	android:theme
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:14:9-44
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:16:9-44
 	android:dataExtractionRules
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:8:9-65
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:10:9-65
 activity#com.cmu.evplan.SearchClicked
-ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:16:9-18:40
+ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:18:9-20:40
 	android:exported
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:18:13-37
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:20:13-37
 	android:name
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:17:13-42
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:19:13-42
 activity#com.cmu.evplan.MainActivity
-ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:34:9-43:20
+ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:36:9-45:20
 	android:label
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:37:13-56
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:39:13-56
 	android:exported
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:36:13-36
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:38:13-36
 	android:name
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:35:13-41
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:37:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:38:13-42:29
+ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:40:13-44:29
 action#android.intent.action.MAIN
-ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:39:17-69
+ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:41:17-69
 	android:name
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:39:25-66
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:41:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:41:17-77
+ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:43:17-77
 	android:name
-		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:41:27-74
+		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml:43:27-74
 uses-sdk
 INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml
 INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml
-MERGED from [androidx.databinding:viewbinding:7.2.2] /Users/bryanlin/.gradle/caches/transforms-3/7edcf75d5b2229932634f94818aaa0e8/transformed/viewbinding-7.2.2/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.databinding:viewbinding:7.2.2] /Users/bryanlin/.gradle/caches/transforms-3/7edcf75d5b2229932634f94818aaa0e8/transformed/viewbinding-7.2.2/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-ui-ktx:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/45d66c828caf5909c9c50f6f678b4c85/transformed/navigation-ui-ktx-2.5.2/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-ui-ktx:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/45d66c828caf5909c9c50f6f678b4c85/transformed/navigation-ui-ktx-2.5.2/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-ui:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/a2643b0d325bbbaf6175ce3143e357d5/transformed/navigation-ui-2.5.2/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-ui:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/a2643b0d325bbbaf6175ce3143e357d5/transformed/navigation-ui-2.5.2/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.material:material:1.6.1] /Users/bryanlin/.gradle/caches/transforms-3/e3e4545fd93768abfdc4f7fc01d24c6a/transformed/material-1.6.1/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.material:material:1.6.1] /Users/bryanlin/.gradle/caches/transforms-3/e3e4545fd93768abfdc4f7fc01d24c6a/transformed/material-1.6.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/bryanlin/.gradle/caches/transforms-3/93c101ecfd7430f58e6e2591946f857b/transformed/constraintlayout-2.1.4/AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/bryanlin/.gradle/caches/transforms-3/93c101ecfd7430f58e6e2591946f857b/transformed/constraintlayout-2.1.4/AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.preference:preference:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/e4950702e93ae4618c26b111b2391490/transformed/preference-1.1.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.preference:preference:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/e4950702e93ae4618c26b111b2391490/transformed/preference-1.1.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat-resources:1.5.1] /Users/bryanlin/.gradle/caches/transforms-3/55a1108bf97d1e7b1018ecac7693e4f2/transformed/appcompat-resources-1.5.1/AndroidManifest.xml:20:5-44
-MERGED from [androidx.appcompat:appcompat-resources:1.5.1] /Users/bryanlin/.gradle/caches/transforms-3/55a1108bf97d1e7b1018ecac7693e4f2/transformed/appcompat-resources-1.5.1/AndroidManifest.xml:20:5-44
-MERGED from [androidx.appcompat:appcompat:1.5.1] /Users/bryanlin/.gradle/caches/transforms-3/5a8a50dd9874deccd235476d8414a487/transformed/appcompat-1.5.1/AndroidManifest.xml:20:5-44
-MERGED from [androidx.appcompat:appcompat:1.5.1] /Users/bryanlin/.gradle/caches/transforms-3/5a8a50dd9874deccd235476d8414a487/transformed/appcompat-1.5.1/AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/946338f05bf0e41d17920c0fe8f7713b/transformed/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/946338f05bf0e41d17920c0fe8f7713b/transformed/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/9a0c13ee938354e1219b9dd48e01ba80/transformed/play-services-maps-18.1.0/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/9a0c13ee938354e1219b9dd48e01ba80/transformed/play-services-maps-18.1.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/0e254f98a827838c2db7d3c55f3d84a9/transformed/viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/0e254f98a827838c2db7d3c55f3d84a9/transformed/viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/016e2e8e51fd555178b82b9a206eaf21/transformed/play-services-base-18.0.1/AndroidManifest.xml:18:5-43
-MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/016e2e8e51fd555178b82b9a206eaf21/transformed/play-services-base-18.0.1/AndroidManifest.xml:18:5-43
-MERGED from [com.google.android.gms:play-services-tasks:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/ed281d7e591fadb8fb2810575d499009/transformed/play-services-tasks-18.0.1/AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-tasks:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/ed281d7e591fadb8fb2810575d499009/transformed/play-services-tasks-18.0.1/AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-basement:18.0.0] /Users/bryanlin/.gradle/caches/transforms-3/4d534a83e4e1e019c234bc2e494b2423/transformed/play-services-basement-18.0.0/AndroidManifest.xml:18:5-43
-MERGED from [com.google.android.gms:play-services-basement:18.0.0] /Users/bryanlin/.gradle/caches/transforms-3/4d534a83e4e1e019c234bc2e494b2423/transformed/play-services-basement-18.0.0/AndroidManifest.xml:18:5-43
-MERGED from [androidx.navigation:navigation-fragment-ktx:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/10d667731ded683967fc80fbfb14223f/transformed/navigation-fragment-ktx-2.5.2/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-fragment-ktx:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/10d667731ded683967fc80fbfb14223f/transformed/navigation-fragment-ktx-2.5.2/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-fragment:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/dd14c6358005273a28a1573207d36695/transformed/navigation-fragment-2.5.2/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-fragment:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/dd14c6358005273a28a1573207d36695/transformed/navigation-fragment-2.5.2/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment-ktx:1.5.2] /Users/bryanlin/.gradle/caches/transforms-3/d44698d4b2e55d5a04efda1a1431bc63/transformed/fragment-ktx-1.5.2/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment-ktx:1.5.2] /Users/bryanlin/.gradle/caches/transforms-3/d44698d4b2e55d5a04efda1a1431bc63/transformed/fragment-ktx-1.5.2/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment:1.5.2] /Users/bryanlin/.gradle/caches/transforms-3/68d6f05321d96a1d5b92f77b3c108165/transformed/fragment-1.5.2/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment:1.5.2] /Users/bryanlin/.gradle/caches/transforms-3/68d6f05321d96a1d5b92f77b3c108165/transformed/fragment-1.5.2/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-runtime-ktx:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/0d6831cf461294880a30b536387182ce/transformed/navigation-runtime-ktx-2.5.2/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-runtime-ktx:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/0d6831cf461294880a30b536387182ce/transformed/navigation-runtime-ktx-2.5.2/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-runtime:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/dee0d348c3facb758e76e5cb18002793/transformed/navigation-runtime-2.5.2/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-runtime:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/dee0d348c3facb758e76e5cb18002793/transformed/navigation-runtime-2.5.2/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity-ktx:1.5.1] /Users/bryanlin/.gradle/caches/transforms-3/bafe7f79003ff363f291eeb7631d1330/transformed/activity-ktx-1.5.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity-ktx:1.5.1] /Users/bryanlin/.gradle/caches/transforms-3/bafe7f79003ff363f291eeb7631d1330/transformed/activity-ktx-1.5.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity:1.5.1] /Users/bryanlin/.gradle/caches/transforms-3/0a83b69a27fe2ed8981700407c1c48c5/transformed/activity-1.5.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity:1.5.1] /Users/bryanlin/.gradle/caches/transforms-3/0a83b69a27fe2ed8981700407c1c48c5/transformed/activity-1.5.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/e4f7e0d868b827e3b96efb319ee98b07/transformed/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/e4f7e0d868b827e3b96efb319ee98b07/transformed/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/ef7ae7833a993909b2872481e34d36d7/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/ef7ae7833a993909b2872481e34d36d7/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/68d57de976f1d30199d40c86e2ebd1e4/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/68d57de976f1d30199d40c86e2ebd1e4/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/fe5a2b75b6293cade6163850854e6629/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/fe5a2b75b6293cade6163850854e6629/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.navigation:navigation-common-ktx:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/55c7b86fa5804132f4cdefbe5707d87b/transformed/navigation-common-ktx-2.5.2/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-common-ktx:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/55c7b86fa5804132f4cdefbe5707d87b/transformed/navigation-common-ktx-2.5.2/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-common:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/dffeedba6cf0a862c8e95f21cdb03be7/transformed/navigation-common-2.5.2/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-common:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/dffeedba6cf0a862c8e95f21cdb03be7/transformed/navigation-common-2.5.2/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/6a574d1c2a92b20bebea353fef616891/transformed/lifecycle-viewmodel-ktx-2.5.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/6a574d1c2a92b20bebea353fef616891/transformed/lifecycle-viewmodel-ktx-2.5.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/d473a4eb230a7a8255e6ea2cb552a4a9/transformed/lifecycle-viewmodel-2.5.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/d473a4eb230a7a8255e6ea2cb552a4a9/transformed/lifecycle-viewmodel-2.5.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/0771f793bcd5fb9737aef8d79fb39634/transformed/lifecycle-viewmodel-savedstate-2.5.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/0771f793bcd5fb9737aef8d79fb39634/transformed/lifecycle-viewmodel-savedstate-2.5.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/9da91bc8a48dc2e428e61f151f96e123/transformed/slidingpanelayout-1.2.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/9da91bc8a48dc2e428e61f151f96e123/transformed/slidingpanelayout-1.2.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.window:window:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/e13f4496eb46f50f426b1dbb9773d969/transformed/window-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.window:window:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/e13f4496eb46f50f426b1dbb9773d969/transformed/window-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/d2edf3e8f82b0b034915ae0e20223647/transformed/lifecycle-runtime-ktx-2.5.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/d2edf3e8f82b0b034915ae0e20223647/transformed/lifecycle-runtime-ktx-2.5.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core-ktx:1.8.0] /Users/bryanlin/.gradle/caches/transforms-3/4eefa3ce3a51f15472129e266bbd5cf0/transformed/core-ktx-1.8.0/AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.core:core-ktx:1.8.0] /Users/bryanlin/.gradle/caches/transforms-3/4eefa3ce3a51f15472129e266bbd5cf0/transformed/core-ktx-1.8.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.google.maps.android:android-maps-utils:1.3.1] /Users/bryanlin/.gradle/caches/transforms-3/2d4dc26a28b20a01d6f85e3322a223cd/transformed/android-maps-utils-1.3.1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.google.maps.android:android-maps-utils:1.3.1] /Users/bryanlin/.gradle/caches/transforms-3/2d4dc26a28b20a01d6f85e3322a223cd/transformed/android-maps-utils-1.3.1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.volley:volley:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/75b683b1fcb9af599f6bc179cbd79f7a/transformed/volley-1.2.0/AndroidManifest.xml:5:5-43
-MERGED from [com.android.volley:volley:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/75b683b1fcb9af599f6bc179cbd79f7a/transformed/volley-1.2.0/AndroidManifest.xml:5:5-43
-MERGED from [androidx.media:media:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/4cd220577f095967bd256b8cdae401ad/transformed/media-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.media:media:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/4cd220577f095967bd256b8cdae401ad/transformed/media-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/3b766e5c3ed55b19fe26ee1cf4f10f0b/transformed/emoji2-views-helper-1.2.0/AndroidManifest.xml:5:5-44
-MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/3b766e5c3ed55b19fe26ee1cf4f10f0b/transformed/emoji2-views-helper-1.2.0/AndroidManifest.xml:5:5-44
-MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/c511e6948325cb8d5ca56b74fbf981d3/transformed/emoji2-1.2.0/AndroidManifest.xml:21:5-44
-MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/c511e6948325cb8d5ca56b74fbf981d3/transformed/emoji2-1.2.0/AndroidManifest.xml:21:5-44
-MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/65c4e2ea109a09bbb2c16bf8dfe44cb5/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/65c4e2ea109a09bbb2c16bf8dfe44cb5/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/5998cbab8a8c652b748bb42fb6347df6/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/5998cbab8a8c652b748bb42fb6347df6/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/8d4e5fcc681571b1c66f39e56debb21a/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/8d4e5fcc681571b1c66f39e56debb21a/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/bcbcb44a4631165edac9e035735a8d7c/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/bcbcb44a4631165edac9e035735a8d7c/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/78c41a0c53ea0001034462a37781b6b0/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/78c41a0c53ea0001034462a37781b6b0/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/56878e64dff0dc4bffb4f2b139691865/transformed/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/56878e64dff0dc4bffb4f2b139691865/transformed/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/2920ee5bd8be9e486a9917b73aa9b5b4/transformed/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/2920ee5bd8be9e486a9917b73aa9b5b4/transformed/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/d8d9f5ab1cca8fb0c8dcd4c0e43be220/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/d8d9f5ab1cca8fb0c8dcd4c0e43be220/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.customview:customview:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/3135995a951ba1bdeccc97ff99d5fd5d/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.customview:customview:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/3135995a951ba1bdeccc97ff99d5fd5d/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.transition:transition:1.4.1] /Users/bryanlin/.gradle/caches/transforms-3/489f4b0b4b9871ce782094ccbcf31e08/transformed/transition-1.4.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.transition:transition:1.4.1] /Users/bryanlin/.gradle/caches/transforms-3/489f4b0b4b9871ce782094ccbcf31e08/transformed/transition-1.4.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core:1.8.0] /Users/bryanlin/.gradle/caches/transforms-3/0c8dca5ff822fc558347b711b90e5e08/transformed/core-1.8.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core:1.8.0] /Users/bryanlin/.gradle/caches/transforms-3/0c8dca5ff822fc558347b711b90e5e08/transformed/core-1.8.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/a44615c6fc4124e6a68eefd39ca975ed/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/a44615c6fc4124e6a68eefd39ca975ed/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/bryanlin/.gradle/caches/transforms-3/484bd62d038f71f9bffefa8169070bb8/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:21:5-23:41
-MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/bryanlin/.gradle/caches/transforms-3/484bd62d038f71f9bffefa8169070bb8/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:21:5-23:41
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/93889aaabec5f8f3a500a7025997181e/transformed/lifecycle-runtime-2.5.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/93889aaabec5f8f3a500a7025997181e/transformed/lifecycle-runtime-2.5.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate-ktx:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/878bf97064e0465467d268fa2eab1aac/transformed/savedstate-ktx-1.2.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate-ktx:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/878bf97064e0465467d268fa2eab1aac/transformed/savedstate-ktx-1.2.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/69c98450618e41c7e987af5d56533041/transformed/savedstate-1.2.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/69c98450618e41c7e987af5d56533041/transformed/savedstate-1.2.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.cardview:cardview:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/e3b97676aa837b24c84ce7407b007a2b/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/e3b97676aa837b24c84ce7407b007a2b/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/8c6cd2fdebfbf6b8a981c3e9f978fa5e/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/8c6cd2fdebfbf6b8a981c3e9f978fa5e/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/a16cc68133174284050617fb37984995/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/a16cc68133174284050617fb37984995/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.print:print:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/6593448c4c5446159109e62c69a6358d/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.print:print:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/6593448c4c5446159109e62c69a6358d/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/d4711dc857929aa18532b75a236b7393/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/d4711dc857929aa18532b75a236b7393/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/0a18592df967fa92cc618dcbe1af5fbc/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/0a18592df967fa92cc618dcbe1af5fbc/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/bf9a564abdf91d691369fcca3ea0d7fb/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
-MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/bf9a564abdf91d691369fcca3ea0d7fb/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
-MERGED from [androidx.tracing:tracing:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/a5f973e0a11410ac745e1501f182db63/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.tracing:tracing:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/a5f973e0a11410ac745e1501f182db63/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/bryanlin/.gradle/caches/transforms-3/51cefeffa9ce273909a77c347eb5f34f/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/bryanlin/.gradle/caches/transforms-3/51cefeffa9ce273909a77c347eb5f34f/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/a8daca6a53ec4012728287ecc4472748/transformed/lifecycle-livedata-core-ktx-2.5.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/a8daca6a53ec4012728287ecc4472748/transformed/lifecycle-livedata-core-ktx-2.5.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/fcdacf8a7ff7cef6ac8a4e0fdfc65b25/transformed/lifecycle-livedata-core-2.5.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/fcdacf8a7ff7cef6ac8a4e0fdfc65b25/transformed/lifecycle-livedata-core-2.5.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/bryanlin/.gradle/caches/transforms-3/d470f3ddd010f25f245cd441387520ea/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/bryanlin/.gradle/caches/transforms-3/d470f3ddd010f25f245cd441387520ea/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/8a2fe53ef2faaba9f343dd9fa42254dc/transformed/annotation-experimental-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/8a2fe53ef2faaba9f343dd9fa42254dc/transformed/annotation-experimental-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.databinding:viewbinding:7.2.2] /Users/bryanlin/.gradle/caches/transforms-3/0ced7cec7ee4b069f0a16c1f89cead9f/transformed/viewbinding-7.2.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.databinding:viewbinding:7.2.2] /Users/bryanlin/.gradle/caches/transforms-3/0ced7cec7ee4b069f0a16c1f89cead9f/transformed/viewbinding-7.2.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui-ktx:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/be0b77c0c123bdbf3f1ab343cfb9a6c1/transformed/navigation-ui-ktx-2.5.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui-ktx:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/be0b77c0c123bdbf3f1ab343cfb9a6c1/transformed/navigation-ui-ktx-2.5.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/0508e62c79dd1d160178cb3c99db3757/transformed/navigation-ui-2.5.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/0508e62c79dd1d160178cb3c99db3757/transformed/navigation-ui-2.5.2/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.material:material:1.6.1] /Users/bryanlin/.gradle/caches/transforms-3/4578f757425dca28a2e5d2c4ea57dda9/transformed/material-1.6.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.material:material:1.6.1] /Users/bryanlin/.gradle/caches/transforms-3/4578f757425dca28a2e5d2c4ea57dda9/transformed/material-1.6.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/bryanlin/.gradle/caches/transforms-3/5aa2ad44d6dcfffd215f9ed576c5e18d/transformed/constraintlayout-2.1.4/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/bryanlin/.gradle/caches/transforms-3/5aa2ad44d6dcfffd215f9ed576c5e18d/transformed/constraintlayout-2.1.4/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.preference:preference:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/4284045996f455ea5eb92dc3b6652ccc/transformed/preference-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.preference:preference:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/4284045996f455ea5eb92dc3b6652ccc/transformed/preference-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.libraries.places:places:2.4.0] /Users/bryanlin/.gradle/caches/transforms-3/d62b3b15d4b9990b65c54349da6b6185/transformed/places-2.4.0/AndroidManifest.xml:7:5-44
+MERGED from [com.google.android.libraries.places:places:2.4.0] /Users/bryanlin/.gradle/caches/transforms-3/d62b3b15d4b9990b65c54349da6b6185/transformed/places-2.4.0/AndroidManifest.xml:7:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.5.1] /Users/bryanlin/.gradle/caches/transforms-3/98df38d46053bdb694e2998e88172a36/transformed/appcompat-resources-1.5.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.5.1] /Users/bryanlin/.gradle/caches/transforms-3/98df38d46053bdb694e2998e88172a36/transformed/appcompat-resources-1.5.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.5.1] /Users/bryanlin/.gradle/caches/transforms-3/71b143cc9da335a1ec7f498495724a70/transformed/appcompat-1.5.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.5.1] /Users/bryanlin/.gradle/caches/transforms-3/71b143cc9da335a1ec7f498495724a70/transformed/appcompat-1.5.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/6b07009723e0b40cbf0f86e84cbb03ac/transformed/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/6b07009723e0b40cbf0f86e84cbb03ac/transformed/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/b3a0d49bf028a1245faf172caa3fb859/transformed/play-services-maps-18.1.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/b3a0d49bf028a1245faf172caa3fb859/transformed/play-services-maps-18.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/df16e629b315d5df891a3be2635994ab/transformed/viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/df16e629b315d5df891a3be2635994ab/transformed/viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-location:20.0.0] /Users/bryanlin/.gradle/caches/transforms-3/88fb03c2f10be455f829eeef723935aa/transformed/play-services-location-20.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:20.0.0] /Users/bryanlin/.gradle/caches/transforms-3/88fb03c2f10be455f829eeef723935aa/transformed/play-services-location-20.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/9ababe3211543fd30d6f67493f10857b/transformed/play-services-base-18.0.1/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/9ababe3211543fd30d6f67493f10857b/transformed/play-services-base-18.0.1/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-tasks:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/0db7e4087241ea2b76c2b480c060c4a0/transformed/play-services-tasks-18.0.1/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/0db7e4087241ea2b76c2b480c060c4a0/transformed/play-services-tasks-18.0.1/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] /Users/bryanlin/.gradle/caches/transforms-3/a6aa928b7c8a259a741574ecc47f47d0/transformed/play-services-basement-18.0.0/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] /Users/bryanlin/.gradle/caches/transforms-3/a6aa928b7c8a259a741574ecc47f47d0/transformed/play-services-basement-18.0.0/AndroidManifest.xml:18:5-43
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.1.0] /Users/bryanlin/.gradle/caches/transforms-3/42a64b5acee37f7ff226d3902bf8f866/transformed/lifecycle-extensions-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.1.0] /Users/bryanlin/.gradle/caches/transforms-3/42a64b5acee37f7ff226d3902bf8f866/transformed/lifecycle-extensions-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/2cf1b3bcadea6261cb0005f02c2e7747/transformed/navigation-fragment-ktx-2.5.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/2cf1b3bcadea6261cb0005f02c2e7747/transformed/navigation-fragment-ktx-2.5.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/13c5803c401bd9b4e95a53edc1a36a08/transformed/navigation-fragment-2.5.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/13c5803c401bd9b4e95a53edc1a36a08/transformed/navigation-fragment-2.5.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment-ktx:1.5.2] /Users/bryanlin/.gradle/caches/transforms-3/5992fdd191a6ee6c0bf2bf25147b800c/transformed/fragment-ktx-1.5.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment-ktx:1.5.2] /Users/bryanlin/.gradle/caches/transforms-3/5992fdd191a6ee6c0bf2bf25147b800c/transformed/fragment-ktx-1.5.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.5.2] /Users/bryanlin/.gradle/caches/transforms-3/19bec4c500cb01a5f77c4f8270041b3a/transformed/fragment-1.5.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.5.2] /Users/bryanlin/.gradle/caches/transforms-3/19bec4c500cb01a5f77c4f8270041b3a/transformed/fragment-1.5.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/b994f6654e3e5c78b3f88c296b474e06/transformed/navigation-runtime-ktx-2.5.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/b994f6654e3e5c78b3f88c296b474e06/transformed/navigation-runtime-ktx-2.5.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/1b34719e771df42aa6d1999bb93fb05c/transformed/navigation-runtime-2.5.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/1b34719e771df42aa6d1999bb93fb05c/transformed/navigation-runtime-2.5.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity-ktx:1.5.1] /Users/bryanlin/.gradle/caches/transforms-3/1dd17744eabb2988e730baf23f495f36/transformed/activity-ktx-1.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity-ktx:1.5.1] /Users/bryanlin/.gradle/caches/transforms-3/1dd17744eabb2988e730baf23f495f36/transformed/activity-ktx-1.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.5.1] /Users/bryanlin/.gradle/caches/transforms-3/5168c8182c4bff73437c6579678fc433/transformed/activity-1.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.5.1] /Users/bryanlin/.gradle/caches/transforms-3/5168c8182c4bff73437c6579678fc433/transformed/activity-1.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/a915193f6dabf38096dd30d50713f4f2/transformed/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/a915193f6dabf38096dd30d50713f4f2/transformed/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/2b1c92cca13e3d27f1de0a46704effbb/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/2b1c92cca13e3d27f1de0a46704effbb/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/a17f3b2c407bdcb8ce944db64eee8c99/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/a17f3b2c407bdcb8ce944db64eee8c99/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/6e087cb52e88d991bd914855d30341f3/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/6e087cb52e88d991bd914855d30341f3/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/0fbbec5b93d1c4e4be03d836f7640e25/transformed/navigation-common-ktx-2.5.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common-ktx:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/0fbbec5b93d1c4e4be03d836f7640e25/transformed/navigation-common-ktx-2.5.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/271f7c3b291e1d28974325f76bff232b/transformed/navigation-common-2.5.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common:2.5.2] /Users/bryanlin/.gradle/caches/transforms-3/271f7c3b291e1d28974325f76bff232b/transformed/navigation-common-2.5.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/4a1d425de493e5cb17cd7f925a3abc7d/transformed/lifecycle-viewmodel-ktx-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/4a1d425de493e5cb17cd7f925a3abc7d/transformed/lifecycle-viewmodel-ktx-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/46fa0d39134dea13cd22840c1adca6a2/transformed/lifecycle-viewmodel-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/46fa0d39134dea13cd22840c1adca6a2/transformed/lifecycle-viewmodel-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/0fdcab8f9470add4564987e361abefd1/transformed/lifecycle-viewmodel-savedstate-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/0fdcab8f9470add4564987e361abefd1/transformed/lifecycle-viewmodel-savedstate-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/d8419f04709959c6afb2a0b1e17a814e/transformed/slidingpanelayout-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/d8419f04709959c6afb2a0b1e17a814e/transformed/slidingpanelayout-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/29307cab34829e54c2c6297837541d2c/transformed/window-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/29307cab34829e54c2c6297837541d2c/transformed/window-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/3f5abe55c1e0ff1a9b1c9c182103d947/transformed/lifecycle-runtime-ktx-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/3f5abe55c1e0ff1a9b1c9c182103d947/transformed/lifecycle-runtime-ktx-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core-ktx:1.8.0] /Users/bryanlin/.gradle/caches/transforms-3/ff79e970b816e8cf21e9ed6d0b533ae0/transformed/core-ktx-1.8.0/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.core:core-ktx:1.8.0] /Users/bryanlin/.gradle/caches/transforms-3/ff79e970b816e8cf21e9ed6d0b533ae0/transformed/core-ktx-1.8.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.maps.android:android-maps-utils:1.3.1] /Users/bryanlin/.gradle/caches/transforms-3/6fe58a7d4d58cb28ff19a82b51e54edd/transformed/android-maps-utils-1.3.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.maps.android:android-maps-utils:1.3.1] /Users/bryanlin/.gradle/caches/transforms-3/6fe58a7d4d58cb28ff19a82b51e54edd/transformed/android-maps-utils-1.3.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.volley:volley:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/2f2af8b284a40785442ee081b1e8f90e/transformed/volley-1.2.0/AndroidManifest.xml:5:5-43
+MERGED from [com.android.volley:volley:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/2f2af8b284a40785442ee081b1e8f90e/transformed/volley-1.2.0/AndroidManifest.xml:5:5-43
+MERGED from [androidx.media:media:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/42f6fd95521e183ef8293c7705462dee/transformed/media-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/42f6fd95521e183ef8293c7705462dee/transformed/media-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/26befe34369983138cbca618fd89000e/transformed/emoji2-views-helper-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/26befe34369983138cbca618fd89000e/transformed/emoji2-views-helper-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/00060b4555f73637209f90edb7c086c6/transformed/emoji2-1.2.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/00060b4555f73637209f90edb7c086c6/transformed/emoji2-1.2.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/e65d151004f162f11635384be7e084c7/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/e65d151004f162f11635384be7e084c7/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/599d9c6110092f4521cb5641eb2a88d4/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/599d9c6110092f4521cb5641eb2a88d4/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/e2d4d15e07eecfc01dacf7a39c8a5cd2/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/e2d4d15e07eecfc01dacf7a39c8a5cd2/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/23c65a2b861397e4b55747871968e68a/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/23c65a2b861397e4b55747871968e68a/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/85ebb8339d396ef7e80e79d71f92d8bd/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/85ebb8339d396ef7e80e79d71f92d8bd/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/654572be2fd68f342f6136dae35f9b97/transformed/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/654572be2fd68f342f6136dae35f9b97/transformed/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/9e3581b7ebeeb780059a557d6165a00f/transformed/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/9e3581b7ebeeb780059a557d6165a00f/transformed/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/668f83f5e5f1da6dd28f986d02bc1dd3/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/668f83f5e5f1da6dd28f986d02bc1dd3/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/b938e89ba9d2d086b91446ec88a4bc53/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/b938e89ba9d2d086b91446ec88a4bc53/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.4.1] /Users/bryanlin/.gradle/caches/transforms-3/fda1b66ec16eaf2d00dc6502f0f84a46/transformed/transition-1.4.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.4.1] /Users/bryanlin/.gradle/caches/transforms-3/fda1b66ec16eaf2d00dc6502f0f84a46/transformed/transition-1.4.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.8.0] /Users/bryanlin/.gradle/caches/transforms-3/8e1f3fecda5e244bf608770bf1f74e89/transformed/core-1.8.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.8.0] /Users/bryanlin/.gradle/caches/transforms-3/8e1f3fecda5e244bf608770bf1f74e89/transformed/core-1.8.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/b8444798275289402d971d6265ea1040/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/b8444798275289402d971d6265ea1040/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/bryanlin/.gradle/caches/transforms-3/3285dbcaf8862a6f53e63c2ae645cb32/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/bryanlin/.gradle/caches/transforms-3/3285dbcaf8862a6f53e63c2ae645cb32/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.lifecycle:lifecycle-service:2.1.0] /Users/bryanlin/.gradle/caches/transforms-3/848e656a8804b2ff05745ccf1ef6e8e6/transformed/lifecycle-service-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-service:2.1.0] /Users/bryanlin/.gradle/caches/transforms-3/848e656a8804b2ff05745ccf1ef6e8e6/transformed/lifecycle-service-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/73327f77fdb982625c6d5ff21825f28b/transformed/lifecycle-runtime-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/73327f77fdb982625c6d5ff21825f28b/transformed/lifecycle-runtime-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/3d5bc4e6058cf31664e82336af84f233/transformed/savedstate-ktx-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/3d5bc4e6058cf31664e82336af84f233/transformed/savedstate-ktx-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/d81b6a5cd7c04a44886b3356aa45cb6d/transformed/savedstate-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/d81b6a5cd7c04a44886b3356aa45cb6d/transformed/savedstate-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/1001ce3d97e272bb823b79d8e962af60/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/1001ce3d97e272bb823b79d8e962af60/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/bryanlin/.gradle/caches/transforms-3/4132a1d842df7680c8c800f629acdf3e/transformed/transport-backend-cct-2.3.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/bryanlin/.gradle/caches/transforms-3/4132a1d842df7680c8c800f629acdf3e/transformed/transport-backend-cct-2.3.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/bryanlin/.gradle/caches/transforms-3/d2c0393d7bc193af8b6b001818f948b3/transformed/transport-runtime-2.2.3/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/bryanlin/.gradle/caches/transforms-3/d2c0393d7bc193af8b6b001818f948b3/transformed/transport-runtime-2.2.3/AndroidManifest.xml:18:5-20:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/b91fee550910efa21206a1bf7c014788/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/b91fee550910efa21206a1bf7c014788/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/531271cff83af0b60b309ccbcf94363c/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/531271cff83af0b60b309ccbcf94363c/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/06b09108971f55864859fdedf7000717/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/06b09108971f55864859fdedf7000717/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/979ffeae0c1cc2677ea27ff4dbe21a11/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/979ffeae0c1cc2677ea27ff4dbe21a11/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/94a8634d0d988450557dfb8f94a9e660/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/94a8634d0d988450557dfb8f94a9e660/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/731263c3f78ac9a1aa900426d356a0ce/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/731263c3f78ac9a1aa900426d356a0ce/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/f57214309688a50e721133c750e47fe4/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/f57214309688a50e721133c750e47fe4/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.1.0] /Users/bryanlin/.gradle/caches/transforms-3/35eb9ee6a1efb271d6e329b83ad3653c/transformed/lifecycle-livedata-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.1.0] /Users/bryanlin/.gradle/caches/transforms-3/35eb9ee6a1efb271d6e329b83ad3653c/transformed/lifecycle-livedata-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/f976b6b8c40a185201db262487328562/transformed/lifecycle-livedata-core-ktx-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/f976b6b8c40a185201db262487328562/transformed/lifecycle-livedata-core-ktx-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/105a9ceeef8f85b2535184fabb2d11c7/transformed/lifecycle-livedata-core-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] /Users/bryanlin/.gradle/caches/transforms-3/105a9ceeef8f85b2535184fabb2d11c7/transformed/lifecycle-livedata-core-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/bryanlin/.gradle/caches/transforms-3/b5a9f59d01346992c760d3a765e01f21/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/bryanlin/.gradle/caches/transforms-3/b5a9f59d01346992c760d3a765e01f21/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-encoders-json:16.1.0] /Users/bryanlin/.gradle/caches/transforms-3/3a4a9fecf01f10b9357c093fa9f8c56d/transformed/firebase-encoders-json-16.1.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-encoders-json:16.1.0] /Users/bryanlin/.gradle/caches/transforms-3/3a4a9fecf01f10b9357c093fa9f8c56d/transformed/firebase-encoders-json-16.1.0/AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/f3352dd7a43cd106cea5ca36eff3543e/transformed/annotation-experimental-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/bryanlin/.gradle/caches/transforms-3/f3352dd7a43cd106cea5ca36eff3543e/transformed/annotation-experimental-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.datatransport:transport-api:2.2.0] /Users/bryanlin/.gradle/caches/transforms-3/45ba9faa4fdf5b4055701169057b9698/transformed/transport-api-2.2.0/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-api:2.2.0] /Users/bryanlin/.gradle/caches/transforms-3/45ba9faa4fdf5b4055701169057b9698/transformed/transport-api-2.2.0/AndroidManifest.xml:18:5-20:41
 INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml
 INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml
 	android:targetSdkVersion
@@ -323,83 +363,135 @@ INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.
 		INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml
 		ADDED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/bryanlin/Documents/EV-Routing/app/src/main/AndroidManifest.xml
-uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/9a0c13ee938354e1219b9dd48e01ba80/transformed/play-services-maps-18.1.0/AndroidManifest.xml:23:5-79
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from [com.google.android.libraries.places:places:2.4.0] /Users/bryanlin/.gradle/caches/transforms-3/d62b3b15d4b9990b65c54349da6b6185/transformed/places-2.4.0/AndroidManifest.xml:10:5-76
 	android:name
-		ADDED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/9a0c13ee938354e1219b9dd48e01ba80/transformed/play-services-maps-18.1.0/AndroidManifest.xml:23:22-76
+		ADDED from [com.google.android.libraries.places:places:2.4.0] /Users/bryanlin/.gradle/caches/transforms-3/d62b3b15d4b9990b65c54349da6b6185/transformed/places-2.4.0/AndroidManifest.xml:10:22-73
 uses-permission#android.permission.INTERNET
-ADDED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/9a0c13ee938354e1219b9dd48e01ba80/transformed/play-services-maps-18.1.0/AndroidManifest.xml:24:5-67
+ADDED from [com.google.android.libraries.places:places:2.4.0] /Users/bryanlin/.gradle/caches/transforms-3/d62b3b15d4b9990b65c54349da6b6185/transformed/places-2.4.0/AndroidManifest.xml:11:5-67
+MERGED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/b3a0d49bf028a1245faf172caa3fb859/transformed/play-services-maps-18.1.0/AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/b3a0d49bf028a1245faf172caa3fb859/transformed/play-services-maps-18.1.0/AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/bryanlin/.gradle/caches/transforms-3/4132a1d842df7680c8c800f629acdf3e/transformed/transport-backend-cct-2.3.0/AndroidManifest.xml:26:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/bryanlin/.gradle/caches/transforms-3/4132a1d842df7680c8c800f629acdf3e/transformed/transport-backend-cct-2.3.0/AndroidManifest.xml:26:5-67
 	android:name
-		ADDED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/9a0c13ee938354e1219b9dd48e01ba80/transformed/play-services-maps-18.1.0/AndroidManifest.xml:24:22-64
-uses-feature#0x00020000
-ADDED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/9a0c13ee938354e1219b9dd48e01ba80/transformed/play-services-maps-18.1.0/AndroidManifest.xml:26:5-28:35
-	android:glEsVersion
-		ADDED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/9a0c13ee938354e1219b9dd48e01ba80/transformed/play-services-maps-18.1.0/AndroidManifest.xml:27:9-41
-	android:required
-		ADDED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/9a0c13ee938354e1219b9dd48e01ba80/transformed/play-services-maps-18.1.0/AndroidManifest.xml:28:9-32
-queries
-ADDED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/9a0c13ee938354e1219b9dd48e01ba80/transformed/play-services-maps-18.1.0/AndroidManifest.xml:30:5-34:15
-package#com.google.android.apps.maps
-ADDED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/9a0c13ee938354e1219b9dd48e01ba80/transformed/play-services-maps-18.1.0/AndroidManifest.xml:33:9-64
-	android:name
-		ADDED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/9a0c13ee938354e1219b9dd48e01ba80/transformed/play-services-maps-18.1.0/AndroidManifest.xml:33:18-61
-uses-library#org.apache.http.legacy
-ADDED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/9a0c13ee938354e1219b9dd48e01ba80/transformed/play-services-maps-18.1.0/AndroidManifest.xml:39:9-41:40
-	android:required
-		ADDED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/9a0c13ee938354e1219b9dd48e01ba80/transformed/play-services-maps-18.1.0/AndroidManifest.xml:41:13-37
-	android:name
-		ADDED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/9a0c13ee938354e1219b9dd48e01ba80/transformed/play-services-maps-18.1.0/AndroidManifest.xml:40:13-50
-activity#com.google.android.gms.common.api.GoogleApiActivity
-ADDED from [com.google.android.gms:play-services-base:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/016e2e8e51fd555178b82b9a206eaf21/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+		ADDED from [com.google.android.libraries.places:places:2.4.0] /Users/bryanlin/.gradle/caches/transforms-3/d62b3b15d4b9990b65c54349da6b6185/transformed/places-2.4.0/AndroidManifest.xml:11:22-64
+activity#com.google.android.libraries.places.widget.AutocompleteActivity
+ADDED from [com.google.android.libraries.places:places:2.4.0] /Users/bryanlin/.gradle/caches/transforms-3/d62b3b15d4b9990b65c54349da6b6185/transformed/places-2.4.0/AndroidManifest.xml:14:9-20:20
+	android:label
+		ADDED from [com.google.android.libraries.places:places:2.4.0] /Users/bryanlin/.gradle/caches/transforms-3/d62b3b15d4b9990b65c54349da6b6185/transformed/places-2.4.0/AndroidManifest.xml:17:13-62
+	android:windowSoftInputMode
+		ADDED from [com.google.android.libraries.places:places:2.4.0] /Users/bryanlin/.gradle/caches/transforms-3/d62b3b15d4b9990b65c54349da6b6185/transformed/places-2.4.0/AndroidManifest.xml:19:13-55
 	android:exported
-		ADDED from [com.google.android.gms:play-services-base:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/016e2e8e51fd555178b82b9a206eaf21/transformed/play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+		ADDED from [com.google.android.libraries.places:places:2.4.0] /Users/bryanlin/.gradle/caches/transforms-3/d62b3b15d4b9990b65c54349da6b6185/transformed/places-2.4.0/AndroidManifest.xml:16:13-37
 	android:theme
-		ADDED from [com.google.android.gms:play-services-base:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/016e2e8e51fd555178b82b9a206eaf21/transformed/play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+		ADDED from [com.google.android.libraries.places:places:2.4.0] /Users/bryanlin/.gradle/caches/transforms-3/d62b3b15d4b9990b65c54349da6b6185/transformed/places-2.4.0/AndroidManifest.xml:18:13-61
 	android:name
-		ADDED from [com.google.android.gms:play-services-base:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/016e2e8e51fd555178b82b9a206eaf21/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:19-85
-meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:18.0.0] /Users/bryanlin/.gradle/caches/transforms-3/4d534a83e4e1e019c234bc2e494b2423/transformed/play-services-basement-18.0.0/AndroidManifest.xml:21:9-23:69
-MERGED from [com.google.maps.android:android-maps-utils:1.3.1] /Users/bryanlin/.gradle/caches/transforms-3/2d4dc26a28b20a01d6f85e3322a223cd/transformed/android-maps-utils-1.3.1/AndroidManifest.xml:12:9-14:69
-MERGED from [com.google.maps.android:android-maps-utils:1.3.1] /Users/bryanlin/.gradle/caches/transforms-3/2d4dc26a28b20a01d6f85e3322a223cd/transformed/android-maps-utils-1.3.1/AndroidManifest.xml:12:9-14:69
-	android:value
-		ADDED from [com.google.android.gms:play-services-basement:18.0.0] /Users/bryanlin/.gradle/caches/transforms-3/4d534a83e4e1e019c234bc2e494b2423/transformed/play-services-basement-18.0.0/AndroidManifest.xml:23:13-66
+		ADDED from [com.google.android.libraries.places:places:2.4.0] /Users/bryanlin/.gradle/caches/transforms-3/d62b3b15d4b9990b65c54349da6b6185/transformed/places-2.4.0/AndroidManifest.xml:15:13-91
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/b3a0d49bf028a1245faf172caa3fb859/transformed/play-services-maps-18.1.0/AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/bryanlin/.gradle/caches/transforms-3/4132a1d842df7680c8c800f629acdf3e/transformed/transport-backend-cct-2.3.0/AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/bryanlin/.gradle/caches/transforms-3/4132a1d842df7680c8c800f629acdf3e/transformed/transport-backend-cct-2.3.0/AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/bryanlin/.gradle/caches/transforms-3/d2c0393d7bc193af8b6b001818f948b3/transformed/transport-runtime-2.2.3/AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/bryanlin/.gradle/caches/transforms-3/d2c0393d7bc193af8b6b001818f948b3/transformed/transport-runtime-2.2.3/AndroidManifest.xml:22:5-79
 	android:name
-		ADDED from [com.google.android.gms:play-services-basement:18.0.0] /Users/bryanlin/.gradle/caches/transforms-3/4d534a83e4e1e019c234bc2e494b2423/transformed/play-services-basement-18.0.0/AndroidManifest.xml:22:13-58
-uses-library#androidx.window.extensions
-ADDED from [androidx.window:window:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/e13f4496eb46f50f426b1dbb9773d969/transformed/window-1.0.0/AndroidManifest.xml:25:9-27:40
+		ADDED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/b3a0d49bf028a1245faf172caa3fb859/transformed/play-services-maps-18.1.0/AndroidManifest.xml:23:22-76
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/b3a0d49bf028a1245faf172caa3fb859/transformed/play-services-maps-18.1.0/AndroidManifest.xml:26:5-28:35
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/b3a0d49bf028a1245faf172caa3fb859/transformed/play-services-maps-18.1.0/AndroidManifest.xml:27:9-41
 	android:required
-		ADDED from [androidx.window:window:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/e13f4496eb46f50f426b1dbb9773d969/transformed/window-1.0.0/AndroidManifest.xml:27:13-37
+		ADDED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/b3a0d49bf028a1245faf172caa3fb859/transformed/play-services-maps-18.1.0/AndroidManifest.xml:28:9-32
+queries
+ADDED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/b3a0d49bf028a1245faf172caa3fb859/transformed/play-services-maps-18.1.0/AndroidManifest.xml:30:5-34:15
+package#com.google.android.apps.maps
+ADDED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/b3a0d49bf028a1245faf172caa3fb859/transformed/play-services-maps-18.1.0/AndroidManifest.xml:33:9-64
 	android:name
-		ADDED from [androidx.window:window:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/e13f4496eb46f50f426b1dbb9773d969/transformed/window-1.0.0/AndroidManifest.xml:26:13-54
-uses-library#androidx.window.sidecar
-ADDED from [androidx.window:window:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/e13f4496eb46f50f426b1dbb9773d969/transformed/window-1.0.0/AndroidManifest.xml:28:9-30:40
+		ADDED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/b3a0d49bf028a1245faf172caa3fb859/transformed/play-services-maps-18.1.0/AndroidManifest.xml:33:18-61
+uses-library#org.apache.http.legacy
+ADDED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/b3a0d49bf028a1245faf172caa3fb859/transformed/play-services-maps-18.1.0/AndroidManifest.xml:39:9-41:40
 	android:required
-		ADDED from [androidx.window:window:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/e13f4496eb46f50f426b1dbb9773d969/transformed/window-1.0.0/AndroidManifest.xml:30:13-37
+		ADDED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/b3a0d49bf028a1245faf172caa3fb859/transformed/play-services-maps-18.1.0/AndroidManifest.xml:41:13-37
 	android:name
-		ADDED from [androidx.window:window:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/e13f4496eb46f50f426b1dbb9773d969/transformed/window-1.0.0/AndroidManifest.xml:29:13-51
-provider#androidx.startup.InitializationProvider
-ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/c511e6948325cb8d5ca56b74fbf981d3/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
-MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/bryanlin/.gradle/caches/transforms-3/484bd62d038f71f9bffefa8169070bb8/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:26:9-34:20
-MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/bryanlin/.gradle/caches/transforms-3/484bd62d038f71f9bffefa8169070bb8/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:26:9-34:20
-MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/bf9a564abdf91d691369fcca3ea0d7fb/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
-MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/bf9a564abdf91d691369fcca3ea0d7fb/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
-	tools:node
-		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/c511e6948325cb8d5ca56b74fbf981d3/transformed/emoji2-1.2.0/AndroidManifest.xml:28:13-31
-	android:authorities
-		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/c511e6948325cb8d5ca56b74fbf981d3/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+		ADDED from [com.google.android.gms:play-services-maps:18.1.0] /Users/bryanlin/.gradle/caches/transforms-3/b3a0d49bf028a1245faf172caa3fb859/transformed/play-services-maps-18.1.0/AndroidManifest.xml:40:13-50
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/9ababe3211543fd30d6f67493f10857b/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
 	android:exported
-		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/c511e6948325cb8d5ca56b74fbf981d3/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/9ababe3211543fd30d6f67493f10857b/transformed/play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/9ababe3211543fd30d6f67493f10857b/transformed/play-services-base-18.0.1/AndroidManifest.xml:21:19-78
 	android:name
-		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/c511e6948325cb8d5ca56b74fbf981d3/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] /Users/bryanlin/.gradle/caches/transforms-3/9ababe3211543fd30d6f67493f10857b/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:18.0.0] /Users/bryanlin/.gradle/caches/transforms-3/a6aa928b7c8a259a741574ecc47f47d0/transformed/play-services-basement-18.0.0/AndroidManifest.xml:21:9-23:69
+MERGED from [com.google.maps.android:android-maps-utils:1.3.1] /Users/bryanlin/.gradle/caches/transforms-3/6fe58a7d4d58cb28ff19a82b51e54edd/transformed/android-maps-utils-1.3.1/AndroidManifest.xml:12:9-14:69
+MERGED from [com.google.maps.android:android-maps-utils:1.3.1] /Users/bryanlin/.gradle/caches/transforms-3/6fe58a7d4d58cb28ff19a82b51e54edd/transformed/android-maps-utils-1.3.1/AndroidManifest.xml:12:9-14:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:18.0.0] /Users/bryanlin/.gradle/caches/transforms-3/a6aa928b7c8a259a741574ecc47f47d0/transformed/play-services-basement-18.0.0/AndroidManifest.xml:23:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:18.0.0] /Users/bryanlin/.gradle/caches/transforms-3/a6aa928b7c8a259a741574ecc47f47d0/transformed/play-services-basement-18.0.0/AndroidManifest.xml:22:13-58
+uses-library#androidx.window.extensions
+ADDED from [androidx.window:window:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/29307cab34829e54c2c6297837541d2c/transformed/window-1.0.0/AndroidManifest.xml:25:9-27:40
+	android:required
+		ADDED from [androidx.window:window:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/29307cab34829e54c2c6297837541d2c/transformed/window-1.0.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.window:window:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/29307cab34829e54c2c6297837541d2c/transformed/window-1.0.0/AndroidManifest.xml:26:13-54
+uses-library#androidx.window.sidecar
+ADDED from [androidx.window:window:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/29307cab34829e54c2c6297837541d2c/transformed/window-1.0.0/AndroidManifest.xml:28:9-30:40
+	android:required
+		ADDED from [androidx.window:window:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/29307cab34829e54c2c6297837541d2c/transformed/window-1.0.0/AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from [androidx.window:window:1.0.0] /Users/bryanlin/.gradle/caches/transforms-3/29307cab34829e54c2c6297837541d2c/transformed/window-1.0.0/AndroidManifest.xml:29:13-51
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/00060b4555f73637209f90edb7c086c6/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/bryanlin/.gradle/caches/transforms-3/3285dbcaf8862a6f53e63c2ae645cb32/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:26:9-34:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/bryanlin/.gradle/caches/transforms-3/3285dbcaf8862a6f53e63c2ae645cb32/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:26:9-34:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/731263c3f78ac9a1aa900426d356a0ce/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/bryanlin/.gradle/caches/transforms-3/731263c3f78ac9a1aa900426d356a0ce/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/00060b4555f73637209f90edb7c086c6/transformed/emoji2-1.2.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/00060b4555f73637209f90edb7c086c6/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/00060b4555f73637209f90edb7c086c6/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/00060b4555f73637209f90edb7c086c6/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
 meta-data#androidx.emoji2.text.EmojiCompatInitializer
-ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/c511e6948325cb8d5ca56b74fbf981d3/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/00060b4555f73637209f90edb7c086c6/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
 	android:value
-		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/c511e6948325cb8d5ca56b74fbf981d3/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/00060b4555f73637209f90edb7c086c6/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
 	android:name
-		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/c511e6948325cb8d5ca56b74fbf981d3/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/bryanlin/.gradle/caches/transforms-3/00060b4555f73637209f90edb7c086c6/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
 meta-data#androidx.lifecycle.ProcessLifecycleInitializer
-ADDED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/bryanlin/.gradle/caches/transforms-3/484bd62d038f71f9bffefa8169070bb8/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+ADDED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/bryanlin/.gradle/caches/transforms-3/3285dbcaf8862a6f53e63c2ae645cb32/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
 	android:value
-		ADDED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/bryanlin/.gradle/caches/transforms-3/484bd62d038f71f9bffefa8169070bb8/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+		ADDED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/bryanlin/.gradle/caches/transforms-3/3285dbcaf8862a6f53e63c2ae645cb32/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
 	android:name
-		ADDED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/bryanlin/.gradle/caches/transforms-3/484bd62d038f71f9bffefa8169070bb8/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+		ADDED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/bryanlin/.gradle/caches/transforms-3/3285dbcaf8862a6f53e63c2ae645cb32/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+service#com.google.android.datatransport.runtime.backends.TransportBackendDiscovery
+ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/bryanlin/.gradle/caches/transforms-3/4132a1d842df7680c8c800f629acdf3e/transformed/transport-backend-cct-2.3.0/AndroidManifest.xml:29:9-35:19
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/bryanlin/.gradle/caches/transforms-3/d2c0393d7bc193af8b6b001818f948b3/transformed/transport-runtime-2.2.3/AndroidManifest.xml:36:9-38:40
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/bryanlin/.gradle/caches/transforms-3/d2c0393d7bc193af8b6b001818f948b3/transformed/transport-runtime-2.2.3/AndroidManifest.xml:36:9-38:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/bryanlin/.gradle/caches/transforms-3/4132a1d842df7680c8c800f629acdf3e/transformed/transport-backend-cct-2.3.0/AndroidManifest.xml:31:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/bryanlin/.gradle/caches/transforms-3/4132a1d842df7680c8c800f629acdf3e/transformed/transport-backend-cct-2.3.0/AndroidManifest.xml:30:13-103
+meta-data#backend:com.google.android.datatransport.cct.CctBackendFactory
+ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/bryanlin/.gradle/caches/transforms-3/4132a1d842df7680c8c800f629acdf3e/transformed/transport-backend-cct-2.3.0/AndroidManifest.xml:32:13-34:39
+	android:value
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/bryanlin/.gradle/caches/transforms-3/4132a1d842df7680c8c800f629acdf3e/transformed/transport-backend-cct-2.3.0/AndroidManifest.xml:34:17-36
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.0] /Users/bryanlin/.gradle/caches/transforms-3/4132a1d842df7680c8c800f629acdf3e/transformed/transport-backend-cct-2.3.0/AndroidManifest.xml:33:17-94
+service#com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService
+ADDED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/bryanlin/.gradle/caches/transforms-3/d2c0393d7bc193af8b6b001818f948b3/transformed/transport-runtime-2.2.3/AndroidManifest.xml:26:9-30:19
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/bryanlin/.gradle/caches/transforms-3/d2c0393d7bc193af8b6b001818f948b3/transformed/transport-runtime-2.2.3/AndroidManifest.xml:28:13-37
+	android:permission
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/bryanlin/.gradle/caches/transforms-3/d2c0393d7bc193af8b6b001818f948b3/transformed/transport-runtime-2.2.3/AndroidManifest.xml:29:13-69
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/bryanlin/.gradle/caches/transforms-3/d2c0393d7bc193af8b6b001818f948b3/transformed/transport-runtime-2.2.3/AndroidManifest.xml:27:13-117
+receiver#com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver
+ADDED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/bryanlin/.gradle/caches/transforms-3/d2c0393d7bc193af8b6b001818f948b3/transformed/transport-runtime-2.2.3/AndroidManifest.xml:32:9-34:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/bryanlin/.gradle/caches/transforms-3/d2c0393d7bc193af8b6b001818f948b3/transformed/transport-runtime-2.2.3/AndroidManifest.xml:34:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.3] /Users/bryanlin/.gradle/caches/transforms-3/d2c0393d7bc193af8b6b001818f948b3/transformed/transport-runtime-2.2.3/AndroidManifest.xml:33:13-132

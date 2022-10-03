@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.cmu.evplan.app-mergeDebugResources-49:/values-v16/values-v16.xml",
+            "outputFile": "com.cmu.evplan.app-mergeDebugResources-50:/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "/Users/bryanlin/.gradle/caches/transforms-3/0c8dca5ff822fc558347b711b90e5e08/transformed/core-1.8.0/res/values-v16/values-v16.xml",
+                    "source": "/Users/bryanlin/.gradle/caches/transforms-3/8e1f3fecda5e244bf608770bf1f74e89/transformed/core-1.8.0/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "/Users/bryanlin/.gradle/caches/transforms-3/5a8a50dd9874deccd235476d8414a487/transformed/appcompat-1.5.1/res/values-v16/values-v16.xml",
+                    "source": "/Users/bryanlin/.gradle/caches/transforms-3/71b143cc9da335a1ec7f498495724a70/transformed/appcompat-1.5.1/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

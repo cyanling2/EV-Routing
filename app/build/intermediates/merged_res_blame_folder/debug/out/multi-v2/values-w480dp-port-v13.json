@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.cmu.evplan.app-mergeDebugResources-49:/values-w480dp-port-v13/values-w480dp-port-v13.xml",
+            "outputFile": "com.cmu.evplan.app-mergeDebugResources-50:/values-w480dp-port-v13/values-w480dp-port-v13.xml",
             "map": [
                 {
-                    "source": "/Users/bryanlin/.gradle/caches/transforms-3/e3e4545fd93768abfdc4f7fc01d24c6a/transformed/material-1.6.1/res/values-w480dp-port-v13/values-w480dp-port-v13.xml",
+                    "source": "/Users/bryanlin/.gradle/caches/transforms-3/4578f757425dca28a2e5d2c4ea57dda9/transformed/material-1.6.1/res/values-w480dp-port-v13/values-w480dp-port-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

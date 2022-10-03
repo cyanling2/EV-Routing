@@ -5,10 +5,14 @@ import android.os.Bundle
 import android.view.Window
 import android.widget.SearchView
 import android.content.Intent
+import android.util.Log
+import android.widget.EditText
+import android.widget.ImageView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -32,5 +36,11 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+        /*val name = intent.getStringExtra(PLACE_NAME)
+        val latLong = intent.getSerializableExtra(LAT_LNG)
+        if (name != null) {
+            Log.i("Test:", name)
+            Log.i("Test:", latLong.toString())
+        }  */
     }
 }
