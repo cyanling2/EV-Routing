@@ -53,9 +53,6 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         getCurrentLocation()
 
         _binding!!.mainSearchView.setOnClickListener{
-            // FIXME: use nav graph
-//            val intent = Intent(activity, SearchClicked::class.java)
-//            startActivity(intent)
             findNavController().navigate(R.id.action_mapsFragment_to_searchFragment)
         }
 
