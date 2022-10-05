@@ -72,18 +72,6 @@ class SearchFragment : Fragment() {
             }
         })
 
-        // set listener to search finish-entering button
-        _binding!!.searchView.setOnQueryTextListener(
-            object: SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                Log.e("jane", "query: $query")
-                return true
-            }
-            override fun onQueryTextChange(p0: String?): Boolean {
-                return false
-            }
-        })
-
         return view
     }
 }
