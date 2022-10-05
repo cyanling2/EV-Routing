@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.cmu.evplan.databinding.FragmentSearchBinding
 import com.google.android.gms.common.api.Status
@@ -41,13 +40,9 @@ class SearchFragment : Fragment() {
         _binding!!.backButton.setOnClickListener {
             findNavController().navigate(R.id.action_searchFragment_to_mapsFragment)
         }
-//        autocompleteSearch()
 
-        return view
-    }
-
-    private fun autocompleteSearch() {
-        val autocompleteFragment = parentFragmentManager.findFragmentById(R.id.autocomplete) as AutocompleteSupportFragment
+        // set listener for the search tab
+        val autocompleteFragment = childFragmentManager.findFragmentById(R.id.autocomplete) as AutocompleteSupportFragment
         autocompleteFragment.setPlaceFields(listOf(Place.Field.NAME, Place.Field.LAT_LNG))
         autocompleteFragment.setOnPlaceSelectedListener(object: PlaceSelectionListener {
             override fun onPlaceSelected(place: Place) {
@@ -62,10 +57,7 @@ class SearchFragment : Fragment() {
                 val fragmentManager = parentFragmentManager
                 val fragmentTransaction = fragmentManager.beginTransaction()
                 fragmentTransaction.add(R.id.frameLayout, fragment).commit()
-
-                // FIXME
-//                val intent = Intent(this@SearchClicked, MainActivity::class.java)
-//                startActivity(intent)
+                findNavController().navigate(R.id.action_searchFragment_to_mapsFragment)
             }
 
             override fun onError(error: Status) {
@@ -73,5 +65,6 @@ class SearchFragment : Fragment() {
             }
         })
 
+        return view
     }
 }
