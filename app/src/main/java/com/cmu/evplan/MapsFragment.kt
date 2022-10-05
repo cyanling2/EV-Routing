@@ -31,9 +31,11 @@ import com.google.maps.android.PolyUtil
 import org.json.JSONObject
 import android.util.Log
 import android.widget.ImageButton
+import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.FragmentActivity
+import androidx.navigation.findNavController
 import org.json.JSONArray
 
 class MapsFragment : Fragment(), OnMapReadyCallback {
@@ -62,6 +64,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(mapFragment.requireActivity())
         checkPermissions()
         getCurrentLocation()
+        clickSearchView(view)
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -110,6 +113,16 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
                 LOCATION_PERMISSION_REQUEST_CODE)
                 return
         }
+    }
+
+    private fun clickSearchView(view: View) {
+        // Click on search to go to search clicked page, but only works
+        // if you click on the search icon
+        val searchView = view.findViewById<SearchView>(R.id.map_search_view)
+        searchView.setOnClickListener {
+            view.findNavController().navigate(R.id.searchClicked)
+        }
+
     }
 
     /*private val callback = OnMapReadyCallback { googleMap ->

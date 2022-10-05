@@ -9,6 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.google.android.gms.common.api.Status
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -23,21 +25,29 @@ import com.google.android.libraries.places.widget.AutocompleteFragment
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener
 
-const val LAT_LNG = "LAT_LNG"
+// const val LAT_LNG = "LAT_LNG"
 const val PLACE_NAME = "PLACE_NAME"
 
-class SearchClicked : AppCompatActivity() {
+class SearchClicked : Fragment(R.layout.activity_search_clicked) {
 
     private lateinit var placesClient: PlacesClient
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_search_clicked)
-        Places.initialize(this, BuildConfig.MAPS_API_KEY)
-        placesClient = Places.createClient(this)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.activity_search_clicked, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        // setContentView(R.layout.activity_search_clicked)
+        Places.initialize(requireContext(), BuildConfig.MAPS_API_KEY)
+        placesClient = Places.createClient(requireContext())
         //searchSubmit()
-        // clickBackButton()
-        autocompleteSearch()
+        clickBackButton(view)
+        // autocompleteSearch()
     }
 
     /* private fun searchSubmit() {
@@ -53,17 +63,16 @@ class SearchClicked : AppCompatActivity() {
                 return false
             }
         })
-    }
-
-    private fun clickBackButton() {
-        val backButton = findViewById<ImageButton>(R.id.backButton)
-        backButton.setOnClickListener {
-            val intent = Intent(this@SearchClicked, MainActivity::class.java)
-            startActivity(intent)
-        }
     } */
 
-    private fun autocompleteSearch() {
+    private fun clickBackButton(view: View) {
+        val backButton = view.findViewById<ImageButton>(R.id.backButton)
+        backButton.setOnClickListener {
+            view.findNavController().navigate(R.id.mapsFragment2)
+        }
+    }
+
+    /*private fun autocompleteSearch() {
         val autocompleteFragment = supportFragmentManager.findFragmentById(R.id.autocomplete_fragment)
                 as AutocompleteSupportFragment
         autocompleteFragment.setPlaceFields(listOf(Place.Field.NAME, Place.Field.LAT_LNG))
@@ -95,5 +104,5 @@ class SearchClicked : AppCompatActivity() {
             }
         })
 
-    }
+    } */
 }

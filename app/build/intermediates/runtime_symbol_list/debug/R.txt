@@ -3145,11 +3145,13 @@ int id action_container 0x7f09003c
 int id action_context_bar 0x7f09003d
 int id action_divider 0x7f09003e
 int id action_image 0x7f09003f
+int id action_mapsFragment2_to_searchClicked 0x7f090226
 int id action_menu_divider 0x7f090040
 int id action_menu_presenter 0x7f090041
 int id action_mode_bar 0x7f090042
 int id action_mode_bar_stub 0x7f090043
 int id action_mode_close_button 0x7f090044
+int id action_searchClicked_to_mapsFragment2 0x7f090229
 int id action_text 0x7f090045
 int id actions 0x7f090046
 int id activity_chooser_view_content 0x7f090047
@@ -3229,7 +3231,6 @@ int id continuousVelocity 0x7f090090
 int id coordinator 0x7f090091
 int id cos 0x7f090092
 int id counterclockwise 0x7f090093
-int id currentLocation 0x7f090094
 int id currentState 0x7f090095
 int id custom 0x7f090096
 int id customPanel 0x7f090097
@@ -3348,8 +3349,8 @@ int id listMode 0x7f090107
 int id list_item 0x7f090108
 int id locale 0x7f090109
 int id ltr 0x7f09010a
-int id main_search_view 0x7f09010b
 int id map 0x7f09010c
+int id map_search_view 0x7f090228
 int id mapsFragment2 0x7f09010d
 int id masked 0x7f09010e
 int id match_constraint 0x7f09010f
@@ -3495,6 +3496,7 @@ int id scrollIndicatorDown 0x7f09019a
 int id scrollIndicatorUp 0x7f09019b
 int id scrollView 0x7f09019c
 int id scrollable 0x7f09019d
+int id searchClicked 0x7f090227
 int id search_badge 0x7f09019e
 int id search_bar 0x7f09019f
 int id search_button 0x7f0901a0

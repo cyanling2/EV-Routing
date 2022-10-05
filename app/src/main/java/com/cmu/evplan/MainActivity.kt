@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Window
 import android.widget.SearchView
 import android.content.Intent
+import android.text.Layout
 import android.util.Log
 import android.widget.EditText
 import android.widget.ImageView
@@ -26,14 +27,6 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_fragment)
 //        val navController = findNavController(R.id.nav_fragment)
         bottomNavigationView.setupWithNavController(navController)
-
-        // Click on search to go to search clicked page, but only works
-        // if you click on the search icon
-        val searchView = findViewById<SearchView>(R.id.main_search_view)
-        searchView.setOnClickListener {
-            val intent = Intent(this, SearchClicked::class.java)
-            startActivity(intent)
-        }
 
 
         /*val name = intent.getStringExtra(PLACE_NAME)

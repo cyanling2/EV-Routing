@@ -9,11 +9,24 @@
         android:id="@+id/mapsFragment2"
         android:name="com.cmu.evplan.MapsFragment"
         android:label="MapsFragment"
-        tools:layout="@layout/fragment_maps" />
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/action_mapsFragment2_to_searchClicked"
+            app:destination="@id/searchClicked" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment2"
         android:name="com.cmu.evplan.SettingsFragment"
         android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/searchClicked"
+        android:name="com.cmu.evplan.SearchClicked"
+        android:label="activity_search_clicked"
+        tools:layout="@layout/activity_search_clicked" >
+        <action
+            android:id="@+id/action_searchClicked_to_mapsFragment2"
+            app:destination="@id/mapsFragment2" />
+    </fragment>
 </navigation>
 
     <!--        android:label="fragment_maps"-->

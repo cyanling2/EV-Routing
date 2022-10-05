@@ -3146,11 +3146,13 @@ id action_container
 id action_context_bar
 id action_divider
 id action_image
+id action_mapsFragment2_to_searchClicked
 id action_menu_divider
 id action_menu_presenter
 id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
+id action_searchClicked_to_mapsFragment2
 id action_text
 id actions
 id activity_chooser_view_content
@@ -3230,7 +3232,6 @@ id continuousVelocity
 id coordinator
 id cos
 id counterclockwise
-id currentLocation
 id currentState
 id custom
 id customPanel
@@ -3349,8 +3350,8 @@ id listMode
 id list_item
 id locale
 id ltr
-id main_search_view
 id map
+id map_search_view
 id mapsFragment2
 id masked
 id match_constraint
@@ -3496,6 +3497,7 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollable
+id searchClicked
 id search_badge
 id search_bar
 id search_button
