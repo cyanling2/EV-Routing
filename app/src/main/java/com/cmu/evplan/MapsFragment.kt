@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.cmu.evplan.databinding.FragmentMapsBinding
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -20,6 +21,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.libraries.places.api.model.Place
 
 
 class MapsFragment : Fragment(), OnMapReadyCallback {
@@ -32,6 +34,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private val viewModel: RoutingViewModel by activityViewModels()
 
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1
@@ -95,6 +98,12 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
                 lastLocation = location
                 val currentLatLng = LatLng(location.latitude, location.longitude)
                 map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 12f))
+
+                val src: Place = Place.builder()
+                    .setLatLng(currentLatLng)
+                    .setName("My Current Location")
+                    .build()
+                viewModel.setSrc(src)
             }
         }
     }
