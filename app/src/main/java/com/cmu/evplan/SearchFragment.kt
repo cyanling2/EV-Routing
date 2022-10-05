@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SearchView
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.cmu.evplan.databinding.FragmentSearchBinding
@@ -64,7 +63,7 @@ class SearchFragment : Fragment() {
                 val fragmentTransaction = fragmentManager.beginTransaction()
                 fragmentTransaction.add(R.id.searchView, fragment).commit()
 
-                findNavController().navigate(R.id.action_searchFragment_to_mapsFragment)
+                findNavController().navigate(R.id.action_searchFragment_to_routingFragment)
             }
 
             override fun onError(error: Status) {

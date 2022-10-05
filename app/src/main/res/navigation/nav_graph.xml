@@ -28,9 +28,17 @@
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" >
         <action
+            android:id="@+id/action_searchFragment_to_routingFragment"
+            app:destination="@id/routingFragment" />
+        <action
             android:id="@+id/action_searchFragment_to_mapsFragment"
             app:destination="@id/mapsFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/routingFragment"
+        android:name="com.cmu.evplan.RoutingFragment"
+        android:label="fragment_routing"
+        tools:layout="@layout/fragment_routing" />
 </navigation>
 
     <!--        android:label="fragment_maps"-->
