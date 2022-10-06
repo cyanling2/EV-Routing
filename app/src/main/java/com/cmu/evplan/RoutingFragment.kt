@@ -24,6 +24,7 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.cmu.evplan.BuildConfig.MAPS_API_KEY
 import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.model.LatLngBounds
 
 class RoutingFragment : Fragment(), OnMapReadyCallback {
     private var _binding: FragmentRoutingBinding? = null
@@ -58,6 +59,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
     private val callback = OnMapReadyCallback { googleMap ->
 //        val sanjose = LatLng(37.3361663, -121.890591)
 //        val chicago = LatLng(41.8755616,-87.6244212)
+        val boundsBuilder = LatLngBounds.Builder()
         viewModel.getSrc()?.latLng?.let { MarkerOptions().position(it).title(viewModel.getSrc()?.name) }
             ?.let { googleMap.addMarker(it) }
         viewModel.getDst()?.latLng?.let { MarkerOptions().position(it).title(viewModel.getDst()?.name) }
@@ -73,6 +75,10 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
         val srcLng = viewModel.getSrc()?.latLng?.longitude
         val dstLat = viewModel.getDst()?.latLng?.latitude
         val dstLng = viewModel.getDst()?.latLng?.longitude
+        if (srcLat != null && dstLat != null && srcLng != null && dstLng != null) {
+            boundsBuilder.include(LatLng(srcLat, srcLng))
+            boundsBuilder.include(LatLng(dstLat, dstLng))
+        }
         val urlDirections = "https://maps.googleapis.com/maps/api/directions/json?origin=${srcLat},${srcLng}&destination=${dstLat},${dstLng}&key=$MAPS_API_KEY"
         val directionsRequest = object : StringRequest(Request.Method.GET, urlDirections, Response.Listener<String> {
                 response ->
@@ -94,7 +100,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
         }){}
         val requestQueue = Volley.newRequestQueue(context)
         requestQueue.add(directionsRequest)
-
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 1000, 1000, 0))
     }
 
     override fun onMapReady(p0: GoogleMap) {
