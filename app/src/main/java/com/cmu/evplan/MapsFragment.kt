@@ -1,25 +1,26 @@
 package com.cmu.evplan
 
-import android.content.Intent
+import android.Manifest.permission
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
-import androidx.fragment.app.Fragment
-
+import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import com.cmu.evplan.databinding.FragmentMapsBinding
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
-
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
-import android.location.Location
-
+import com.google.android.libraries.places.api.model.Place
 import android.graphics.Color
 import android.media.Image
 import com.android.volley.Request
@@ -44,6 +45,11 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
     private lateinit var lastLocation: Location
     private lateinit var mapFragment: SupportMapFragment
     private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private var _binding: FragmentMapsBinding? = null
+    // This property is only valid between onCreateView and
+    // onDestroyView.
+    private val binding get() = _binding!!
+    private val viewModel: RoutingViewModel by activityViewModels()
 
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1
@@ -54,19 +60,24 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_maps, container, false)
-    }
+        _binding = FragmentMapsBinding.inflate(inflater, container, false)
+        val view = binding.root
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(mapFragment.requireActivity())
         checkPermissions()
         getCurrentLocation()
         clickSearchView(view)
+
+        _binding!!.mapSearchView.setOnClickListener{
+            findNavController().navigate(R.id.action_mapsFragment_to_searchFragment)
+        }
+        return view
     }
 
+    @SuppressLint("MissingPermission")
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
         map.uiSettings.isZoomControlsEnabled = true
@@ -74,7 +85,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         map.uiSettings.isMyLocationButtonEnabled = true
         //processEVJson(map)
         val bundle = arguments
-        val name = bundle?.getString(PLACE_NAME)
+        val name = bundle?.getString("PLACE_NAME")
         val long = bundle?.getDouble("LONGITUDE")
         val lat = bundle?.getDouble("LATITUDE")
         /*if (name != null) {
@@ -95,23 +106,36 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sanjose, 12.0f)) */
     }
 
+    @SuppressLint("MissingPermission")
     private fun getCurrentLocation() {
         fusedLocationClient.lastLocation.addOnSuccessListener(mapFragment.requireActivity()) { location ->
             if (location != null) {
                 lastLocation = location
                 val currentLatLng = LatLng(location.latitude, location.longitude)
                 map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 12f))
+
+                val src: Place = Place.builder()
+                    .setLatLng(currentLatLng)
+                    .setName("My Current Location")
+                    .build()
+                viewModel.setSrc(src)
             }
         }
     }
 
     private fun checkPermissions() {
-        if (ActivityCompat.checkSelfPermission(mapFragment.requireContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) !=
+        if (ActivityCompat.checkSelfPermission(mapFragment.requireContext(), permission.ACCESS_FINE_LOCATION) !=
                 PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(activity, "Make sure fine location's permission is issued", Toast.LENGTH_SHORT).show();
             ActivityCompat.requestPermissions(mapFragment.requireActivity(),
-                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                arrayOf(permission.ACCESS_FINE_LOCATION),
                 LOCATION_PERMISSION_REQUEST_CODE)
-                return
+        }
+        if (ActivityCompat.checkSelfPermission(mapFragment.requireContext(), permission.ACCESS_COARSE_LOCATION) !=
+            PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(mapFragment.requireActivity(),
+                arrayOf(permission.ACCESS_COARSE_LOCATION),
+                LOCATION_PERMISSION_REQUEST_CODE)
         }
     }
 
@@ -120,7 +144,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         // if you click on the search icon
         val searchView = view.findViewById<SearchView>(R.id.map_search_view)
         searchView.setOnClickListener {
-            view.findNavController().navigate(R.id.searchClicked)
+            view.findNavController().navigate(R.id.searchFragment)
         }
 
     }

@@ -578,6 +578,8 @@ attr gapBetweenBars
 attr gestureInsetBottomIgnored
 attr goIcon
 attr graph
+attr graphPackage
+attr graphResName
 attr guidelineUseRtl
 attr haloColor
 attr haloRadius
@@ -845,6 +847,7 @@ attr mock_labelBackgroundColor
 attr mock_labelColor
 attr mock_showDiagonals
 attr mock_showLabel
+attr moduleName
 attr motionDebug
 attr motionDurationLong1
 attr motionDurationLong2
@@ -958,6 +961,7 @@ attr pressedTranslationZ
 attr primaryActivityName
 attr progressBarPadding
 attr progressBarStyle
+attr progressDestination
 attr quantizeMotionInterpolator
 attr quantizeMotionPhase
 attr quantizeMotionSteps
@@ -2986,6 +2990,7 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable charger
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -3078,6 +3083,7 @@ drawable quantum_ic_arrow_back_grey600_24
 drawable quantum_ic_clear_grey600_24
 drawable quantum_ic_cloud_off_vd_theme_24
 drawable quantum_ic_search_grey600_24
+drawable tesla_removebg_preview
 drawable test_custom_background
 drawable test_level_drawable
 drawable tooltip_frame_dark
@@ -3146,13 +3152,15 @@ id action_container
 id action_context_bar
 id action_divider
 id action_image
-id action_mapsFragment2_to_searchClicked
+id action_mapsFragment_to_profileFragment
+id action_mapsFragment_to_searchFragment
 id action_menu_divider
 id action_menu_presenter
 id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
-id action_searchClicked_to_mapsFragment2
+id action_searchFragment_to_mapsFragment
+id action_searchFragment_to_routingFragment
 id action_text
 id actions
 id activity_chooser_view_content
@@ -3165,6 +3173,7 @@ id all
 id allStates
 id always
 id amu_text
+id androidx_compose_ui_view_composition_context
 id androidx_window_activity_scope
 id animateToEnd
 id animateToStart
@@ -3177,10 +3186,12 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
-id autocomplete_fragment
+id autocomplete
+id availibility
 id backButton
 id barrier
 id baseline
+id battery
 id battery_percent_reserved
 id beginOnFirstDraw
 id beginning
@@ -3192,6 +3203,7 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id brand
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3206,6 +3218,8 @@ id center_vertical
 id chain
 id chain2
 id chains
+id chargerImage
+id chargerType
 id checkbox
 id checked
 id chip
@@ -3221,6 +3235,7 @@ id clip_vertical
 id clockwise
 id closest
 id collapseActionView
+id compose_view_saveable_id_tag
 id compress
 id confirm_button
 id constraint
@@ -3244,11 +3259,13 @@ id decor_content_parent
 id default_activity_button
 id deltaRelative
 id dependency_ordering
+id description
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id dfn_progress_fragment
 id dialog_button
 id dimensions
 id direct
@@ -3301,7 +3318,6 @@ id flip
 id floating
 id forever
 id fragment_container_view_tag
-id frameLayout
 id frost
 id fullscreen_header
 id ghost_view
@@ -3314,6 +3330,7 @@ id grouping
 id groups
 id guideline
 id header_title
+id hide_in_inspector_tag
 id hideable
 id home
 id homeAsUp
@@ -3331,12 +3348,15 @@ id image
 id immediateStop
 id included
 id info
+id inspection_slot_table_set
+id installation_progress
 id invisible
 id inward
 id italic
 id item_touch_helper_previous_elevation
 id jumpToEnd
 id jumpToStart
+id label
 id labeled
 id layout
 id left
@@ -3352,6 +3372,7 @@ id locale
 id ltr
 id map
 id map_search_view
+id mapsFragment
 id mapsFragment2
 id masked
 id match_constraint
@@ -3379,7 +3400,10 @@ id matrix
 id media_actions
 id message
 id middle
+id mileage
 id mini
+id model
+id modelImage
 id month_grid
 id month_navigation_bar
 id month_navigation_fragment_toggle
@@ -3412,8 +3436,8 @@ id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
 id nav_controller_view_tag
-id nav_fragment
 id nav_graph
+id nav_host_fragment
 id nav_host_fragment_container
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
@@ -3472,8 +3496,13 @@ id places_autocomplete_try_again
 id places_autocomplete_try_again_progress
 id position
 id postLayout
+id profileFragment
+id progressBar
+id progress_action
 id progress_circular
 id progress_horizontal
+id progress_icon
+id progress_title
 id radio
 id ratio
 id rectangles
@@ -3484,6 +3513,8 @@ id rightToLeft
 id right_icon
 id right_side
 id rounded
+id routeMap
+id routingFragment
 id row_index_key
 id rtl
 id satellite
@@ -3497,7 +3528,8 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollable
-id searchClicked
+id searchFragment
+id searchView
 id search_badge
 id search_bar
 id search_button
@@ -3631,6 +3663,7 @@ id withinBounds
 id wrap
 id wrap_content
 id wrap_content_constrained
+id wrapped_composition_tag
 id x_left
 id x_right
 id zero_corner_chip
@@ -3729,7 +3762,6 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
-layout activity_search_clicked
 layout amu_info_window
 layout amu_text_bubble
 layout amu_webview
@@ -3749,8 +3781,12 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout dynamic_feature_install_fragment
 layout expand_button
 layout fragment_maps
+layout fragment_profile
+layout fragment_routing
+layout fragment_search
 layout image_frame
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
@@ -3864,6 +3900,7 @@ mipmap ic_launcher
 mipmap ic_launcher_round
 navigation nav_graph
 plurals mtrl_badge_content_description
+raw keep
 raw places_keep
 string abc_action_bar_home_description
 string abc_action_bar_up_description
@@ -3905,6 +3942,8 @@ string character_counter_overflowed_content_description
 string character_counter_pattern
 string chip_text
 string clear_text_end_icon_content_description
+string close_drawer
+string close_sheet
 string common_google_play_services_enable_button
 string common_google_play_services_enable_text
 string common_google_play_services_enable_title
@@ -3924,14 +3963,21 @@ string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
 string copy
+string default_error_message
 string error_icon_content_description
 string expand_button_title
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string hello
+string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
+string in_progress
+string indeterminate
+string installation_cancelled
+string installation_failed
+string installing_module
 string item_view_role_description
 string label
 string m3_ref_typeface_brand_medium
@@ -4008,7 +4054,12 @@ string mtrl_picker_toggle_to_year_selection
 string mtrl_timepicker_confirm
 string nav_app_bar_navigate_up_description
 string nav_app_bar_open_drawer_description
+string navigation_menu
+string not_selected
 string not_set
+string off
+string ok
+string on
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through
@@ -4023,13 +4074,18 @@ string places_powered_by_google
 string places_search_error
 string places_try_again
 string preference_copied
+string progress
 string reply_title
+string retry
 string search_menu_title
+string selected
 string signature_title
 string status_bar_notification_info_overflow
 string summary_collapsed_preference_list
 string sync_header
 string sync_title
+string tab
+string template_percent
 string title_activity_maps
 string v7_preference_off
 string v7_preference_on
@@ -4305,6 +4361,7 @@ style Base_Widget_MaterialComponents_TextView
 style CardView
 style CardView_Dark
 style CardView_Light
+style DialogWindowTheme
 style EmptyTheme
 style MaterialAlertDialog_Material3
 style MaterialAlertDialog_Material3_Body_Text
@@ -4680,6 +4737,7 @@ style Theme_MaterialComponents_Light_NoActionBar
 style Theme_MaterialComponents_Light_NoActionBar_Bridge
 style Theme_MaterialComponents_NoActionBar
 style Theme_MaterialComponents_NoActionBar_Bridge
+style Theme_PlayCore_Transparent
 style ThemeOverlay_AppCompat
 style ThemeOverlay_AppCompat_ActionBar
 style ThemeOverlay_AppCompat_Dark
@@ -5187,6 +5245,10 @@ styleable DialogFragmentNavigator android_name
 styleable DialogPreference android_dialogTitle android_dialogMessage android_dialogIcon android_positiveButtonText android_negativeButtonText android_dialogLayout dialogIcon dialogLayout dialogMessage dialogTitle negativeButtonText positiveButtonText
 styleable DrawerArrowToggle arrowHeadLength arrowShaftLength barLength color drawableSize gapBetweenBars spinBars thickness
 styleable DrawerLayout elevation
+styleable DynamicActivityNavigator moduleName
+styleable DynamicFragmentNavigator moduleName
+styleable DynamicGraphNavigator moduleName progressDestination
+styleable DynamicIncludeGraphNavigator graphPackage graphResName moduleName
 styleable EditTextPreference useSimpleSummaryProvider
 styleable ExtendedFloatingActionButton collapsedSize elevation extendMotionSpec hideMotionSpec showMotionSpec shrinkMotionSpec
 styleable ExtendedFloatingActionButton_Behavior_Layout behavior_autoHide behavior_autoShrink

@@ -9,7 +9,9 @@ import android.text.Layout
 import android.util.Log
 import android.widget.EditText
 import android.widget.ImageView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 
 class MainActivity : AppCompatActivity() {
@@ -23,17 +25,10 @@ class MainActivity : AppCompatActivity() {
 
         //Initialize the bottom navigation view
         //create bottom navigation view object
-        val bottomNavigationView = findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.bottom_navigatin_view)
-        val navController = findNavController(R.id.nav_fragment)
-//        val navController = findNavController(R.id.nav_fragment)
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigatin_view)
         bottomNavigationView.setupWithNavController(navController)
-
-
-        /*val name = intent.getStringExtra(PLACE_NAME)
-        val latLong = intent.getSerializableExtra(LAT_LNG)
-        if (name != null) {
-            Log.i("Test:", name)
-            Log.i("Test:", latLong.toString())
-        }  */
     }
 }

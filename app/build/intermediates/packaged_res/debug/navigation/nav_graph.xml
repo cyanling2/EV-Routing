@@ -3,30 +3,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mapsFragment2">
+    app:startDestination="@id/mapsFragment">
 
     <fragment
-        android:id="@+id/mapsFragment2"
+        android:id="@+id/mapsFragment"
         android:name="com.cmu.evplan.MapsFragment"
         android:label="MapsFragment"
         tools:layout="@layout/fragment_maps" >
         <action
-            android:id="@+id/action_mapsFragment2_to_searchClicked"
-            app:destination="@id/searchClicked" />
-    </fragment>
-    <fragment
-        android:id="@+id/settingsFragment2"
-        android:name="com.cmu.evplan.SettingsFragment"
-        android:label="SettingsFragment" />
-    <fragment
-        android:id="@+id/searchClicked"
-        android:name="com.cmu.evplan.SearchClicked"
-        android:label="activity_search_clicked"
-        tools:layout="@layout/activity_search_clicked" >
+            android:id="@+id/action_mapsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
         <action
-            android:id="@+id/action_searchClicked_to_mapsFragment2"
-            app:destination="@id/mapsFragment2" />
+            android:id="@+id/action_mapsFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.cmu.evplan.ProfileFragment"
+        tools:layout="@layout/fragment_maps"
+        android:label="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.cmu.evplan.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_routingFragment"
+            app:destination="@id/routingFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/routingFragment"
+        android:name="com.cmu.evplan.RoutingFragment"
+        android:label="fragment_routing"
+        tools:layout="@layout/fragment_routing" />
 </navigation>
-
-    <!--        android:label="fragment_maps"-->
