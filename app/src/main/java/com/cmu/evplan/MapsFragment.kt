@@ -9,7 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -22,6 +21,24 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.libraries.places.api.model.Place
+import android.graphics.Color
+import android.media.Image
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.google.android.gms.maps.model.PolylineOptions
+import com.google.maps.android.PolyUtil
+import org.json.JSONObject
+import android.util.Log
+import android.widget.ImageButton
+import android.widget.SearchView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.fragment.app.FragmentActivity
+import androidx.navigation.findNavController
+import com.google.android.gms.maps.model.MarkerOptions
+import org.json.JSONArray
 
 
 class MapsFragment : Fragment(), OnMapReadyCallback {
@@ -68,7 +85,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         map.uiSettings.isZoomControlsEnabled = true
         map.isMyLocationEnabled = true
         map.uiSettings.isMyLocationButtonEnabled = true
-        //processEVJson(map)
+        processEVJson(map)
         val bundle = arguments
         val name = bundle?.getString(PLACE_NAME)
         val long = bundle?.getDouble("LONGITUDE")
@@ -89,6 +106,33 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         /*val sanjose = LatLng(37.3361663, -121.890591)
         googleMap.addMarker(MarkerOptions().position(sanjose).title("sanjose"))
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sanjose, 12.0f)) */
+    }
+
+    // Pulls from an EV Station API and parses it to plot all EV stations in the US on the map
+    private fun processEVJson(googleMap: GoogleMap) {
+        val queue = Volley.newRequestQueue(context)
+        val evURL = "https://geo.dot.gov/mapping/rest/services/NTAD/Alternative_Fueling_Stations/MapServer/0/query?where=FUEL_TYPE_CODE%20%3D%20%27ELEC%27%20AND%20COUNTRY%20%3D%20%27US%27%20AND%20ACCESS_CODE%20%3D%20%27public%27AND%20STATE%20%3D%20%27CA%27%20&outFields=FUEL_TYPE_CODE,STATION_NAME,STREET_ADDRESS,CITY,STATE,ZIP,EV_LEVEL1_EVSE_NUM,EV_LEVEL2_EVSE_NUM,EV_DC_FAST_COUNT,EV_OTHER_INFO,EV_NETWORK,EV_NETWORK_WEB,LATITUDE,LONGITUDE,ID,EV_CONNECTOR_TYPES,COUNTRY,EV_PRICING,LATDD,LONGDD,EV_ON_SITE_RENEWABLE_SOURCE&outSR=4326&f=json"
+        val evStationRequest = object : StringRequest(Request.Method.GET, evURL, Response.Listener<String> {
+                response ->
+            val evJsonResponse = JSONObject(response)
+            // Get EV Stations
+            val evStations = evJsonResponse.getJSONArray("features")
+            // Log.e("Test", evStations.getJSONObject(0).getJSONObject("attributes").getString("LATITUDE"))
+            for (i in 0 until evStations.length()) {
+                val latitude = evStations.getJSONObject(i).getJSONObject("attributes").getDouble("LATITUDE")
+                val longitude = evStations.getJSONObject(i).getJSONObject("attributes").getDouble("LONGITUDE")
+                val stationName = evStations.getJSONObject(i).getJSONObject("attributes").getString("STATION_NAME")
+                val connector = evStations.getJSONObject(i).getJSONObject("attributes").getString("EV_CONNECTOR_TYPES");
+
+                var chargeOutput = "connector type: $connector"
+                val latLong = LatLng(latitude, longitude)
+                googleMap.addMarker(MarkerOptions().position(latLong).title(stationName).snippet(chargeOutput))
+                // println("added on station")
+            }
+        }, Response.ErrorListener {
+
+        }){}
+        queue.add(evStationRequest)
     }
 
     @SuppressLint("MissingPermission")
