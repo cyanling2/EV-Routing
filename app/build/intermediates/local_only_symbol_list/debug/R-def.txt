@@ -31,6 +31,7 @@ id battery
 id battery_percent_reserved
 id bottom_navigatin_view
 id brand
+id button
 id chargerImage
 id chargerType
 id description
