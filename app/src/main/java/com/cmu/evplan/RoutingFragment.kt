@@ -123,10 +123,10 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
                 newRoute.add(LatLng(dstLat, dstLng))
             }
             Log.i("Test", newRoute.toString()) */
-            for (i in 0 until path.size) {
+            /*for (i in 0 until path.size) {
                 googleMap.addPolyline(PolylineOptions().addAll(path[i]).color(Color.BLUE))
                 // Log.i("Test:", path[i].toString())
-            }
+            } */
         }, Response.ErrorListener {
 
         }){}
