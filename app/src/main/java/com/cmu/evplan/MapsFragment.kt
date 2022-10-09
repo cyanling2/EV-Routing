@@ -165,9 +165,12 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
                 val latitude = evStations.getJSONObject(i).getJSONObject("attributes").getDouble("LATITUDE")
                 val longitude = evStations.getJSONObject(i).getJSONObject("attributes").getDouble("LONGITUDE")
                 val stationName = evStations.getJSONObject(i).getJSONObject("attributes").getString("STATION_NAME")
+                val connector = evStations.getJSONObject(i).getJSONObject("attributes").getString("EV_CONNECTOR_TYPES");
+
+                var chargeOutput = "connector type: $connector"
                 val latLong = LatLng(latitude, longitude)
                 markers.add(latLong)
-                googleMap.addMarker(MarkerOptions().position(latLong).title(stationName))
+                googleMap.addMarker(MarkerOptions().position(latLong).title(stationName).snippet(chargeOutput))
             }
             viewModel.setMarkers(markers)
         }, Response.ErrorListener {
