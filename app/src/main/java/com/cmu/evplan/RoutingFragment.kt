@@ -73,7 +73,35 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
         val srcLng = viewModel.getSrc()?.latLng?.longitude
         val dstLat = viewModel.getDst()?.latLng?.latitude
         val dstLng = viewModel.getDst()?.latLng?.longitude
-        val urlDirections = "https://maps.googleapis.com/maps/api/directions/json?origin=${srcLat},${srcLng}&destination=${dstLat},${dstLng}&key=$MAPS_API_KEY"
+        //Hard Code Charger
+        val chargerLat=37.3243862
+        val chargerLng=-122.030635
+        val charger = LatLng(37.3243862, -122.030635)
+        googleMap.addMarker(MarkerOptions().position(charger).title("charger"))
+        val urlDirections1 = "https://maps.googleapis.com/maps/api/directions/json?origin=${chargerLat},${chargerLng}&destination=${dstLat},${dstLng}&key=$MAPS_API_KEY"
+        val directionsRequest1 = object : StringRequest(Request.Method.GET, urlDirections1, Response.Listener<String> {
+                response ->
+            val jsonResponse = JSONObject(response)
+            // Get routes
+            val routes = jsonResponse.getJSONArray("routes")
+            val legs = routes.getJSONObject(0).getJSONArray("legs")
+            val steps = legs.getJSONObject(0).getJSONArray("steps")
+
+            for (i in 0 until steps.length()) {
+                val points = steps.getJSONObject(i).getJSONObject("polyline").getString("points")
+                path.add(PolyUtil.decode(points))
+            }
+            for (i in 0 until path.size) {
+                googleMap.addPolyline(PolylineOptions().addAll(path[i]).color(Color.BLUE))
+            }
+        }, Response.ErrorListener {
+
+        }){}
+        // end Hard code
+        val requestQueue = Volley.newRequestQueue(context)
+        requestQueue.add(directionsRequest1)
+
+        val urlDirections = "https://maps.googleapis.com/maps/api/directions/json?origin=${srcLat},${srcLng}&destination=${chargerLat},${chargerLng}&key=$MAPS_API_KEY"
         val directionsRequest = object : StringRequest(Request.Method.GET, urlDirections, Response.Listener<String> {
                 response ->
             val jsonResponse = JSONObject(response)
@@ -92,7 +120,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
         }, Response.ErrorListener {
 
         }){}
-        val requestQueue = Volley.newRequestQueue(context)
+
         requestQueue.add(directionsRequest)
 
     }
