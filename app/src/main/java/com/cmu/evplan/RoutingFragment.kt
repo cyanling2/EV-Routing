@@ -75,6 +75,8 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
         val srcLng = viewModel.getSrc()?.latLng?.longitude
         val dstLat = viewModel.getDst()?.latLng?.latitude
         val dstLng = viewModel.getDst()?.latLng?.longitude
+        val markers = viewModel.getMarkers()
+        // Log.i("Test:", markers.toString())
         if (srcLat != null && dstLat != null && srcLng != null && dstLng != null) {
             boundsBuilder.include(LatLng(srcLat, srcLng))
             boundsBuilder.include(LatLng(dstLat, dstLng))
@@ -92,15 +94,45 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
                 val points = steps.getJSONObject(i).getJSONObject("polyline").getString("points")
                 path.add(PolyUtil.decode(points))
             }
+            // Loop over marker
+            // Loop over each list of LatLng and check in a range
+            // If falls in a range, add LatLng to another list
+            // Run another function that plots each source and destination for each to connect
+            /*val newRoute: MutableSet<LatLng> = HashSet()
+            val distance = FloatArray(1)
+            if (srcLat != null && srcLng != null) {
+                newRoute.add(LatLng(srcLat, srcLng))
+            }
+            if (markers != null) {
+                for (i in 0 until markers.size) {
+                    for (j in 0 until path.size) {
+                        for (k in 0 until path[j].size) {
+                            Location.distanceBetween(markers[i].latitude, markers[i].longitude,
+                            path[j][k].latitude, path[j][k].longitude, distance)
+                            // Log.i("Test", distance[0].toString())
+                            if (distance[0] < 100 && (j != 1 || j != path.size)) {
+                                newRoute.add(markers[i])
+                                googleMap.addMarker(MarkerOptions().position(markers[i]))
+                                break
+                            }
+                        }
+                    }
+                }
+            }
+            if (dstLat != null && dstLng != null) {
+                newRoute.add(LatLng(dstLat, dstLng))
+            }
+            Log.i("Test", newRoute.toString()) */
             for (i in 0 until path.size) {
                 googleMap.addPolyline(PolylineOptions().addAll(path[i]).color(Color.BLUE))
+                // Log.i("Test:", path[i].toString())
             }
         }, Response.ErrorListener {
 
         }){}
         val requestQueue = Volley.newRequestQueue(context)
         requestQueue.add(directionsRequest)
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 1000, 1000, 0))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 1000, 1000, 100))
     }
 
     override fun onMapReady(p0: GoogleMap) {

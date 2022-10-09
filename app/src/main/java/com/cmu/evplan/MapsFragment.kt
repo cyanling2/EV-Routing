@@ -37,6 +37,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.findNavController
+import com.google.android.gms.maps.model.MarkerOptions
 import org.json.JSONArray
 
 class MapsFragment : Fragment(), OnMapReadyCallback {
@@ -83,7 +84,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         map.uiSettings.isZoomControlsEnabled = true
         map.isMyLocationEnabled = true
         map.uiSettings.isMyLocationButtonEnabled = true
-        //processEVJson(map)
+        processEVJson(map)
         val bundle = arguments
         val name = bundle?.getString("PLACE_NAME")
         val long = bundle?.getDouble("LONGITUDE")
@@ -139,14 +140,39 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         }
     }
 
+    // Click on search to go to search clicked page, but only works
+    // if you click on the search icon
     private fun clickSearchView(view: View) {
-        // Click on search to go to search clicked page, but only works
-        // if you click on the search icon
         val searchView = view.findViewById<SearchView>(R.id.map_search_view)
         searchView.setOnClickListener {
             view.findNavController().navigate(R.id.searchFragment)
         }
+    }
 
+    // Pulls from an EV Station API and parses it to plot all EV stations in the US on the map
+    private fun processEVJson(googleMap: GoogleMap) {
+        val markers: MutableList<LatLng> = ArrayList()
+        val queue = Volley.newRequestQueue(context)
+        val evURL = "https://geo.dot.gov/mapping/rest/services/NTAD/Alternative_Fueling_Stations/MapServer/0/query?where=FUEL_TYPE_CODE%20%3D%20'ELEC'%20AND%20COUNTRY%20%3D%20'US'&outFields=FUEL_TYPE_CODE,STATION_NAME,STREET_ADDRESS,CITY,STATE,ZIP,EV_LEVEL1_EVSE_NUM,EV_LEVEL2_EVSE_NUM,EV_DC_FAST_COUNT,EV_OTHER_INFO,EV_NETWORK,EV_NETWORK_WEB,LATITUDE,LONGITUDE,ID,EV_CONNECTOR_TYPES,COUNTRY,EV_PRICING,LATDD,LONGDD,EV_ON_SITE_RENEWABLE_SOURCE&outSR=4326&f=json"
+        val evStationRequest = object : StringRequest(Request.Method.GET, evURL, Response.Listener<String> {
+                response ->
+            val evJsonResponse = JSONObject(response)
+            // Get EV Stations
+            val evStations = evJsonResponse.getJSONArray("features")
+            // Log.e("Test", evStations.getJSONObject(0).getJSONObject("attributes").getString("LATITUDE"))
+            for (i in 0 until evStations.length()) {
+                val latitude = evStations.getJSONObject(i).getJSONObject("attributes").getDouble("LATITUDE")
+                val longitude = evStations.getJSONObject(i).getJSONObject("attributes").getDouble("LONGITUDE")
+                val stationName = evStations.getJSONObject(i).getJSONObject("attributes").getString("STATION_NAME")
+                val latLong = LatLng(latitude, longitude)
+                markers.add(latLong)
+                googleMap.addMarker(MarkerOptions().position(latLong).title(stationName))
+            }
+            viewModel.setMarkers(markers)
+        }, Response.ErrorListener {
+
+        }){}
+        queue.add(evStationRequest)
     }
 
     /*private val callback = OnMapReadyCallback { googleMap ->
@@ -189,29 +215,6 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         val requestQueue = Volley.newRequestQueue(context)
         requestQueue.add(directionsRequest)
         // processEVJson(googleMap)
-    } */
-
-    // Pulls from an EV Station API and parses it to plot all EV stations in the US on the map
-    /* private fun processEVJson(googleMap: GoogleMap) {
-        val queue = Volley.newRequestQueue(context)
-        val evURL = "https://geo.dot.gov/mapping/rest/services/NTAD/Alternative_Fueling_Stations/MapServer/0/query?where=FUEL_TYPE_CODE%20%3D%20'ELEC'%20AND%20COUNTRY%20%3D%20'US'&outFields=FUEL_TYPE_CODE,STATION_NAME,STREET_ADDRESS,CITY,STATE,ZIP,EV_LEVEL1_EVSE_NUM,EV_LEVEL2_EVSE_NUM,EV_DC_FAST_COUNT,EV_OTHER_INFO,EV_NETWORK,EV_NETWORK_WEB,LATITUDE,LONGITUDE,ID,EV_CONNECTOR_TYPES,COUNTRY,EV_PRICING,LATDD,LONGDD,EV_ON_SITE_RENEWABLE_SOURCE&outSR=4326&f=json"
-        val evStationRequest = object : StringRequest(Request.Method.GET, evURL, Response.Listener<String> {
-                response ->
-            val evJsonResponse = JSONObject(response)
-            // Get EV Stations
-            val evStations = evJsonResponse.getJSONArray("features")
-            // Log.e("Test", evStations.getJSONObject(0).getJSONObject("attributes").getString("LATITUDE"))
-            for (i in 0 until evStations.length()) {
-                val latitude = evStations.getJSONObject(i).getJSONObject("attributes").getDouble("LATITUDE")
-                val longitude = evStations.getJSONObject(i).getJSONObject("attributes").getDouble("LONGITUDE")
-                val stationName = evStations.getJSONObject(i).getJSONObject("attributes").getString("STATION_NAME")
-                val latLong = LatLng(latitude, longitude)
-                googleMap.addMarker(MarkerOptions().position(latLong).title(stationName))
-            }
-        }, Response.ErrorListener {
-
-        }){}
-        queue.add(evStationRequest)
     } */
 
     /*override fun onCreateView(
