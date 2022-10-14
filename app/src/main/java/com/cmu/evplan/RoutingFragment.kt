@@ -81,15 +81,15 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
             boundsBuilder.include(LatLng(srcLat, srcLng))
             boundsBuilder.include(LatLng(dstLat, dstLng))
         }
-        //val urlDirections = "https://maps.googleapis.com/maps/api/directions/json?origin=${srcLat},${srcLng}&destination=${dstLat},${dstLng}&key=$MAPS_API_KEY"
+        val urlDirections = "https://maps.googleapis.com/maps/api/directions/json?origin=${srcLat},${srcLng}&destination=${dstLat},${dstLng}&key=$MAPS_API_KEY"
         //val directionsRequest = object : StringRequest(Request.Method.GET, urlDirections, Response.Listener<String> {
         //Hard Code Charger
-        val chargerLat=37.3243862
+        /*val chargerLat=37.3243862
         val chargerLng=-122.030635
         val charger = LatLng(37.3243862, -122.030635)
-        googleMap.addMarker(MarkerOptions().position(charger).title("charger"))
-        val urlDirections1 = "https://maps.googleapis.com/maps/api/directions/json?origin=${chargerLat},${chargerLng}&destination=${dstLat},${dstLng}&key=$MAPS_API_KEY"
-        val directionsRequest1 = object : StringRequest(Request.Method.GET, urlDirections1, Response.Listener<String> {
+        googleMap.addMarker(MarkerOptions().position(charger).title("charger")) */
+        //val urlDirections1 = "https://maps.googleapis.com/maps/api/directions/json?origin=${chargerLat},${chargerLng}&destination=${dstLat},${dstLng}&key=$MAPS_API_KEY"
+        val directionsRequest1 = object : StringRequest(Request.Method.GET, urlDirections, Response.Listener<String> {
                 response ->
             val jsonResponse = JSONObject(response)
             // Get routes
@@ -105,8 +105,14 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
             // Loop over each list of LatLng and check in a range
             // If falls in a range, add LatLng to another list
             // Run another function that plots each source and destination for each to connect
-            /*val newRoute: MutableSet<LatLng> = HashSet()
+
+            // Issues: Can't do calculation because the charging stations data is so big
+            // Unsure how to just choose a single charging station rather than having a bunch near
+            // the route
+            val newRoute: MutableSet<LatLng> = HashSet()
             val distance = FloatArray(1)
+            val near = FloatArray(1)
+            var indexStations = 0
             if (srcLat != null && srcLng != null) {
                 newRoute.add(LatLng(srcLat, srcLng))
             }
@@ -116,11 +122,26 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
                         for (k in 0 until path[j].size) {
                             Location.distanceBetween(markers[i].latitude, markers[i].longitude,
                             path[j][k].latitude, path[j][k].longitude, distance)
-                            // Log.i("Test", distance[0].toString())
-                            if (distance[0] < 100 && (j != 1 || j != path.size)) {
-                                newRoute.add(markers[i])
-                                googleMap.addMarker(MarkerOptions().position(markers[i]))
-                                break
+                            // Log.i("Test", distance[0].toString()
+                            // Close to Route: 5 miles?
+                            // Test: 275 miles max distance?
+                            if (distance[0] < 100) {
+                                // Check the distance of the current charging station with the previous
+                                // station and if it is close by a certain distance, do not add to the
+                                // new route list
+                                if (newRoute.size == 3) {
+                                    Location.distanceBetween(newRoute.elementAt(indexStations).latitude,
+                                    newRoute.elementAt(indexStations).longitude, markers[i].latitude,
+                                    markers[i].longitude, near)
+                                }
+                                if (newRoute.size != 3 || near[0] > 3000) {
+                                    newRoute.add(markers[i])
+                                    if (newRoute.size > 2) {
+                                        indexStations++
+                                    }
+                                    googleMap.addMarker(MarkerOptions().position(markers[i]))
+                                    Log.i("Test", newRoute.toString())
+                                }
                             }
                         }
                     }
@@ -129,7 +150,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
             if (dstLat != null && dstLng != null) {
                 newRoute.add(LatLng(dstLat, dstLng))
             }
-            Log.i("Test", newRoute.toString()) */
+            // Log.i("Test", newRoute.toString())
             for (i in 0 until path.size) {
                 googleMap.addPolyline(PolylineOptions().addAll(path[i]).color(Color.BLUE))
                 // Log.i("Test:", path[i].toString())
@@ -141,7 +162,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
         val requestQueue = Volley.newRequestQueue(context)
         requestQueue.add(directionsRequest1)
 
-        val urlDirections = "https://maps.googleapis.com/maps/api/directions/json?origin=${srcLat},${srcLng}&destination=${chargerLat},${chargerLng}&key=$MAPS_API_KEY"
+        /*val urlDirections = "https://maps.googleapis.com/maps/api/directions/json?origin=${srcLat},${srcLng}&destination=${chargerLat},${chargerLng}&key=$MAPS_API_KEY"
         val directionsRequest = object : StringRequest(Request.Method.GET, urlDirections, Response.Listener<String> {
                 response ->
             val jsonResponse = JSONObject(response)
@@ -162,7 +183,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
         }){}
 
         requestQueue.add(directionsRequest)
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 1000, 1000, 100))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 1000, 1000, 100)) */
     }
 
     override fun onMapReady(p0: GoogleMap) {

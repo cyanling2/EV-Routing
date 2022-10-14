@@ -153,8 +153,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
     private fun processEVJson(googleMap: GoogleMap) {
         val markers: MutableList<LatLng> = ArrayList()
         val queue = Volley.newRequestQueue(context)
-        // val evURL = "https://geo.dot.gov/mapping/rest/services/NTAD/Alternative_Fueling_Stations/MapServer/0/query?where=FUEL_TYPE_CODE%20%3D%20'ELEC'%20AND%20CITY%20%3D%20'SAN%20JOSE'%20AND%20STATE%20%3D%20'CA'%20AND%20COUNTRY%20%3D%20'US'&outFields=FUEL_TYPE_CODE,STATION_NAME,STREET_ADDRESS,CITY,STATE,ZIP,ACCESS_DAYS_TIME,EV_LEVEL1_EVSE_NUM,EV_LEVEL2_EVSE_NUM,EV_DC_FAST_COUNT,EV_OTHER_INFO,EV_NETWORK,EV_NETWORK_WEB,LATITUDE,ID,EV_CONNECTOR_TYPES,EV_PRICING,EV_ON_SITE_RENEWABLE_SOURCE,CARDS_ACCEPTED,LONGITUDE,COUNTRY&outSR=4326&f=json"
-        val evURL = "https://geo.dot.gov/mapping/rest/services/NTAD/Alternative_Fueling_Stations/MapServer/0/query?where=FUEL_TYPE_CODE%20%3D%20'ELEC'%20AND%20COUNTRY%20%3D%20'US'&outFields=FUEL_TYPE_CODE,STATION_NAME,STREET_ADDRESS,CITY,STATE,ZIP,EV_LEVEL1_EVSE_NUM,EV_LEVEL2_EVSE_NUM,EV_DC_FAST_COUNT,EV_OTHER_INFO,EV_NETWORK,EV_NETWORK_WEB,LATITUDE,LONGITUDE,ID,EV_CONNECTOR_TYPES,COUNTRY,EV_PRICING,LATDD,LONGDD,EV_ON_SITE_RENEWABLE_SOURCE&outSR=4326&f=json"
+        val evURL = "https://services.arcgis.com/xOi1kZaI0eWDREZv/arcgis/rest/services/Alternative_Fueling_Stations/FeatureServer/0/query?where=state%20%3D%20%27CA%27%20AND%20fuel_type_code%20%3D%20%27ELEC%27&outFields=fuel_type_code,id,station_name,facility_type,city,state,street_address,zip,country,ev_connector_types,ev_network,ev_network_web,ev_other_evse,ev_pricing,ev_renewable_source,longitude,latitude,ev_level1_evse_num,ev_dc_fast_num,ev_level2_evse_num&outSR=4326&f=json"
         val evStationRequest = object : StringRequest(Request.Method.GET, evURL, Response.Listener<String> {
                 response ->
             val evJsonResponse = JSONObject(response)
@@ -162,10 +161,10 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
             val evStations = evJsonResponse.getJSONArray("features")
             // Log.e("Test", evStations.getJSONObject(0).getJSONObject("attributes").getString("LATITUDE"))
             for (i in 0 until evStations.length()) {
-                val latitude = evStations.getJSONObject(i).getJSONObject("attributes").getDouble("LATITUDE")
-                val longitude = evStations.getJSONObject(i).getJSONObject("attributes").getDouble("LONGITUDE")
-                val stationName = evStations.getJSONObject(i).getJSONObject("attributes").getString("STATION_NAME")
-                val connector = evStations.getJSONObject(i).getJSONObject("attributes").getString("EV_CONNECTOR_TYPES");
+                val latitude = evStations.getJSONObject(i).getJSONObject("attributes").getDouble("latitude")
+                val longitude = evStations.getJSONObject(i).getJSONObject("attributes").getDouble("longitude")
+                val stationName = evStations.getJSONObject(i).getJSONObject("attributes").getString("station_name")
+                val connector = evStations.getJSONObject(i).getJSONObject("attributes").getString("ev_connector_types");
 
                 var chargeOutput = "connector type: $connector"
                 val latLong = LatLng(latitude, longitude)
