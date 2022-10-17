@@ -1,22 +1,26 @@
 [
     {
+        "merged": "/Users/janegao/.gradle/daemon/7.3.3/com.cmu.evplan.app-mergeDebugResources-51:/layout/fragment_routing.xml",
+        "source": "/Users/janegao/.gradle/daemon/7.3.3/com.cmu.evplan.app-main-54:/layout/fragment_routing.xml"
+    },
+    {
         "merged": "com.cmu.evplan.app-mergeDebugResources-51:/layout/fragment_search.xml",
         "source": "com.cmu.evplan.app-main-54:/layout/fragment_search.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-mergeDebugResources-51:/layout/fragment_routing.xml",
-        "source": "com.cmu.evplan.app-main-54:/layout/fragment_routing.xml"
+        "merged": "/Users/janegao/.gradle/daemon/7.3.3/com.cmu.evplan.app-mergeDebugResources-51:/layout/fragment_profile.xml",
+        "source": "/Users/janegao/.gradle/daemon/7.3.3/com.cmu.evplan.app-main-54:/layout/fragment_profile.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-mergeDebugResources-51:/layout/fragment_maps.xml",
-        "source": "com.cmu.evplan.app-main-54:/layout/fragment_maps.xml"
+        "merged": "/Users/janegao/.gradle/daemon/7.3.3/com.cmu.evplan.app-mergeDebugResources-51:/layout/fragment_search.xml",
+        "source": "/Users/janegao/.gradle/daemon/7.3.3/com.cmu.evplan.app-main-54:/layout/fragment_search.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-mergeDebugResources-51:/layout/activity_main.xml",
-        "source": "com.cmu.evplan.app-main-54:/layout/activity_main.xml"
+        "merged": "/Users/janegao/.gradle/daemon/7.3.3/com.cmu.evplan.app-mergeDebugResources-51:/layout/activity_main.xml",
+        "source": "/Users/janegao/.gradle/daemon/7.3.3/com.cmu.evplan.app-main-54:/layout/activity_main.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-mergeDebugResources-51:/layout/fragment_profile.xml",
-        "source": "com.cmu.evplan.app-main-54:/layout/fragment_profile.xml"
+        "merged": "/Users/janegao/.gradle/daemon/7.3.3/com.cmu.evplan.app-mergeDebugResources-51:/layout/fragment_maps.xml",
+        "source": "/Users/janegao/.gradle/daemon/7.3.3/com.cmu.evplan.app-main-54:/layout/fragment_maps.xml"
     }
 ]

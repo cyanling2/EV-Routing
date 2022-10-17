@@ -1,14 +1,14 @@
-#Fri Oct 14 15:19:22 PDT 2022
+#Mon Oct 17 14:42:28 PDT 2022
 path.4=classes2.dex
 path.3=4/classes.dex
 path.2=11/classes.dex
 path.1=0/classes.dex
 path.0=classes.dex
-base.4=/Users/bryanlin/Documents/EV-Routing/app/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
-base.3=/Users/bryanlin/Documents/EV-Routing/app/build/intermediates/dex/debug/mergeProjectDexDebug/4/classes.dex
-base.2=/Users/bryanlin/Documents/EV-Routing/app/build/intermediates/dex/debug/mergeProjectDexDebug/11/classes.dex
-base.1=/Users/bryanlin/Documents/EV-Routing/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
-base.0=/Users/bryanlin/Documents/EV-Routing/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+base.4=/Users/janegao/Documents/Code/EV-Routing/app/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
+base.3=/Users/janegao/Documents/Code/EV-Routing/app/build/intermediates/dex/debug/mergeProjectDexDebug/4/classes.dex
+base.2=/Users/janegao/Documents/Code/EV-Routing/app/build/intermediates/dex/debug/mergeProjectDexDebug/11/classes.dex
+base.1=/Users/janegao/Documents/Code/EV-Routing/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
+base.0=/Users/janegao/Documents/Code/EV-Routing/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
 renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex

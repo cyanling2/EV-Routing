@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -81,6 +82,10 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
             boundsBuilder.include(LatLng(srcLat, srcLng))
             boundsBuilder.include(LatLng(dstLat, dstLng))
         }
+
+        var remainRange = viewModel.calRemainRange()
+        Toast.makeText(activity, "remain range ${remainRange} miles", Toast.LENGTH_SHORT).show()
+
         val urlDirections = "https://maps.googleapis.com/maps/api/directions/json?origin=${srcLat},${srcLng}&destination=${dstLat},${dstLng}&key=$MAPS_API_KEY"
         //val directionsRequest = object : StringRequest(Request.Method.GET, urlDirections, Response.Listener<String> {
         //Hard Code Charger

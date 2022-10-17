@@ -71,6 +71,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         checkPermissions()
         getCurrentLocation()
         clickSearchView(view)
+        viewModel.clearTemp()
 
         _binding!!.mapSearchView.setOnClickListener{
             findNavController().navigate(R.id.action_mapsFragment_to_searchFragment)
@@ -120,6 +121,18 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
                     .setName("My Current Location")
                     .build()
                 viewModel.setSrc(src)
+
+                // retrieve temperature info before passing to routing page
+                val urlDirections = "https://api.openweathermap.org/data/2.5/weather?lat=${src.latLng?.latitude}&lon=${src.latLng?.latitude}&units=metric&APPID=237153eb4823ee8b72040b580065dd22"
+                val srcWeatherRequest = object : StringRequest(Request.Method.GET, urlDirections, Response.Listener<String> {
+                        response ->
+                    val jsonResponse = JSONObject(response)
+                    val temp = jsonResponse.getJSONObject("main").getDouble("temp")
+                    viewModel.addTemp(temp)
+                }, Response.ErrorListener {
+                }){}
+                val requestQueue = Volley.newRequestQueue(context)
+                requestQueue.add(srcWeatherRequest)
             }
         }
     }
