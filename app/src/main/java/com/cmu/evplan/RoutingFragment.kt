@@ -57,8 +57,6 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
      * user has installed Google Play services and returned to the app.
      */
     private val callback = OnMapReadyCallback { googleMap ->
-//        val sanjose = LatLng(37.3361663, -121.890591)
-//        val chicago = LatLng(41.8755616,-87.6244212)
         val boundsBuilder = LatLngBounds.Builder()
         viewModel.getSrc()?.latLng?.let { MarkerOptions().position(it).title(viewModel.getSrc()?.name) }
             ?.let { googleMap.addMarker(it) }
@@ -112,40 +110,126 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
             val newRoute: MutableSet<LatLng> = HashSet()
             val distance = FloatArray(1)
             val near = FloatArray(1)
-            var indexStations = 0
+            val closeToRoute = FloatArray(1)
+            var indexNewRoute = 0
+            var chargingStationsPointer = 0
+            var breakTrue = false
             if (srcLat != null && srcLng != null) {
                 newRoute.add(LatLng(srcLat, srcLng))
             }
             if (markers != null) {
-                for (i in 0 until markers.size) {
+                // Unsure what the condition should be to stop looking at charging stations in a while loop
+                // while ()
+                // Using a distance map or defining a grid within our app
+                // CHecking close to route first and then distance from point to point
+                if (dstLat != null && dstLng != null) {
+                    Location.distanceBetween(
+                        newRoute.elementAt(indexNewRoute).latitude,
+                        newRoute.elementAt(indexNewRoute).longitude, dstLat, dstLng, near)
+                }
+                while (chargingStationsPointer < markers.size) {
+                    Location.distanceBetween(markers[chargingStationsPointer].latitude,
+                    markers[chargingStationsPointer].longitude, newRoute.elementAt(indexNewRoute).latitude,
+                    newRoute.elementAt(indexNewRoute).longitude, distance)
+                    if (distance[0] > 150000 && distance[0] < 250000) {
+                        // Log.i("Test", "BOBA")
+                        for (j in 0 until path.size) {
+                            if (!breakTrue) {
+                                for (k in 0 until path[j].size) {
+                                    Location.distanceBetween(markers[chargingStationsPointer].latitude,
+                                        markers[chargingStationsPointer].longitude, path[j][k].latitude,
+                                        path[j][k].longitude, closeToRoute)
+                                    // Log.i("Test", closeToRoute[0].toString())
+                                    if (closeToRoute[0] < 50000 && !newRoute.contains(markers[chargingStationsPointer])) {
+                                        newRoute.add(markers[chargingStationsPointer])
+                                        indexNewRoute++
+                                        Log.i("Test", indexNewRoute.toString())
+                                        googleMap.addMarker(MarkerOptions().position(markers[chargingStationsPointer]))
+                                        // chargingStationsPointer = 0
+
+                                        breakTrue = true
+                                        break
+                                    }
+                                }
+                            } else {
+                                break
+                            }
+                        }
+                    }
+                    breakTrue = false
+                    chargingStationsPointer++
+
+                    if (dstLat != null && dstLng != null) {
+                        Location.distanceBetween(
+                            newRoute.elementAt(indexNewRoute).latitude,
+                            newRoute.elementAt(indexNewRoute).longitude, dstLat, dstLng, near)
+                    }
+                }
+
+                /* for (i in 0 until markers.size) {
+                    Location.distanceBetween(markers[i].latitude, markers[i].longitude,
+                    newRoute.elementAt(indexNewRoute).latitude, newRoute.elementAt(indexNewRoute).longitude,
+                    distance)
+                    // Run into issues because data is not in order of distance, so it can skip over a charging station
+                    // I.e.: Since we don't constantly look at the markers and calculate from beginning to end
+                    // charging stations won't be in order
+                    // Tried using while loop, but it takes too long and the app can't handle it
+                    if (distance[0] > 402336 && distance[0] < 442570) {
+                        for (j in 0 until path.size) {
+                            if (!breakTrue) {
+                                for (k in 0 until path[j].size) {
+                                    Location.distanceBetween(markers[i].latitude, markers[i].longitude,
+                                        path[j][k].latitude, path[j][k].longitude, closeToRoute)
+                                    if (closeToRoute[0] < 4828 && !newRoute.contains(markers[i])) {
+                                        newRoute.add(markers[i])
+                                        indexNewRoute++
+                                        googleMap.addMarker(MarkerOptions().position(markers[i]))
+                                        breakTrue = true
+                                        break
+                                    }
+                                }
+                            } else {
+                                break
+                            }
+                        }
+                    }
+                    breakTrue = false
                     for (j in 0 until path.size) {
                         for (k in 0 until path[j].size) {
                             Location.distanceBetween(markers[i].latitude, markers[i].longitude,
-                            path[j][k].latitude, path[j][k].longitude, distance)
-                            // Log.i("Test", distance[0].toString()
+                            path[j][k].latitude, path[j][k].longitude, closeToRoute)
                             // Close to Route: 5 miles?
                             // Test: 275 miles max distance?
-                            if (distance[0] < 100) {
+                            // Check each charging station for the max distance from the previous charging station
+                            if (closeToRoute[0] < 100) {
                                 // Check the distance of the current charging station with the previous
                                 // station and if it is close by a certain distance, do not add to the
                                 // new route list
-                                if (newRoute.size == 3) {
-                                    Location.distanceBetween(newRoute.elementAt(indexStations).latitude,
+                                Location.distanceBetween(newRoute.elementAt(indexNewRoute).latitude,
+                                newRoute.elementAt(indexNewRoute).longitude, markers[i].latitude,
+                                markers[i].longitude, distance)
+                                if (distance[0] > 402336 && !newRoute.contains(markers[i])) {
+                                    newRoute.add(markers[i])
+                                    indexNewRoute++
+                                    googleMap.addMarker((MarkerOptions().position(markers[i])))
+                                }
+                                if (newRoute.size >= 3) {
+                                    Location.distanceBetween(newRoute.elementAt(indexNewRoute).latitude,
                                     newRoute.elementAt(indexStations).longitude, markers[i].latitude,
                                     markers[i].longitude, near)
                                 }
-                                if (newRoute.size != 3 || near[0] > 3000) {
+                                if (newRoute.size != 3 || near[0] > 321869) {
                                     newRoute.add(markers[i])
                                     if (newRoute.size > 2) {
                                         indexStations++
                                     }
                                     googleMap.addMarker(MarkerOptions().position(markers[i]))
-                                    Log.i("Test", newRoute.toString())
+                                    // Log.i("Test", newRoute.toString())
                                 }
                             }
                         }
                     }
-                }
+                } */
             }
             if (dstLat != null && dstLng != null) {
                 newRoute.add(LatLng(dstLat, dstLng))
