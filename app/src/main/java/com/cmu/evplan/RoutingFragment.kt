@@ -84,7 +84,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
         }
 
         var remainRange = viewModel.calRemainRange()
-        Toast.makeText(activity, "remain range ${remainRange} miles", Toast.LENGTH_SHORT).show()
+//        Log.e("jane", "remain range $remainRange miles")
 
         val urlDirections = "https://maps.googleapis.com/maps/api/directions/json?origin=${srcLat},${srcLng}&destination=${dstLat},${dstLng}&key=$MAPS_API_KEY"
         //val directionsRequest = object : StringRequest(Request.Method.GET, urlDirections, Response.Listener<String> {

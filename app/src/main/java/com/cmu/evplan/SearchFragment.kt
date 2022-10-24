@@ -51,7 +51,10 @@ class SearchFragment : Fragment() {
 
         _binding!!.editBatteryPercentReserved.addTextChangedListener (object : TextWatcher {
             override fun afterTextChanged(e: Editable?) {
-                if (e == null)  return
+                if (e == null) {
+                    viewModel.setBattery(100.00)
+                    return
+                }
                 var str = e.toString()
                 if (str.isEmpty())  str = "100.00"
                 viewModel.setBattery(str.toDouble())

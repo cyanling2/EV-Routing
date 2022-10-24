@@ -35,6 +35,7 @@ class RoutingViewModel: ViewModel() {
 
     fun setBattery(per: Double) {
         battery.value = per
+//        Log.e("jane", "battery value: ${battery.value}, per: $per")
     }
 
     fun addTemp(temp: Double) {
@@ -62,32 +63,37 @@ class RoutingViewModel: ViewModel() {
      * calculate the remaining distance to go without charging.
      *
      * y - pHeat * time = b * distance
+     * y = b * distance + pHeat * time
      * y = b * distance + pHeat * distance / speed
      *   = (b + pHeat / speed) * distance
      *
      * y = battery capacity
      *      assume using 2022 Tesla Model 3, average full battery range = 165 mi, the usable capacity is 40 kWh (estimate)
-     *      @reference https://ev-database.uk/car/1060/Tesla-Model-3-Standard-Range#:~:text=Battery%20and%20Charging,on%20a%20fully%20charged%20battery.
+     * @reference https://ev-database.uk/car/1060/Tesla-Model-3-Standard-Range#:~:text=Battery%20and%20Charging,on%20a%20fully%20charged%20battery.
      *
      * b = pure driving consumption efficiency
+     *      unit = kWh/mile
+     *
      * pHeat = delta temperature consumption
      *      P heat = 90W * ΔC
      *      assume inner-car climate: 20 celsius
-     *      @reference https://link.springer.com/article/10.1007/s12053-020-09900-5
+     * @reference https://link.springer.com/article/10.1007/s12053-020-09900-5
      *
      * y = p * e
-     * p = percentage of the battery remained
+     * p = percentage of the battery remained (the user input)
      * e = efficiency for 1% of battery
-     *      40kWh = 100 * e, e = 40/100 = 0.4
+     *      40kWh = 100 * e, e = 40/100 = 0.4kWh
      *
      * p * e = (b + pHeat / speed) * distance
-     * distance = (b + pHeat / speed) / (p * e)
+     * distance = (p * e) / (b + pHeat / speed)
      * */
     fun calRemainRange(): Double? {
-        val b = 40.toDouble()/1.65
+//        Log.e("jane", "enters calc")
+        val b = 40.toDouble()/165
         var pHeat = 0.0
         if (!temps.value.isNullOrEmpty())
             pHeat = 0.09 * abs(temps.value!![0] - 20.0) * 0.5 + 0.09 * abs(temps.value!!.last() - 20.0) * 0.5
-        return (b + pHeat/60)/(battery.value?.times(0.4)!!)
+//        Log.e("jane", "b: $b, pHeat: $pHeat")
+        return (battery.value?.times(0.4)!!)/(b + pHeat/60)
     }
 }
