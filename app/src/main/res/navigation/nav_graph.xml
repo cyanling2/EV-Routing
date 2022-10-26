@@ -38,7 +38,11 @@
         android:id="@+id/routingFragment"
         android:name="com.cmu.evplan.RoutingFragment"
         android:label="fragment_routing"
-        tools:layout="@layout/fragment_routing" />
+        tools:layout="@layout/fragment_routing" >
+        <action
+            android:id="@+id/action_routingFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
 </navigation>
 
     <!--        android:label="fragment_maps"-->

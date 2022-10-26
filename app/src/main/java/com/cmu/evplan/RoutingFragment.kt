@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.cmu.evplan.databinding.FragmentRoutingBinding
@@ -24,6 +25,7 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.cmu.evplan.BuildConfig.MAPS_API_KEY
 import com.google.android.gms.maps.GoogleMap
+
 
 class RoutingFragment : Fragment(), OnMapReadyCallback {
     private var _binding: FragmentRoutingBinding? = null
@@ -43,6 +45,10 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
 
         val mapFragment = childFragmentManager.findFragmentById(R.id.routeMap) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
+        _binding!!.destination.setText(viewModel.getDst()?.name)
+        _binding!!.current.setText("current location")
+        _binding!!.routingBackButton.setOnClickListener {
+            findNavController().navigate(R.id.action_routingFragment_to_searchFragment)}
 
         return view
     }
