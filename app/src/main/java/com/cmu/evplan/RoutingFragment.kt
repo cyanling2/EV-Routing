@@ -107,13 +107,14 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
             // Issues: Can't do calculation because the charging stations data is so big
             // Unsure how to just choose a single charging station rather than having a bunch near
             // the route
-            val newRoute: MutableSet<LatLng> = HashSet()
+            val newRoute: MutableSet<LatLng> = LinkedHashSet()
             val distance = FloatArray(1)
             val near = FloatArray(1)
             val closeToRoute = FloatArray(1)
             var indexNewRoute = 0
             var chargingStationsPointer = 0
             var breakTrue = false
+            var tooClose = false
             if (srcLat != null && srcLng != null) {
                 newRoute.add(LatLng(srcLat, srcLng))
             }
@@ -121,31 +122,79 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
                 // Unsure what the condition should be to stop looking at charging stations in a while loop
                 // while ()
                 // Using a distance map or defining a grid within our app
-                // CHecking close to route first and then distance from point to point
-                if (dstLat != null && dstLng != null) {
-                    Location.distanceBetween(
-                        newRoute.elementAt(indexNewRoute).latitude,
-                        newRoute.elementAt(indexNewRoute).longitude, dstLat, dstLng, near)
+
+                // Checking close to route first and then distance from point to point
+                // Takes a very long time to process, not sure if my algorithm is correct
+                // Add the while loop inside the for loop, so loop over path first and then check
+                // the distance
+                for (i in 0 until path.size) {
+                    for (j in 0 until path[i].size) {
+                        for (k in 0 until markers.size) {
+                            Location.distanceBetween(markers[k].latitude,
+                                markers[k].longitude, path[i][j].latitude,
+                                path[i][j].longitude, closeToRoute)
+                            // If the charging station is approximately less than 15 miles from the route
+                            if (closeToRoute[0] < 25000 && !newRoute.contains(markers[k])) {
+                                for (l in 0 until newRoute.size) {
+                                    Location.distanceBetween(markers[k].latitude,
+                                        markers[k].longitude, newRoute.elementAt(l).latitude,
+                                        newRoute.elementAt(l).longitude, near)
+                                    // If a charging station near the route is less than 18 miles to any
+                                    // of the points (i.e. added charging stations & source), don't add to
+                                    // set.
+                                    if (near[0] < 30000) {
+                                        tooClose = true
+                                        break
+                                    }
+                                }
+                                // If a charging station isn't close to any in the set, check if the
+                                // charging station is between approximately 93 and 155 miles from
+                                // the previously added charging station or source, then add
+                                // the charging station to set.
+                                if (!tooClose) {
+                                    Location.distanceBetween(markers[k].latitude,
+                                        markers[k].longitude, newRoute.elementAt(indexNewRoute).latitude,
+                                        newRoute.elementAt(indexNewRoute).longitude, distance)
+                                    if (distance[0] > 150000 && distance[0] < 250000) {
+                                        newRoute.add(markers[k])
+                                        indexNewRoute++
+                                        googleMap.addMarker(MarkerOptions().position(markers[k]))
+                                        break
+                                    }
+                                }
+                            }
+                            tooClose = false
+                        }
+                    }
                 }
-                while (chargingStationsPointer < markers.size) {
+
+                // Pre-processing/Routing algorithm: Looks through each charging station from query
+                // and checks if the distance from either the source or the previously added charging
+                // station is within the range. If it is, check if the charging station falls in the range
+                // near the plotted route. If it does, add charging station to the set, increment the
+                // set pointer and reset to look at all charging stations again.
+
+                // Issue: Due to the data not being ordered, it causes issues.
+                /* while (chargingStationsPointer < markers.size) {
                     Location.distanceBetween(markers[chargingStationsPointer].latitude,
                     markers[chargingStationsPointer].longitude, newRoute.elementAt(indexNewRoute).latitude,
                     newRoute.elementAt(indexNewRoute).longitude, distance)
+                    // Currently set to be approximately greater than 93 miles but less than 155 miles
                     if (distance[0] > 150000 && distance[0] < 250000) {
-                        // Log.i("Test", "BOBA")
                         for (j in 0 until path.size) {
                             if (!breakTrue) {
                                 for (k in 0 until path[j].size) {
                                     Location.distanceBetween(markers[chargingStationsPointer].latitude,
                                         markers[chargingStationsPointer].longitude, path[j][k].latitude,
                                         path[j][k].longitude, closeToRoute)
-                                    // Log.i("Test", closeToRoute[0].toString())
-                                    if (closeToRoute[0] < 50000 && !newRoute.contains(markers[chargingStationsPointer])) {
+                                    // Currently set to be approximately less than 10 miles, but greater than 3 miles
+                                    if (closeToRoute[0] < 16000 &&
+                                        !newRoute.contains(markers[chargingStationsPointer])) {
                                         newRoute.add(markers[chargingStationsPointer])
                                         indexNewRoute++
-                                        Log.i("Test", indexNewRoute.toString())
+                                        Log.i("Test", chargingStationsPointer.toString())
                                         googleMap.addMarker(MarkerOptions().position(markers[chargingStationsPointer]))
-                                        // chargingStationsPointer = 0
+                                        chargingStationsPointer = -1
 
                                         breakTrue = true
                                         break
@@ -158,13 +207,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
                     }
                     breakTrue = false
                     chargingStationsPointer++
-
-                    if (dstLat != null && dstLng != null) {
-                        Location.distanceBetween(
-                            newRoute.elementAt(indexNewRoute).latitude,
-                            newRoute.elementAt(indexNewRoute).longitude, dstLat, dstLng, near)
-                    }
-                }
+                } */
 
                 /* for (i in 0 until markers.size) {
                     Location.distanceBetween(markers[i].latitude, markers[i].longitude,
@@ -234,43 +277,57 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
             if (dstLat != null && dstLng != null) {
                 newRoute.add(LatLng(dstLat, dstLng))
             }
-            // Log.i("Test", newRoute.toString())
-            for (i in 0 until path.size) {
+            /*for (i in 0 until path.size) {
                 googleMap.addPolyline(PolylineOptions().addAll(path[i]).color(Color.BLUE))
                 // Log.i("Test:", path[i].toString())
-            }
+            } */
+            plotRoute(newRoute, googleMap)
+            Log.i("Test", newRoute.toString())
         }, Response.ErrorListener {
 
         }){}
         // end Hard code
         val requestQueue = Volley.newRequestQueue(context)
         requestQueue.add(directionsRequest1)
-
-        /*val urlDirections = "https://maps.googleapis.com/maps/api/directions/json?origin=${srcLat},${srcLng}&destination=${chargerLat},${chargerLng}&key=$MAPS_API_KEY"
-        val directionsRequest = object : StringRequest(Request.Method.GET, urlDirections, Response.Listener<String> {
-                response ->
-            val jsonResponse = JSONObject(response)
-            // Get routes
-            val routes = jsonResponse.getJSONArray("routes")
-            val legs = routes.getJSONObject(0).getJSONArray("legs")
-            val steps = legs.getJSONObject(0).getJSONArray("steps")
-
-            for (i in 0 until steps.length()) {
-                val points = steps.getJSONObject(i).getJSONObject("polyline").getString("points")
-                path.add(PolyUtil.decode(points))
-            }
-            for (i in 0 until path.size) {
-                googleMap.addPolyline(PolylineOptions().addAll(path[i]).color(Color.BLUE))
-            }
-        }, Response.ErrorListener {
-
-        }){}
-
-        requestQueue.add(directionsRequest)
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 1000, 1000, 100)) */
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 1000, 1000, 100))
     }
 
+
+
     override fun onMapReady(p0: GoogleMap) {
+
+    }
+
+    private fun plotRoute(newRoute: MutableSet<LatLng>, googleMap: GoogleMap) {
+        val path: MutableList<List<LatLng>> = ArrayList()
+        for (i in 0 until (newRoute.size - 1)) {
+            val srcLat = newRoute.elementAt(i).latitude
+            val srcLng = newRoute.elementAt(i).longitude
+            val dstLat = newRoute.elementAt(i + 1).latitude
+            val dstLng = newRoute.elementAt(i + 1).longitude
+            val urlDirections = "https://maps.googleapis.com/maps/api/directions/json?origin=${srcLat},${srcLng}&destination=${dstLat},${dstLng}&key=$MAPS_API_KEY"
+            val directionsRequest = object : StringRequest(Request.Method.GET, urlDirections, Response.Listener<String> {
+                    response ->
+                val jsonResponse = JSONObject(response)
+                // Get routes
+                val routes = jsonResponse.getJSONArray("routes")
+                val legs = routes.getJSONObject(0).getJSONArray("legs")
+                val steps = legs.getJSONObject(0).getJSONArray("steps")
+
+                for (j in 0 until steps.length()) {
+                    val points =
+                        steps.getJSONObject(j).getJSONObject("polyline").getString("points")
+                    path.add(PolyUtil.decode(points))
+                }
+                for (j in 0 until path.size) {
+                    googleMap.addPolyline(PolylineOptions().addAll(path[j]).color(Color.BLUE))
+                }
+            }, Response.ErrorListener {
+
+            }){}
+            val requestQueue = Volley.newRequestQueue(context)
+            requestQueue.add(directionsRequest)
+        }
 
     }
 
