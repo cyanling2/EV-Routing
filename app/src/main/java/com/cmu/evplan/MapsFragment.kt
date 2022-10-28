@@ -21,24 +21,15 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.libraries.places.api.model.Place
-import android.graphics.Color
-import android.media.Image
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.google.android.gms.maps.model.PolylineOptions
-import com.google.maps.android.PolyUtil
 import org.json.JSONObject
-import android.util.Log
-import android.widget.ImageButton
 import android.widget.SearchView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.fragment.app.FragmentActivity
 import androidx.navigation.findNavController
 import com.google.android.gms.maps.model.MarkerOptions
-import org.json.JSONArray
 
 class MapsFragment : Fragment(), OnMapReadyCallback {
 
@@ -149,9 +140,16 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         }
     }
 
+
+
+
     // Pulls from an EV Station API and parses it to plot all EV stations in the US on the map
     private fun processEVJson(googleMap: GoogleMap) {
-        val markers: MutableList<LatLng> = ArrayList()
+        // val markers: MutableList<LatLng> = ArrayList()
+        // val markers = mutableMapOf<String, LatLng>()
+        var markers: MutableList<MarkerType> = ArrayList()
+        var markerType: MarkerType = MarkerType()
+
         val queue = Volley.newRequestQueue(context)
         val evURL = "https://services.arcgis.com/xOi1kZaI0eWDREZv/arcgis/rest/services/Alternative_Fueling_Stations/FeatureServer/0/query?where=state%20%3D%20%27CA%27%20AND%20fuel_type_code%20%3D%20%27ELEC%27&outFields=fuel_type_code,id,station_name,facility_type,city,state,street_address,zip,country,ev_connector_types,ev_network,ev_network_web,ev_other_evse,ev_pricing,ev_renewable_source,longitude,latitude,ev_level1_evse_num,ev_dc_fast_num,ev_level2_evse_num&outSR=4326&f=json"
         val evStationRequest = object : StringRequest(Request.Method.GET, evURL, Response.Listener<String> {
@@ -168,7 +166,10 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
 
                 var chargeOutput = "connector type: $connector"
                 val latLong = LatLng(latitude, longitude)
-                markers.add(latLong)
+                markerType.chargerType = connector
+                markerType.stationName = stationName
+                markerType.location = latLong
+                markers.add(markerType)
                 googleMap.addMarker(MarkerOptions().position(latLong).title(stationName).snippet(chargeOutput))
             }
             viewModel.setMarkers(markers)
