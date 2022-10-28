@@ -74,7 +74,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
         val dstLat = viewModel.getDst()?.latLng?.latitude
         val dstLng = viewModel.getDst()?.latLng?.longitude
         val markers = viewModel.getMarkers()
-        println("all makrers" + markers.toString())
+        // println("all makrers" + markers.toString())
         // Log.i("Test:", markers.toString())
         if (srcLat != null && dstLat != null && srcLng != null && dstLng != null) {
             boundsBuilder.include(LatLng(srcLat, srcLng))
@@ -131,6 +131,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
                 for (i in 0 until path.size) {
                     for (j in 0 until path[i].size) {
                         for (k in 0 until markers.size) {
+                            // println("markerk:" + markers[k].location.latitude)
                             Location.distanceBetween(markers[k].location.latitude,
                                 markers[k].location.longitude, path[i][j].latitude,
                                 path[i][j].longitude, closeToRoute)

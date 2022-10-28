@@ -148,7 +148,6 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         // val markers: MutableList<LatLng> = ArrayList()
         // val markers = mutableMapOf<String, LatLng>()
         var markers: MutableList<MarkerType> = ArrayList()
-        var markerType: MarkerType = MarkerType()
 
         val queue = Volley.newRequestQueue(context)
         val evURL = "https://services.arcgis.com/xOi1kZaI0eWDREZv/arcgis/rest/services/Alternative_Fueling_Stations/FeatureServer/0/query?where=state%20%3D%20%27CA%27%20AND%20fuel_type_code%20%3D%20%27ELEC%27&outFields=fuel_type_code,id,station_name,facility_type,city,state,street_address,zip,country,ev_connector_types,ev_network,ev_network_web,ev_other_evse,ev_pricing,ev_renewable_source,longitude,latitude,ev_level1_evse_num,ev_dc_fast_num,ev_level2_evse_num&outSR=4326&f=json"
@@ -159,17 +158,19 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
             val evStations = evJsonResponse.getJSONArray("features")
             // Log.e("Test", evStations.getJSONObject(0).getJSONObject("attributes").getString("LATITUDE"))
             for (i in 0 until evStations.length()) {
+                var markerType: MarkerType = MarkerType()
                 val latitude = evStations.getJSONObject(i).getJSONObject("attributes").getDouble("latitude")
                 val longitude = evStations.getJSONObject(i).getJSONObject("attributes").getDouble("longitude")
                 val stationName = evStations.getJSONObject(i).getJSONObject("attributes").getString("station_name")
                 val connector = evStations.getJSONObject(i).getJSONObject("attributes").getString("ev_connector_types");
 
                 var chargeOutput = "connector type: $connector"
-                val latLong = LatLng(latitude, longitude)
+                var latLong = LatLng(latitude, longitude)
                 markerType.chargerType = connector
                 markerType.stationName = stationName
                 markerType.location = latLong
                 markers.add(markerType)
+                // println("adding marker" + markerType.location.latitude)
                 googleMap.addMarker(MarkerOptions().position(latLong).title(stationName).snippet(chargeOutput))
             }
             viewModel.setMarkers(markers)
