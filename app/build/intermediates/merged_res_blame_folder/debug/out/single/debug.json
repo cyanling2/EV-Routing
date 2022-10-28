@@ -1,130 +1,262 @@
 [
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "com.cmu.evplan.app-main-54:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "com.cmu.evplan.app-merged_res-54:/font_interregular.ttf.flat",
+        "source": "com.cmu.evplan.app-main-56:/font/interregular.ttf"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/drawable_ic_baseline_settings_32.xml.flat",
-        "source": "com.cmu.evplan.app-main-54:/drawable/ic_baseline_settings_32.xml"
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_charger.jpeg.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/charger.jpeg"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/drawable_ic_baseline_map_32.xml.flat",
-        "source": "com.cmu.evplan.app-main-54:/drawable/ic_baseline_map_32.xml"
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_rectangle_bg_bluegray_100_radius_2.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/rectangle_bg_bluegray_100_radius_2.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/navigation_nav_graph.xml.flat",
-        "source": "com.cmu.evplan.app-main-54:/navigation/nav_graph.xml"
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "com.cmu.evplan.app-pngs-49:/drawable-anydpi-v24/ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.cmu.evplan.app-main-54:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_ic_baseline_settings_32.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/ic_baseline_settings_32.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/drawable_background_border.xml.flat",
-        "source": "com.cmu.evplan.app-main-54:/drawable/background_border.xml"
+        "merged": "com.cmu.evplan.app-merged_res-54:/menu_bottom_nav.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/menu/bottom_nav.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.cmu.evplan.app-main-54:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "com.cmu.evplan.app-merged_res-54:/font_inter.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/font/inter.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.cmu.evplan.app-main-54:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_img_sort.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/img_sort.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "com.cmu.evplan.app-main-54:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "com.cmu.evplan.app-merged_res-54:/xml_data_extraction_rules.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/drawable_ic_baseline_electric_car_32.xml.flat",
-        "source": "com.cmu.evplan.app-main-54:/drawable/ic_baseline_electric_car_32.xml"
+        "merged": "com.cmu.evplan.app-merged_res-54:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.cmu.evplan.app-main-56:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "com.cmu.evplan.app-main-54:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_background_border.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/background_border.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/layout_fragment_routing.xml.flat",
-        "source": "com.cmu.evplan.app-main-54:/layout/fragment_routing.xml"
+        "merged": "com.cmu.evplan.app-merged_res-54:/font_opensansbold.ttf.flat",
+        "source": "com.cmu.evplan.app-main-56:/font/opensansbold.ttf"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.cmu.evplan.app-main-54:/drawable/ic_launcher_background.xml"
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_rectangle_bg_white_a700.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/rectangle_bg_white_a700.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "com.cmu.evplan.app-main-54:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_rectangle_bg_bluegray_100_radius_46_5.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/rectangle_bg_bluegray_100_radius_46_5.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/xml_backup_rules.xml.flat",
-        "source": "com.cmu.evplan.app-main-54:/xml/backup_rules.xml"
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_img_image7.png.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/img_image7.png"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
-        "source": "com.cmu.evplan.app-pngs-47:/drawable-anydpi-v24/ic_launcher_foreground.xml"
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_rectangle_bg_white_a700_border_green_700_radius_27.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/rectangle_bg_white_a700_border_green_700_radius_27.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/layout_activity_main.xml.flat",
-        "source": "com.cmu.evplan.app-main-54:/layout/activity_main.xml"
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_img_image7_336x360.png.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/img_image7_336x360.png"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "com.cmu.evplan.app-main-54:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_rectangle_bg_gray_50_border_green_900_radius_28_5.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/rectangle_bg_gray_50_border_green_900_radius_28_5.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.cmu.evplan.app-main-54:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_ic_baseline_arrow_back_ios_new_32.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/ic_baseline_arrow_back_ios_new_32.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/drawable_charger.jpeg.flat",
-        "source": "com.cmu.evplan.app-main-54:/drawable/charger.jpeg"
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_rectangle_bg_white_a700_radius_16.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/rectangle_bg_white_a700_radius_16.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/layout_fragment_search.xml.flat",
-        "source": "com.cmu.evplan.app-main-54:/layout/fragment_search.xml"
+        "merged": "com.cmu.evplan.app-merged_res-54:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.cmu.evplan.app-main-56:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/drawable_ic_baseline_navigation_32.xml.flat",
-        "source": "com.cmu.evplan.app-main-54:/drawable/ic_baseline_navigation_32.xml"
+        "merged": "com.cmu.evplan.app-merged_res-54:/font_interthin.ttf.flat",
+        "source": "com.cmu.evplan.app-main-56:/font/interthin.ttf"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/xml_root_preferences.xml.flat",
-        "source": "com.cmu.evplan.app-main-54:/xml/root_preferences.xml"
+        "merged": "com.cmu.evplan.app-merged_res-54:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.cmu.evplan.app-main-56:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "com.cmu.evplan.app-main-54:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "com.cmu.evplan.app-merged_res-54:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.cmu.evplan.app-main-56:/mipmap-hdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/xml_data_extraction_rules.xml.flat",
-        "source": "com.cmu.evplan.app-main-54:/xml/data_extraction_rules.xml"
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_tesla_removebg_preview.png.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/tesla_removebg_preview.png"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/layout_fragment_profile.xml.flat",
-        "source": "com.cmu.evplan.app-main-54:/layout/fragment_profile.xml"
+        "merged": "com.cmu.evplan.app-merged_res-54:/navigation_nav_graph.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/navigation/nav_graph.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/layout_fragment_maps.xml.flat",
-        "source": "com.cmu.evplan.app-main-54:/layout/fragment_maps.xml"
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_ic_baseline_electric_car_32.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/ic_baseline_electric_car_32.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/menu_bottom_nav.xml.flat",
-        "source": "com.cmu.evplan.app-main-54:/menu/bottom_nav.xml"
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_ic_baseline_map_32.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/ic_baseline_map_32.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/drawable_tesla_removebg_preview.png.flat",
-        "source": "com.cmu.evplan.app-main-54:/drawable/tesla_removebg_preview.png"
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_rectangle_bg_deep_purple_a200_19_border_deep_purple_a200_19_radius_24.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/rectangle_bg_deep_purple_a200_19_border_deep_purple_a200_19_radius_24.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/drawable_ic_baseline_arrow_back_ios_new_32.xml.flat",
-        "source": "com.cmu.evplan.app-main-54:/drawable/ic_baseline_arrow_back_ios_new_32.xml"
+        "merged": "com.cmu.evplan.app-merged_res-54:/font_open_sans.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/font/open_sans.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "com.cmu.evplan.app-main-54:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_img_menu.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/img_menu.xml"
     },
     {
-        "merged": "com.cmu.evplan.app-merged_res-52:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "com.cmu.evplan.app-main-54:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_rectangle_bg_white_a700_border_black_900_radius_27.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/rectangle_bg_white_a700_border_black_900_radius_27.xml"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/layout_fragment_maps.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/layout/fragment_maps.xml"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/font_interbold.ttf.flat",
+        "source": "com.cmu.evplan.app-main-56:/font/interbold.ttf"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/xml_backup_rules.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_rectangle_bg_gray_100_border_green_900_radius_tl_10_tr_10.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/rectangle_bg_gray_100_border_green_900_radius_tl_10_tr_10.xml"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/layout_fragment_search.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/layout/fragment_search.xml"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.cmu.evplan.app-main-56:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/font_interlight.ttf.flat",
+        "source": "com.cmu.evplan.app-main-56:/font/interlight.ttf"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_img_cursor.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/img_cursor.xml"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_img_map_24x26.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/img_map_24x26.xml"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/layout_fragment_routing.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/layout/fragment_routing.xml"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_img_arrowleft.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/img_arrowleft.xml"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_img_rectangle7.png.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/img_rectangle7.png"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_img_location_26x26.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/img_location_26x26.xml"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/xml_root_preferences.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/xml/root_preferences.xml"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/font_intersemibold.ttf.flat",
+        "source": "com.cmu.evplan.app-main-56:/font/intersemibold.ttf"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.cmu.evplan.app-main-56:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_img_send.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/img_send.xml"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/font_interextralight.ttf.flat",
+        "source": "com.cmu.evplan.app-main-56:/font/interextralight.ttf"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.cmu.evplan.app-main-56:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/layout_fragment_profile.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/layout/fragment_profile.xml"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/layout_activity_main.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.cmu.evplan.app-main-56:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.cmu.evplan.app-main-56:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_ic_baseline_navigation_32.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/ic_baseline_navigation_32.xml"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_img_vector3.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/img_vector3.xml"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_rectangle_bg_deep_purple_a200_border_white_a700_radius_8.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/rectangle_bg_deep_purple_a200_border_white_a700_radius_8.xml"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/font_adobe_blank.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/font/adobe_blank.xml"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/drawable_img_location_28x22.xml.flat",
+        "source": "com.cmu.evplan.app-main-56:/drawable/img_location_28x22.xml"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.cmu.evplan.app-main-56:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.cmu.evplan.app-merged_res-54:/font_opensansregular.ttf.flat",
+        "source": "com.cmu.evplan.app-main-56:/font/opensansregular.ttf"
     }
 ]
