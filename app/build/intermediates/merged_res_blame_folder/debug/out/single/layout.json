@@ -1,26 +1,22 @@
 [
     {
-        "merged": "/Users/bryanlin/.gradle/daemon/7.3.3/com.cmu.evplan.app-mergeDebugResources-53:/layout/activity_main.xml",
-        "source": "/Users/bryanlin/.gradle/daemon/7.3.3/com.cmu.evplan.app-main-56:/layout/activity_main.xml"
-    },
-    {
-        "merged": "/Users/bryanlin/.gradle/daemon/7.3.3/com.cmu.evplan.app-mergeDebugResources-53:/layout/fragment_routing.xml",
-        "source": "/Users/bryanlin/.gradle/daemon/7.3.3/com.cmu.evplan.app-main-56:/layout/fragment_routing.xml"
-    },
-    {
-        "merged": "/Users/bryanlin/.gradle/daemon/7.3.3/com.cmu.evplan.app-mergeDebugResources-53:/layout/fragment_maps.xml",
-        "source": "/Users/bryanlin/.gradle/daemon/7.3.3/com.cmu.evplan.app-main-56:/layout/fragment_maps.xml"
-    },
-    {
-        "merged": "/Users/bryanlin/.gradle/daemon/7.3.3/com.cmu.evplan.app-mergeDebugResources-53:/layout/fragment_search.xml",
-        "source": "/Users/bryanlin/.gradle/daemon/7.3.3/com.cmu.evplan.app-main-56:/layout/fragment_search.xml"
+        "merged": "com.cmu.evplan.app-mergeDebugResources-53:/layout/activity_main.xml",
+        "source": "com.cmu.evplan.app-main-56:/layout/activity_main.xml"
     },
     {
         "merged": "com.cmu.evplan.app-mergeDebugResources-53:/layout/fragment_routing.xml",
         "source": "com.cmu.evplan.app-main-56:/layout/fragment_routing.xml"
     },
     {
-        "merged": "/Users/bryanlin/.gradle/daemon/7.3.3/com.cmu.evplan.app-mergeDebugResources-53:/layout/fragment_profile.xml",
-        "source": "/Users/bryanlin/.gradle/daemon/7.3.3/com.cmu.evplan.app-main-56:/layout/fragment_profile.xml"
+        "merged": "com.cmu.evplan.app-mergeDebugResources-53:/layout/fragment_maps.xml",
+        "source": "com.cmu.evplan.app-main-56:/layout/fragment_maps.xml"
+    },
+    {
+        "merged": "com.cmu.evplan.app-mergeDebugResources-53:/layout/fragment_search.xml",
+        "source": "com.cmu.evplan.app-main-56:/layout/fragment_search.xml"
+    },
+    {
+        "merged": "com.cmu.evplan.app-mergeDebugResources-53:/layout/fragment_profile.xml",
+        "source": "com.cmu.evplan.app-main-56:/layout/fragment_profile.xml"
     }
 ]

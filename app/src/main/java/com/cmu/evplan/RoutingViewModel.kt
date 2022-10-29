@@ -14,7 +14,7 @@ import com.google.android.libraries.places.api.model.Place
 class RoutingViewModel: ViewModel() {
     private var src: MutableLiveData<Place> = MutableLiveData()
     private var dst: MutableLiveData<Place> = MutableLiveData()
-    private var markers: MutableLiveData<MutableList<LatLng>> = MutableLiveData()
+    private var markers: MutableLiveData<MutableList<MarkerType>> = MutableLiveData()
 
     fun setSrc(place : Place) {
         src.value = place
@@ -24,7 +24,7 @@ class RoutingViewModel: ViewModel() {
         dst.value = place
     }
 
-    fun setMarkers(listMarkers: MutableList<LatLng>) {
+    fun setMarkers(listMarkers: MutableList<MarkerType>) {
         markers.value = listMarkers
     }
 
@@ -36,7 +36,7 @@ class RoutingViewModel: ViewModel() {
         return dst.value
     }
 
-    fun getMarkers(): MutableList<LatLng>? {
+    fun getMarkers(): MutableList<MarkerType>? {
         return markers.value
     }
 }

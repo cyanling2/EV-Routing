@@ -81,6 +81,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
         val dstLat = viewModel.getDst()?.latLng?.latitude
         val dstLng = viewModel.getDst()?.latLng?.longitude
         val markers = viewModel.getMarkers()
+        // println("all makrers" + markers.toString())
         // Log.i("Test:", markers.toString())
         if (srcLat != null && dstLat != null && srcLng != null && dstLng != null) {
             boundsBuilder.include(LatLng(srcLat, srcLng))
@@ -119,8 +120,6 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
             val near = FloatArray(1)
             val closeToRoute = FloatArray(1)
             var indexNewRoute = 0
-            var chargingStationsPointer = 0
-            var breakTrue = false
             var tooClose = false
             if (srcLat != null && srcLng != null) {
                 newRoute.add(LatLng(srcLat, srcLng))
@@ -137,14 +136,15 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
                 for (i in 0 until path.size) {
                     for (j in 0 until path[i].size) {
                         for (k in 0 until markers.size) {
-                            Location.distanceBetween(markers[k].latitude,
-                                markers[k].longitude, path[i][j].latitude,
+                            // println("markerk:" + markers[k].location.latitude)
+                            Location.distanceBetween(markers[k].location.latitude,
+                                markers[k].location.longitude, path[i][j].latitude,
                                 path[i][j].longitude, closeToRoute)
                             // If the charging station is approximately less than 15 miles from the route
-                            if (closeToRoute[0] < 25000 && !newRoute.contains(markers[k])) {
+                            if (closeToRoute[0] < 25000 && !newRoute.contains(markers[k].location)) {
                                 for (l in 0 until newRoute.size) {
-                                    Location.distanceBetween(markers[k].latitude,
-                                        markers[k].longitude, newRoute.elementAt(l).latitude,
+                                    Location.distanceBetween(markers[k].location.latitude,
+                                        markers[k].location.longitude, newRoute.elementAt(l).latitude,
                                         newRoute.elementAt(l).longitude, near)
                                     // If a charging station near the route is less than 18 miles to any
                                     // of the points (i.e. added charging stations & source), don't add to
@@ -159,13 +159,17 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
                                 // the previously added charging station or source, then add
                                 // the charging station to set.
                                 if (!tooClose) {
-                                    Location.distanceBetween(markers[k].latitude,
-                                        markers[k].longitude, newRoute.elementAt(indexNewRoute).latitude,
+                                    Location.distanceBetween(markers[k].location.latitude,
+                                        markers[k].location.longitude, newRoute.elementAt(indexNewRoute).latitude,
                                         newRoute.elementAt(indexNewRoute).longitude, distance)
                                     if (distance[0] > 150000 && distance[0] < 250000) {
-                                        newRoute.add(markers[k])
+                                        newRoute.add(markers[k].location)
                                         indexNewRoute++
-                                        googleMap.addMarker(MarkerOptions().position(markers[k]))
+                                        //googleMap.addMarker(MarkerOptions().position(markers[k].location))
+                                        val connector = markers[k].chargerType
+                                        var chargeOutput = "connector type: $connector"
+                                        println("added marker" + markers[k].stationName)
+                                        googleMap.addMarker(MarkerOptions().position(markers[k].location).title(markers[k].stationName).snippet(chargeOutput))
                                         break
                                     }
                                 }
