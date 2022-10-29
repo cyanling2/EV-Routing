@@ -2966,7 +2966,6 @@ drawable rectangle_bg_white_a700_border_black_900_radius_27
 drawable rectangle_bg_white_a700_border_green_700_radius_27
 drawable rectangle_bg_white_a700_radius_16
 drawable tesla_removebg_preview
-font adobe_blank
 font inter
 font interbold
 font interextralight
@@ -2974,9 +2973,6 @@ font interlight
 font interregular
 font intersemibold
 font interthin
-font open_sans
-font opensansbold
-font opensansregular
 id History
 id action_mapsFragment_to_profileFragment
 id action_mapsFragment_to_searchFragment
@@ -2990,7 +2986,6 @@ id battery
 id battery_percent_reserved
 id bottom_navigatin_view
 id brand
-id button
 id chargerImage
 id chargerType
 id current
@@ -3016,7 +3011,6 @@ id options
 id profileFragment
 id progressBar
 id routeMap
-id routeMap1
 id routingBackButton
 id routingFragment
 id searchFragment

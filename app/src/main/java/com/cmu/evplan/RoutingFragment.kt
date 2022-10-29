@@ -47,7 +47,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
         val mapFragment = childFragmentManager.findFragmentById(R.id.routeMap) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
         _binding!!.destination.setText(viewModel.getDst()?.name)
-        _binding!!.current.setText("current location")
+        _binding!!.current.setText("Current Location")
         _binding!!.routingBackButton.setOnClickListener {
             findNavController().navigate(R.id.action_routingFragment_to_searchFragment)}
 
@@ -74,6 +74,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
             CameraUpdateFactory.newLatLngZoom(
                 it, 12f)
         }?.let { googleMap.animateCamera(it) }
+        Log.i("Test", viewModel.getSrc().toString())
         val path: MutableList<List<LatLng>> = ArrayList()
         val srcLat = viewModel.getSrc()?.latLng?.latitude
         val srcLng = viewModel.getSrc()?.latLng?.longitude
@@ -288,7 +289,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
                 // Log.i("Test:", path[i].toString())
             } */
             plotRoute(newRoute, googleMap)
-            Log.i("Test", newRoute.toString())
+            // Log.i("Test", newRoute.toString())
         }, Response.ErrorListener {
 
         }){}
