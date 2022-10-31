@@ -17,7 +17,7 @@ import kotlin.math.abs
 class RoutingViewModel: ViewModel() {
     private var src: MutableLiveData<Place> = MutableLiveData()
     private var dst: MutableLiveData<Place> = MutableLiveData()
-    private var markers: MutableLiveData<MutableList<LatLng>> = MutableLiveData()
+    private var markers: MutableLiveData<MutableList<MarkerType>> = MutableLiveData()
     private var battery: MutableLiveData<Double> = MutableLiveData()
     private var temps: MutableLiveData<MutableList<Double>> = MutableLiveData()
 
@@ -29,7 +29,7 @@ class RoutingViewModel: ViewModel() {
         dst.value = place
     }
 
-    fun setMarkers(listMarkers: MutableList<LatLng>) {
+    fun setMarkers(listMarkers: MutableList<MarkerType>) {
         markers.value = listMarkers
     }
 
@@ -54,7 +54,7 @@ class RoutingViewModel: ViewModel() {
         return dst.value
     }
 
-    fun getMarkers(): MutableList<LatLng>? {
+    fun getMarkers(): MutableList<MarkerType>? {
         return markers.value
     }
 
@@ -94,6 +94,9 @@ class RoutingViewModel: ViewModel() {
         if (!temps.value.isNullOrEmpty())
             pHeat = 0.09 * abs(temps.value!![0] - 20.0) * 0.5 + 0.09 * abs(temps.value!!.last() - 20.0) * 0.5
 //        Log.e("jane", "b: $b, pHeat: $pHeat")
+        if (battery.value == null) {
+            battery.value = 100.00
+        }
         return (battery.value?.times(0.4)!!)/(b + pHeat/60)
     }
 }
