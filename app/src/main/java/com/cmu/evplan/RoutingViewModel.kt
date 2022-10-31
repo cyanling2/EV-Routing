@@ -7,6 +7,11 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.libraries.places.api.model.Place
 import kotlin.math.abs
 
+/** Used to identify which place is the search page aiming for. Default as Destination. */
+enum class SearchStatus {
+    Destination, Source
+}
+
 /**
  * Saves the state of source and destination information
  * @param src Source gathered by system location
@@ -20,6 +25,7 @@ class RoutingViewModel: ViewModel() {
     private var markers: MutableLiveData<MutableList<MarkerType>> = MutableLiveData()
     private var battery: MutableLiveData<Double> = MutableLiveData()
     private var temps: MutableLiveData<MutableList<Double>> = MutableLiveData()
+    private var status: MutableLiveData<SearchStatus> = MutableLiveData()
 
     fun setSrc(place : Place) {
         src.value = place
@@ -27,6 +33,15 @@ class RoutingViewModel: ViewModel() {
 
     fun setDst(place: Place) {
         dst.value = place
+    }
+
+    fun getStatus(): SearchStatus {
+        if (status.value == null) status.value = SearchStatus.Destination
+        return status.value!!
+    }
+
+    fun setStatus(s: SearchStatus) {
+        status.value = s
     }
 
     fun setMarkers(listMarkers: MutableList<MarkerType>) {

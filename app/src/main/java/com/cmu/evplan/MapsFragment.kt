@@ -44,7 +44,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
     private val viewModel: RoutingViewModel by activityViewModels()
 
     companion object {
-        private const val LOCATION_PERMISSION_REQUEST_CODE = 1
+        const val LOCATION_PERMISSION_REQUEST_CODE = 1
     }
 
     override fun onCreateView(
@@ -109,7 +109,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
 
                 val src: Place = Place.builder()
                     .setLatLng(currentLatLng)
-                    .setName("My Current Location")
+                    .setName("Current Location")
                     .build()
                 viewModel.setSrc(src)
 

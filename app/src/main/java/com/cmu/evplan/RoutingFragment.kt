@@ -1,5 +1,8 @@
 package com.cmu.evplan
 
+import android.Manifest
+import android.annotation.SuppressLint
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.location.Location
 import android.os.Bundle
@@ -9,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.android.volley.toolbox.StringRequest
@@ -25,8 +29,11 @@ import org.json.JSONObject
 import com.android.volley.Request
 import com.android.volley.Response
 import com.cmu.evplan.BuildConfig.MAPS_API_KEY
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLngBounds
+import com.google.android.libraries.places.api.model.Place
 
 
 class RoutingFragment : Fragment(), OnMapReadyCallback {
@@ -37,6 +44,12 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
 
     private val viewModel: RoutingViewModel by activityViewModels()
 
+    private lateinit var mapFragment: SupportMapFragment
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private lateinit var lastLocation: Location
+
+    private var markerInit = false
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -46,13 +59,121 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
         val view = binding.root
 
         val mapFragment = childFragmentManager.findFragmentById(R.id.routeMap) as SupportMapFragment?
-        mapFragment?.getMapAsync(callback)
+        if (viewModel.getSrc()?.name == null) {
+            mapFragment?.getMapAsync { errorCatchCallback }
+        } else if (viewModel.getDst()?.name == null) {
+            viewModel.setDst(viewModel.getSrc()!!)
+            mapFragment?.getMapAsync {errorCatchCallback}
+        } else {
+            mapFragment?.getMapAsync(callback)
+        }
+
         _binding!!.destination.setText(viewModel.getDst()?.name)
-        _binding!!.current.setText("Current Location")
+        _binding!!.destinationBlock.setOnClickListener {
+            viewModel.setStatus(SearchStatus.Destination)
+            findNavController().navigate(R.id.action_routingFragment_to_searchFragment)
+        }
+        _binding!!.current.setText(viewModel.getSrc()?.name)
+        _binding!!.currentBlock.setOnClickListener {
+            viewModel.setStatus(SearchStatus.Source)
+            findNavController().navigate(R.id.action_routingFragment_to_searchFragment)
+        }
         _binding!!.routingBackButton.setOnClickListener {
-            findNavController().navigate(R.id.action_routingFragment_to_searchFragment)}
+            findNavController().navigate(R.id.action_routingFragment_to_searchFragment)
+        }
 
         return view
+    }
+
+    private fun checkPermissions() {
+        if (ActivityCompat.checkSelfPermission(mapFragment.requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) !=
+            PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(activity, "Make sure fine location's permission is issued", Toast.LENGTH_SHORT).show();
+            ActivityCompat.requestPermissions(mapFragment.requireActivity(),
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                MapsFragment.LOCATION_PERMISSION_REQUEST_CODE
+            )
+        }
+        if (ActivityCompat.checkSelfPermission(mapFragment.requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) !=
+            PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(mapFragment.requireActivity(),
+                arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION),
+                MapsFragment.LOCATION_PERMISSION_REQUEST_CODE
+            )
+        }
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun getCurrentLocation(map : GoogleMap) {
+        fusedLocationClient.lastLocation.addOnSuccessListener(mapFragment.requireActivity()) { location ->
+            if (location != null) {
+                lastLocation = location
+                val currentLatLng = LatLng(location.latitude, location.longitude)
+                map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 12f))
+
+                val src: Place = Place.builder()
+                    .setLatLng(currentLatLng)
+                    .setName("Current Location")
+                    .build()
+                viewModel.setSrc(src)
+            }
+        }   
+    }
+
+    // Pulls from an EV Station API and parses it to plot all EV stations in the US on the map
+    private fun processEVJson(googleMap: GoogleMap) {
+        if (markerInit)         return
+        // val markers: MutableList<LatLng> = ArrayList()
+        // val markers = mutableMapOf<String, LatLng>()
+        var markers: MutableList<MarkerType> = ArrayList()
+
+        val queue = Volley.newRequestQueue(context)
+        val evURL = "https://services.arcgis.com/xOi1kZaI0eWDREZv/arcgis/rest/services/Alternative_Fueling_Stations/FeatureServer/0/query?where=state%20%3D%20%27CA%27%20AND%20fuel_type_code%20%3D%20%27ELEC%27&outFields=fuel_type_code,id,station_name,facility_type,city,state,street_address,zip,country,ev_connector_types,ev_network,ev_network_web,ev_other_evse,ev_pricing,ev_renewable_source,longitude,latitude,ev_level1_evse_num,ev_dc_fast_num,ev_level2_evse_num&outSR=4326&f=json"
+        val evStationRequest = object : StringRequest(Request.Method.GET, evURL, Response.Listener<String> {
+                response ->
+            val evJsonResponse = JSONObject(response)
+            // Get EV Stations
+            val evStations = evJsonResponse.getJSONArray("features")
+            // Log.e("Test", evStations.getJSONObject(0).getJSONObject("attributes").getString("LATITUDE"))
+            for (i in 0 until evStations.length()) {
+                var markerType: MarkerType = MarkerType()
+                val latitude = evStations.getJSONObject(i).getJSONObject("attributes").getDouble("latitude")
+                val longitude = evStations.getJSONObject(i).getJSONObject("attributes").getDouble("longitude")
+                val stationName = evStations.getJSONObject(i).getJSONObject("attributes").getString("station_name")
+                val connector = evStations.getJSONObject(i).getJSONObject("attributes").getString("ev_connector_types");
+
+                var chargeOutput = "connector type: $connector"
+                var latLong = LatLng(latitude, longitude)
+                markerType.chargerType = connector
+                markerType.stationName = stationName
+                markerType.location = latLong
+                markers.add(markerType)
+                // println("adding marker" + markerType.location.latitude)
+//                googleMap.addMarker(MarkerOptions().position(latLong).title(stationName).snippet(chargeOutput))
+            }
+            viewModel.setMarkers(markers)
+        }, Response.ErrorListener {
+
+        }){}
+        queue.add(evStationRequest)
+
+        markerInit = true
+    }
+
+    @SuppressLint("MissingPermission")
+    private val errorCatchCallback = OnMapReadyCallback { googleMap ->
+        googleMap.uiSettings.isZoomControlsEnabled = true
+        googleMap.isMyLocationEnabled = true
+        googleMap.uiSettings.isMyLocationButtonEnabled = true
+        processEVJson(googleMap)
+        val bundle = arguments
+        val name = bundle?.getString("PLACE_NAME")
+        val long = bundle?.getDouble("LONGITUDE")
+        val lat = bundle?.getDouble("LATITUDE")
+
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(mapFragment.requireActivity())
+        checkPermissions()
+        getCurrentLocation(googleMap)
     }
 
     /**

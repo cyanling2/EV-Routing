@@ -69,19 +69,22 @@ class SearchFragment : Fragment() {
         autocompleteFragment.setPlaceFields(listOf(Place.Field.NAME, Place.Field.LAT_LNG))
         autocompleteFragment.setOnPlaceSelectedListener(object: PlaceSelectionListener {
             override fun onPlaceSelected(place: Place) {
-                viewModel.setDst(place);
+                if (viewModel.getStatus() == SearchStatus.Destination)
+                    viewModel.setDst(place)
+                else
+                    viewModel.setSrc(place)
 
-                // retrieve temperature info before passing to routing page
-                val urlDirections = "https://api.openweathermap.org/data/2.5/weather?lat=${place.latLng?.latitude}&lon=${place.latLng?.latitude}&units=metric&APPID=237153eb4823ee8b72040b580065dd22"
-                val dstWeatherRequest = object : StringRequest(Request.Method.GET, urlDirections, Response.Listener<String> {
-                        response ->
-                    val jsonResponse = JSONObject(response)
-                    val temp = jsonResponse.getJSONObject("main").getDouble("temp")
-                    viewModel.addTemp(temp)
-                }, Response.ErrorListener {
-                }){}
-                val requestQueue = Volley.newRequestQueue(context)
-                requestQueue.add(dstWeatherRequest)
+//                // retrieve temperature info before passing to routing page
+//                val urlDirections = "https://api.openweathermap.org/data/2.5/weather?lat=${place.latLng?.latitude}&lon=${place.latLng?.latitude}&units=metric&APPID=237153eb4823ee8b72040b580065dd22"
+//                val dstWeatherRequest = object : StringRequest(Request.Method.GET, urlDirections, Response.Listener<String> {
+//                        response ->
+//                    val jsonResponse = JSONObject(response)
+//                    val temp = jsonResponse.getJSONObject("main").getDouble("temp")
+//                    viewModel.addTemp(temp)
+//                }, Response.ErrorListener {
+//                }){}
+//                val requestQueue = Volley.newRequestQueue(context)
+//                requestQueue.add(dstWeatherRequest)
 
 
                 val latLong = place.latLng
