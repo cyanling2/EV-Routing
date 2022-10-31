@@ -26,6 +26,7 @@ class RoutingViewModel: ViewModel() {
     private var battery: MutableLiveData<Double> = MutableLiveData()
     private var temps: MutableLiveData<MutableList<Double>> = MutableLiveData()
     private var status: MutableLiveData<SearchStatus> = MutableLiveData()
+    private var connectorType: MutableLiveData<String> = MutableLiveData()
 
     fun setSrc(place : Place) {
         src.value = place
@@ -46,6 +47,14 @@ class RoutingViewModel: ViewModel() {
 
     fun setMarkers(listMarkers: MutableList<MarkerType>) {
         markers.value = listMarkers
+    }
+
+    fun setConnectorType(connector: String) {
+        connectorType.value = connector
+    }
+
+    fun getConnectorType(): String? {
+        return connectorType.value
     }
 
     fun setBattery(per: Double) {

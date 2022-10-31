@@ -35,6 +35,9 @@ class ProfileFragment : Fragment() {
 
         binding.mileage.setText("${viewModel.calRemainRange()} miles")
 
+        val connectorType = binding.chargerType.getText().toString()
+        viewModel.setConnectorType(connectorType)
+
         return view
     }
 
