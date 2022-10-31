@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.cmu.evplan.databinding.FragmentProfileBinding
 
 
@@ -15,6 +16,8 @@ class ProfileFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private val viewModel: RoutingViewModel by activityViewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -22,6 +25,16 @@ class ProfileFragment : Fragment() {
     ): View? {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val view = binding.root
+
+        if (viewModel.getBattery() == null) {
+            binding.battery.setText("100%")
+            viewModel.setBattery(100.00)    // set default value for further calc
+        } else {
+            binding.battery.setText("${viewModel.getBattery()}%")
+        }
+
+        binding.mileage.setText("${viewModel.calRemainRange()} miles")
+
         return view
     }
 

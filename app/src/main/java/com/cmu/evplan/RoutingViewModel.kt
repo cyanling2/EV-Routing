@@ -35,7 +35,10 @@ class RoutingViewModel: ViewModel() {
 
     fun setBattery(per: Double) {
         battery.value = per
-//        Log.e("jane", "battery value: ${battery.value}, per: $per")
+    }
+
+    fun getBattery(): Double? {
+        return battery.value
     }
 
     fun addTemp(temp: Double) {
