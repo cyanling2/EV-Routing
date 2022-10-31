@@ -1,6 +1,5 @@
 package com.cmu.evplan
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.android.gms.maps.model.LatLng
@@ -21,6 +20,7 @@ class RoutingViewModel: ViewModel() {
     private var battery: MutableLiveData<Double> = MutableLiveData()
     private var temps: MutableLiveData<MutableList<Double>> = MutableLiveData()
     private var connectorType: MutableLiveData<String> = MutableLiveData()
+    private var markersKDTree = KDTree()
 
     fun setSrc(place : Place) {
         src.value = place
@@ -32,6 +32,9 @@ class RoutingViewModel: ViewModel() {
 
     fun setMarkers(listMarkers: MutableList<MarkerType>) {
         markers.value = listMarkers
+        for (i in 0 until listMarkers.size) {
+            markersKDTree.insert(listMarkers[i])
+        }
     }
 
     fun setConnectorType(connector: String) {
@@ -68,6 +71,14 @@ class RoutingViewModel: ViewModel() {
 
     fun getMarkers(): MutableList<MarkerType>? {
         return markers.value
+    }
+
+    fun getClosestMarker(latlng: LatLng) : MarkerType {
+        val station = markersKDTree.search(
+            latlng,
+            25000F
+        )
+        return station!!.marker
     }
 
     /**
