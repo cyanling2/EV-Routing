@@ -269,13 +269,15 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
                 println("path size ###################################")
                 println(path.size)
                 println(path[0].size)
+                var acceptableDistance = viewModel.calRemainRange()
+//                Log.i("jane", "acceptable distance: $acceptableDistance")
                 for (i in 0 until path.size) {
                     for (j in 0 until path[i].size) {
 //                        println("coordinate is ${path[i][j].latitude} ${path[i][j].longitude}")
                         var metersDriven = FloatArray(1) // miles since last stop
                         Location.distanceBetween(lastStop.latitude, lastStop.longitude, path[i][j].latitude, path[i][j].longitude, metersDriven)
                         var milesDriven = MetersToMiles(metersDriven[0])
-                        if (milesDriven <= 100) {
+                        if (milesDriven <= acceptableDistance!!) {
                             continue
                         }
                         var closestCharger = viewModel.getClosestMarker(path[i][j])
@@ -283,6 +285,8 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
                         newRoute.add(closestCharger.location)
 //                        println("added marker" + closestCharger.stationName)
                         googleMap.addMarker(MarkerOptions().position(closestCharger.location).title(closestCharger.stationName).snippet("connector type: ${closestCharger.chargerType}"))
+                        acceptableDistance = viewModel.calFullRange()
+//                        Log.i("jane", "acceptable distance: $acceptableDistance")
 //                        for (k in 0 until markers.size) {
 //                            // println("markerk:" + markers[k].location.latitude)
 //                            Location.distanceBetween(markers[k].location.latitude,

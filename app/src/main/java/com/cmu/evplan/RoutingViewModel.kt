@@ -124,6 +124,8 @@ class RoutingViewModel: ViewModel() {
      *
      * p * e = (b + pHeat / speed) * distance
      * distance = (p * e) / (b + pHeat / speed)
+     *
+     * @return unit: miles
      * */
     fun calRemainRange(): Double? {
 //        Log.e("jane", "enters calc")
@@ -136,5 +138,14 @@ class RoutingViewModel: ViewModel() {
             battery.value = 100.00
         }
         return (battery.value?.times(0.4)!!)/(b + pHeat/60)
+    }
+
+    fun calFullRange(): Double? {
+        val b = 40.toDouble()/165
+        var pHeat = 0.0
+        if (!temps.value.isNullOrEmpty())
+            pHeat = 0.09 * abs(temps.value!![0] - 20.0) * 0.5 + 0.09 * abs(temps.value!!.last() - 20.0) * 0.5
+
+        return 40/(b + pHeat/60)
     }
 }
