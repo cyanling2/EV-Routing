@@ -35,7 +35,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.libraries.places.api.model.Place
 
-
+import java.util.Arrays
 class RoutingFragment : Fragment(), OnMapReadyCallback {
     private var _binding: FragmentRoutingBinding? = null
     // This property is only valid between onCreateView and
@@ -85,6 +85,10 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
         return view
     }
 
+    fun MetersToMiles(meters: Float) : Float {
+        return (meters * 0.000621371192).toFloat()
+    }
+
     private fun checkPermissions() {
         if (ActivityCompat.checkSelfPermission(mapFragment.requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) !=
             PackageManager.PERMISSION_GRANTED) {
@@ -117,7 +121,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
                     .build()
                 viewModel.setSrc(src)
             }
-        }   
+        }
     }
 
     // Pulls from an EV Station API and parses it to plot all EV stations in the US on the map
@@ -247,9 +251,12 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
             val closeToRoute = FloatArray(1)
             var indexNewRoute = 0
             var tooClose = false
+            var lastStop = LatLng(0.0, 0.0)
             if (srcLat != null && srcLng != null) {
                 newRoute.add(LatLng(srcLat, srcLng))
+                lastStop = LatLng(srcLat, srcLng)
             }
+
             if (markers != null) {
                 // Unsure what the condition should be to stop looking at charging stations in a while loop
                 // while ()
@@ -259,49 +266,64 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
                 // Takes a very long time to process, not sure if my algorithm is correct
                 // Add the while loop inside the for loop, so loop over path first and then check
                 // the distance
+                println("path size ###################################")
+                println(path.size)
+                println(path[0].size)
                 for (i in 0 until path.size) {
                     for (j in 0 until path[i].size) {
-                        for (k in 0 until markers.size) {
-                            // println("markerk:" + markers[k].location.latitude)
-                            Location.distanceBetween(markers[k].location.latitude,
-                                markers[k].location.longitude, path[i][j].latitude,
-                                path[i][j].longitude, closeToRoute)
-                            // If the charging station is approximately less than 15 miles from the route
-                            if (closeToRoute[0] < 25000 && !newRoute.contains(markers[k].location)) {
-                                for (l in 0 until newRoute.size) {
-                                    Location.distanceBetween(markers[k].location.latitude,
-                                        markers[k].location.longitude, newRoute.elementAt(l).latitude,
-                                        newRoute.elementAt(l).longitude, near)
-                                    // If a charging station near the route is less than 18 miles to any
-                                    // of the points (i.e. added charging stations & source), don't add to
-                                    // set.
-                                    if (near[0] < 30000) {
-                                        tooClose = true
-                                        break
-                                    }
-                                }
-                                // If a charging station isn't close to any in the set, check if the
-                                // charging station is between approximately 93 and 155 miles from
-                                // the previously added charging station or source, then add
-                                // the charging station to set.
-                                if (!tooClose) {
-                                    Location.distanceBetween(markers[k].location.latitude,
-                                        markers[k].location.longitude, newRoute.elementAt(indexNewRoute).latitude,
-                                        newRoute.elementAt(indexNewRoute).longitude, distance)
-                                    if (distance[0] > 150000 && distance[0] < 250000) {
-                                        newRoute.add(markers[k].location)
-                                        indexNewRoute++
-                                        //googleMap.addMarker(MarkerOptions().position(markers[k].location))
-                                        val connector = markers[k].chargerType
-                                        var chargeOutput = "connector type: $connector"
-                                        println("added marker" + markers[k].stationName)
-                                        googleMap.addMarker(MarkerOptions().position(markers[k].location).title(markers[k].stationName).snippet(chargeOutput))
-                                        break
-                                    }
-                                }
-                            }
-                            tooClose = false
+//                        println("coordinate is ${path[i][j].latitude} ${path[i][j].longitude}")
+                        var metersDriven = FloatArray(1) // miles since last stop
+                        Location.distanceBetween(lastStop.latitude, lastStop.longitude, path[i][j].latitude, path[i][j].longitude, metersDriven)
+                        var milesDriven = MetersToMiles(metersDriven[0])
+                        if (milesDriven <= 100) {
+                            continue
                         }
+                        var closestCharger = viewModel.getClosestMarker(path[i][j])
+                        lastStop = closestCharger.location
+                        newRoute.add(closestCharger.location)
+//                        println("added marker" + closestCharger.stationName)
+                        googleMap.addMarker(MarkerOptions().position(closestCharger.location).title(closestCharger.stationName).snippet("connector type: ${closestCharger.chargerType}"))
+//                        for (k in 0 until markers.size) {
+//                            // println("markerk:" + markers[k].location.latitude)
+//                            Location.distanceBetween(markers[k].location.latitude,
+//                                markers[k].location.longitude, path[i][j].latitude,
+//                                path[i][j].longitude, closeToRoute)
+//                            // If the charging station is approximately less than 15 miles from the route
+//                            if (closeToRoute[0] < 25000 && !newRoute.contains(markers[k].location)) {
+//                                for (l in 0 until newRoute.size) {
+//                                    Location.distanceBetween(markers[k].location.latitude,
+//                                        markers[k].location.longitude, newRoute.elementAt(l).latitude,
+//                                        newRoute.elementAt(l).longitude, near)
+//                                    // If a charging station near the route is less than 18 miles to any
+//                                    // of the points (i.e. added charging stations & source), don't add to
+//                                    // set.
+//                                    if (near[0] < 30000) {
+//                                        tooClose = true
+//                                        break
+//                                    }
+//                                }
+//                                // If a charging station isn't close to any in the set, check if the
+//                                // charging station is between approximately 93 and 155 miles from
+//                                // the previously added charging station or source, then add
+//                                // the charging station to set.
+//                                if (!tooClose) {
+//                                    Location.distanceBetween(markers[k].location.latitude,
+//                                        markers[k].location.longitude, newRoute.elementAt(indexNewRoute).latitude,
+//                                        newRoute.elementAt(indexNewRoute).longitude, distance)
+//                                    if (distance[0] > 150000 && distance[0] < 250000) {
+//                                        newRoute.add(markers[k].location)
+//                                        indexNewRoute++
+//                                        //googleMap.addMarker(MarkerOptions().position(markers[k].location))
+//                                        val connector = markers[k].chargerType
+//                                        var chargeOutput = "connector type: $connector"
+//                                        println("added marker" + markers[k].stationName)
+//                                        googleMap.addMarker(MarkerOptions().position(markers[k].location).title(markers[k].stationName).snippet(chargeOutput))
+//                                        break
+//                                    }
+//                                }
+//                            }
+//                            tooClose = false
+//                        }
                     }
                 }
 
