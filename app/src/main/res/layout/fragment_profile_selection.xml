@@ -5,14 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ProfileSelectionFragment"
-    >
+    android:background="@color/green_700"
+    tools:context=".ProfileSelectionFragment" >
+
     <LinearLayout
         android:id="@+id/linearColumnarrowleft"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/_16pxv"
         android:layout_width="match_parent"
+
         android:orientation="vertical" style="@style/groupStylewhite_A700">
+
         <androidx.appcompat.widget.Toolbar
             android:gravity="center_horizontal"
             android:id="@+id/toolbarToolbar"
@@ -43,188 +46,184 @@
                     style="@style/txtInterthin16" tools:text="Do It Later"/>
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
-            <LinearLayout android:gravity="start"
-                android:id="@+id/linearColumnlargetitle"
+
+        <LinearLayout
+            android:id="@+id/linearColumnlargetitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:background="@color/white_A700_5a"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtLargeTitle"
+                style="@style/txtInterbold24"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent" android:orientation="vertical">
-                <TextView android:ellipsize="end"
-                    android:id="@+id/txtLargeTitle"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_21pxh"
-                    android:layout_marginStart="@dimen/_21pxh"
-                    android:layout_width="wrap_content"
-                    android:singleLine="true"
-                    android:text="Title"
-                    style="@style/txtInterbold24" tools:text="Vehicle Info"/>
-                <TextView android:ellipsize="end"
-                    android:id="@+id/txtModelinfo"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_16pxh"
-                    android:layout_marginStart="@dimen/_16pxh"
-                    android:layout_marginTop="@dimen/_54pxv"
-                    android:layout_width="wrap_content"
-                    android:lineSpacingExtra="@dimen/_1pxh"
-                    android:singleLine="true"
-                    android:text="Model"
-                    style="@style/txtInterbold18" tools:text="Model Info"/>
-                <Spinner
-                    android:background="@drawable/rectangle_bg_white_a700_68_border_black_900_68_radius_3"
-                    android:ellipsize="end"
-                    android:hint="Brand"
-                    android:id="@+id/editBrandInfoSpinner"
-                    android:inputType="text"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_16pxh"
-                    android:layout_marginStart="@dimen/_16pxh"
-                    android:layout_marginTop="@dimen/_21pxv"
-                    android:layout_width="match_parent"
-                    android:lineSpacingExtra="@dimen/_1pxh"
-                    android:paddingBottom="@dimen/_18pxv"
-                    android:paddingEnd="@dimen/_30pxh"
-                    android:paddingStart="@dimen/_16pxh"
-                    android:paddingTop="@dimen/_18pxv"
-                    android:singleLine="true"
-                    android:text="vehicle brand"
-                    android:textColorHint="@color/black_900_8b"
-                    style="@style/etSolidRoundedOutline" tools:ignore="Autofill"/>
-                <EditText
-                    android:background="@drawable/rectangle_bg_white_a700_68_border_black_900_68_radius_3"
-                    android:ellipsize="end"
-                    android:hint="Model"
-                    android:id="@+id/editModelInfo"
-                    android:inputType="text"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_16pxh"
-                    android:layout_marginStart="@dimen/_16pxh"
-                    android:layout_marginTop="@dimen/_16pxv"
-                    android:layout_width="match_parent"
-                    android:lineSpacingExtra="@dimen/_1pxh"
-                    android:paddingBottom="@dimen/_18pxv"
-                    android:paddingEnd="@dimen/_30pxh"
-                    android:paddingStart="@dimen/_16pxh"
-                    android:paddingTop="@dimen/_17pxv"
-                    android:singleLine="true"
-                    android:text="Your model"
-                    android:textColorHint="@color/black_900_8b"
-                    style="@style/etSolidRoundedOutline" tools:ignore="Autofill"/>
-                <LinearLayout android:id="@+id/linearRowchargerinfo"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_16pxh"
-                    android:layout_marginStart="@dimen/_16pxh"
-                    android:layout_marginTop="@dimen/_34pxv"
-                    android:layout_width="match_parent" android:orientation="horizontal">
-                    <TextView android:ellipsize="end"
-                        android:id="@+id/txtChargerinfo"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_4pxv"
-                        android:layout_weight="0.67"
-                        android:layout_width="0dp"
-                        android:lineSpacingExtra="@dimen/_1pxh"
-                        android:singleLine="true"
-                        android:text="Charger Info"
-                        style="@style/txtInterbold18" tools:text="Charger Info"/>
-                    <LinearLayout android:id="@+id/linearRowplus"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_164pxh"
-                        android:layout_marginTop="@dimen/_6pxv"
-                        android:layout_weight="0.33"
-                        android:layout_width="0dp" android:orientation="horizontal">
-                        <ImageView android:id="@+id/imagePlus"
-                            android:layout_height="@dimen/_14pxh"
-                            android:layout_marginBottom="@dimen/_1pxv"
-                            android:layout_marginTop="@dimen/_1pxv"
-                            android:layout_width="@dimen/_14pxh"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/img_plus"
-                            tools:ignore="ContentDescription" tools:src="@drawable/img_plus"/>
-                        <TextView android:ellipsize="end"
-                            android:id="@+id/txtOneHundredSixtySeven"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_5pxh"
-                            android:layout_weight="0.69"
-                            android:layout_width="0dp"
-                            android:lineSpacingExtra="@dimen/_1pxh"
-                            android:singleLine="true"
-                            android:text="Add"
-                            style="@style/txtInterthin16_1" tools:text="Add"/>
-                    </LinearLayout>
-                </LinearLayout>
-                <EditText
-                    android:background="@drawable/rectangle_bg_white_a700_68_border_black_900_68_radius_3"
-                    android:ellipsize="end"
-                    android:hint="Connector Type"
-                    android:id="@+id/etOneHundredSixtyNine"
-                    android:inputType="text"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_16pxh"
-                    android:layout_marginStart="@dimen/_16pxh"
-                    android:layout_marginTop="@dimen/_29pxv"
-                    android:layout_width="match_parent"
-                    android:lineSpacingExtra="@dimen/_1pxh"
-                    android:paddingBottom="@dimen/_16pxv"
-                    android:paddingEnd="@dimen/_30pxh"
-                    android:paddingStart="@dimen/_16pxh"
-                    android:paddingTop="@dimen/_19pxv"
-                    android:singleLine="true"
-                    android:text="your connctor type"
-                    android:textColorHint="@color/black_900_8b"
-                    style="@style/etSolidRoundedOutline" tools:ignore="Autofill"/>
-                <EditText
-                    android:background="@drawable/rectangle_bg_white_a700_68_border_black_900_68_radius_3"
-                    android:ellipsize="end"
-                    android:hint="Connector Type"
-                    android:id="@+id/etOneHundredSeventyFour"
-                    android:inputType="text"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_16pxh"
-                    android:layout_marginStart="@dimen/_16pxh"
-                    android:layout_marginTop="@dimen/_20pxv"
-                    android:layout_width="match_parent"
-                    android:lineSpacingExtra="@dimen/_1pxh"
-                    android:paddingBottom="@dimen/_16pxv"
-                    android:paddingEnd="@dimen/_30pxh"
-                    android:paddingStart="@dimen/_16pxh"
-                    android:paddingTop="@dimen/_19pxv"
-                    android:singleLine="true"
-                    android:text="your connector type"
-                    android:textColorHint="@color/black_900_8b"
-                    style="@style/etSolidRoundedOutline" tools:ignore="Autofill"/>
-                <androidx.appcompat.widget.AppCompatButton
-                    android:ellipsize="end" android:gravity="center"
-                    android:id="@+id/btnSave"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_16pxh"
-                    android:layout_marginStart="@dimen/_16pxh"
-                    android:layout_marginTop="@dimen/_25pxv"
-                    android:layout_width="match_parent"
-                    android:lineSpacingExtra="@dimen/_1pxh"
-                    android:paddingBottom="@dimen/_22pxv"
-                    android:paddingEnd="@dimen/_30pxh"
-                    android:paddingStart="@dimen/_30pxh"
-                    android:paddingTop="@dimen/_22pxv"
-                    android:singleLine="true"
-                    android:text="Save"
-                    android:textAllCaps="false"
-                    style="@style/btnSolidRounded" />
-                <LinearLayout android:gravity="center_vertical"
-                    android:id="@+id/linearRowconnectyourca"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_16pxh"
-                    android:layout_marginStart="@dimen/_16pxh"
-                    android:layout_marginTop="@dimen/_88pxv"
-                    android:layout_width="match_parent" android:orientation="horizontal">
+                android:layout_marginStart="@dimen/_21pxh"
+                android:layout_marginEnd="@dimen/_21pxh"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="Edit Profile"
+                tools:text="Vehicle Info" />
 
-                </LinearLayout>
-                <LinearLayout android:gravity="center_vertical"
-                    android:id="@+id/linearRowmap"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_30pxv"
-                    android:layout_width="match_parent"
-                    android:orientation="horizontal" style="@style/groupStylegray_100cornerRadius">
+            <TextView
+                android:id="@+id/txtBrandinfo"
+                style="@style/txtregular16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_54pxv"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:ellipsize="end"
+                android:lineSpacingExtra="@dimen/_1pxh"
+                android:singleLine="true"
+                android:text="Select Vehicle Brand"
+                tools:text="Select vehicle brand" />
 
+            <Spinner
+                android:id="@+id/editBrandInfoSpinner"
+                style="@android:style/Widget.Holo.Light.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_21pxv"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:background="@drawable/custom_spn_background"
+                android:ellipsize="end"
+                android:paddingStart="@dimen/_16pxh"
+                android:paddingTop="@dimen/_18pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingBottom="@dimen/_18pxv"
+                android:spinnerMode="dropdown"
+                />
+
+            <TextView
+                android:id="@+id/txtModelinfo"
+                style="@style/txtregular16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_54pxv"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:ellipsize="end"
+                android:lineSpacingExtra="@dimen/_1pxh"
+                android:singleLine="true"
+                android:text="Select Vehicle Model"
+                tools:text="Select Vehicle Model" />
+
+            <Spinner
+                android:id="@+id/editModelInfoSpinner"
+                style="@android:style/Widget.Holo.Light.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_21pxv"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:background="@drawable/custom_spn_background"
+                android:ellipsize="end"
+                android:paddingStart="@dimen/_16pxh"
+                android:paddingTop="@dimen/_18pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingBottom="@dimen/_18pxv"
+                android:spinnerMode="dropdown"
+                />
+
+            <LinearLayout
+                android:id="@+id/linearRowchargerinfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_34pxv"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtChargerinfo"
+                    style="@style/txtregular16"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_4pxv"
+                    android:layout_weight="0.67"
+                    android:ellipsize="end"
+                    android:lineSpacingExtra="@dimen/_1pxh"
+                    android:singleLine="true"
+                    android:text="Charger Info"
+                    tools:text="Charger Info" />
+
+                <LinearLayout
+                    android:id="@+id/linearRowplus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_164pxh"
+                    android:layout_marginTop="@dimen/_6pxv"
+                    android:layout_weight="0.33"
+                    android:orientation="horizontal">
 
 
                 </LinearLayout>
             </LinearLayout>
+
+            <Spinner
+                android:id="@+id/editConnectorInfoSpinner"
+                style="@android:style/Widget.Holo.Light.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_21pxv"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:ellipsize="end"
+                android:background="@drawable/custom_spn_background"
+                android:paddingStart="@dimen/_16pxh"
+                android:paddingTop="@dimen/_18pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingBottom="@dimen/_18pxv" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_25pxv"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:lineSpacingExtra="@dimen/_1pxh"
+                android:paddingStart="@dimen/_30pxh"
+                android:paddingTop="@dimen/_22pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingBottom="@dimen/_22pxv"
+                android:singleLine="true"
+                android:text="Save"
+                android:textAllCaps="false"
+                style="@style/btnSolidRounded"
+                />
+
+            <LinearLayout
+                android:id="@+id/linearRowconnectyourca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_88pxv"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearRowmap"
+                style="@style/groupStylegray_100cornerRadius"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30pxv"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 </FrameLayout>
+

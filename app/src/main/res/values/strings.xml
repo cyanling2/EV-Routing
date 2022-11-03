@@ -43,12 +43,5 @@ Address of CMU-SV</string>
     <string name="blank"> space </string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string-array name="editBrandInfoSpinner">
-        <item>Tesla</item>
-        <item>Toyota</item>
-        <item>Honda</item>
-        <item>Chevrolet</item>
-        <item>Nissan</item>
-        <item>KIA</item>
-    </string-array>
+
 </resources>

@@ -7,8 +7,6 @@ plugins {
 android {
     compileSdk 32
 
-    dataBinding.enabled = true
-
     defaultConfig {
         applicationId "com.cmu.evplan"
         minSdk 25
@@ -42,8 +40,6 @@ android {
     buildFeatures {
         viewBinding true
     }
-
-
 }
 
 dependencies {
@@ -70,6 +66,5 @@ dependencies {
     implementation 'com.android.volley:volley:1.2.0'
 
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
-
 
 }
