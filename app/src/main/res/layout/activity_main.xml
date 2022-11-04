@@ -48,7 +48,6 @@
         android:iconifiedByDefault="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <ImageButton
         android:id="@+id/currentLocation"
         android:layout_width="55dp"

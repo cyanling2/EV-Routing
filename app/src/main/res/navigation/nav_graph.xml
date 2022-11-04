@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_mapsFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_mapFragment_to_profileSelectionFragment"
+            app:destination="@id/profileSelectionFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -42,5 +45,14 @@
         <action
             android:id="@+id/action_routingFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileSelectionFragment"
+        android:name="com.cmu.evplan.ProfileSelectionFragment"
+        android:label="fragment_profile_selection"
+        tools:layout="@layout/fragment_profile_selection" >
+        <action
+            android:id="@+id/action_profileSelectionFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
 </navigation>
