@@ -84,6 +84,34 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.185" />
 
+        <TextView
+            android:id="@+id/battery_percent_to_reserve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Battery % To Reserve:"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.116"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.266" />
+
+        <EditText
+            android:id="@+id/editBatteryPercentToReserve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_border"
+            android:ems="10"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:text="0.00"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.94"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.276" />
+
         <View
             android:id="@+id/divider"
             android:layout_width="match_parent"
@@ -93,10 +121,10 @@
             android:background="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.384"
+            app:layout_constraintHorizontal_bias="0.56"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.243" />
+            app:layout_constraintVertical_bias="0.352" />
 
         <TextView
             android:id="@+id/History"
@@ -105,10 +133,10 @@
             android:text="History"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.087"
+            app:layout_constraintHorizontal_bias="0.051"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.267" />
+            app:layout_constraintVertical_bias="0.377" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
