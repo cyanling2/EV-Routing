@@ -154,9 +154,6 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         }
     }
 
-
-
-
     // Pulls from an EV Station API and parses it to plot all EV stations in the US on the map
     private fun processEVJson(googleMap: GoogleMap) {
         // val markers: MutableList<LatLng> = ArrayList()

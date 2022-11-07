@@ -34,6 +34,7 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.libraries.places.api.model.Place
+import java.lang.Math.abs
 
 import java.util.Arrays
 class RoutingFragment : Fragment(), OnMapReadyCallback {
@@ -200,7 +201,6 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
             CameraUpdateFactory.newLatLngZoom(
                 it, 12f)
         }?.let { googleMap.animateCamera(it) }
-        Log.i("Test", viewModel.getSrc().toString())
         val path: MutableList<List<LatLng>> = ArrayList()
         val srcLat = viewModel.getSrc()?.latLng?.latitude
         val srcLng = viewModel.getSrc()?.latLng?.longitude
@@ -208,7 +208,6 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
         val dstLng = viewModel.getDst()?.latLng?.longitude
         val markers = viewModel.getMarkers()
         // println("all makrers" + markers.toString())
-        // Log.i("Test:", markers.toString())
         if (srcLat != null && dstLat != null && srcLng != null && dstLng != null) {
             boundsBuilder.include(LatLng(srcLat, srcLng))
             boundsBuilder.include(LatLng(dstLat, dstLng))
@@ -216,6 +215,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
 
         var remainRange = viewModel.calRemainRange()
 //        Log.e("jane", "remain range $remainRange miles")
+        val requestQueue = Volley.newRequestQueue(context)
 
         val urlDirections = "https://maps.googleapis.com/maps/api/directions/json?origin=${srcLat},${srcLng}&destination=${dstLat},${dstLng}&key=$MAPS_API_KEY"
         //val directionsRequest = object : StringRequest(Request.Method.GET, urlDirections, Response.Listener<String> {
@@ -251,6 +251,8 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
             val closeToRoute = FloatArray(1)
             var indexNewRoute = 0
             var tooClose = false
+            var prevElevation = 0.0
+            var currentElevation = 0.0
             var lastStop = LatLng(0.0, 0.0)
             if (srcLat != null && srcLng != null) {
                 newRoute.add(LatLng(srcLat, srcLng))
@@ -274,6 +276,64 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
                 for (i in 0 until path.size) {
                     for (j in 0 until path[i].size) {
 //                        println("coordinate is ${path[i][j].latitude} ${path[i][j].longitude}")
+
+                        // Use the Elevation API to find the elevation of each point on the route
+                        // If it is increasing, subtract a certain amount from acceptableDistance
+                        // If it is decreasing, add a certain amount to acceptableDistance
+                        // Simple Model: Uses 1.5 kwh every 305 meters and 1.5kwh, a car can go approximately 5 miles
+
+                        val pathLat = path[i][j].latitude
+                        val pathLng = path[i][j].longitude
+                        val elevationApi = "https://maps.googleapis.com/maps/api/elevation/json?locations=${pathLat}%2C${pathLng}&key=$MAPS_API_KEY"
+//                        val elevationTest = "https://maps.googleapis.com/maps/api/elevation/json?locations=39.7391536%2C-104.9847034&key=$MAPS_API_KEY"
+
+                        // Store the elevation in the array, 2 different pointers
+                        val elevationRequest = object : StringRequest(Request.Method.GET, elevationApi, Response.Listener<String> {
+                                elevResponse ->
+                            val elevJSONResponse = JSONObject(elevResponse)
+                            val results = elevJSONResponse.getJSONArray("results")
+                            val elevation = results.getJSONObject(0).getDouble("elevation")
+                            // Log.i("Test", elevation.toString())
+                            if (prevElevation != 0.0) {
+                                // Elevation is all over the place, hard to determine when to make the adjustment on
+                                // acceptableDistance since elevation sometimes increases & sometimes decreases
+                                val diffElevation = elevation - prevElevation // How to determine if we climbed 300 meters
+
+                                // Issues: Cannot really take into account the variation between
+                                // incline and decline, could incline for a bit and then decline
+
+                                // A flaw with this code, basically this would only work if there is
+                                // consistent increase or decrease in elevation
+                                currentElevation += diffElevation
+
+                                // Log.i("Test", currentElevation.toString())
+                                // Issues: Seems like route gets plotted too fast and doesn't take
+                                // into account the changes of acceptableDistance based on elevation
+
+                                // This if check has flaws as well, for example, it will only work when
+                                // currentElevation starts from 0. If it goes up to 299 and then decline,
+                                // it will never meet the if check and vice versa
+                                // Based on tests and a lot of thought, feels like the logic to incorporate
+                                // elevation might not be possible with our current algorithm
+                                if (kotlin.math.abs(currentElevation) >= 300) {
+//                                    val multiple305 = kotlin.math.abs(currentElevation) / 300
+                                    if (currentElevation < 0) {
+                                        acceptableDistance = acceptableDistance?.minus(5)
+                                    } else if (currentElevation > 0) {
+                                        acceptableDistance = acceptableDistance?.plus(5)
+                                    }
+                                    currentElevation = 0.0
+                                    // Log.i("Test", acceptableDistance.toString())
+                                }
+                            }
+
+                            // Log.i("Test", elevation.toString())
+                            prevElevation = elevation
+                        }, Response.ErrorListener {
+
+                        }){}
+                        requestQueue.add(elevationRequest)
+
                         var metersDriven = FloatArray(1) // miles since last stop
                         Location.distanceBetween(lastStop.latitude, lastStop.longitude, path[i][j].latitude, path[i][j].longitude, metersDriven)
                         var milesDriven = MetersToMiles(metersDriven[0])
@@ -440,22 +500,13 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
             if (dstLat != null && dstLng != null) {
                 newRoute.add(LatLng(dstLat, dstLng))
             }
-            /*for (i in 0 until path.size) {
-                googleMap.addPolyline(PolylineOptions().addAll(path[i]).color(Color.BLUE))
-                // Log.i("Test:", path[i].toString())
-            } */
             plotRoute(newRoute, googleMap)
-            // Log.i("Test", newRoute.toString())
         }, Response.ErrorListener {
 
         }){}
-        // end Hard code
-        val requestQueue = Volley.newRequestQueue(context)
         requestQueue.add(directionsRequest1)
         googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 1000, 1000, 100))
     }
-
-
 
     override fun onMapReady(p0: GoogleMap) {
 
@@ -491,7 +542,6 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
             val requestQueue = Volley.newRequestQueue(context)
             requestQueue.add(directionsRequest)
         }
-
     }
 
 }
