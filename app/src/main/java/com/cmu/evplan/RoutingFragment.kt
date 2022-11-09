@@ -34,7 +34,6 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.libraries.places.api.model.Place
-import java.lang.Math.abs
 
 import java.util.Arrays
 class RoutingFragment : Fragment(), OnMapReadyCallback {
@@ -191,15 +190,20 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
      */
     private val callback = OnMapReadyCallback { googleMap ->
         val boundsBuilder = LatLngBounds.Builder()
-        viewModel.getSrc()?.latLng?.let { MarkerOptions().position(it).title(viewModel.getSrc()?.name) }
+        viewModel.getSrc()?.latLng?.let {
+            MarkerOptions().position(it).title(viewModel.getSrc()?.name)
+        }
             ?.let { googleMap.addMarker(it) }
-        viewModel.getDst()?.latLng?.let { MarkerOptions().position(it).title(viewModel.getDst()?.name) }
+        viewModel.getDst()?.latLng?.let {
+            MarkerOptions().position(it).title(viewModel.getDst()?.name)
+        }
             ?.let { googleMap.addMarker(it) }
-        viewModel.getSrc()?.latLng?.let { CameraUpdateFactory.newLatLng(it)}
-            ?.let { googleMap.moveCamera(it)}
+        viewModel.getSrc()?.latLng?.let { CameraUpdateFactory.newLatLng(it) }
+            ?.let { googleMap.moveCamera(it) }
         viewModel.getSrc()?.latLng?.let {
             CameraUpdateFactory.newLatLngZoom(
-                it, 12f)
+                it, 12f
+            )
         }?.let { googleMap.animateCamera(it) }
         val path: MutableList<List<LatLng>> = ArrayList()
         val srcLat = viewModel.getSrc()?.latLng?.latitude
@@ -213,22 +217,39 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
             boundsBuilder.include(LatLng(dstLat, dstLng))
         }
 
-        var remainRange = viewModel.calRemainRange()
+        var acceptableDistance = viewModel.calRemainRange()
 //        Log.e("jane", "remain range $remainRange miles")
         val requestQueue = Volley.newRequestQueue(context)
 
-        val urlDirections = "https://maps.googleapis.com/maps/api/directions/json?origin=${srcLat},${srcLng}&destination=${dstLat},${dstLng}&key=$MAPS_API_KEY"
-        //val directionsRequest = object : StringRequest(Request.Method.GET, urlDirections, Response.Listener<String> {
-        //Hard Code Charger
-        /*val chargerLat=37.3243862
-        val chargerLng=-122.030635
-        val charger = LatLng(37.3243862, -122.030635)
-        googleMap.addMarker(MarkerOptions().position(charger).title("charger")) */
+        val elevationApi =
+            "https://maps.googleapis.com/maps/api/elevation/json?path=${srcLat}%2C${srcLng}%7C${dstLat}%2C${dstLng}&samples=5&key=$MAPS_API_KEY"
+        // Store the elevation in the array, 2 different pointers
+        // Log.i("Test", acceptableDistance.toString())
+        val elevationRequest = object : StringRequest(Request.Method.GET, elevationApi, Response.Listener<String> { elevResponse ->
+            val elevJSONResponse = JSONObject(elevResponse)
+            val results = elevJSONResponse.getJSONArray("results")
+            val startElevation = results.getJSONObject(0).getDouble("elevation")
+            val endElevation = results.getJSONObject(1).getDouble("elevation")
+            // Negative diffElevation means incline, positive diffElevation means decline from source
+            val diffElevation = startElevation - endElevation
+            val multipleMeters = kotlin.math.abs(diffElevation) / 50
+            if (diffElevation >= 50) {
+                acceptableDistance = acceptableDistance?.plus((5 * multipleMeters))
+            } else if (diffElevation <= -50) {
+                acceptableDistance = acceptableDistance?.minus((5 * multipleMeters))
+            }
+        }, Response.ErrorListener {
+
+        }){}
+        requestQueue.add(elevationRequest)
+        Log.i("Test4", acceptableDistance.toString())
+        val newRoute: MutableSet<LatLng> = LinkedHashSet()
+        val urlDirections =
+            "https://maps.googleapis.com/maps/api/directions/json?origin=${srcLat},${srcLng}&destination=${dstLat},${dstLng}&key=$MAPS_API_KEY"
         //val urlDirections1 = "https://maps.googleapis.com/maps/api/directions/json?origin=${chargerLat},${chargerLng}&destination=${dstLat},${dstLng}&key=$MAPS_API_KEY"
-        val directionsRequest1 = object : StringRequest(Request.Method.GET, urlDirections, Response.Listener<String> {
-                response ->
+        val directionsRequest1 = object : StringRequest(Request.Method.GET, urlDirections, Response.Listener<String> { response ->
             val jsonResponse = JSONObject(response)
-            // Get routes
+                // Get routes
             val routes = jsonResponse.getJSONArray("routes")
             val legs = routes.getJSONObject(0).getJSONArray("legs")
             val steps = legs.getJSONObject(0).getJSONArray("steps")
@@ -237,20 +258,8 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
                 val points = steps.getJSONObject(i).getJSONObject("polyline").getString("points")
                 path.add(PolyUtil.decode(points))
             }
-            // Loop over marker
-            // Loop over each list of LatLng and check in a range
-            // If falls in a range, add LatLng to another list
-            // Run another function that plots each source and destination for each to connect
 
-            // Issues: Can't do calculation because the charging stations data is so big
-            // Unsure how to just choose a single charging station rather than having a bunch near
-            // the route
-            val newRoute: MutableSet<LatLng> = LinkedHashSet()
-            val distance = FloatArray(1)
-            val near = FloatArray(1)
-            val closeToRoute = FloatArray(1)
             var indexNewRoute = 0
-            var tooClose = false
             var prevElevation = 0.0
             var currentElevation = 0.0
             var lastStop = LatLng(0.0, 0.0)
@@ -260,242 +269,132 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
             }
 
             if (markers != null) {
-                // Unsure what the condition should be to stop looking at charging stations in a while loop
-                // while ()
-                // Using a distance map or defining a grid within our app
-
-                // Checking close to route first and then distance from point to point
-                // Takes a very long time to process, not sure if my algorithm is correct
-                // Add the while loop inside the for loop, so loop over path first and then check
-                // the distance
-                println("path size ###################################")
-                println(path.size)
-                println(path[0].size)
-                var acceptableDistance = viewModel.calRemainRange()
+//                println("path size ###################################")
+//                println(path.size)
+//                println(path[0].size)
+//                var acceptableDistance = viewModel.calRemainRange()
 //                Log.i("jane", "acceptable distance: $acceptableDistance")
+//            Log.i("Test", "test")
+//            Log.i("Test2", path.size.toString())
                 for (i in 0 until path.size) {
                     for (j in 0 until path[i].size) {
 //                        println("coordinate is ${path[i][j].latitude} ${path[i][j].longitude}")
+
+                        // Possibly look around the path after every 5 or so
 
                         // Use the Elevation API to find the elevation of each point on the route
                         // If it is increasing, subtract a certain amount from acceptableDistance
                         // If it is decreasing, add a certain amount to acceptableDistance
                         // Simple Model: Uses 1.5 kwh every 305 meters and 1.5kwh, a car can go approximately 5 miles
 
-                        val pathLat = path[i][j].latitude
-                        val pathLng = path[i][j].longitude
-                        val elevationApi = "https://maps.googleapis.com/maps/api/elevation/json?locations=${pathLat}%2C${pathLng}&key=$MAPS_API_KEY"
-//                        val elevationTest = "https://maps.googleapis.com/maps/api/elevation/json?locations=39.7391536%2C-104.9847034&key=$MAPS_API_KEY"
+//                        val pathLat = path[i][j].latitude
+//                        val pathLng = path[i][j].longitude
+//                        val elevationApi = "https://maps.googleapis.com/maps/api/elevation/json?locations=${pathLat}%2C${pathLng}&key=$MAPS_API_KEY"
+////                        val elevationTest = "https://maps.googleapis.com/maps/api/elevation/json?locations=39.7391536%2C-104.9847034&key=$MAPS_API_KEY"
+//
+//                        // Store the elevation in the array, 2 different pointers
+//                        val elevationRequest = object : StringRequest(Request.Method.GET, elevationApi, Response.Listener<String> {
+//                                elevResponse ->
+//                            val elevJSONResponse = JSONObject(elevResponse)
+//                            val results = elevJSONResponse.getJSONArray("results")
+//                            val elevation = results.getJSONObject(0).getDouble("elevation")
+//                            // Log.i("Test", elevation.toString())
+//
+//                            // Look at the start and the end and find the elevation and use
+//                            // a sample size and do the calculation
+//                            if (prevElevation != 0.0) {
+//                                // Elevation is all over the place, hard to determine when to make the adjustment on
+//                                // acceptableDistance since elevation sometimes increases & sometimes decreases
+//                                val diffElevation = elevation - prevElevation // How to determine if we climbed 300 meters
+//
+//                                // Issues: Cannot really take into account the variation between
+//                                // incline and decline, could incline for a bit and then decline
+//
+//                                // A flaw with this code, basically this would only work if there is
+//                                // consistent increase or decrease in elevation
+//                                currentElevation += diffElevation
+//
+//                                // Log.i("Test", currentElevation.toString())
+//                                // Issues: Seems like route gets plotted too fast and doesn't take
+//                                // into account the changes of acceptableDistance based on elevation
+//
+//                                // This if check has flaws as well, for example, it will only work when
+//                                // currentElevation starts from 0. If it goes up to 299 and then decline,
+//                                // it will never meet the if check and vice versa
+//                                // Based on tests and a lot of thought, feels like the logic to incorporate
+//                                // elevation might not be possible with our current algorithm
+//                                if (kotlin.math.abs(currentElevation) >= 300) {
+////                                    val multiple305 = kotlin.math.abs(currentElevation) / 300
+//                                    if (currentElevation < 0) {
+//                                        acceptableDistance = acceptableDistance?.minus(5)
+//                                    } else if (currentElevation > 0) {
+//                                        acceptableDistance = acceptableDistance?.plus(5)
+//                                    }
+//                                    currentElevation = 0.0
+//                                    Log.i("Test", acceptableDistance.toString())
+//                                }
+//                            }
+//
+//                            // Log.i("Test", elevation.toString())
+//                            prevElevation = elevation
+//                        }, Response.ErrorListener {
+//
+//                        }){}
+//                        requestQueue.add(elevationRequest)
 
-                        // Store the elevation in the array, 2 different pointers
-                        val elevationRequest = object : StringRequest(Request.Method.GET, elevationApi, Response.Listener<String> {
-                                elevResponse ->
-                            val elevJSONResponse = JSONObject(elevResponse)
-                            val results = elevJSONResponse.getJSONArray("results")
-                            val elevation = results.getJSONObject(0).getDouble("elevation")
-                            // Log.i("Test", elevation.toString())
-                            if (prevElevation != 0.0) {
-                                // Elevation is all over the place, hard to determine when to make the adjustment on
-                                // acceptableDistance since elevation sometimes increases & sometimes decreases
-                                val diffElevation = elevation - prevElevation // How to determine if we climbed 300 meters
-
-                                // Issues: Cannot really take into account the variation between
-                                // incline and decline, could incline for a bit and then decline
-
-                                // A flaw with this code, basically this would only work if there is
-                                // consistent increase or decrease in elevation
-                                currentElevation += diffElevation
-
-                                // Log.i("Test", currentElevation.toString())
-                                // Issues: Seems like route gets plotted too fast and doesn't take
-                                // into account the changes of acceptableDistance based on elevation
-
-                                // This if check has flaws as well, for example, it will only work when
-                                // currentElevation starts from 0. If it goes up to 299 and then decline,
-                                // it will never meet the if check and vice versa
-                                // Based on tests and a lot of thought, feels like the logic to incorporate
-                                // elevation might not be possible with our current algorithm
-                                if (kotlin.math.abs(currentElevation) >= 300) {
-//                                    val multiple305 = kotlin.math.abs(currentElevation) / 300
-                                    if (currentElevation < 0) {
-                                        acceptableDistance = acceptableDistance?.minus(5)
-                                    } else if (currentElevation > 0) {
-                                        acceptableDistance = acceptableDistance?.plus(5)
-                                    }
-                                    currentElevation = 0.0
-                                    // Log.i("Test", acceptableDistance.toString())
-                                }
-                            }
-
-                            // Log.i("Test", elevation.toString())
-                            prevElevation = elevation
-                        }, Response.ErrorListener {
-
-                        }){}
-                        requestQueue.add(elevationRequest)
-
-                        var metersDriven = FloatArray(1) // miles since last stop
-                        Location.distanceBetween(lastStop.latitude, lastStop.longitude, path[i][j].latitude, path[i][j].longitude, metersDriven)
+                        // Time stamp here in the routing to see if routing is happening faster
+                        val metersDriven = FloatArray(1) // miles since last stop
+                        Location.distanceBetween(
+                            lastStop.latitude,
+                            lastStop.longitude,
+                            path[i][j].latitude,
+                            path[i][j].longitude,
+                            metersDriven
+                        )
                         var milesDriven = MetersToMiles(metersDriven[0])
                         if (milesDriven <= acceptableDistance!!) {
                             continue
                         }
+                        Log.i("Test", acceptableDistance.toString())
                         var closestCharger = viewModel.getClosestMarker(path[i][j])
                         lastStop = closestCharger.location
                         newRoute.add(closestCharger.location)
 //                        println("added marker" + closestCharger.stationName)
-                        googleMap.addMarker(MarkerOptions().position(closestCharger.location).title(closestCharger.stationName).snippet("connector type: ${closestCharger.chargerType}"))
+                        googleMap.addMarker(
+                            MarkerOptions().position(closestCharger.location)
+                                .title(closestCharger.stationName)
+                                .snippet("connector type: ${closestCharger.chargerType}")
+                        )
                         acceptableDistance = viewModel.calFullRange()
-//                        Log.i("jane", "acceptable distance: $acceptableDistance")
-//                        for (k in 0 until markers.size) {
-//                            // println("markerk:" + markers[k].location.latitude)
-//                            Location.distanceBetween(markers[k].location.latitude,
-//                                markers[k].location.longitude, path[i][j].latitude,
-//                                path[i][j].longitude, closeToRoute)
-//                            // If the charging station is approximately less than 15 miles from the route
-//                            if (closeToRoute[0] < 25000 && !newRoute.contains(markers[k].location)) {
-//                                for (l in 0 until newRoute.size) {
-//                                    Location.distanceBetween(markers[k].location.latitude,
-//                                        markers[k].location.longitude, newRoute.elementAt(l).latitude,
-//                                        newRoute.elementAt(l).longitude, near)
-//                                    // If a charging station near the route is less than 18 miles to any
-//                                    // of the points (i.e. added charging stations & source), don't add to
-//                                    // set.
-//                                    if (near[0] < 30000) {
-//                                        tooClose = true
-//                                        break
-//                                    }
-//                                }
-//                                // If a charging station isn't close to any in the set, check if the
-//                                // charging station is between approximately 93 and 155 miles from
-//                                // the previously added charging station or source, then add
-//                                // the charging station to set.
-//                                if (!tooClose) {
-//                                    Location.distanceBetween(markers[k].location.latitude,
-//                                        markers[k].location.longitude, newRoute.elementAt(indexNewRoute).latitude,
-//                                        newRoute.elementAt(indexNewRoute).longitude, distance)
-//                                    if (distance[0] > 150000 && distance[0] < 250000) {
-//                                        newRoute.add(markers[k].location)
-//                                        indexNewRoute++
-//                                        //googleMap.addMarker(MarkerOptions().position(markers[k].location))
-//                                        val connector = markers[k].chargerType
-//                                        var chargeOutput = "connector type: $connector"
-//                                        println("added marker" + markers[k].stationName)
-//                                        googleMap.addMarker(MarkerOptions().position(markers[k].location).title(markers[k].stationName).snippet(chargeOutput))
-//                                        break
-//                                    }
-//                                }
-//                            }
-//                            tooClose = false
-//                        }
+                        val elevationApiCharger =
+                            "https://maps.googleapis.com/maps/api/elevation/json?path=${closestCharger.location.latitude}%2C${closestCharger.location.longitude}%7C${dstLat}%2C${dstLng}&samples=5&key=$MAPS_API_KEY"
+                        val elevationChargerRequest = object : StringRequest(
+                            Request.Method.GET,
+                            elevationApiCharger,
+                            Response.Listener<String> { elevResponse ->
+                                val elevJSONResponse = JSONObject(elevResponse)
+                                val results = elevJSONResponse.getJSONArray("results")
+                                val startElevation = results.getJSONObject(0).getDouble("elevation")
+                                val endElevation = results.getJSONObject(1).getDouble("elevation")
+                                // Negative diffElevation means incline, positive diffElevation means decline from source
+                                val diffElevation = startElevation - endElevation
+                                Log.i("Test2", diffElevation.toString())
+                                val multipleMeters = kotlin.math.abs(diffElevation) / 50
+                                if (diffElevation >= 50) {
+                                    acceptableDistance = acceptableDistance?.plus((5 * multipleMeters))
+                                } else if (diffElevation <= -50) {
+                                    acceptableDistance = acceptableDistance?.minus((5 * multipleMeters))
+                                }
+                                Log.i("Test5", acceptableDistance.toString())
+                            },
+                            Response.ErrorListener {
+
+                            }) {}
+                        Log.i("Test3", acceptableDistance.toString())
+                        requestQueue.add(elevationChargerRequest)
+////                        Log.i("jane", "acceptable distance: $acceptableDistance")
                     }
                 }
-
-                // Pre-processing/Routing algorithm: Looks through each charging station from query
-                // and checks if the distance from either the source or the previously added charging
-                // station is within the range. If it is, check if the charging station falls in the range
-                // near the plotted route. If it does, add charging station to the set, increment the
-                // set pointer and reset to look at all charging stations again.
-
-                // Issue: Due to the data not being ordered, it causes issues.
-                /* while (chargingStationsPointer < markers.size) {
-                    Location.distanceBetween(markers[chargingStationsPointer].latitude,
-                    markers[chargingStationsPointer].longitude, newRoute.elementAt(indexNewRoute).latitude,
-                    newRoute.elementAt(indexNewRoute).longitude, distance)
-                    // Currently set to be approximately greater than 93 miles but less than 155 miles
-                    if (distance[0] > 150000 && distance[0] < 250000) {
-                        for (j in 0 until path.size) {
-                            if (!breakTrue) {
-                                for (k in 0 until path[j].size) {
-                                    Location.distanceBetween(markers[chargingStationsPointer].latitude,
-                                        markers[chargingStationsPointer].longitude, path[j][k].latitude,
-                                        path[j][k].longitude, closeToRoute)
-                                    // Currently set to be approximately less than 10 miles, but greater than 3 miles
-                                    if (closeToRoute[0] < 16000 &&
-                                        !newRoute.contains(markers[chargingStationsPointer])) {
-                                        newRoute.add(markers[chargingStationsPointer])
-                                        indexNewRoute++
-                                        Log.i("Test", chargingStationsPointer.toString())
-                                        googleMap.addMarker(MarkerOptions().position(markers[chargingStationsPointer]))
-                                        chargingStationsPointer = -1
-
-                                        breakTrue = true
-                                        break
-                                    }
-                                }
-                            } else {
-                                break
-                            }
-                        }
-                    }
-                    breakTrue = false
-                    chargingStationsPointer++
-                } */
-
-                /* for (i in 0 until markers.size) {
-                    Location.distanceBetween(markers[i].latitude, markers[i].longitude,
-                    newRoute.elementAt(indexNewRoute).latitude, newRoute.elementAt(indexNewRoute).longitude,
-                    distance)
-                    // Run into issues because data is not in order of distance, so it can skip over a charging station
-                    // I.e.: Since we don't constantly look at the markers and calculate from beginning to end
-                    // charging stations won't be in order
-                    // Tried using while loop, but it takes too long and the app can't handle it
-                    if (distance[0] > 402336 && distance[0] < 442570) {
-                        for (j in 0 until path.size) {
-                            if (!breakTrue) {
-                                for (k in 0 until path[j].size) {
-                                    Location.distanceBetween(markers[i].latitude, markers[i].longitude,
-                                        path[j][k].latitude, path[j][k].longitude, closeToRoute)
-                                    if (closeToRoute[0] < 4828 && !newRoute.contains(markers[i])) {
-                                        newRoute.add(markers[i])
-                                        indexNewRoute++
-                                        googleMap.addMarker(MarkerOptions().position(markers[i]))
-                                        breakTrue = true
-                                        break
-                                    }
-                                }
-                            } else {
-                                break
-                            }
-                        }
-                    }
-                    breakTrue = false
-                    for (j in 0 until path.size) {
-                        for (k in 0 until path[j].size) {
-                            Location.distanceBetween(markers[i].latitude, markers[i].longitude,
-                            path[j][k].latitude, path[j][k].longitude, closeToRoute)
-                            // Close to Route: 5 miles?
-                            // Test: 275 miles max distance?
-                            // Check each charging station for the max distance from the previous charging station
-                            if (closeToRoute[0] < 100) {
-                                // Check the distance of the current charging station with the previous
-                                // station and if it is close by a certain distance, do not add to the
-                                // new route list
-                                Location.distanceBetween(newRoute.elementAt(indexNewRoute).latitude,
-                                newRoute.elementAt(indexNewRoute).longitude, markers[i].latitude,
-                                markers[i].longitude, distance)
-                                if (distance[0] > 402336 && !newRoute.contains(markers[i])) {
-                                    newRoute.add(markers[i])
-                                    indexNewRoute++
-                                    googleMap.addMarker((MarkerOptions().position(markers[i])))
-                                }
-                                if (newRoute.size >= 3) {
-                                    Location.distanceBetween(newRoute.elementAt(indexNewRoute).latitude,
-                                    newRoute.elementAt(indexStations).longitude, markers[i].latitude,
-                                    markers[i].longitude, near)
-                                }
-                                if (newRoute.size != 3 || near[0] > 321869) {
-                                    newRoute.add(markers[i])
-                                    if (newRoute.size > 2) {
-                                        indexStations++
-                                    }
-                                    googleMap.addMarker(MarkerOptions().position(markers[i]))
-                                    // Log.i("Test", newRoute.toString())
-                                }
-                            }
-                        }
-                    }
-                } */
             }
             if (dstLat != null && dstLng != null) {
                 newRoute.add(LatLng(dstLat, dstLng))
@@ -503,9 +402,15 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
             plotRoute(newRoute, googleMap)
         }, Response.ErrorListener {
 
-        }){}
+        }) {}
         requestQueue.add(directionsRequest1)
         googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 1000, 1000, 100))
+
+        // Loop over marker
+        // Loop over each list of LatLng and check in a range
+        // If falls in a range, add LatLng to another list
+        // Run another function that plots each source and destination for each to connect
+
     }
 
     override fun onMapReady(p0: GoogleMap) {
@@ -514,6 +419,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
 
     private fun plotRoute(newRoute: MutableSet<LatLng>, googleMap: GoogleMap) {
         val path: MutableList<List<LatLng>> = ArrayList()
+        val requestQueue = Volley.newRequestQueue(context)
         for (i in 0 until (newRoute.size - 1)) {
             val srcLat = newRoute.elementAt(i).latitude
             val srcLng = newRoute.elementAt(i).longitude
@@ -539,7 +445,6 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
             }, Response.ErrorListener {
 
             }){}
-            val requestQueue = Volley.newRequestQueue(context)
             requestQueue.add(directionsRequest)
         }
     }
