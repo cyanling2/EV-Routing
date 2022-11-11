@@ -1,5 +1,5 @@
 package com.cmu.evplan
-
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -62,8 +62,8 @@ class ProfileSelectionFragment : Fragment(){
         if (spin_brand != null) {
             spin_brand.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
-                    parent: AdapterView<*>,
-                    view: View,
+                    parent: AdapterView<*>?,
+                    view: View?,
                     position: Int,
                     id: Long
                 ) {
@@ -84,11 +84,13 @@ class ProfileSelectionFragment : Fragment(){
                     }
 
                     println("list of model:" + list_of_model[0])
-                    var ad: ArrayAdapter<*> = ArrayAdapter<Any?>(
-                        view.context,
-                        android.R.layout.simple_spinner_dropdown_item,
-                        list_of_model
+                    var ad: ArrayAdapter<*>? = view?.let {
+                        ArrayAdapter<Any?>(
+                            it.context,
+                            android.R.layout.simple_spinner_dropdown_item,
+                            list_of_model
                         )
+                    }
                     println("spin model" +spin_model)
 
                     if (spin_model != null) {
@@ -99,21 +101,21 @@ class ProfileSelectionFragment : Fragment(){
                     if (spin_model != null) {
                         spin_model.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                             override fun onItemSelected(
-                                parent: AdapterView<*>,
-                                view: View,
+                                parent: AdapterView<*>?,
+                                view: View?,
                                 position: Int,
                                 id: Long
                             ) {
                                 modelSelected = list_of_model[position]
                             }
-                            override fun onNothingSelected(parent: AdapterView<*>) {
+                            override fun onNothingSelected(parent: AdapterView<*>?) {
                                 modelSelected = ""
                             }
                         }
                     }
                     println("have reset model values")
                 }
-                override fun onNothingSelected(parent: AdapterView<*>) {
+                override fun onNothingSelected(parent: AdapterView<*>?) {
                     brandSelected = "Tesla"
                 }
             }
@@ -135,13 +137,13 @@ class ProfileSelectionFragment : Fragment(){
             spin_connctor.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     parent: AdapterView<*>,
-                    view: View,
+                    view: View?,
                     position: Int,
                     id: Long
                 ) {
                     connectorSelected = list_of_connector[position]
                 }
-                override fun onNothingSelected(parent: AdapterView<*>) {
+                override fun onNothingSelected(parent: AdapterView<*>?) {
                     connectorSelected = ""
                 }
             }
@@ -153,7 +155,14 @@ class ProfileSelectionFragment : Fragment(){
             viewModel.setVehicleModel(modelSelected)
             viewModel.setConnectorType(connectorSelected)
             println("selected:" + viewModel.getConnectorType())
-            findNavController().navigate(R.id.action_profileSelectionFragment_to_profileFragment)
+
+            binding.btnSave.setText("Saved")
+            binding.btnSave.setBackgroundColor(Color.GRAY)
+            // findNavController().navigate(R.id.action_profileSelectionFragment_to_profileFragment)
+        }
+
+        _binding!!.txtOneHundredFortyThree.setOnClickListener {
+            findNavController().navigate(R.id.action_profileSelectionFragment_to_mapFragment)
         }
 
         return view

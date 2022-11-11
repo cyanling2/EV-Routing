@@ -33,10 +33,41 @@ class ProfileFragment : Fragment() {
             binding.battery.setText("${viewModel.getBattery()}%")
         }
 
-        binding.mileage.setText("${viewModel.calRemainRange()} miles")
+        binding.mileage.setText("${viewModel.calRemainRange()} ")
 
-        val connectorType = binding.chargerType.getText().toString()
-        viewModel.setConnectorType(connectorType)
+        // val connectorType = binding.chargerType.getText().toString()
+        // viewModel.setConnectorType(connectorType)
+
+        if (viewModel.getConnectorType() == null) {
+            binding.chargerType.setText("J1772")
+        } else {
+            binding.chargerType.setText("${viewModel.getConnectorType()}")
+        }
+
+        if (viewModel.getVehicleBrand() == null){
+            binding.brand.setText("Tesla")
+        } else {
+            binding.brand.setText("${viewModel.getVehicleBrand()}")
+            val image_name = viewModel.getVehicleBrand()!!.lowercase() + "_image"
+            println(image_name)
+            //setting the bitmap from the drawable folder
+
+            /**
+            val imgId = resources.getIdentifier("@drawable/$image_name", null, null)
+            binding.modelImage.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId));
+            */
+            val drawable1 = getResources().getDrawable(getResources()
+                .getIdentifier(image_name, "drawable", context?.getPackageName() ));
+            print("drawble:" + drawable1)
+            binding.modelImage.setImageDrawable(drawable1)
+
+        }
+
+        if (viewModel.getVehicleModel() == null){
+            binding.model.setText("Model 3")
+        } else {
+            binding.model.setText("${viewModel.getVehicleModel()}")
+        }
 
         return view
     }
