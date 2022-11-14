@@ -132,29 +132,39 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
         var markers: MutableList<MarkerType> = ArrayList()
 
         val queue = Volley.newRequestQueue(context)
-        val evURL = "https://services.arcgis.com/xOi1kZaI0eWDREZv/arcgis/rest/services/Alternative_Fueling_Stations/FeatureServer/0/query?where=state%20%3D%20%27CA%27%20AND%20fuel_type_code%20%3D%20%27ELEC%27&outFields=fuel_type_code,id,station_name,facility_type,city,state,street_address,zip,country,ev_connector_types,ev_network,ev_network_web,ev_other_evse,ev_pricing,ev_renewable_source,longitude,latitude,ev_level1_evse_num,ev_dc_fast_num,ev_level2_evse_num&outSR=4326&f=json"
+//        val evURL = "https://services.arcgis.com/xOi1kZaI0eWDREZv/arcgis/rest/services/Alternative_Fueling_Stations/FeatureServer/0/query?where=state%20%3D%20%27CA%27%20AND%20fuel_type_code%20%3D%20%27ELEC%27&outFields=fuel_type_code,id,station_name,facility_type,city,state,street_address,zip,country,ev_connector_types,ev_network,ev_network_web,ev_other_evse,ev_pricing,ev_renewable_source,longitude,latitude,ev_level1_evse_num,ev_dc_fast_num,ev_level2_evse_num&outSR=4326&f=json"
+        var fuelType = FuelTypeCode.ELEC
+        var state = "CA"
+        var access = AccessCode.public
+        var status = StatusCode.E
+        val api_key = "pOkGMTMxyM7ypA6K8w7aR8CIcXJgzkE9Kw3qno6X"
+        val evURL = "https://developer.nrel.gov/api/alt-fuel-stations/v1.json?fuel_type=${fuelType.name}&state=$state&access=${access.name}&status=${status.name}&api_key=$api_key"
+        Log.e("jane", "request: $evURL")
         val evStationRequest = object : StringRequest(Request.Method.GET, evURL, Response.Listener<String> {
                 response ->
             val evJsonResponse = JSONObject(response)
             // Get EV Stations
-            val evStations = evJsonResponse.getJSONArray("features")
+//            val evStations = evJsonResponse.getJSONArray("features")
             // Log.e("Test", evStations.getJSONObject(0).getJSONObject("attributes").getString("LATITUDE"))
-            for (i in 0 until evStations.length()) {
-                var markerType: MarkerType = MarkerType()
-                val latitude = evStations.getJSONObject(i).getJSONObject("attributes").getDouble("latitude")
-                val longitude = evStations.getJSONObject(i).getJSONObject("attributes").getDouble("longitude")
-                val stationName = evStations.getJSONObject(i).getJSONObject("attributes").getString("station_name")
-                val connector = evStations.getJSONObject(i).getJSONObject("attributes").getString("ev_connector_types");
-
-                var chargeOutput = "connector type: $connector"
-                var latLong = LatLng(latitude, longitude)
-                markerType.chargerType = connector
-                markerType.stationName = stationName
-                markerType.location = latLong
-                markers.add(markerType)
-                // println("adding marker" + markerType.location.latitude)
-//                googleMap.addMarker(MarkerOptions().position(latLong).title(stationName).snippet(chargeOutput))
-            }
+            val evStations = evJsonResponse.getJSONArray("fuel_stations")
+            Log.e("jane", "ev stations size ${evStations.length()}")
+            Log.e("jane", "response: $evStations")
+//            for (i in 0 until evStations.length()) {
+//                var markerType: MarkerType = MarkerType()
+//                val latitude = evStations.getJSONObject(i).getJSONObject("attributes").getDouble("latitude")
+//                val longitude = evStations.getJSONObject(i).getJSONObject("attributes").getDouble("longitude")
+//                val stationName = evStations.getJSONObject(i).getJSONObject("attributes").getString("station_name")
+//                val connector = evStations.getJSONObject(i).getJSONObject("attributes").getString("ev_connector_types");
+//
+//                var chargeOutput = "connector type: $connector"
+//                var latLong = LatLng(latitude, longitude)
+//                markerType.chargerType = connector
+//                markerType.stationName = stationName
+//                markerType.location = latLong
+//                markers.add(markerType)
+//                // println("adding marker" + markerType.location.latitude)
+////                googleMap.addMarker(MarkerOptions().position(latLong).title(stationName).snippet(chargeOutput))
+//            }
             viewModel.setMarkers(markers)
         }, Response.ErrorListener {
 
@@ -284,7 +294,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
                         lastStop = closestCharger.location
                         newRoute.add(closestCharger.location)
 //                        println("added marker" + closestCharger.stationName)
-                        googleMap.addMarker(MarkerOptions().position(closestCharger.location).title(closestCharger.stationName).snippet("connector type: ${closestCharger.chargerType}"))
+//                        googleMap.addMarker(MarkerOptions().position(closestCharger.location).title(closestCharger.stationName).snippet("connector type: ${closestCharger.chargerType}"))
                         acceptableDistance = viewModel.calFullRange()
 //                        Log.i("jane", "acceptable distance: $acceptableDistance")
 //                        for (k in 0 until markers.size) {
