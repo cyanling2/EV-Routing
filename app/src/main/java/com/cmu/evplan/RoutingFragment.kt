@@ -50,6 +50,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
 
     private var markerInit = false
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -78,6 +79,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
             viewModel.setStatus(SearchStatus.Source)
             findNavController().navigate(R.id.action_routingFragment_to_searchFragment)
         }
+        _binding!!.destinationInfoBlock.setText(viewModel.getDst()?.name+" Details Information")
         _binding!!.routingBackButton.setOnClickListener {
             findNavController().navigate(R.id.action_routingFragment_to_searchFragment)
         }
