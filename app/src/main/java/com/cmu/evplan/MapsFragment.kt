@@ -2,7 +2,10 @@ package com.cmu.evplan
 
 import android.Manifest.permission
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.location.Location
 import android.os.Bundle
 import android.util.Log
@@ -29,7 +32,10 @@ import com.android.volley.toolbox.Volley
 import org.json.JSONObject
 import android.widget.SearchView
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
+import com.google.android.gms.maps.model.BitmapDescriptor
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.MarkerOptions
 
 class MapsFragment : Fragment(), OnMapReadyCallback {
@@ -154,6 +160,15 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         }
     }
 
+    private fun bitmapDescriptorFromVector(context: Context, vectorResId: Int): BitmapDescriptor? {
+        return ContextCompat.getDrawable(context, vectorResId)?.run {
+            setBounds(0, 0, intrinsicWidth, intrinsicHeight)
+            val bitmap = Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, Bitmap.Config.ARGB_8888)
+            draw(Canvas(bitmap))
+            BitmapDescriptorFactory.fromBitmap(bitmap)
+        }
+    }
+
 
 
 
@@ -192,7 +207,11 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
                         markerType.location = latLong
                         markers.add(markerType)
                         // println("adding marker" + markerType.location.latitude)
-                        googleMap.addMarker(MarkerOptions().position(latLong).title(stationName).snippet(chargeOutput))
+                        googleMap.addMarker(MarkerOptions()
+                            .position(latLong)
+                            .title(stationName)
+                            .snippet(chargeOutput)
+                            .icon(this.context?.let { bitmapDescriptorFromVector(it,R.drawable.map_marker_charging_multiple) }))
                     }
                 }
 
