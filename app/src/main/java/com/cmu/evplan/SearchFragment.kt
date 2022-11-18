@@ -64,6 +64,21 @@ class SearchFragment : Fragment() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
         })
 
+        _binding!!.editBatteryPercentToReserve.addTextChangedListener (object : TextWatcher {
+            override fun afterTextChanged(e: Editable?) {
+                if (e == null) {
+                    viewModel.setBottomLine(0.00)
+                    return
+                }
+                var str = e.toString()
+                if (str.isEmpty())  str = "0.00"
+                viewModel.setBottomLine(str.toDouble())
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+        })
+
         // set listener for the search tab auto completion
         val autocompleteFragment = childFragmentManager.findFragmentById(R.id.autocomplete) as AutocompleteSupportFragment
         autocompleteFragment.setPlaceFields(listOf(Place.Field.NAME, Place.Field.LAT_LNG))

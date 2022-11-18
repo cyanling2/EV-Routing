@@ -12,6 +12,10 @@
         android:title="Route" />
     <item
         android:id="@+id/profileFragment"
+        android:title="My Vehicle"
+        android:icon="@drawable/img_car"/>
+    <item
+        android:id="@+id/profileSelectionFragment"
         android:title="Setting"
         android:icon="@drawable/ic_baseline_settings_32"/>
 </menu>

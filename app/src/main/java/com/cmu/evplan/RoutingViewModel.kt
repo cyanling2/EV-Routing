@@ -23,10 +23,13 @@ class RoutingViewModel: ViewModel() {
     private var dst: MutableLiveData<Place> = MutableLiveData()
     private var markers: MutableLiveData<MutableList<MarkerType>> = MutableLiveData()
     private var battery: MutableLiveData<Double> = MutableLiveData()
+    private var bottomLine: MutableLiveData<Double> = MutableLiveData()
     private var temps: MutableLiveData<MutableList<Double>> = MutableLiveData()
     private var status: MutableLiveData<SearchStatus> = MutableLiveData()
     private var connectorType: MutableLiveData<String> = MutableLiveData()
     private var markersKDTree = KDTree()
+    private var vehicleBrand: MutableLiveData<String> = MutableLiveData()
+    private var vehicleModel: MutableLiveData<String> = MutableLiveData()
 
     fun setSrc(place : Place) {
         src.value = place
@@ -68,6 +71,10 @@ class RoutingViewModel: ViewModel() {
         return battery.value
     }
 
+    fun setBottomLine(per: Double) {
+        bottomLine.value = per
+    }
+
     fun addTemp(temp: Double) {
         temps.value?.add(temp)
     }
@@ -86,6 +93,22 @@ class RoutingViewModel: ViewModel() {
 
     fun getMarkers(): MutableList<MarkerType>? {
         return markers.value
+    }
+
+    fun getVehicleBrand():String?{
+        return vehicleBrand.value
+    }
+
+    fun setVehicleBrand(brand:String){
+        vehicleBrand.value = brand
+    }
+
+    fun getVehicleModel():String?{
+        return vehicleModel.value
+    }
+
+    fun setVehicleModel(model:String){
+        vehicleModel.value = model
     }
 
     fun getClosestMarker(latlng: LatLng) : MarkerType {
@@ -137,7 +160,10 @@ class RoutingViewModel: ViewModel() {
         if (battery.value == null) {
             battery.value = 100.00
         }
-        return (battery.value?.times(0.4)!!)/(b + pHeat/60)
+        if (bottomLine.value == null) {
+            bottomLine.value = 0.0
+        }
+        return ((battery.value!! - bottomLine.value!!) * 0.4)/(b + pHeat/60)
     }
 
     fun calFullRange(): Double? {
@@ -145,7 +171,8 @@ class RoutingViewModel: ViewModel() {
         var pHeat = 0.0
         if (!temps.value.isNullOrEmpty())
             pHeat = 0.09 * abs(temps.value!![0] - 20.0) * 0.5 + 0.09 * abs(temps.value!!.last() - 20.0) * 0.5
-
-        return 40/(b + pHeat/60)
+        if (bottomLine.value == null)
+            bottomLine.value = 0.0
+        return ((100.00 - bottomLine.value!!) * 0.4)/(b + pHeat/60)
     }
 }
