@@ -68,6 +68,8 @@ class ProfileFragment : Fragment() {
         } else {
             binding.model.setText("${viewModel.getVehicleModel()}")
         }
+//        val connectorType = binding.chargerType.getText().toString()
+//        viewModel.setConnectorType(connectorType)
 
         return view
     }
