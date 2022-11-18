@@ -29,13 +29,19 @@ import org.json.JSONObject
 import com.android.volley.Request
 import com.android.volley.Response
 import com.cmu.evplan.BuildConfig.MAPS_API_KEY
+import com.google.android.gms.common.server.response.FastJsonResponse
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.libraries.places.api.model.Place
+import kotlinx.coroutines.runBlocking
+import org.json.JSONArray
 
 import java.util.Arrays
+import kotlin.coroutines.resume
+import kotlin.coroutines.suspendCoroutine
+
 class RoutingFragment : Fragment(), OnMapReadyCallback {
     private var _binding: FragmentRoutingBinding? = null
     // This property is only valid between onCreateView and
@@ -49,6 +55,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
     private lateinit var lastLocation: Location
 
     private var markerInit = false
+    val path: MutableList<List<LatLng>> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -205,7 +212,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
                 it, 12f
             )
         }?.let { googleMap.animateCamera(it) }
-        val path: MutableList<List<LatLng>> = ArrayList()
+//        val path: MutableList<List<LatLng>> = ArrayList()
         val srcLat = viewModel.getSrc()?.latLng?.latitude
         val srcLng = viewModel.getSrc()?.latLng?.longitude
         val dstLat = viewModel.getDst()?.latLng?.latitude
@@ -232,32 +239,40 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
             val endElevation = results.getJSONObject(1).getDouble("elevation")
             // Negative diffElevation means incline, positive diffElevation means decline from source
             val diffElevation = startElevation - endElevation
-            val multipleMeters = kotlin.math.abs(diffElevation) / 50
-            if (diffElevation >= 50) {
+            val multipleMeters = kotlin.math.abs(diffElevation) / 100
+            if (diffElevation >= 100) {
                 acceptableDistance = acceptableDistance?.plus((5 * multipleMeters))
-            } else if (diffElevation <= -50) {
+            } else if (diffElevation <= -100) {
                 acceptableDistance = acceptableDistance?.minus((5 * multipleMeters))
             }
         }, Response.ErrorListener {
 
         }){}
         requestQueue.add(elevationRequest)
-        Log.i("Test4", acceptableDistance.toString())
+        Log.i("Test:Distance", acceptableDistance.toString())
         val newRoute: MutableSet<LatLng> = LinkedHashSet()
         val urlDirections =
             "https://maps.googleapis.com/maps/api/directions/json?origin=${srcLat},${srcLng}&destination=${dstLat},${dstLng}&key=$MAPS_API_KEY"
-        //val urlDirections1 = "https://maps.googleapis.com/maps/api/directions/json?origin=${chargerLat},${chargerLng}&destination=${dstLat},${dstLng}&key=$MAPS_API_KEY"
+        // val urlDirections1 = "https://maps.googleapis.com/maps/api/directions/json?origin=${chargerLat},${chargerLng}&destination=${dstLat},${dstLng}&key=$MAPS_API_KEY"
         val directionsRequest1 = object : StringRequest(Request.Method.GET, urlDirections, Response.Listener<String> { response ->
+
             val jsonResponse = JSONObject(response)
                 // Get routes
             val routes = jsonResponse.getJSONArray("routes")
             val legs = routes.getJSONObject(0).getJSONArray("legs")
             val steps = legs.getJSONObject(0).getJSONArray("steps")
-
             for (i in 0 until steps.length()) {
                 val points = steps.getJSONObject(i).getJSONObject("polyline").getString("points")
                 path.add(PolyUtil.decode(points))
             }
+//        }, Response.ErrorListener {
+//        }) {}
+//        requestQueue.add(directionsRequest1)
+
+            // Two Options: Nested Callbacks and use coroutines?
+            // Another option is figure out way to separate callback functions and
+            // get a hold of path variable
+        // Log.i("Test:Path", path.toString())
 
             var indexNewRoute = 0
             var prevElevation = 0.0
@@ -269,78 +284,9 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
             }
 
             if (markers != null) {
-//                println("path size ###################################")
-//                println(path.size)
-//                println(path[0].size)
-//                var acceptableDistance = viewModel.calRemainRange()
-//                Log.i("jane", "acceptable distance: $acceptableDistance")
-//            Log.i("Test", "test")
 //            Log.i("Test2", path.size.toString())
                 for (i in 0 until path.size) {
                     for (j in 0 until path[i].size) {
-//                        println("coordinate is ${path[i][j].latitude} ${path[i][j].longitude}")
-
-                        // Possibly look around the path after every 5 or so
-
-                        // Use the Elevation API to find the elevation of each point on the route
-                        // If it is increasing, subtract a certain amount from acceptableDistance
-                        // If it is decreasing, add a certain amount to acceptableDistance
-                        // Simple Model: Uses 1.5 kwh every 305 meters and 1.5kwh, a car can go approximately 5 miles
-
-//                        val pathLat = path[i][j].latitude
-//                        val pathLng = path[i][j].longitude
-//                        val elevationApi = "https://maps.googleapis.com/maps/api/elevation/json?locations=${pathLat}%2C${pathLng}&key=$MAPS_API_KEY"
-////                        val elevationTest = "https://maps.googleapis.com/maps/api/elevation/json?locations=39.7391536%2C-104.9847034&key=$MAPS_API_KEY"
-//
-//                        // Store the elevation in the array, 2 different pointers
-//                        val elevationRequest = object : StringRequest(Request.Method.GET, elevationApi, Response.Listener<String> {
-//                                elevResponse ->
-//                            val elevJSONResponse = JSONObject(elevResponse)
-//                            val results = elevJSONResponse.getJSONArray("results")
-//                            val elevation = results.getJSONObject(0).getDouble("elevation")
-//                            // Log.i("Test", elevation.toString())
-//
-//                            // Look at the start and the end and find the elevation and use
-//                            // a sample size and do the calculation
-//                            if (prevElevation != 0.0) {
-//                                // Elevation is all over the place, hard to determine when to make the adjustment on
-//                                // acceptableDistance since elevation sometimes increases & sometimes decreases
-//                                val diffElevation = elevation - prevElevation // How to determine if we climbed 300 meters
-//
-//                                // Issues: Cannot really take into account the variation between
-//                                // incline and decline, could incline for a bit and then decline
-//
-//                                // A flaw with this code, basically this would only work if there is
-//                                // consistent increase or decrease in elevation
-//                                currentElevation += diffElevation
-//
-//                                // Log.i("Test", currentElevation.toString())
-//                                // Issues: Seems like route gets plotted too fast and doesn't take
-//                                // into account the changes of acceptableDistance based on elevation
-//
-//                                // This if check has flaws as well, for example, it will only work when
-//                                // currentElevation starts from 0. If it goes up to 299 and then decline,
-//                                // it will never meet the if check and vice versa
-//                                // Based on tests and a lot of thought, feels like the logic to incorporate
-//                                // elevation might not be possible with our current algorithm
-//                                if (kotlin.math.abs(currentElevation) >= 300) {
-////                                    val multiple305 = kotlin.math.abs(currentElevation) / 300
-//                                    if (currentElevation < 0) {
-//                                        acceptableDistance = acceptableDistance?.minus(5)
-//                                    } else if (currentElevation > 0) {
-//                                        acceptableDistance = acceptableDistance?.plus(5)
-//                                    }
-//                                    currentElevation = 0.0
-//                                    Log.i("Test", acceptableDistance.toString())
-//                                }
-//                            }
-//
-//                            // Log.i("Test", elevation.toString())
-//                            prevElevation = elevation
-//                        }, Response.ErrorListener {
-//
-//                        }){}
-//                        requestQueue.add(elevationRequest)
 
                         // Time stamp here in the routing to see if routing is happening faster
                         val metersDriven = FloatArray(1) // miles since last stop
@@ -379,10 +325,10 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
                                 // Negative diffElevation means incline, positive diffElevation means decline from source
                                 val diffElevation = startElevation - endElevation
                                 Log.i("Test2", diffElevation.toString())
-                                val multipleMeters = kotlin.math.abs(diffElevation) / 50
-                                if (diffElevation >= 50) {
+                                val multipleMeters = kotlin.math.abs(diffElevation) / 100
+                                if (diffElevation >= 100) {
                                     acceptableDistance = acceptableDistance?.plus((5 * multipleMeters))
-                                } else if (diffElevation <= -50) {
+                                } else if (diffElevation <= -100) {
                                     acceptableDistance = acceptableDistance?.minus((5 * multipleMeters))
                                 }
                                 Log.i("Test5", acceptableDistance.toString())
@@ -390,9 +336,8 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
                             Response.ErrorListener {
 
                             }) {}
-                        Log.i("Test3", acceptableDistance.toString())
                         requestQueue.add(elevationChargerRequest)
-////                        Log.i("jane", "acceptable distance: $acceptableDistance")
+                        Log.i("Test4", acceptableDistance.toString())
                     }
                 }
             }
@@ -448,5 +393,4 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
             requestQueue.add(directionsRequest)
         }
     }
-
 }
