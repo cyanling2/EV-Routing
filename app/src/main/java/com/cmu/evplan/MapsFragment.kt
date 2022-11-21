@@ -8,14 +8,21 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.location.Location
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.cmu.evplan.databinding.FragmentMapsBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -23,20 +30,13 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.libraries.places.api.model.Place
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
-import org.json.JSONObject
-import android.widget.SearchView
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.navigation.findNavController
 import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.libraries.places.api.model.Place
+import org.json.JSONObject
+
 
 class MapsFragment : Fragment(), OnMapReadyCallback {
 
@@ -169,6 +169,21 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         }
     }
 
+    private fun getBitmap(drawableRes: Int): Bitmap {
+        val drawable = resources.getDrawable(drawableRes)
+        val canvas = Canvas()
+        val bitmap = Bitmap.createBitmap(
+            drawable.intrinsicWidth,
+            drawable.intrinsicHeight,
+            Bitmap.Config.ARGB_8888
+        )
+        canvas.setBitmap(bitmap)
+        drawable.setBounds(0, 0, drawable.intrinsicWidth, drawable.intrinsicHeight)
+        drawable.draw(canvas)
+
+        return bitmap;
+    }
+
 
 
 
@@ -192,6 +207,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
             val evStations = evJsonResponse.getJSONArray("features")
             // Log.e("Test", evStations.getJSONObject(0).getJSONObject("attributes").getString("LATITUDE"))
             for (i in 0 until evStations.length()) {
+            // for (i in 0 until 100) {
                 val markerType: MarkerType = MarkerType()
                 val latitude = evStations.getJSONObject(i).getJSONObject("attributes").getDouble("latitude")
                 val longitude = evStations.getJSONObject(i).getJSONObject("attributes").getDouble("longitude")
@@ -211,7 +227,10 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
                             .position(latLong)
                             .title(stationName)
                             .snippet(chargeOutput)
-                            .icon(this.context?.let { bitmapDescriptorFromVector(it,R.drawable.map_marker_charging_multiple) }))
+                            .icon(BitmapDescriptorFactory.fromBitmap(getBitmap(R.drawable.map_marker_charging)))
+                            .alpha(0.91f))
+                            // .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)))
+
                     }
                 }
 
