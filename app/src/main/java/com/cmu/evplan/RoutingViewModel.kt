@@ -30,6 +30,9 @@ class RoutingViewModel: ViewModel() {
     private var markersKDTree = KDTree()
     private var vehicleBrand: MutableLiveData<String> = MutableLiveData()
     private var vehicleModel: MutableLiveData<String> = MutableLiveData()
+    private var historyList: MutableLiveData<MutableList<String>> = MutableLiveData()
+
+    private val historyListView = ArrayList<String>()
 
     fun setSrc(place : Place) {
         src.value = place
@@ -109,6 +112,15 @@ class RoutingViewModel: ViewModel() {
 
     fun setVehicleModel(model:String){
         vehicleModel.value = model
+    }
+
+    fun setHistoryList(name: String) {
+        historyListView.add(name)
+        historyList.value = historyListView
+    }
+
+    fun getHistoryList(): MutableList<String>? {
+        return historyList.value
     }
 
     fun getClosestMarker(latlng: LatLng) : MarkerType {

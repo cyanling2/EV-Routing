@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import org.json.JSONObject
@@ -34,6 +36,8 @@ class SearchFragment : Fragment() {
     private lateinit var placesClient: PlacesClient
 
     private val viewModel: RoutingViewModel by activityViewModels()
+
+    private var historyList: MutableList<String> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -78,6 +82,13 @@ class SearchFragment : Fragment() {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
         })
+        val historyList = viewModel.getHistoryList()
+        if (historyList != null) {
+            val arrayAdapter = context?.let { ArrayAdapter(it, R.layout.history_list, historyList) }
+            val historyListView = view.findViewById<ListView>(R.id.history_list)
+            historyListView.adapter = arrayAdapter
+            Log.i("Test:History", historyList.toString())
+        }
 
         // set listener for the search tab auto completion
         val autocompleteFragment = childFragmentManager.findFragmentById(R.id.autocomplete) as AutocompleteSupportFragment
@@ -104,6 +115,9 @@ class SearchFragment : Fragment() {
 
                 val latLong = place.latLng
                 val name = place.name
+                if (name != null) {
+                    viewModel.setHistoryList(name)
+                }
                 val bundle = Bundle()
                 bundle.putString(PLACE_NAME, name)
                 bundle.putDouble("LATITUDE", latLong!!.latitude)

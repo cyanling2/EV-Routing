@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.MutableLiveData
 import androidx.navigation.fragment.findNavController
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -28,6 +29,7 @@ import com.google.maps.android.PolyUtil
 import org.json.JSONObject
 import com.android.volley.Request
 import com.android.volley.Response
+import com.android.volley.toolbox.RequestFuture
 import com.cmu.evplan.BuildConfig.MAPS_API_KEY
 import com.google.android.gms.common.server.response.FastJsonResponse
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -35,6 +37,9 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.libraries.places.api.model.Place
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import org.json.JSONArray
 
@@ -55,7 +60,6 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
     private lateinit var lastLocation: Location
 
     private var markerInit = false
-    val path: MutableList<List<LatLng>> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -72,6 +76,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
             viewModel.setDst(viewModel.getSrc()!!)
             mapFragment?.getMapAsync {errorCatchCallback}
         } else {
+//            mapFragment?.getMapAsync(this)
             mapFragment?.getMapAsync(callback)
         }
 
@@ -222,7 +227,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
                 it, 12f
             )
         }?.let { googleMap.animateCamera(it) }
-//        val path: MutableList<List<LatLng>> = ArrayList()
+        val path: MutableList<List<LatLng>> = ArrayList()
         val srcLat = viewModel.getSrc()?.latLng?.latitude
         val srcLng = viewModel.getSrc()?.latLng?.longitude
         val dstLat = viewModel.getDst()?.latLng?.latitude
@@ -368,7 +373,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
 
     }
 
-    override fun onMapReady(p0: GoogleMap) {
+    override fun onMapReady(googleMap: GoogleMap) {
 
     }
 
