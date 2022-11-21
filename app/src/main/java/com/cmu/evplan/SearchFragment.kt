@@ -37,8 +37,6 @@ class SearchFragment : Fragment() {
 
     private val viewModel: RoutingViewModel by activityViewModels()
 
-    private var historyList: MutableList<String> = ArrayList()
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

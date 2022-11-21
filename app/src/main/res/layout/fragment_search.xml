@@ -58,16 +58,17 @@
 
         <EditText
             android:id="@+id/editBatteryPercentReserved"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="186dp"
+            android:layout_height="48dp"
             android:background="@drawable/background_border"
             android:ems="10"
             android:inputType="number"
             android:minHeight="48dp"
             android:text="100.00"
+            android:paddingLeft="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.92"
+            app:layout_constraintHorizontal_bias="0.928"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.204" />
@@ -76,42 +77,44 @@
             android:id="@+id/battery_percent_reserved"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Battery % Reserved:"
-
+            android:text="Current Battery %:"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.108"
+            app:layout_constraintHorizontal_bias="0.101"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.216" />
+            app:layout_constraintVertical_bias="0.217" />
 
         <EditText
             android:id="@+id/editBatteryPercentToReserve"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="186dp"
+            android:layout_height="49dp"
             android:background="@drawable/background_border"
             android:ems="10"
             android:inputType="number"
             android:minHeight="48dp"
             android:text="0.00"
+            android:paddingLeft="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.94"
+            app:layout_constraintHorizontal_bias="0.933"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.301" />
+            app:layout_constraintVertical_bias="0.297" />
 
         <TextView
             android:id="@+id/battery_percent_to_reserve"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Battery % To Reserve:"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.112"
+            app:layout_constraintHorizontal_bias="0.111"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.313" />
+            app:layout_constraintVertical_bias="0.308" />
 
         <View
             android:id="@+id/divider"
