@@ -2,45 +2,39 @@ package com.cmu.evplan
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.pm.PackageManager
-import android.graphics.Color
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.location.Location
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
-import com.cmu.evplan.databinding.FragmentRoutingBinding
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.gms.maps.model.PolylineOptions
-import com.google.maps.android.PolyUtil
-import org.json.JSONObject
 import com.android.volley.Request
 import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.cmu.evplan.BuildConfig.MAPS_API_KEY
-import com.google.android.gms.common.server.response.FastJsonResponse
+import com.cmu.evplan.databinding.FragmentRoutingBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.model.LatLngBounds
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.*
 import com.google.android.libraries.places.api.model.Place
-import kotlinx.coroutines.runBlocking
-import org.json.JSONArray
+import com.google.maps.android.PolyUtil
+import org.json.JSONObject
 
-import java.util.Arrays
-import kotlin.coroutines.resume
-import kotlin.coroutines.suspendCoroutine
 
 class RoutingFragment : Fragment(), OnMapReadyCallback {
     private var _binding: FragmentRoutingBinding? = null
@@ -207,12 +201,14 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
      */
     private val callback = OnMapReadyCallback { googleMap ->
         val boundsBuilder = LatLngBounds.Builder()
-        viewModel.getSrc()?.latLng?.let {
+        viewModel.getSrc()?.latLng?.let { it ->
             MarkerOptions().position(it).title(viewModel.getSrc()?.name)
+                .icon(this.context?.let { context?.let { it1 -> bitmapDescriptorFromVector(it1,R.drawable.start_icon) } })
         }
             ?.let { googleMap.addMarker(it) }
         viewModel.getDst()?.latLng?.let {
             MarkerOptions().position(it).title(viewModel.getDst()?.name)
+                .icon(this.context?.let { context?.let { it1 -> bitmapDescriptorFromVector(it1,R.drawable.destination_icon) } })
         }
             ?.let { googleMap.addMarker(it) }
         viewModel.getSrc()?.latLng?.let { CameraUpdateFactory.newLatLng(it) }
@@ -320,6 +316,8 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
                             MarkerOptions().position(closestCharger.location)
                                 .title(closestCharger.stationName)
                                 .snippet("connector type: ${closestCharger.connectors}")
+                                .alpha(0.9f)
+                                .icon(this.context?.let { bitmapDescriptorFromVector(it,R.drawable.map_marker_charging) })
                         )
                         acceptableDistance = viewModel.calFullRange()
                         val elevationApiCharger =
@@ -359,7 +357,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
 
         }) {}
         requestQueue.add(directionsRequest1)
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 1000, 1000, 100))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 900, 900, 100))
 
         // Loop over marker
         // Loop over each list of LatLng and check in a range
@@ -372,7 +370,9 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
 
     }
 
+
     private fun plotRoute(newRoute: MutableSet<LatLng>, googleMap: GoogleMap) {
+        var route_color: Long = 0xff0096ff
         val path: MutableList<List<LatLng>> = ArrayList()
         val requestQueue = Volley.newRequestQueue(context)
         for (i in 0 until (newRoute.size - 1)) {
@@ -395,12 +395,28 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
                     path.add(PolyUtil.decode(points))
                 }
                 for (j in 0 until path.size) {
-                    googleMap.addPolyline(PolylineOptions().addAll(path[j]).color(Color.BLUE))
+                    googleMap.addPolyline(PolylineOptions()
+                        .addAll(path[j])
+                        .color(route_color.toInt())
+                        .startCap(RoundCap())
+                        .endCap(RoundCap())
+                        .jointType(JointType.ROUND)
+                        .width(15.toFloat())
+                    )
                 }
             }, Response.ErrorListener {
 
             }){}
             requestQueue.add(directionsRequest)
+        }
+    }
+
+    private fun bitmapDescriptorFromVector(context: Context, vectorResId: Int): BitmapDescriptor? {
+        return ContextCompat.getDrawable(context, vectorResId)?.run {
+            setBounds(0, 0, intrinsicWidth, intrinsicHeight)
+            val bitmap = Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, Bitmap.Config.ARGB_8888)
+            draw(Canvas(bitmap))
+            BitmapDescriptorFactory.fromBitmap(bitmap)
         }
     }
 }

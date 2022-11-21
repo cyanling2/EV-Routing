@@ -60,5 +60,6 @@
     <color name="teal_200_7f">#7f85dab6</color>
     <color name="blue_200">#99dcfb</color>
     <color name="ic_launcher_background">#FFFFFF</color>
+    <color name="bright_blue">#ff0096ff</color>
 
 </resources>

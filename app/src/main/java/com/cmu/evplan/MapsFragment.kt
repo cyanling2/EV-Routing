@@ -182,6 +182,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
             setBounds(0, 0, intrinsicWidth, intrinsicHeight)
             val bitmap = Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, Bitmap.Config.ARGB_8888)
             draw(Canvas(bitmap))
+            // val mBmpSize=bitmap.byteCount /1024;
             BitmapDescriptorFactory.fromBitmap(bitmap)
         }
     }
@@ -248,10 +249,11 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
 
                 // println("adding marker" + markerType.location.latitude)
                 googleMap.addMarker(MarkerOptions()
-                        .position(latLong)
-                        .title(markerType.stationName)
-                        .snippet("$stationDetails")
-                        .icon(this.context?.let { bitmapDescriptorFromVector(it,R.drawable.map_marker_charging_multiple) }))
+                    .position(latLong)
+                    .title(markerType.stationName)
+                    .snippet("$stationDetails")
+                    .alpha(0.9f)
+                    .icon(this.context?.let { bitmapDescriptorFromVector(it,R.drawable.map_marker_charging) }))
                 googleMap.setOnInfoWindowClickListener(this)
             }
             viewModel.setMarkers(markers)
