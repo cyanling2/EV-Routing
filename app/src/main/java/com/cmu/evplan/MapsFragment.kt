@@ -2,7 +2,10 @@ package com.cmu.evplan
 
 import android.Manifest.permission
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.location.Location
 import android.os.Bundle
 import android.util.Log
@@ -28,8 +31,12 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONObject
 import android.widget.SearchView
+import androidx.appcompat.widget.AppCompatButton
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
+import com.google.android.gms.maps.model.BitmapDescriptor
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.cmu.evplan.databinding.CardChargingStationBinding
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
@@ -165,11 +172,22 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
     // Click on search to go to search clicked page, but only works
     // if you click on the search icon
     private fun clickSearchView(view: View) {
-        val searchView = view.findViewById<SearchView>(R.id.map_search_view)
+        val searchView = view.findViewById<AppCompatButton>(R.id.map_search_view)
         searchView.setOnClickListener {
             view.findNavController().navigate(R.id.searchFragment)
         }
     }
+
+//    private fun bitmapDescriptorFromVector(context: Context, vectorResId: Int): BitmapDescriptor? {
+//        return ContextCompat.getDrawable(context, vectorResId)?.run {
+//            setBounds(0, 0, intrinsicWidth, intrinsicHeight)
+//            val bitmap = Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, Bitmap.Config.ARGB_8888)
+//            draw(Canvas(bitmap))
+//            // val mBmpSize=bitmap.byteCount /1024;
+//            BitmapDescriptorFactory.fromBitmap(bitmap)
+//        }
+//    }
+
 
     // Pulls from an EV Station API and parses it to plot all EV stations in the US on the map
     private fun processEVJson(googleMap: GoogleMap) {
@@ -228,7 +246,14 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
                     stationDetails += "connector type: ${markerType.connectors}\n"
                 markers.add(markerType)
 
-                googleMap.addMarker(MarkerOptions().position(latLong).title(markerType.stationName).snippet("$stationDetails"))
+                // println("adding marker" + markerType.location.latitude)
+                googleMap.addMarker(MarkerOptions()
+                    .position(latLong)
+                    .title(markerType.stationName)
+                    .snippet("$stationDetails")
+                    .alpha(0.9f)
+                    //.icon(this.context?.let { bitmapDescriptorFromVector(it,R.drawable.map_marker_charging) })
+                )
                 googleMap.setOnInfoWindowClickListener(this)
             }
             viewModel.setMarkers(markers)
