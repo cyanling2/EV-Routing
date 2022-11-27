@@ -115,7 +115,9 @@ class RoutingViewModel: ViewModel() {
     }
 
     fun setHistoryList(name: String) {
-        historyListView.add(name)
+        if (name !in historyListView) {
+            historyListView.add(name)
+        }
         historyList.value = historyListView
     }
 
