@@ -31,6 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
+                android:alpha="0.8"
                 android:minWidth="48dp"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -44,12 +45,13 @@
 
             <android.widget.FrameLayout
                 android:id="@+id/current_block"
-                android:layout_width="298dp"
-                android:layout_height="63dp"
+                android:layout_width="270dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="64dp"
                 android:layout_marginTop="24dp"
                 android:background="@drawable/background_border"
                 android:inputType="none"
+                android:alpha="0.92"
                 android:queryHint="current_block"
 
                 app:layout_constraintStart_toStartOf="parent"
@@ -57,8 +59,8 @@
 
                 <ImageView
                     android:id="@+id/imageView"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:src="@drawable/img_location_26x26"
                     tools:layout_editor_absoluteX="82dp"
                     tools:layout_editor_absoluteY="33dp"
@@ -69,11 +71,11 @@
                 <TextView
                     android:id="@+id/current"
                     android:layout_width="199dp"
-                    android:layout_height="63dp"
+                    android:layout_height="match_parent"
                     android:gravity="center_vertical|left"
-                    android:textSize="20sp"
-                    tools:layout_editor_absoluteX="136dp"
-                    tools:layout_editor_absoluteY="23dp"
+                    android:textSize="18sp"
+                    tools:layout_editor_absoluteX="134dp"
+                    tools:layout_editor_absoluteY="19dp"
                     android:layout_marginLeft="65dp"
                     />
 
@@ -83,10 +85,10 @@
 
             <android.widget.FrameLayout
                 android:id="@+id/destination_block"
-                android:layout_width="298dp"
-                android:layout_height="63dp"
+                android:layout_width="270dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="64dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="18dp"
                 android:background="@drawable/background_border"
                 android:ems="10"
                 android:minHeight="48dp"
@@ -95,6 +97,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                android:alpha="0.92"
                 app:layout_constraintVertical_bias="0.122">
 
 
@@ -103,9 +106,9 @@
                     android:layout_width="196dp"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical|left"
-                    app:autoSizeMaxTextSize="20sp"
+                    android:textSize="18sp"
                     app:autoSizeMinTextSize="8sp"
-                    app:autoSizeStepGranularity="2sp"
+                    app:autoSizeMaxTextSize="18sp"
                     app:autoSizeTextType="uniform"
                     android:layout_marginLeft="65dp"
                     tools:layout_editor_absoluteX="134dp"
@@ -113,8 +116,8 @@
 
                 <ImageView
                     android:id="@+id/imageView2"
-                    android:layout_width="42dp"
-                    android:layout_height="42dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/img_send"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"

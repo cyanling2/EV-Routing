@@ -375,6 +375,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
 
     private fun plotRoute(newRoute: MutableSet<LatLng>, googleMap: GoogleMap) {
         var route_color: Long = 0xff0096ff
+        // var route_color: Long = 0x259330ff
         val path: MutableList<List<LatLng>> = ArrayList()
         val requestQueue = Volley.newRequestQueue(context)
         for (i in 0 until (newRoute.size - 1)) {
@@ -403,7 +404,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
                         .startCap(RoundCap())
                         .endCap(RoundCap())
                         .jointType(JointType.ROUND)
-                        .width(15.toFloat())
+                        .width(17.toFloat())
                     )
                 }
             }, Response.ErrorListener {

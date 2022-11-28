@@ -5,17 +5,27 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.location.Location
 import android.os.Bundle
-import android.util.Log
+import android.util.LruCache
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.cmu.evplan.databinding.CardChargingStationBinding
 import com.cmu.evplan.databinding.FragmentMapsBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -23,24 +33,10 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.*
 import com.google.android.libraries.places.api.model.Place
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
-import org.json.JSONObject
-import android.widget.SearchView
-import androidx.appcompat.widget.AppCompatButton
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.navigation.findNavController
-import com.google.android.gms.maps.model.BitmapDescriptor
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
-import com.cmu.evplan.databinding.CardChargingStationBinding
-import com.google.android.gms.maps.model.Marker
-import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import org.json.JSONObject
 
 
 class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
@@ -58,6 +54,20 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
     private lateinit var dialogView: View
     private lateinit var dialog: BottomSheetDialog
     private val viewModel: RoutingViewModel by activityViewModels()
+
+    private val cache: LruCache<Int, BitmapDescriptor> = LruCache(128)
+
+    private fun getBitMap(): BitmapDescriptor? {
+        // println("cache size: " + cache.size())
+        if (cache.size() != 0){
+            val cachedIcon: BitmapDescriptor = cache.get(0)
+            return cachedIcon
+        }
+
+        val icon = context?.let { bitmapDescriptorFromVector(it, R.drawable.map_marker_charging) }
+        cache.put(0, icon)
+        return icon
+    }
 
     companion object {
         const val LOCATION_PERMISSION_REQUEST_CODE = 1
@@ -178,15 +188,15 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
         }
     }
 
-//    private fun bitmapDescriptorFromVector(context: Context, vectorResId: Int): BitmapDescriptor? {
-//        return ContextCompat.getDrawable(context, vectorResId)?.run {
-//            setBounds(0, 0, intrinsicWidth, intrinsicHeight)
-//            val bitmap = Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, Bitmap.Config.ARGB_8888)
-//            draw(Canvas(bitmap))
-//            // val mBmpSize=bitmap.byteCount /1024;
-//            BitmapDescriptorFactory.fromBitmap(bitmap)
-//        }
-//    }
+    private fun bitmapDescriptorFromVector(context: Context, vectorResId: Int): BitmapDescriptor? {
+        return ContextCompat.getDrawable(context, vectorResId)?.run {
+            setBounds(0, 0, intrinsicWidth, intrinsicHeight)
+            val bitmap = Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, Bitmap.Config.ARGB_8888)
+            draw(Canvas(bitmap))
+            // val mBmpSize=bitmap.byteCount /1024;
+            BitmapDescriptorFactory.fromBitmap(bitmap)
+        }
+    }
 
 
     // Pulls from an EV Station API and parses it to plot all EV stations in the US on the map
@@ -194,6 +204,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
         // val markers: MutableList<LatLng> = ArrayList()
         // val markers = mutableMapOf<String, LatLng>()
         var markers: MutableList<MarkerType> = ArrayList()
+        var to_add = 0;
 //        var connectorType = "J1772"
 //        if (viewModel.getConnectorType() != null) {
 //            connectorType = viewModel.getConnectorType()!!
@@ -247,12 +258,21 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
                 markers.add(markerType)
 
                 // println("adding marker" + markerType.location.latitude)
+                // reduce markers on the map to 1/5 of its original amount
+
+                if (to_add == 5){
+                    to_add = 0;
+                }
+                if (to_add != 0){
+                    to_add += 1;
+                    continue;
+                }
                 googleMap.addMarker(MarkerOptions()
                     .position(latLong)
                     .title(markerType.stationName)
                     .snippet("$stationDetails")
                     .alpha(0.9f)
-                    //.icon(this.context?.let { bitmapDescriptorFromVector(it,R.drawable.map_marker_charging) })
+                    .icon(getBitMap())
                 )
                 googleMap.setOnInfoWindowClickListener(this)
             }
