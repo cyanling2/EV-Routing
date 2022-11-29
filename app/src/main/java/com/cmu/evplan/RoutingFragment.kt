@@ -235,29 +235,8 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
         var acceptableDistance = viewModel.calRemainRange()
 //        Log.e("jane", "remain range $remainRange miles")
         val requestQueue = Volley.newRequestQueue(context)
-
-        val elevationApi =
-            "https://maps.googleapis.com/maps/api/elevation/json?path=${srcLat}%2C${srcLng}%7C${dstLat}%2C${dstLng}&samples=5&key=$MAPS_API_KEY"
         // Store the elevation in the array, 2 different pointers
         // Log.i("Test", acceptableDistance.toString())
-        val elevationRequest = object : StringRequest(Request.Method.GET, elevationApi, Response.Listener<String> { elevResponse ->
-            val elevJSONResponse = JSONObject(elevResponse)
-            val results = elevJSONResponse.getJSONArray("results")
-            val startElevation = results.getJSONObject(0).getDouble("elevation")
-            val endElevation = results.getJSONObject(1).getDouble("elevation")
-            // Negative diffElevation means incline, positive diffElevation means decline from source
-            val diffElevation = startElevation - endElevation
-            val multipleMeters = kotlin.math.abs(diffElevation) / 100
-            if (diffElevation >= 100) {
-                acceptableDistance = acceptableDistance?.plus((5 * multipleMeters))
-            } else if (diffElevation <= -100) {
-                acceptableDistance = acceptableDistance?.minus((5 * multipleMeters))
-            }
-        }, Response.ErrorListener {
-
-        }){}
-        requestQueue.add(elevationRequest)
-        Log.i("Test:Distance", acceptableDistance.toString())
         val newRoute: MutableSet<LatLng> = LinkedHashSet()
         val urlDirections =
             "https://maps.googleapis.com/maps/api/directions/json?origin=${srcLat},${srcLng}&destination=${dstLat},${dstLng}&key=$MAPS_API_KEY"
@@ -322,32 +301,6 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
                                 .icon(this.context?.let { bitmapDescriptorFromVector(it,R.drawable.map_marker_charging) })
                         )
                         acceptableDistance = viewModel.calFullRange()
-                        val elevationApiCharger =
-                            "https://maps.googleapis.com/maps/api/elevation/json?path=${closestCharger.location.latitude}%2C${closestCharger.location.longitude}%7C${dstLat}%2C${dstLng}&samples=5&key=$MAPS_API_KEY"
-                        val elevationChargerRequest = object : StringRequest(
-                            Request.Method.GET,
-                            elevationApiCharger,
-                            Response.Listener<String> { elevResponse ->
-                                val elevJSONResponse = JSONObject(elevResponse)
-                                val results = elevJSONResponse.getJSONArray("results")
-                                val startElevation = results.getJSONObject(0).getDouble("elevation")
-                                val endElevation = results.getJSONObject(1).getDouble("elevation")
-                                // Negative diffElevation means incline, positive diffElevation means decline from source
-                                val diffElevation = startElevation - endElevation
-                                Log.i("Test2", diffElevation.toString())
-                                val multipleMeters = kotlin.math.abs(diffElevation) / 100
-                                if (diffElevation >= 100) {
-                                    acceptableDistance = acceptableDistance?.plus((5 * multipleMeters))
-                                } else if (diffElevation <= -100) {
-                                    acceptableDistance = acceptableDistance?.minus((5 * multipleMeters))
-                                }
-                                Log.i("Test5", acceptableDistance.toString())
-                            },
-                            Response.ErrorListener {
-
-                            }) {}
-                        requestQueue.add(elevationChargerRequest)
-                        Log.i("Test4", acceptableDistance.toString())
                     }
                 }
             }

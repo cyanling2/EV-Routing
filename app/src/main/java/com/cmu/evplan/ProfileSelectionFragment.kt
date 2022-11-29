@@ -116,7 +116,7 @@ class ProfileSelectionFragment : Fragment(){
                     println("have reset model values")
                 }
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-                    brandSelected = "Tesla"
+                    brandSelected = ""
                 }
             }
         }
