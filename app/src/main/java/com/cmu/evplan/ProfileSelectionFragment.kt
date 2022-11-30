@@ -38,17 +38,20 @@ class ProfileSelectionFragment : Fragment(){
         // setupConnectorSpinner(view)
 
         // select brand
-        val list_of_brand = arrayOf("Tesla", "Toyota","Hyundai","Nissan","KIA")
+        val list_of_brand = arrayOf("Select Brand","Tesla", "Toyota","Hyundai","Nissan","KIA")
         val spin_brand = view?.findViewById<Spinner>(R.id.editBrandInfoSpinner)
-        var list_of_model = arrayOf("Model3","ModelS","ModelX","ModelY")
+        // var list_of_model = arrayOf("Model3","ModelS","ModelX","ModelY")
+        // var list_of_model = null
 
         var spin_model = view?.findViewById<Spinner>(R.id.editModelInfoSpinner)
+        /**
         var arrayAdapter2 =
             view?.let { ArrayAdapter(
                 it.context,
                 android.R.layout.simple_spinner_dropdown_item,
                 list_of_model
             ) }
+         */
 
         val arrayAdapter =
             view?.let { ArrayAdapter(
@@ -67,10 +70,20 @@ class ProfileSelectionFragment : Fragment(){
                     position: Int,
                     id: Long
                 ) {
+                    var list_of_model = arrayOf("")
                     brandSelected = list_of_brand[position]
                     println("brand selected" + brandSelected)
 
-                    if (brandSelected == "Tesla") {
+                    if (brandSelected == null) {
+                        list_of_model == arrayOf("")
+                    }
+
+                    else if (brandSelected == "Select Brand"){
+                        list_of_model == arrayOf("")
+                    }
+
+                    else if (brandSelected == "Tesla") {
+                        // brandSelected = "Tesla"
                         list_of_model = arrayOf("Model3","ModelS","ModelX","ModelY")
                     } else if (brandSelected == "Toyota") {
                         list_of_model = arrayOf("bZ4X","Hybrid")
@@ -96,7 +109,6 @@ class ProfileSelectionFragment : Fragment(){
                     if (spin_model != null) {
                         spin_model.adapter = ad
                         println("spin model 22222")
-                        println(arrayAdapter2)
                     }
                     if (spin_model != null) {
                         spin_model.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -106,6 +118,10 @@ class ProfileSelectionFragment : Fragment(){
                                 position: Int,
                                 id: Long
                             ) {
+                                if (modelSelected == "Select Model"){
+                                    modelSelected = ""
+                                    return
+                                }
                                 modelSelected = list_of_model[position]
                             }
                             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -116,7 +132,10 @@ class ProfileSelectionFragment : Fragment(){
                     println("have reset model values")
                 }
                 override fun onNothingSelected(parent: AdapterView<*>?) {
+                    print("into nothing selected!!!!!!!!")
                     brandSelected = "Tesla"
+                    println("nothing selected, have reset model values")
+
                 }
             }
         }
@@ -150,9 +169,11 @@ class ProfileSelectionFragment : Fragment(){
         }
 
         _binding!!.btnSave.setOnClickListener {
-            saved = true;
-            viewModel.setVehicleBrand(brandSelected)
-            viewModel.setVehicleModel(modelSelected)
+            saved = true
+            if (brandSelected != "Select Brand"){
+                viewModel.setVehicleBrand(brandSelected)
+                viewModel.setVehicleModel(modelSelected)
+            }
             viewModel.setConnectorType(connectorSelected)
             println("selected:" + viewModel.getConnectorType())
 

@@ -204,7 +204,6 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
         // val markers: MutableList<LatLng> = ArrayList()
         // val markers = mutableMapOf<String, LatLng>()
         var markers: MutableList<MarkerType> = ArrayList()
-        var to_add = 0;
 //        var connectorType = "J1772"
 //        if (viewModel.getConnectorType() != null) {
 //            connectorType = viewModel.getConnectorType()!!
@@ -212,6 +211,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
         // Log.i("Test", connectorType)
 
         val queue = Volley.newRequestQueue(context)
+        var to_add = 0
 //        val evURL = "https://services.arcgis.com/xOi1kZaI0eWDREZv/arcgis/rest/services/Alternative_Fueling_Stations/FeatureServer/0/query?where=state%20%3D%20%27CA%27%20AND%20fuel_type_code%20%3D%20%27ELEC%27&outFields=fuel_type_code,id,station_name,facility_type,city,state,street_address,zip,country,ev_connector_types,ev_network,ev_network_web,ev_other_evse,ev_pricing,ev_renewable_source,longitude,latitude,ev_level1_evse_num,ev_dc_fast_num,ev_level2_evse_num&outSR=4326&f=json"
         var fuelType = FuelTypeCode.ELEC
         var state = "CA"
@@ -260,12 +260,10 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
                 // println("adding marker" + markerType.location.latitude)
                 // reduce markers on the map to 1/5 of its original amount
 
-                if (to_add == 5){
-                    to_add = 0;
-                }
-                if (to_add != 0){
-                    to_add += 1;
-                    continue;
+
+                if (to_add != 5){
+                    to_add += 1
+                    continue
                 }
                 googleMap.addMarker(MarkerOptions()
                     .position(latLong)
@@ -274,7 +272,9 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
                     .alpha(0.9f)
                     .icon(getBitMap())
                 )
+                println("adding marker" + i +" ---"+ to_add + "----" + markerType.location.latitude)
                 googleMap.setOnInfoWindowClickListener(this)
+                to_add = 0
             }
             viewModel.setMarkers(markers)
         }, Response.ErrorListener {
