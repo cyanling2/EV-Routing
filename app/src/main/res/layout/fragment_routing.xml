@@ -128,6 +128,83 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/bottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.cmu.evplan.BottomSheetActivity">
+
+        <LinearLayout
+            android:id="@+id/ll_bottom_sheet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:behavior_peekHeight="40dp"
+            style="@style/groupStylegray_1"
+            app:layout_behavior="@string/bottom_sheet_behavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent">
+
+            <TextView android:id="@+id/destinationInfoBlock"
+                android:layout_height="40dp"
+                android:layout_width="match_parent"
+                style="@style/txtIntersemibold16"
+                android:gravity="center"/>
+
+            <TextView android:id="@+id/destinationAddress"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_20pxh"
+                android:layout_marginStart="@dimen/_20pxh"
+                android:layout_marginTop="@dimen/_14pxv"
+                android:layout_width="match_parent"
+                style="@style/txtIntersemibold16"/>
+
+            <View
+                android:layout_height="5px"
+                android:layout_marginTop="@dimen/_5pxv"
+                android:layout_width="fill_parent"
+                android:background="@color/black_900_0a"
+                />
+
+            <TextView android:id="@+id/destinationPhonenumber"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_20pxh"
+                android:layout_marginStart="@dimen/_20pxh"
+                android:layout_marginTop="@dimen/_14pxv"
+                android:layout_width="match_parent"
+                android:autoLink="all"
+                style="@style/txtIntersemibold16"/>
+
+            <View
+                android:layout_height="5px"
+                android:layout_marginTop="@dimen/_5pxv"
+                android:layout_width="fill_parent"
+                android:background="@color/black_900_0a"
+                />
+
+            <TextView android:id="@+id/destinationWebsite"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_20pxh"
+                android:layout_marginStart="@dimen/_20pxh"
+                android:layout_marginTop="@dimen/_14pxv"
+                android:layout_width="match_parent"
+                android:autoLink="all"
+                style="@style/txtIntersemibold16"/>
+
+            <ImageView android:gravity="center_horizontal"
+                android:id="@+id/destinationPhoto"
+                android:layout_height="@dimen/_143pxh"
+                android:layout_marginBottom="@dimen/_23pxv"
+                android:layout_marginEnd="@dimen/_20pxh"
+                android:layout_marginStart="@dimen/_20pxh"
+                android:layout_marginTop="@dimen/_27pxv"
+                android:layout_width="match_parent"
+                android:scaleType="fitXY"
+                tools:ignore="ContentDescription"/>
+            <!--android:src="@drawable/img_rectangle7"-->
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </FrameLayout>
 

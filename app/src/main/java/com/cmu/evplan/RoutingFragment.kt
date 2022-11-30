@@ -36,6 +36,12 @@ import com.google.android.libraries.places.api.model.Place
 import com.google.maps.android.PolyUtil
 import org.json.JSONObject
 import com.google.android.gms.maps.model.LatLngBounds
+import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.PolylineOptions
+import com.google.android.libraries.places.api.Places
+import com.google.android.libraries.places.api.net.*
 
 
 class RoutingFragment : Fragment(), OnMapReadyCallback {
@@ -49,6 +55,8 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
     private lateinit var mapFragment: SupportMapFragment
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var lastLocation: Location
+
+    private lateinit var placesClient: PlacesClient
 
     private var markerInit = false
 
@@ -70,6 +78,15 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
 //            mapFragment?.getMapAsync(this)
             mapFragment?.getMapAsync(callback)
         }
+        placesClient = activity?.let { Places.createClient(it) }!!
+
+        //set destination details information
+        _binding!!.destinationInfoBlock.setText(viewModel.getDst()?.name)
+        _binding!!.destinationAddress.setText("Address:  "+viewModel.getDst()?.address)
+        _binding!!.destinationPhonenumber.setText("Phone Number:  "+viewModel.getDst()?.phoneNumber)
+        _binding!!.destinationWebsite.setText("Website:  "+viewModel.getDst()?.websiteUri.toString())
+
+        setDestinationPhoto(viewModel.getDst()?.id)
 
         _binding!!.destination.setText(viewModel.getDst()?.name)
         _binding!!.destinationBlock.setOnClickListener {
@@ -86,6 +103,45 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
         }
 
         return view
+    }
+    fun setDestinationPhoto(placeId:String?){
+        // Specify fields. Requests for photos must always have the PHOTO_METADATAS field.
+        val fields = listOf(Place.Field.PHOTO_METADATAS)
+        // Get a Place object (this example uses fetchPlace(), but you can also use findCurrentPlace())
+        val placeRequest = placeId?.let { FetchPlaceRequest.newInstance(it, fields) }
+
+        if (placeRequest != null) {
+            placesClient.fetchPlace(placeRequest)
+                .addOnSuccessListener { response: FetchPlaceResponse ->
+                    val place = response.place
+
+                    // Get the photo metadata.
+                    val metada = place.photoMetadatas
+                    if (metada == null || metada.isEmpty()) {
+                        return@addOnSuccessListener
+                    }
+                    val photoMetadata = metada.first()
+
+                    // Get the attribution text.
+                    val attributions = photoMetadata?.attributions
+
+                    // Create a FetchPhotoRequest.
+                    val photoRequest = FetchPhotoRequest.builder(photoMetadata)
+                        .setMaxWidth(500) // Optional.
+                        .setMaxHeight(300) // Optional.
+                        .build()
+                    placesClient.fetchPhoto(photoRequest)
+                        .addOnSuccessListener { fetchPhotoResponse: FetchPhotoResponse ->
+                            val bitmap = fetchPhotoResponse.bitmap
+                            _binding!!.destinationPhoto.setImageBitmap(bitmap)
+                        }.addOnFailureListener { exception: Exception ->
+                            if (exception is ApiException) {
+                                val statusCode = exception.statusCode
+                            }
+                        }
+                }
+        }
+
     }
 
     fun MetersToMiles(meters: Float) : Float {
