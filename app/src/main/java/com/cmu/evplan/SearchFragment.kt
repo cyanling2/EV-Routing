@@ -90,7 +90,8 @@ class SearchFragment : Fragment() {
 
         // set listener for the search tab auto completion
         val autocompleteFragment = childFragmentManager.findFragmentById(R.id.autocomplete) as AutocompleteSupportFragment
-        autocompleteFragment.setPlaceFields(listOf(Place.Field.NAME, Place.Field.LAT_LNG))
+        autocompleteFragment.setPlaceFields(listOf(Place.Field.NAME, Place.Field.LAT_LNG,Place.Field.ID,
+            Place.Field.ADDRESS, Place.Field.PHONE_NUMBER,Place.Field.PHOTO_METADATAS, Place.Field.WEBSITE_URI ))
         autocompleteFragment.setOnPlaceSelectedListener(object: PlaceSelectionListener {
             override fun onPlaceSelected(place: Place) {
                 if (viewModel.getStatus() == SearchStatus.Destination)
