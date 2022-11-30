@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".RoutingFragment">
+        tools:context=".RoutingFragment" >
         <fragment
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:map="http://schemas.android.com/apk/res-auto"
@@ -149,45 +149,48 @@
                     style="@style/txtIntersemibold16"
                     android:gravity="center"/>
 
-                <TextView android:id="@+id/txtTime"
+                <TextView android:id="@+id/destinationAddress"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/_20pxh"
                     android:layout_marginStart="@dimen/_20pxh"
                     android:layout_marginTop="@dimen/_14pxv"
                     android:layout_width="match_parent"
-                    style="@style/txtIntersemibold16"
-                    android:text="@string/msg_4_hrs_5_mins_1"/>
+                    style="@style/txtIntersemibold16"/>
 
-                <LinearLayout android:id="@+id/linearRowellipsefourteen"
+                <View
+                    android:layout_height="5px"
+                    android:layout_marginTop="@dimen/_5pxv"
+                    android:layout_width="fill_parent"
+                    android:background="@color/black_900_0a"
+                    />
+
+                <TextView android:id="@+id/destinationPhonenumber"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_17pxh"
+                    android:layout_marginEnd="@dimen/_20pxh"
                     android:layout_marginStart="@dimen/_20pxh"
-                    android:layout_marginTop="@dimen/_18pxv"
-                    android:layout_width="match_parent" android:orientation="horizontal">
-                    <Button
-                        android:id="@+id/informationButton"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="30dp"
-                        android:layout_width="130dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/rectangle_bg_bluegray_100_radius_46_5"
-                        style="@style/txtIntersemibold16"
-                        android:text="@string/information">
-                    </Button>
+                    android:layout_marginTop="@dimen/_14pxv"
+                    android:layout_width="match_parent"
+                    android:autoLink="all"
+                    style="@style/txtIntersemibold16"/>
 
-                    <Button
-                        android:id="@+id/startButton"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="60dp"
-                        android:layout_width="130dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/rectangle_bg_bluegray_100_radius_46_5"
-                        style="@style/txtIntersemibold16"
-                        android:text="@string/start">
-                    </Button>
-                </LinearLayout>
+                <View
+                    android:layout_height="5px"
+                    android:layout_marginTop="@dimen/_5pxv"
+                    android:layout_width="fill_parent"
+                    android:background="@color/black_900_0a"
+                    />
+
+                <TextView android:id="@+id/destinationWebsite"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_20pxh"
+                    android:layout_marginStart="@dimen/_20pxh"
+                    android:layout_marginTop="@dimen/_14pxv"
+                    android:layout_width="match_parent"
+                    android:autoLink="all"
+                    style="@style/txtIntersemibold16"/>
+
                 <ImageView android:gravity="center_horizontal"
-                    android:id="@+id/imageRectangleSeven"
+                    android:id="@+id/destinationPhoto"
                     android:layout_height="@dimen/_143pxh"
                     android:layout_marginBottom="@dimen/_23pxv"
                     android:layout_marginEnd="@dimen/_20pxh"
@@ -195,8 +198,8 @@
                     android:layout_marginTop="@dimen/_27pxv"
                     android:layout_width="match_parent"
                     android:scaleType="fitXY"
-                    tools:ignore="ContentDescription"
-                    android:src="@drawable/img_rectangle7"/>
+                    tools:ignore="ContentDescription"/>
+                    <!--android:src="@drawable/img_rectangle7"-->
             </LinearLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
