@@ -272,7 +272,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
                     .alpha(0.9f)
                     .icon(getBitMap())
                 )
-                println("adding marker" + i +" ---"+ to_add + "----" + markerType.location.latitude)
+                // println("adding marker" + i +" ---"+ to_add + "----" + markerType.location.latitude)
                 googleMap.setOnInfoWindowClickListener(this)
                 to_add = 0
             }
