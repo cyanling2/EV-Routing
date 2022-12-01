@@ -165,12 +165,10 @@ class RoutingViewModel: ViewModel() {
      * @return unit: miles
      * */
     fun calRemainRange(): Double? {
-//        Log.e("jane", "enters calc")
         val b = 40.toDouble()/165
         var pHeat = 0.0
         if (!temps.value.isNullOrEmpty())
             pHeat = 0.09 * abs(temps.value!![0] - 20.0) * 0.5 + 0.09 * abs(temps.value!!.last() - 20.0) * 0.5
-//        Log.e("jane", "b: $b, pHeat: $pHeat")
         if (battery.value == null) {
             battery.value = 100.00
         }

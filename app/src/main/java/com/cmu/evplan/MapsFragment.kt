@@ -223,6 +223,13 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
                 markerType.location = latLong
                 markerType.stationName = evStations.getJSONObject(i).getString("station_name")
 
+                val jsonArrayConnectors = evStations.getJSONObject(i).getJSONArray("ev_connector_types")
+                for (j in 0 until jsonArrayConnectors.length()) {
+                    markerType.connectors.add(ConnecterTypeCode.valueOf(jsonArrayConnectors[j] as String))
+                }
+                if (markerType.connectors.size > 0)
+                    stationDetails = "connector type: ${markerType.connectors}\n"
+
                 markerType.phone = evStations.getJSONObject(i).getString("station_phone")
                 if (!markerType.phone.equals("null") && !markerType.phone.equals("null")) stationDetails += "phone: ${markerType.phone}\n"
 
@@ -238,13 +245,9 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
                 markerType.network = evStations.getJSONObject(i).getString("ev_network")
                 if (markerType.network != null && !markerType.network.equals("null")) stationDetails += "belongs to ${markerType.network}\n"
 
-                val jsonArrayConnectors = evStations.getJSONObject(i).getJSONArray("ev_connector_types")
-                for (j in 0 until jsonArrayConnectors.length()) {
-                    markerType.connectors.add(ConnecterTypeCode.valueOf(jsonArrayConnectors[j] as String))
-                }
-                if (markerType.connectors.size > 0)
-                    stationDetails += "connector type: ${markerType.connectors}\n"
                 markers.add(markerType)
+
+                markerType.stationDetails = stationDetails
 
                 // println("adding marker" + markerType.location.latitude)
                 googleMap.addMarker(MarkerOptions()
@@ -254,7 +257,6 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
                     .alpha(0.9f)
                     //.icon(this.context?.let { bitmapDescriptorFromVector(it,R.drawable.map_marker_charging) })
                 )
-                googleMap.setOnInfoWindowClickListener(this)
             }
             viewModel.setMarkers(markers)
         }, Response.ErrorListener {

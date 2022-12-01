@@ -24,6 +24,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.cmu.evplan.BuildConfig.MAPS_API_KEY
+import com.cmu.evplan.databinding.CardChargingStationBinding
 import com.cmu.evplan.databinding.FragmentRoutingBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -36,13 +37,18 @@ import com.google.android.libraries.places.api.model.Place
 import com.google.maps.android.PolyUtil
 import org.json.JSONObject
 import com.google.android.gms.maps.model.LatLngBounds
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
 
-class RoutingFragment : Fragment(), OnMapReadyCallback {
+class RoutingFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
     private var _binding: FragmentRoutingBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private var _dialog_binding: CardChargingStationBinding? = null
+    private val dialogBinding get() = _dialog_binding!!
+    private lateinit var dialogView: View
+    private lateinit var dialog: BottomSheetDialog
 
     private val viewModel: RoutingViewModel by activityViewModels()
 
@@ -60,6 +66,9 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
         _binding = FragmentRoutingBinding.inflate(inflater, container, false)
         val view = binding.root
 
+        _dialog_binding = CardChargingStationBinding.inflate(inflater, container, false)
+        dialogView = dialogBinding.root
+
         val mapFragment = childFragmentManager.findFragmentById(R.id.routeMap) as SupportMapFragment?
         if (viewModel.getSrc()?.name == null) {
             mapFragment?.getMapAsync { errorCatchCallback }
@@ -69,6 +78,13 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
         } else {
 //            mapFragment?.getMapAsync(this)
             mapFragment?.getMapAsync(callback)
+        }
+
+        dialog = context?.let { BottomSheetDialog(it) }!!
+        dialogBinding.idBtnDismiss.setOnClickListener {
+            if (dialog != null) {
+                dialog.dismiss()
+            }
         }
 
         _binding!!.destination.setText(viewModel.getDst()?.name)
@@ -142,7 +158,6 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
         var status = StatusCode.E
         val api_key = "pOkGMTMxyM7ypA6K8w7aR8CIcXJgzkE9Kw3qno6X"
         val evURL = "https://developer.nrel.gov/api/alt-fuel-stations/v1.json?fuel_type=${fuelType.name}&state=$state&access=${access.name}&status=${status.name}&api_key=$api_key"
-        Log.e("jane", "request: $evURL")
         val evStationRequest = object : StringRequest(Request.Method.GET, evURL, Response.Listener<String> {
                 response ->
             val evJsonResponse = JSONObject(response)
@@ -150,24 +165,48 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
 //            val evStations = evJsonResponse.getJSONArray("features")
             // Log.e("Test", evStations.getJSONObject(0).getJSONObject("attributes").getString("LATITUDE"))
             val evStations = evJsonResponse.getJSONArray("fuel_stations")
-            Log.e("jane", "ev stations size ${evStations.length()}")
-            Log.e("jane", "response: $evStations")
-//            for (i in 0 until evStations.length()) {
-//                var markerType: MarkerType = MarkerType()
-//                val latitude = evStations.getJSONObject(i).getJSONObject("attributes").getDouble("latitude")
-//                val longitude = evStations.getJSONObject(i).getJSONObject("attributes").getDouble("longitude")
-//                val stationName = evStations.getJSONObject(i).getJSONObject("attributes").getString("station_name")
-//                val connector = evStations.getJSONObject(i).getJSONObject("attributes").getString("ev_connector_types");
-//
-//                var chargeOutput = "connector type: $connector"
-//                var latLong = LatLng(latitude, longitude)
-//                markerType.chargerType = connector
-//                markerType.stationName = stationName
-//                markerType.location = latLong
-//                markers.add(markerType)
-//                // println("adding marker" + markerType.location.latitude)
-////                googleMap.addMarker(MarkerOptions().position(latLong).title(stationName).snippet(chargeOutput))
-//            }
+            for (i in 0 until evStations.length()) {
+                val markerType = MarkerType()
+                var stationDetails = ""
+                val latitude = evStations.getJSONObject(i).getDouble("latitude")
+                val longitude = evStations.getJSONObject(i).getDouble("longitude")
+                var latLong = LatLng(latitude, longitude)
+                markerType.location = latLong
+                markerType.stationName = evStations.getJSONObject(i).getString("station_name")
+
+                markerType.phone = evStations.getJSONObject(i).getString("station_phone")
+                if (!markerType.phone.equals("null") && !markerType.phone.equals("null")) stationDetails += "phone: ${markerType.phone}\n"
+
+                markerType.cardsAccepted = evStations.getJSONObject(i).getString("cards_accepted")
+                if (markerType.cardsAccepted != null && !markerType.cardsAccepted.equals("null")) stationDetails += "acceptable card type: ${markerType.cardsAccepted}\n"
+
+                markerType.accessDaysTime = evStations.getJSONObject(i).getString("access_days_time")
+                if (markerType.accessDaysTime != null && !markerType.accessDaysTime.equals("null")) stationDetails += "access ${markerType.accessDaysTime}\n"
+
+                markerType.streetAddress = evStations.getJSONObject(i).getString("street_address")
+                if (markerType.streetAddress != null && !markerType.streetAddress.equals("null")) stationDetails += "${markerType.streetAddress}\n"
+
+                markerType.network = evStations.getJSONObject(i).getString("ev_network")
+                if (markerType.network != null && !markerType.network.equals("null")) stationDetails += "belongs to ${markerType.network}\n"
+
+                val jsonArrayConnectors = evStations.getJSONObject(i).getJSONArray("ev_connector_types")
+                for (j in 0 until jsonArrayConnectors.length()) {
+                    markerType.connectors.add(ConnecterTypeCode.valueOf(jsonArrayConnectors[j] as String))
+                }
+                if (markerType.connectors.size > 0)
+                    stationDetails += "connector type: ${markerType.connectors}\n"
+                markers.add(markerType)
+
+                // println("adding marker" + markerType.location.latitude)
+                googleMap.addMarker(MarkerOptions()
+                    .position(latLong)
+                    .title(markerType.stationName)
+                    .snippet("$stationDetails")
+                    .alpha(0.9f)
+                    //.icon(this.context?.let { bitmapDescriptorFromVector(it,R.drawable.map_marker_charging) })
+                )
+                googleMap.setOnInfoWindowClickListener(this)
+            }
             viewModel.setMarkers(markers)
         }, Response.ErrorListener {
 
@@ -233,7 +272,6 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
         }
 
         var acceptableDistance = viewModel.calRemainRange()
-//        Log.e("jane", "remain range $remainRange miles")
         val requestQueue = Volley.newRequestQueue(context)
         // Store the elevation in the array, 2 different pointers
         // Log.i("Test", acceptableDistance.toString())
@@ -241,6 +279,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
         val urlDirections =
             "https://maps.googleapis.com/maps/api/directions/json?origin=${srcLat},${srcLng}&destination=${dstLat},${dstLng}&key=$MAPS_API_KEY"
         // val urlDirections1 = "https://maps.googleapis.com/maps/api/directions/json?origin=${chargerLat},${chargerLng}&destination=${dstLat},${dstLng}&key=$MAPS_API_KEY"
+        googleMap.setOnInfoWindowClickListener(this)
         val directionsRequest1 = object : StringRequest(Request.Method.GET, urlDirections, Response.Listener<String> { response ->
 
             val jsonResponse = JSONObject(response)
@@ -296,7 +335,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
                         googleMap.addMarker(
                             MarkerOptions().position(closestCharger.location)
                                 .title(closestCharger.stationName)
-                                .snippet("connector type: ${closestCharger.connectors}")
+                                .snippet(closestCharger.stationDetails)
                                 .alpha(0.9f)
                                 .icon(this.context?.let { bitmapDescriptorFromVector(it,R.drawable.map_marker_charging) })
                         )
@@ -372,6 +411,15 @@ class RoutingFragment : Fragment(), OnMapReadyCallback {
             val bitmap = Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, Bitmap.Config.ARGB_8888)
             draw(Canvas(bitmap))
             BitmapDescriptorFactory.fromBitmap(bitmap)
+        }
+    }
+
+    override fun onInfoWindowClick(marker: Marker) {
+        if (dialog != null) {
+            dialog.setCancelable(false)
+            dialogBinding.chargingStationDetail.setText(marker.snippet)
+            dialog.setContentView(dialogView)
+            dialog.show()
         }
     }
 }

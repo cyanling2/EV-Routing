@@ -45,4 +45,5 @@ class MarkerType {
     lateinit var cardsAccepted: String
     lateinit var price: String
     lateinit var network: String
+    lateinit var stationDetails: String
 }
