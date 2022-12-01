@@ -38,6 +38,12 @@ import com.google.maps.android.PolyUtil
 import org.json.JSONObject
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.PolylineOptions
+import com.google.android.libraries.places.api.Places
+import com.google.android.libraries.places.api.net.*
 
 
 class RoutingFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
@@ -55,6 +61,8 @@ class RoutingFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowCl
     private lateinit var mapFragment: SupportMapFragment
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var lastLocation: Location
+
+    private lateinit var placesClient: PlacesClient
 
     private var markerInit = false
 
@@ -79,6 +87,23 @@ class RoutingFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowCl
 //            mapFragment?.getMapAsync(this)
             mapFragment?.getMapAsync(callback)
         }
+        placesClient = activity?.let { Places.createClient(it) }!!
+
+        //set destination details information
+        _binding!!.destinationInfoBlock.setText(viewModel.getDst()?.name)
+        _binding!!.destinationAddress.setText("Address:  "+viewModel.getDst()?.address)
+        if (viewModel.getDst()?.phoneNumber != null) {
+            _binding!!.destinationPhonenumber.setText("Phone Number:  "+viewModel.getDst()?.phoneNumber)
+        } else {
+            binding!!.destinationPhonenumber.setText("Phone Number: Unavailable")
+        }
+
+        if (viewModel.getDst()?.websiteUri.toString() != null) {
+            _binding!!.destinationWebsite.setText("Website:  "+viewModel.getDst()?.websiteUri.toString())
+        } else {
+            binding!!.destinationWebsite.setText("Website: Unavailable")
+        }
+        setDestinationPhoto(viewModel.getDst()?.id)
 
         dialog = context?.let { BottomSheetDialog(it) }!!
         dialogBinding.idBtnDismiss.setOnClickListener {
@@ -102,6 +127,45 @@ class RoutingFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowCl
         }
 
         return view
+    }
+    fun setDestinationPhoto(placeId:String?){
+        // Specify fields. Requests for photos must always have the PHOTO_METADATAS field.
+        val fields = listOf(Place.Field.PHOTO_METADATAS)
+        // Get a Place object (this example uses fetchPlace(), but you can also use findCurrentPlace())
+        val placeRequest = placeId?.let { FetchPlaceRequest.newInstance(it, fields) }
+
+        if (placeRequest != null) {
+            placesClient.fetchPlace(placeRequest)
+                .addOnSuccessListener { response: FetchPlaceResponse ->
+                    val place = response.place
+
+                    // Get the photo metadata.
+                    val metada = place.photoMetadatas
+                    if (metada == null || metada.isEmpty()) {
+                        return@addOnSuccessListener
+                    }
+                    val photoMetadata = metada.first()
+
+                    // Get the attribution text.
+                    val attributions = photoMetadata?.attributions
+
+                    // Create a FetchPhotoRequest.
+                    val photoRequest = FetchPhotoRequest.builder(photoMetadata)
+                        .setMaxWidth(500) // Optional.
+                        .setMaxHeight(300) // Optional.
+                        .build()
+                    placesClient.fetchPhoto(photoRequest)
+                        .addOnSuccessListener { fetchPhotoResponse: FetchPhotoResponse ->
+                            val bitmap = fetchPhotoResponse.bitmap
+                            _binding!!.destinationPhoto.setImageBitmap(bitmap)
+                        }.addOnFailureListener { exception: Exception ->
+                            if (exception is ApiException) {
+                                val statusCode = exception.statusCode
+                            }
+                        }
+                }
+        }
+
     }
 
     fun MetersToMiles(meters: Float) : Float {
@@ -367,6 +431,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowCl
 
     private fun plotRoute(newRoute: MutableSet<LatLng>, googleMap: GoogleMap) {
         var route_color: Long = 0xff0096ff
+        // var route_color: Long = 0x259330ff
         val path: MutableList<List<LatLng>> = ArrayList()
         val requestQueue = Volley.newRequestQueue(context)
         for (i in 0 until (newRoute.size - 1)) {
@@ -395,7 +460,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowCl
                         .startCap(RoundCap())
                         .endCap(RoundCap())
                         .jointType(JointType.ROUND)
-                        .width(15.toFloat())
+                        .width(17.toFloat())
                     )
                 }
             }, Response.ErrorListener {

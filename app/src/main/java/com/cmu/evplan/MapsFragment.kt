@@ -5,17 +5,28 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.location.Location
 import android.os.Bundle
 import android.util.Log
+import android.util.LruCache
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.cmu.evplan.databinding.CardChargingStationBinding
 import com.cmu.evplan.databinding.FragmentMapsBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -23,24 +34,10 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.*
 import com.google.android.libraries.places.api.model.Place
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
-import org.json.JSONObject
-import android.widget.SearchView
-import androidx.appcompat.widget.AppCompatButton
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.navigation.findNavController
-import com.google.android.gms.maps.model.BitmapDescriptor
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
-import com.cmu.evplan.databinding.CardChargingStationBinding
-import com.google.android.gms.maps.model.Marker
-import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import org.json.JSONObject
 
 
 class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
@@ -58,6 +55,20 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
     private lateinit var dialogView: View
     private lateinit var dialog: BottomSheetDialog
     private val viewModel: RoutingViewModel by activityViewModels()
+
+    private val cache: LruCache<Int, BitmapDescriptor> = LruCache(128)
+
+    private fun getBitMap(): BitmapDescriptor? {
+        // println("cache size: " + cache.size())
+        if (cache.size() != 0){
+            val cachedIcon: BitmapDescriptor = cache.get(0)
+            return cachedIcon
+        }
+
+        val icon = context?.let { bitmapDescriptorFromVector(it, R.drawable.map_marker_charging) }
+        cache.put(0, icon)
+        return icon
+    }
 
     companion object {
         const val LOCATION_PERMISSION_REQUEST_CODE = 1
@@ -178,15 +189,15 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
         }
     }
 
-//    private fun bitmapDescriptorFromVector(context: Context, vectorResId: Int): BitmapDescriptor? {
-//        return ContextCompat.getDrawable(context, vectorResId)?.run {
-//            setBounds(0, 0, intrinsicWidth, intrinsicHeight)
-//            val bitmap = Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, Bitmap.Config.ARGB_8888)
-//            draw(Canvas(bitmap))
-//            // val mBmpSize=bitmap.byteCount /1024;
-//            BitmapDescriptorFactory.fromBitmap(bitmap)
-//        }
-//    }
+    private fun bitmapDescriptorFromVector(context: Context, vectorResId: Int): BitmapDescriptor? {
+        return ContextCompat.getDrawable(context, vectorResId)?.run {
+            setBounds(0, 0, intrinsicWidth, intrinsicHeight)
+            val bitmap = Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, Bitmap.Config.ARGB_8888)
+            draw(Canvas(bitmap))
+            // val mBmpSize=bitmap.byteCount /1024;
+            BitmapDescriptorFactory.fromBitmap(bitmap)
+        }
+    }
 
 
     // Pulls from an EV Station API and parses it to plot all EV stations in the US on the map
@@ -201,6 +212,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
         // Log.i("Test", connectorType)
 
         val queue = Volley.newRequestQueue(context)
+        var to_add = 0
 //        val evURL = "https://services.arcgis.com/xOi1kZaI0eWDREZv/arcgis/rest/services/Alternative_Fueling_Stations/FeatureServer/0/query?where=state%20%3D%20%27CA%27%20AND%20fuel_type_code%20%3D%20%27ELEC%27&outFields=fuel_type_code,id,station_name,facility_type,city,state,street_address,zip,country,ev_connector_types,ev_network,ev_network_web,ev_other_evse,ev_pricing,ev_renewable_source,longitude,latitude,ev_level1_evse_num,ev_dc_fast_num,ev_level2_evse_num&outSR=4326&f=json"
         var fuelType = FuelTypeCode.ELEC
         var state = "CA"
@@ -250,13 +262,22 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
                 markerType.stationDetails = stationDetails
 
                 // println("adding marker" + markerType.location.latitude)
+                // reduce markers on the map to 1/5 of its original amount
+
+
+                if (to_add != 5){
+                    to_add += 1
+                    continue
+                }
                 googleMap.addMarker(MarkerOptions()
                     .position(latLong)
                     .title(markerType.stationName)
                     .snippet("$stationDetails")
                     .alpha(0.9f)
-                    //.icon(this.context?.let { bitmapDescriptorFromVector(it,R.drawable.map_marker_charging) })
+                    .icon(getBitMap())
                 )
+                // println("adding marker" + i +" ---"+ to_add + "----" + markerType.location.latitude)
+                to_add = 0
             }
             viewModel.setMarkers(markers)
         }, Response.ErrorListener {

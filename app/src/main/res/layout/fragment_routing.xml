@@ -31,6 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
+                android:alpha="0.8"
                 android:minWidth="48dp"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -44,12 +45,13 @@
 
             <android.widget.FrameLayout
                 android:id="@+id/current_block"
-                android:layout_width="298dp"
-                android:layout_height="63dp"
+                android:layout_width="270dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="64dp"
                 android:layout_marginTop="24dp"
                 android:background="@drawable/background_border"
                 android:inputType="none"
+                android:alpha="0.92"
                 android:queryHint="current_block"
 
                 app:layout_constraintStart_toStartOf="parent"
@@ -57,8 +59,8 @@
 
                 <ImageView
                     android:id="@+id/imageView"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:src="@drawable/img_location_26x26"
                     tools:layout_editor_absoluteX="82dp"
                     tools:layout_editor_absoluteY="33dp"
@@ -69,11 +71,11 @@
                 <TextView
                     android:id="@+id/current"
                     android:layout_width="199dp"
-                    android:layout_height="63dp"
+                    android:layout_height="match_parent"
                     android:gravity="center_vertical|left"
-                    android:textSize="20sp"
-                    tools:layout_editor_absoluteX="136dp"
-                    tools:layout_editor_absoluteY="23dp"
+                    android:textSize="18sp"
+                    tools:layout_editor_absoluteX="134dp"
+                    tools:layout_editor_absoluteY="19dp"
                     android:layout_marginLeft="65dp"
                     />
 
@@ -83,10 +85,10 @@
 
             <android.widget.FrameLayout
                 android:id="@+id/destination_block"
-                android:layout_width="298dp"
-                android:layout_height="63dp"
+                android:layout_width="270dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="64dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="18dp"
                 android:background="@drawable/background_border"
                 android:ems="10"
                 android:minHeight="48dp"
@@ -95,6 +97,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                android:alpha="0.92"
                 app:layout_constraintVertical_bias="0.122">
 
 
@@ -103,9 +106,9 @@
                     android:layout_width="196dp"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical|left"
-                    app:autoSizeMaxTextSize="20sp"
+                    android:textSize="18sp"
                     app:autoSizeMinTextSize="8sp"
-                    app:autoSizeStepGranularity="2sp"
+                    app:autoSizeMaxTextSize="18sp"
                     app:autoSizeTextType="uniform"
                     android:layout_marginLeft="65dp"
                     tools:layout_editor_absoluteX="134dp"
@@ -113,8 +116,8 @@
 
                 <ImageView
                     android:id="@+id/imageView2"
-                    android:layout_width="42dp"
-                    android:layout_height="42dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/img_send"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
@@ -125,6 +128,83 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/bottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.cmu.evplan.BottomSheetActivity">
+
+        <LinearLayout
+            android:id="@+id/ll_bottom_sheet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:behavior_peekHeight="40dp"
+            style="@style/groupStylegray_1"
+            app:layout_behavior="@string/bottom_sheet_behavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent">
+
+            <TextView android:id="@+id/destinationInfoBlock"
+                android:layout_height="40dp"
+                android:layout_width="match_parent"
+                style="@style/txtIntersemibold16"
+                android:gravity="center"/>
+
+            <TextView android:id="@+id/destinationAddress"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_20pxh"
+                android:layout_marginStart="@dimen/_20pxh"
+                android:layout_marginTop="@dimen/_14pxv"
+                android:layout_width="match_parent"
+                style="@style/txtIntersemibold16"/>
+
+            <View
+                android:layout_height="5px"
+                android:layout_marginTop="@dimen/_5pxv"
+                android:layout_width="fill_parent"
+                android:background="@color/black_900_0a"
+                />
+
+            <TextView android:id="@+id/destinationPhonenumber"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_20pxh"
+                android:layout_marginStart="@dimen/_20pxh"
+                android:layout_marginTop="@dimen/_14pxv"
+                android:layout_width="match_parent"
+                android:autoLink="all"
+                style="@style/txtIntersemibold16"/>
+
+            <View
+                android:layout_height="5px"
+                android:layout_marginTop="@dimen/_5pxv"
+                android:layout_width="fill_parent"
+                android:background="@color/black_900_0a"
+                />
+
+            <TextView android:id="@+id/destinationWebsite"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_20pxh"
+                android:layout_marginStart="@dimen/_20pxh"
+                android:layout_marginTop="@dimen/_14pxv"
+                android:layout_width="match_parent"
+                android:autoLink="all"
+                style="@style/txtIntersemibold16"/>
+
+            <ImageView android:gravity="center_horizontal"
+                android:id="@+id/destinationPhoto"
+                android:layout_height="@dimen/_143pxh"
+                android:layout_marginBottom="@dimen/_23pxv"
+                android:layout_marginEnd="@dimen/_20pxh"
+                android:layout_marginStart="@dimen/_20pxh"
+                android:layout_marginTop="@dimen/_27pxv"
+                android:layout_width="match_parent"
+                android:scaleType="fitXY"
+                tools:ignore="ContentDescription"/>
+            <!--android:src="@drawable/img_rectangle7"-->
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </FrameLayout>
 
