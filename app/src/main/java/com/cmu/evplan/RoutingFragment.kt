@@ -98,7 +98,7 @@ class RoutingFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowCl
             binding!!.destinationPhonenumber.setText("Phone Number: Unavailable")
         }
 
-        if (viewModel.getDst()?.websiteUri.toString() != null) {
+        if (viewModel.getDst()?.websiteUri != null) {
             _binding!!.destinationWebsite.setText("Website:  "+viewModel.getDst()?.websiteUri.toString())
         } else {
             binding!!.destinationWebsite.setText("Website: Unavailable")
