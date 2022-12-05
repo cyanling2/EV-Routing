@@ -1,4 +1,45 @@
 <resources>
     <string name="app_name">EVplan</string>
-    <string name="title_activity_maps">MapsActivities</string>
+    <string name="title_activity_maps">MainActivity</string>
+    <string name="hello">Hello</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="lbl_grocery">grocery</string>
+    <string name="msg_target_0_5_mile">Target
+0.5 mile
+Address of  Target</string>
+    <string name="msg_target_1_mile_a">Target
+1 mile
+Address of  Target</string>
+    <string name="msg_whole_foods_mar">Whole Foods Market
+1.1 mile
+Address of  WF</string>
+    <string name="msg_whole_foods_mar3">Whole Foods Market
+1.8 mile
+Address of  WF</string>
+    <string name="msg_whole_foods_mar5">Whole Foods Market
+2 mile
+Address of  WF</string>
+    <string name="lbl_share">Share</string>
+    <string name="lbl_start">Start</string>
+    <string name="lbl_information">Information</string>
+    <string name="msg_4_hrs_5_mins_1">4 hrs 5 mins (150 miles)
+Address of CMU-SV</string>
+    <string name="lbl_cmu_sv">CMU-SV</string>
+    <string name="msg_current_locatio">Current Location</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="blank"> space </string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

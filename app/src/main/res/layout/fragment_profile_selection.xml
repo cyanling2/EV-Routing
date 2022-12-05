@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/green_700"
+    tools:context=".ProfileSelectionFragment" >
+
+    <LinearLayout
+        android:id="@+id/linearColumnarrowleft"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_16pxv"
+        android:layout_width="match_parent"
+
+        android:orientation="vertical" style="@style/groupStylewhite_A700">
+
+        <androidx.appcompat.widget.Toolbar
+            android:gravity="center_horizontal"
+            android:id="@+id/toolbarToolbar"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10pxh"
+            android:layout_marginStart="@dimen/_10pxh"
+            android:layout_width="match_parent" app:contentInsetStart="0dp">
+            <LinearLayout android:id="@+id/linearRowarrowleft"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent" android:orientation="horizontal">
+                <ImageView android:id="@+id/imageArrowleft"
+                    android:layout_height="@dimen/_11pxh"
+                    android:layout_marginTop="@dimen/_7pxh"
+                    android:layout_marginBottom="@dimen/_25pxv"
+                    android:layout_width="@dimen/_17pxh"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_arrowleft"
+                    tools:ignore="ContentDescription" tools:src="@drawable/img_arrowleft"/>
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtOneHundredFortyThree"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10pxh"
+                    android:layout_marginTop="@dimen/_1pxv"
+                    android:layout_weight="0.65"
+                    android:layout_width="0dp"
+                    android:lineSpacingExtra="@dimen/_1pxh"
+                    android:singleLine="true"
+                    android:text="Do It Later"
+                    style="@style/txtInterregular14" tools:text="Do It Later"/>
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:id="@+id/linearColumnlargetitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:background="@color/white_A700_5a"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtLargeTitle"
+                style="@style/txtInterbold24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_21pxh"
+                android:layout_marginEnd="@dimen/_21pxh"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="Edit Profile"
+                tools:text="Vehicle Info" />
+
+            <TextView
+                android:id="@+id/txtBrandinfo"
+                style="@style/txtregular16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_44pxv"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:ellipsize="end"
+                android:lineSpacingExtra="@dimen/_1pxh"
+                android:singleLine="true"
+                android:text="Select Vehicle Brand"
+                tools:text="Select vehicle brand" />
+
+            <Spinner
+                android:id="@+id/editBrandInfoSpinner"
+                style="@android:style/Widget.Holo.Light.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_14pxh"
+                android:layout_marginTop="@dimen/_21pxv"
+                android:layout_marginEnd="@dimen/_14pxh"
+                android:background="@drawable/custom_spn_background"
+                android:ellipsize="end"
+                android:paddingStart="@dimen/_14pxh"
+                android:paddingTop="@dimen/_18pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingBottom="@dimen/_16pxv"
+                android:spinnerMode="dropdown"
+                />
+
+            <TextView
+                android:id="@+id/txtModelinfo"
+                style="@style/txtregular16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_14pxh"
+                android:layout_marginTop="@dimen/_34pxv"
+                android:layout_marginEnd="@dimen/_14pxh"
+                android:ellipsize="end"
+                android:lineSpacingExtra="@dimen/_1pxh"
+                android:singleLine="true"
+                android:text="Select Vehicle Model"
+                tools:text="Select Vehicle Model" />
+
+            <Spinner
+                android:id="@+id/editModelInfoSpinner"
+                style="@android:style/Widget.Holo.Light.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_14pxh"
+                android:layout_marginTop="@dimen/_21pxv"
+                android:layout_marginEnd="@dimen/_14pxh"
+                android:background="@drawable/custom_spn_background"
+                android:ellipsize="end"
+                android:paddingStart="@dimen/_14pxh"
+                android:paddingTop="@dimen/_18pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingBottom="@dimen/_16pxv"
+                android:spinnerMode="dropdown"
+                />
+
+            <LinearLayout
+                android:id="@+id/linearRowchargerinfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_34pxv"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtChargerinfo"
+                    style="@style/txtregular16"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_4pxv"
+                    android:layout_weight="0.67"
+                    android:ellipsize="end"
+                    android:lineSpacingExtra="@dimen/_1pxh"
+                    android:singleLine="true"
+                    android:text="Charger Info"
+                    tools:text="Charger Info" />
+
+                <LinearLayout
+                    android:id="@+id/linearRowplus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_164pxh"
+                    android:layout_marginTop="@dimen/_6pxv"
+                    android:layout_weight="0.33"
+                    android:orientation="horizontal">
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <Spinner
+                android:id="@+id/editConnectorInfoSpinner"
+                style="@android:style/Widget.Holo.Light.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_21pxv"
+                android:layout_marginEnd="@dimen/_14pxh"
+                android:ellipsize="end"
+                android:background="@drawable/custom_spn_background"
+                android:paddingStart="@dimen/_16pxh"
+                android:paddingTop="@dimen/_18pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingBottom="@dimen/_16pxv" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_25pxv"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:lineSpacingExtra="@dimen/_1pxh"
+                android:paddingStart="@dimen/_30pxh"
+                android:paddingTop="@dimen/_22pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingBottom="@dimen/_22pxv"
+                android:singleLine="true"
+                android:text="Save"
+                android:textAllCaps="false"
+                style="@style/btnSolidRounded"
+                />
+
+            <LinearLayout
+                android:id="@+id/linearRowconnectyourca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_88pxv"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearRowmap"
+                style="@style/groupStylegray_100cornerRadius"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30pxv"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>
+

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mapsFragment">
+
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.cmu.evplan.MapsFragment"
+        android:label="MapsFragment"
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/action_mapsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_mapsFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_mapFragment_to_profileSelectionFragment"
+            app:destination="@id/profileSelectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.cmu.evplan.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_routingFragment"
+            app:destination="@id/routingFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/routingFragment"
+        android:name="com.cmu.evplan.RoutingFragment"
+        android:label="fragment_routing"
+        tools:layout="@layout/fragment_routing" >
+        <action
+            android:id="@+id/action_routingFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileSelectionFragment"
+        android:name="com.cmu.evplan.ProfileSelectionFragment"
+        android:label="fragment_profile_selection"
+        tools:layout="@layout/fragment_profile_selection" >
+        <action
+            android:id="@+id/action_profileSelectionFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_profileSelectionFragment_to_mapFragment"
+            app:destination="@id/mapsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.cmu.evplan.ProfileFragment"
+        tools:layout="@layout/fragment_profile"
+        android:label="fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_profileSelectionFragment"
+            app:destination="@id/profileSelectionFragment" />
+    </fragment>
+</navigation>
