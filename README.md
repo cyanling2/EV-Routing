@@ -15,7 +15,7 @@ You can do so from UI as well:
 ![alt text](https://github.com/cyanling2/EV-Routing/blob/main/images/image1.png)
 Make sure that Phone is selected for Category and most importantly, you choose a device that has a Play Store icon. After choosing the hardware, you will be prompted to choose a system image and the recommended highlighted one should be good. After choosing a system image, hit Finish and there should be a device in the Device Manager. Now, when the Run button is clicked, it will build and run the app on the emulator device that was created.
 ### set up Google API key
-1. Set up your [Google Mapa Platform](https://developers.google.com/maps) and create the project.
+1. Set up your [Google Map Platform](https://developers.google.com/maps) and create the project.
 2. Create API_Key1. Set the API restrictions to be `MAPS SDK for Android` and `Places API`. open your Android Studio project, in `local.properties` under `Gradle Scripts`, add your key.
 ```
 MAPS_API_KEY= = <Your_API_Key1>
