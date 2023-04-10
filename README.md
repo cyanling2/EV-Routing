@@ -11,7 +11,7 @@ One major reason that prevents electric vehicles, one of the ways to move toward
 You can do so from UI as well:
 ![alt text](https://github.com/cyanling2/EV-Routing/blob/main/images/image3.png)
 ![alt text](https://github.com/cyanling2/EV-Routing/blob/main/images/image7.png)
-4. Create your emulator if you don’t have a real device (else, please refer to the next section)
+4. Create your emulator if you don’t have a real device (else, please refer to the [next section](https://github.com/cyanling2/EV-Routing/blob/main/README.md#deploy-on-android-device))
 ![alt text](https://github.com/cyanling2/EV-Routing/blob/main/images/image1.png)
 Make sure that Phone is selected for Category and most importantly, you choose a device that has a Play Store icon. After choosing the hardware, you will be prompted to choose a system image and the recommended highlighted one should be good. After choosing a system image, hit Finish and there should be a device in the Device Manager. Now, when the Run button is clicked, it will build and run the app on the emulator device that was created.
 ### set up Google API key
