@@ -34,7 +34,7 @@ The Directions API is probably not free. You may need to link your project to a 
 2. Plug the device to the computer
 3. Trust the computer if it prompts. At this step, some device needs to manually enable file transfer (e.g. OPPO). You might need to google how to do that for your specific device.
 4. You should now be able to see your device in “available devices”. Click “run” to deploy the app on your physical device
-
+![alt text](https://github.com/cyanling2/EV-Routing/blob/main/images/image5.png)
 
 ## Sources
 * https://blog.evbox.com/far-electric-car-range
