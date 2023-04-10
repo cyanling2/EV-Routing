@@ -25,10 +25,16 @@ This will be automatically compiled and transferred to BuildConfig.java once you
 ```
 val api_key = <Your_API_Key2>
 ```
-The Directions API is probably not free. You may need to link your project to a billing account at this step.
-4. For your convenience, you can set both keys as unrestricted if you want to make use of other fabulous APIs that Google provides, but make sure you keep the keys to your team and monitor your billing account regularly.
+The Directions API is probably not free. You may need to link your project to a billing account at this step. \
+4. For your convenience, you can set both keys as unrestricted if you want to make use of other fabulous APIs that Google provides, but make sure you keep the keys to your team and monitor your billing account regularly. \
 5. Make sure you synchronize your settings from time to time.
 ![alt text](https://github.com/cyanling2/EV-Routing/blob/main/images/image4.png)
+### Deploy on Android Device
+1. [Turn on development mode in your android device and enable USB-debugging](https://developer.android.com/studio/debug/dev-options)
+2. Plug the device to the computer
+3. Trust the computer if it prompts. At this step, some device needs to manually enable file transfer (e.g. OPPO). You might need to google how to do that for your specific device.
+4. You should now be able to see your device in “available devices”. Click “run” to deploy the app on your physical device
+
 
 ## Sources
 * https://blog.evbox.com/far-electric-car-range
