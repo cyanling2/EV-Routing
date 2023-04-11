@@ -16,18 +16,13 @@ You can do so from UI as well:
 Make sure that Phone is selected for Category and most importantly, you choose a device that has a Play Store icon. After choosing the hardware, you will be prompted to choose a system image and the recommended highlighted one should be good. After choosing a system image, hit Finish and there should be a device in the Device Manager. Now, when the Run button is clicked, it will build and run the app on the emulator device that was created.
 ### set up Google API key
 1. Set up your [Google Map Platform](https://developers.google.com/maps) and create the project.
-2. Create API_Key1. Set the API restrictions to be `MAPS SDK for Android` and `Places API`. open your Android Studio project, in `local.properties` under `Gradle Scripts`, add your key.
+2. Create API_Key. Check these API restrictions: `MAPS SDK for Android`, `Places API`, `Directions API`. Open your Android Studio project, in `local.properties` under `Gradle Scripts`, add your key. 
 ```
-MAPS_API_KEY= = <Your_API_Key1>
+MAPS_API_KEY = <Your_API_Key>
 ```
-This will be automatically compiled and transferred to BuildConfig.java once you run “build”.
-3. Create API_Key2. Set the API restrictions to be `Directions API`. open your Android Studio project, in `app.java.com.cmu.evplan.com.RoutingFragment.processEVJson`, change the api_key to be your key.
-```
-val api_key = <Your_API_Key2>
-```
-The Directions API is probably not free. You may need to link your project to a billing account at this step. \
-4. For your convenience, you can set both keys as unrestricted if you want to make use of other fabulous APIs that Google provides, but make sure you keep the keys to your team and monitor your billing account regularly. \
-5. Make sure you synchronize your settings from time to time.
+This will be automatically compiled and transferred to BuildConfig.java once you run “build”. The Directions API is probably not free. You may need to link your project to a billing account at this step. \
+3. For your convenience, you can set both keys as unrestricted if you want to make use of other fabulous APIs that Google provides, but make sure you keep the keys to your team and monitor your billing account regularly. \
+4. Make sure you synchronize your settings from time to time.
 ![alt text](https://github.com/cyanling2/EV-Routing/blob/main/images/image4.png)
 ### Deploy on Android Device
 1. [Turn on development mode in your android device and enable USB-debugging](https://developer.android.com/studio/debug/dev-options)
