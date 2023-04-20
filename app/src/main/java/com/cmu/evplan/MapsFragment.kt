@@ -56,19 +56,19 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
 
     private val cache: LruCache<Int, BitmapDescriptor> = LruCache(128)
 
-    /**
-     * Gets the BitMap to be able draw a charging map marker.
-     */
-    private fun getBitMap(): BitmapDescriptor? {
-        if (cache.size() != 0){
-            val cachedIcon: BitmapDescriptor = cache.get(0)
-            return cachedIcon
-        }
-
-        val icon = context?.let { bitmapDescriptorFromVector(it, R.drawable.map_marker_charging) }
-        cache.put(0, icon)
-        return icon
-    }
+//    /**
+//     * Gets the BitMap to be able draw a charging map marker.
+//     */
+//    private fun getBitMap(): BitmapDescriptor? {
+//        if (cache.size() != 0){
+//            val cachedIcon: BitmapDescriptor = cache.get(0)
+//            return cachedIcon
+//        }
+//
+//        val icon = context?.let { bitmapDescriptorFromVector(it, R.drawable.map_marker_charging) }
+//        cache.put(0, icon)
+//        return icon
+//    }
 
     companion object {
         const val LOCATION_PERMISSION_REQUEST_CODE = 1
@@ -120,7 +120,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
         map.uiSettings.isZoomControlsEnabled = true
         map.isMyLocationEnabled = true
         map.uiSettings.isMyLocationButtonEnabled = true
-        processEVJson(map)
+//        processEVJson(map)
     }
 
     /**
@@ -194,78 +194,79 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClick
         }
     }
 
-    /**
-     * Pulls from an EV Station API and parses it to plot all EV stations in California on the map..
-     */
-    private fun processEVJson(googleMap: GoogleMap) {
-        var markers: MutableList<MarkerType> = ArrayList()
-        val queue = Volley.newRequestQueue(context)
-        var to_add = 0
-        var fuelType = FuelTypeCode.ELEC
-        var state = "CA"
-        var access = AccessCode.public
-        var status = StatusCode.E
-        var connector = ConnecterTypeCode.J1772
-        val api_key = "pOkGMTMxyM7ypA6K8w7aR8CIcXJgzkE9Kw3qno6X"
-        val evURL = "https://developer.nrel.gov/api/alt-fuel-stations/v1.json?fuel_type=${fuelType.name}&state=$state&access=${access.name}&ev_connector_type=${connector.name}&status=${status.name}&api_key=$api_key"
-        val evStationRequest = object : StringRequest(Request.Method.GET, evURL, Response.Listener<String> {
-                response ->
-            val evJsonResponse = JSONObject(response)
-            // Get EV Stations
-            val evStations = evJsonResponse.getJSONArray("fuel_stations")
-            for (i in 0 until evStations.length()) {
-                val markerType = MarkerType()
-                var stationDetails = ""
-                val latitude = evStations.getJSONObject(i).getDouble("latitude")
-                val longitude = evStations.getJSONObject(i).getDouble("longitude")
-                var latLong = LatLng(latitude, longitude)
-                markerType.location = latLong
-                markerType.stationName = evStations.getJSONObject(i).getString("station_name")
-
-                val jsonArrayConnectors = evStations.getJSONObject(i).getJSONArray("ev_connector_types")
-                for (j in 0 until jsonArrayConnectors.length()) {
-                    markerType.connectors.add(ConnecterTypeCode.valueOf(jsonArrayConnectors[j] as String))
-                }
-                if (markerType.connectors.size > 0)
-                    stationDetails = "connector type: ${markerType.connectors}\n"
-
-                markerType.phone = evStations.getJSONObject(i).getString("station_phone")
-                if (!markerType.phone.equals("null") && !markerType.phone.equals("null")) stationDetails += "phone: ${markerType.phone}\n"
-
-                markerType.cardsAccepted = evStations.getJSONObject(i).getString("cards_accepted")
-                if (markerType.cardsAccepted != null && !markerType.cardsAccepted.equals("null")) stationDetails += "acceptable card type: ${markerType.cardsAccepted}\n"
-
-                markerType.accessDaysTime = evStations.getJSONObject(i).getString("access_days_time")
-                if (markerType.accessDaysTime != null && !markerType.accessDaysTime.equals("null")) stationDetails += "access ${markerType.accessDaysTime}\n"
-
-                markerType.streetAddress = evStations.getJSONObject(i).getString("street_address")
-                if (markerType.streetAddress != null && !markerType.streetAddress.equals("null")) stationDetails += "${markerType.streetAddress}\n"
-
-                markerType.network = evStations.getJSONObject(i).getString("ev_network")
-                if (markerType.network != null && !markerType.network.equals("null")) stationDetails += "belongs to ${markerType.network}\n"
-
-                markers.add(markerType)
-
-                markerType.stationDetails = stationDetails
-
-                if (to_add != 5){
-                    to_add += 1
-                    continue
-                }
-                googleMap.addMarker(MarkerOptions()
-                    .position(latLong)
-                    .title(markerType.stationName)
-                    .snippet("$stationDetails")
-                    .alpha(0.9f)
-                    .icon(getBitMap())
-                )
-                to_add = 0
-            }
-            viewModel.setMarkers(markers)
-        }, Response.ErrorListener {
-        }){}
-        queue.add(evStationRequest)
-    }
+//    /**
+//     * Pulls from an EV Station API and parses it to plot all EV stations in California on the map..
+//     */
+//    private fun processEVJson(googleMap: GoogleMap) {
+//        var markers: MutableList<MarkerType> = ArrayList()
+//        val queue = Volley.newRequestQueue(context)
+//        var to_add = 0
+//        var fuelType = FuelTypeCode.ELEC
+//        var state = "CA"
+//        var access = AccessCode.public
+//        var status = StatusCode.E
+//        var connector = ConnecterTypeCode.J1772
+////        val api_key = "pOkGMTMxyM7ypA6K8w7aR8CIcXJgzkE9Kw3qno6X"
+//        val api_key = "Zb014s3euv2UZ50pFOtDelWARXvRodwJ5YaBuwAl"
+//        val evURL = "https://developer.nrel.gov/api/alt-fuel-stations/v1.json?fuel_type=${fuelType.name}&state=$state&access=${access.name}&ev_connector_type=${connector.name}&status=${status.name}&api_key=$api_key"
+//        val evStationRequest = object : StringRequest(Request.Method.GET, evURL, Response.Listener<String> {
+//                response ->
+//            val evJsonResponse = JSONObject(response)
+//            // Get EV Stations
+//            val evStations = evJsonResponse.getJSONArray("fuel_stations")
+//            for (i in 0 until evStations.length()) {
+//                val markerType = MarkerType()
+//                var stationDetails = ""
+//                val latitude = evStations.getJSONObject(i).getDouble("latitude")
+//                val longitude = evStations.getJSONObject(i).getDouble("longitude")
+//                var latLong = LatLng(latitude, longitude)
+//                markerType.location = latLong
+//                markerType.stationName = evStations.getJSONObject(i).getString("station_name")
+//
+//                val jsonArrayConnectors = evStations.getJSONObject(i).getJSONArray("ev_connector_types")
+//                for (j in 0 until jsonArrayConnectors.length()) {
+//                    markerType.connectors.add(ConnecterTypeCode.valueOf(jsonArrayConnectors[j] as String))
+//                }
+//                if (markerType.connectors.size > 0)
+//                    stationDetails = "connector type: ${markerType.connectors}\n"
+//
+//                markerType.phone = evStations.getJSONObject(i).getString("station_phone")
+//                if (!markerType.phone.equals("null") && !markerType.phone.equals("null")) stationDetails += "phone: ${markerType.phone}\n"
+//
+//                markerType.cardsAccepted = evStations.getJSONObject(i).getString("cards_accepted")
+//                if (markerType.cardsAccepted != null && !markerType.cardsAccepted.equals("null")) stationDetails += "acceptable card type: ${markerType.cardsAccepted}\n"
+//
+//                markerType.accessDaysTime = evStations.getJSONObject(i).getString("access_days_time")
+//                if (markerType.accessDaysTime != null && !markerType.accessDaysTime.equals("null")) stationDetails += "access ${markerType.accessDaysTime}\n"
+//
+//                markerType.streetAddress = evStations.getJSONObject(i).getString("street_address")
+//                if (markerType.streetAddress != null && !markerType.streetAddress.equals("null")) stationDetails += "${markerType.streetAddress}\n"
+//
+//                markerType.network = evStations.getJSONObject(i).getString("ev_network")
+//                if (markerType.network != null && !markerType.network.equals("null")) stationDetails += "belongs to ${markerType.network}\n"
+//
+//                markers.add(markerType)
+//
+//                markerType.stationDetails = stationDetails
+//
+//                if (to_add != 5){
+//                    to_add += 1
+//                    continue
+//                }
+//                googleMap.addMarker(MarkerOptions()
+//                    .position(latLong)
+//                    .title(markerType.stationName)
+//                    .snippet("$stationDetails")
+//                    .alpha(0.9f)
+//                    .icon(getBitMap())
+//                )
+//                to_add = 0
+//            }
+//            viewModel.setMarkers(markers)
+//        }, Response.ErrorListener {
+//        }){}
+//        queue.add(evStationRequest)
+//    }
 
     override fun onInfoWindowClick(marker: Marker) {
         if (dialog != null) {

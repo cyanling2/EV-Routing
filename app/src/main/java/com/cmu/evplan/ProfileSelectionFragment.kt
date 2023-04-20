@@ -119,7 +119,7 @@ class ProfileSelectionFragment : Fragment(){
         }
 
 
-        var list_of_connector = arrayOf("NEMA14-50", "NEMA5-15", "NEMA 5-20","J1772","J1772COMBO","CHAdeMO","Tesla")
+        var list_of_connector = arrayOf("all", "NEMA1450", "NEMA515", "NEMA520","J1772","J1772COMBO","CHADEMO","TESLA")
         val spin_connctor = view?.findViewById<Spinner>(R.id.editConnectorInfoSpinner)
         val arrayAdapter3 =
             view?.let { ArrayAdapter(
@@ -141,7 +141,7 @@ class ProfileSelectionFragment : Fragment(){
                     connectorSelected = list_of_connector[position]
                 }
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-                    connectorSelected = ""
+                    connectorSelected = "all"
                 }
             }
         }
