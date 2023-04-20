@@ -1,14 +1,14 @@
-#Mon Dec 05 14:58:46 PST 2022
+#Wed Apr 19 17:16:00 PDT 2023
 path.4=classes2.dex
 path.3=4/classes.dex
 path.2=11/classes.dex
 path.1=0/classes.dex
 path.0=classes.dex
-base.4=/Users/bryanlin/Documents/EV-Routing/app/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
-base.3=/Users/bryanlin/Documents/EV-Routing/app/build/intermediates/dex/debug/mergeProjectDexDebug/4/classes.dex
-base.2=/Users/bryanlin/Documents/EV-Routing/app/build/intermediates/dex/debug/mergeProjectDexDebug/11/classes.dex
-base.1=/Users/bryanlin/Documents/EV-Routing/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
-base.0=/Users/bryanlin/Documents/EV-Routing/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+base.4=C\:\\Users\\cyanl\\AndroidStudioProjects\\EV-Routing-main\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
+base.3=C\:\\Users\\cyanl\\AndroidStudioProjects\\EV-Routing-main\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\4\\classes.dex
+base.2=C\:\\Users\\cyanl\\AndroidStudioProjects\\EV-Routing-main\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\11\\classes.dex
+base.1=C\:\\Users\\cyanl\\AndroidStudioProjects\\EV-Routing-main\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.0=C\:\\Users\\cyanl\\AndroidStudioProjects\\EV-Routing-main\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
