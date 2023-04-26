@@ -31,7 +31,7 @@ git push origin my-new-feature
 
 ## Bug Reports and Feature Requests
 
-If you find a bug or have a feature request, please open an issue on our [issue tracker](./issues). Please provide as much detail as possible to help us reproduce and address the issue.
+If you find a bug or have a feature request, please open an issue on our [issue tracker](https://github.com/cyanling2/EV-Routing/issues). Please provide as much detail as possible to help us reproduce and address the issue.
 
 ## Contact
 
