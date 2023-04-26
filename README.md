@@ -30,8 +30,20 @@ This will be automatically compiled and transferred to BuildConfig.java once you
 3. Trust the computer if it prompts. At this step, some device needs to manually enable file transfer (e.g. OPPO). You might need to google how to do that for your specific device.
 4. You should now be able to see your device in “available devices”. Click “run” to deploy the app on your physical device
 ![alt text](https://github.com/cyanling2/EV-Routing/blob/main/images/image5.png)
-## Limitations and Future Developments
+## Algorithm
+Consult [ALGORITHM.md](https://github.com/cyanling2/EV-Routing/blob/main/ALGRITHM.md) for more information about our routing algorithm.
+## Limitations and Future Developments (fixed in latest commit)
 Currently, for the EV station database, we use [NREL](https://developer.nrel.gov/). Based on the data providedm, we implemented a neighbor searching algorithm using KD-Tree. We pulled all the charging station data from the cloud and did some preprocessing work locally. We built a KD-Tree using the longtitudes and latitudes of those charging stations and used the tree to search for a near neighbor. This comes with a terrible stroage issue which is yet to be solved. The huge data of charging stations quickly filled up the on-device memory storage and thus we can't propcess data for the entire United States. The current commit covers California only. Also, filtering by charger connecter type is not implemented yet. Many EVs on market use different types of connectors (e.x. ChAdeMO for Nissan, J1772/NEMA for tesla or others) and we hope users can find their compatible charging stations easily.
+## Improvements
+The two searching methods are both dependent on the route segmentation. However, our route segmentation is still unmature and there are many factors we haven't taken into consideration.
+### 1.Availability of charging station
+The segmentation is built upon an assumption that the density of charging stations in USA is high enough so all types of chargers are available everywhere, which is not true. There are areas where a near charging station is not available. In such cases, our app doesn't have the ability to replan the previous intermediate points or choose another route.
+### 2.User's freedom of choice
+Popular map apps like Google Map and Apple Map usually gives users a few suggestions which have the similar total distances. Our app hasn't implemented that yet.
+### 3.Charging speed curve
+The charging speed of a battery is not linearly. That is why in Tesla's plan, users are usually guided to recharge to 80% at every stop to minimize the waiting time.
+### 4.Realtime information
+It would a great idea to add real time traffic data to the routes and real time information of the charging stations.
 
 
 ## Sources
